@@ -693,6 +693,571 @@
             color: var(--black);
         }
 
+        /* POST TYPE 7: Testimonial */
+        .preview-testimonial {
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-testimonial .quote-mark {
+            font-size: 6rem;
+            color: var(--electric);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: -40px;
+        }
+
+        .preview-testimonial .quote {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+
+        .preview-testimonial .author {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--electric);
+            margin-top: auto;
+        }
+
+        .preview-testimonial .stars {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        /* POST TYPE 8: How-To */
+        .preview-howto {
+            background: linear-gradient(180deg, var(--slate) 0%, var(--navy) 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .preview-howto .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--black);
+            background: var(--electric);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .preview-howto .title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .preview-howto .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .preview-howto .step {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .preview-howto .step-num {
+            background: var(--electric);
+            color: var(--black);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        /* POST TYPE 9: Product Comparison */
+        .preview-comparison {
+            background: var(--charcoal);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 32px;
+            height: 100%;
+        }
+
+        .preview-comparison .product {
+            text-align: center;
+        }
+
+        .preview-comparison .product-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .preview-comparison .product-features {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .preview-comparison .vs {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--electric);
+            padding: 0 20px;
+        }
+
+        /* POST TYPE 10: Seasonal */
+        .preview-seasonal {
+            background: linear-gradient(135deg, #1A4D3E 0%, var(--navy) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .preview-seasonal .season-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+        }
+
+        .preview-seasonal .title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .preview-seasonal .offer {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--electric);
+            font-weight: 700;
+        }
+
+        /* POST TYPE 11: FAQ */
+        .preview-faq {
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .preview-faq .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            margin-bottom: 24px;
+        }
+
+        .preview-faq .question {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: var(--electric);
+        }
+
+        .preview-faq .answer {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* POST TYPE 12: Behind the Scenes */
+        .preview-bts {
+            background: linear-gradient(45deg, var(--navy) 0%, var(--slate) 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .preview-bts .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            border: 2px solid var(--electric);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .preview-bts .title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: auto;
+            line-height: 1.2;
+        }
+
+        .preview-bts .caption {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* POST TYPE 13: Industry News */
+        .preview-news {
+            background: var(--charcoal);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            border-left: 6px solid var(--electric);
+        }
+
+        .preview-news .badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            margin-bottom: 20px;
+        }
+
+        .preview-news .headline {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .preview-news .excerpt {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* POST TYPE 14: Sustainability */
+        .preview-sustainability {
+            background: linear-gradient(180deg, #0D5943 0%, var(--navy) 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-sustainability::before {
+            content: '♻';
+            position: absolute;
+            font-size: 12rem;
+            right: -20px;
+            bottom: -20px;
+            opacity: 0.05;
+        }
+
+        .preview-sustainability .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--black);
+            background: var(--electric);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .preview-sustainability .title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .preview-sustainability .stat {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--electric);
+        }
+
+        /* POST TYPE 15: Feature Highlight */
+        .preview-feature {
+            background: var(--gold);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            color: var(--black);
+        }
+
+        .preview-feature .icon {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+        }
+
+        .preview-feature .title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .preview-feature .description {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* POST TYPE 16: Timeline */
+        .preview-timeline {
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .preview-timeline .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            margin-bottom: 24px;
+        }
+
+        .preview-timeline .phase {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .preview-timeline .phase-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--electric);
+            opacity: 0.4;
+        }
+
+        .preview-timeline .phase-text {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding-top: 6px;
+        }
+
+        /* POST TYPE 17: Material Close-up */
+        .preview-material {
+            background: linear-gradient(135deg, var(--slate) 0%, var(--charcoal) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .preview-material .material-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, #6B4709 100%);
+            border: 4px solid var(--electric);
+            margin-bottom: 24px;
+        }
+
+        .preview-material .title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .preview-material .specs {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* POST TYPE 18: Team at Work */
+        .preview-team-work {
+            background: var(--charcoal);
+            display: grid;
+            grid-template-rows: 1fr auto;
+            height: 100%;
+        }
+
+        .preview-team-work .photo-area {
+            background: linear-gradient(135deg, var(--slate) 0%, var(--navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        .preview-team-work .info {
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .preview-team-work .badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            margin-bottom: 8px;
+        }
+
+        .preview-team-work .caption {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* POST TYPE 19: Problem/Solution */
+        .preview-problem-solution {
+            background: var(--black);
+            display: grid;
+            grid-template-rows: 1fr auto 1fr;
+            height: 100%;
+        }
+
+        .preview-problem-solution .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .preview-problem-solution .problem {
+            background: rgba(139, 0, 0, 0.2);
+            border-top: 3px solid #8B0000;
+        }
+
+        .preview-problem-solution .solution {
+            background: rgba(0, 255, 136, 0.05);
+            border-bottom: 3px solid var(--electric);
+        }
+
+        .preview-problem-solution .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--electric);
+        }
+
+        .preview-problem-solution .label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 12px;
+        }
+
+        .preview-problem-solution .text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* POST TYPE 20: Limited Offer */
+        .preview-offer {
+            background: linear-gradient(135deg, #8B0000 0%, var(--navy) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-offer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 8px solid var(--electric);
+        }
+
+        .preview-offer .badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--black);
+            background: var(--electric);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .preview-offer .discount {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .preview-offer .title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .preview-offer .expiry {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--electric);
+        }
+
         /* Footer */
         .footer {
             padding: 60px 48px;
@@ -891,6 +1456,378 @@
                         <div class="template-meta">
                             <span class="template-size">1080 × 1080</span>
                             <button class="template-copy" data-text="The difference is night and day! 🌟 From loose, unstable gravel to a beautifully stabilized surface that looks natural and lasts for years. See the TechniSoil transformation for yourself. #BeforeAndAfter #Transformation #TechniSoil #LandscapeDesign">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-testimonial">
+                            <div class="quote-mark">"</div>
+                            <p class="quote">G3 Pathway Stabilizer completely transformed our backyard. Easy to apply and the results speak for themselves!</p>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p class="author">— Jennifer M., Phoenix AZ</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Social Proof</p>
+                        <h3 class="template-name">Customer Testimonial</h3>
+                        <p class="template-desc">Share real customer reviews and build trust with social proof.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="⭐⭐⭐⭐⭐ Hear from our happy customers! 'G3 Pathway Stabilizer completely transformed our backyard. Easy to apply and the results speak for themselves!' - Jennifer M., Phoenix AZ. Ready to transform your landscape? #TechniSoil #CustomerReview #HappyCustomers #PathwayTransformation">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How-To -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-howto">
+                            <span class="badge">How-To Guide</span>
+                            <h3 class="title">Perfect Application</h3>
+                            <div class="steps">
+                                <div class="step"><span class="step-num">1</span>Wet surface thoroughly</div>
+                                <div class="step"><span class="step-num">2</span>Pour & spread evenly</div>
+                                <div class="step"><span class="step-num">3</span>Mist lightly</div>
+                                <div class="step"><span class="step-num">4</span>Let cure 24-48 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Education</p>
+                        <h3 class="template-name">Quick How-To</h3>
+                        <p class="template-desc">Step-by-step application guides to educate and empower customers.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="📋 How to Apply TechniSoil G3 Pathway Stabilizer:
+
+1. Wet surface thoroughly
+2. Pour & spread evenly
+3. Mist lightly
+4. Let cure 24-48 hours
+
+Professional results, DIY-friendly! Questions? Drop them in the comments. 👇 #TechniSoil #DIYTutorial #HowTo #PathwayStabilizer">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Comparison -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-comparison">
+                            <div class="product">
+                                <div class="product-name">G3 Pathway</div>
+                                <div class="product-features">Decorative<br>Aggregate<br>Natural Look</div>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="product">
+                                <div class="product-name">NanoPave JSS</div>
+                                <div class="product-features">Pavers<br>Concrete<br>Heavy Duty</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Product Info</p>
+                        <h3 class="template-name">Product Comparison</h3>
+                        <p class="template-desc">Help customers choose the right product for their project needs.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="Not sure which TechniSoil product is right for you? 🤔
+
+G3 Pathway Stabilizer: Perfect for decorative aggregate, natural-looking pathways
+NanoPave JSS: Ideal for pavers, concrete, and heavy-duty surfaces
+
+Both products deliver professional, long-lasting results! Need help choosing? DM us! #TechniSoil #ProductComparison #LandscapeSolutions">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seasonal -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-seasonal">
+                            <div class="season-icon">🌱</div>
+                            <h3 class="title">Spring Ready</h3>
+                            <p class="offer">Beat the rush - Order now!</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Seasonal</p>
+                        <h3 class="template-name">Seasonal Campaign</h3>
+                        <p class="template-desc">Capitalize on seasonal landscaping peaks with timely messaging.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="🌱 Spring is almost here! Get your landscaping projects ready NOW and beat the spring rush. Stock up on TechniSoil products while supplies last. Perfect weather for pathway installations is just around the corner! #SpringLandscaping #TechniSoil #SeasonalPrep #GetReady">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-faq">
+                            <p class="badge">FAQ</p>
+                            <h3 class="question">How long does it last?</h3>
+                            <p class="answer">TechniSoil products are designed for longevity. With proper application, expect 5-10+ years of performance.</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Education</p>
+                        <h3 class="template-name">FAQ Post</h3>
+                        <p class="template-desc">Answer common questions and reduce customer hesitation.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="❓ Frequently Asked: How long does TechniSoil last?
+
+With proper application, our products deliver 5-10+ years of reliable performance. Many installations last even longer with minimal maintenance!
+
+Quality materials + correct installation = long-lasting results ✓
+
+More questions? Ask away! 👇 #TechniSoil #FAQ #ProductInfo #LandscapingQuestions">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Behind the Scenes -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-bts">
+                            <span class="badge">Behind the Scenes</span>
+                            <h3 class="title">Manufacturing Excellence in California</h3>
+                            <p class="caption">Made in USA since 2006</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Transparency</p>
+                        <h3 class="template-name">Behind the Scenes</h3>
+                        <p class="template-desc">Show your process, build trust, humanize your brand.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="🏭 Behind the Scenes at TechniSoil! Take a peek at where the magic happens. Proudly manufacturing sustainable landscape solutions in California since 2006. Every batch is crafted with precision and care. 🇺🇸 #TechniSoil #MadeInUSA #BehindTheScenes #Manufacturing #Quality">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry News -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-news">
+                            <p class="badge">Industry News</p>
+                            <h3 class="headline">Permeable Surfaces Now Required in New Construction</h3>
+                            <p class="excerpt">New regulations emphasize sustainable drainage solutions...</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Thought Leadership</p>
+                        <h3 class="template-name">Industry Update</h3>
+                        <p class="template-desc">Position yourself as an industry expert by sharing relevant news.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="📰 Industry Update: Many municipalities now require permeable surfaces in new construction! TechniSoil products meet these sustainable drainage requirements while delivering beautiful, natural aesthetics. Stay ahead of regulations with eco-friendly solutions. #TechniSoil #SustainableBuilding #IndustryNews #GreenConstruction">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sustainability -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-sustainability">
+                            <span class="badge">Sustainability</span>
+                            <h3 class="title">Permeable. Natural. Eco-Friendly.</h3>
+                            <p class="stat">Reduces runoff • Prevents erosion • Protects waterways</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Values</p>
+                        <h3 class="template-name">Sustainability Focus</h3>
+                        <p class="template-desc">Highlight environmental benefits and appeal to eco-conscious customers.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="♻️ Green is more than a buzzword at TechniSoil. Our permeable products reduce stormwater runoff, prevent erosion, and protect local waterways. Beautiful landscapes AND environmental responsibility - you shouldn't have to choose! 🌍 #TechniSoil #Sustainability #EcoFriendly #GreenLandscaping #PermeableSurfaces">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Highlight -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-feature">
+                            <div class="icon">💧</div>
+                            <h3 class="title">Permeable Design</h3>
+                            <p class="description">Water flows through naturally - no puddles, no runoff problems</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Product Feature</p>
+                        <h3 class="template-name">Key Feature</h3>
+                        <p class="template-desc">Spotlight individual product benefits with bold, simple visuals.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="💧 Feature Spotlight: Permeable Design
+
+Water flows through naturally - no puddles, no runoff problems! TechniSoil's permeable formula keeps your pathways beautiful in any weather while protecting the environment. Win-win! #TechniSoil #PermeableDesign #FeatureSpotlight #SmartLandscaping">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Timeline -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-timeline">
+                            <p class="badge">Project Timeline</p>
+                            <div class="phase"><span class="phase-num">1</span><span class="phase-text">Prep surface</span></div>
+                            <div class="phase"><span class="phase-num">2</span><span class="phase-text">Apply product</span></div>
+                            <div class="phase"><span class="phase-num">3</span><span class="phase-text">24hr cure</span></div>
+                            <div class="phase"><span class="phase-num">4</span><span class="phase-text">Enjoy!</span></div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Process</p>
+                        <h3 class="template-name">Project Timeline</h3>
+                        <p class="template-desc">Show how quick and easy installation can be - reduce intimidation.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="⏱️ Your Project Timeline:
+
+Day 1: Prep surface & apply TechniSoil
+Day 2: Let it cure (24-48 hours)
+Day 3: Enjoy your beautiful new pathway!
+
+Most weekend projects are done by Sunday evening. That's it! #TechniSoil #QuickInstall #WeekendProject #DIYLandscape">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Close-up -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-material">
+                            <div class="material-circle"></div>
+                            <h3 class="title">Premium Formula</h3>
+                            <p class="specs">Water-based • Non-toxic • UV resistant</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Product Detail</p>
+                        <h3 class="template-name">Material Showcase</h3>
+                        <p class="template-desc">Highlight product quality and material specifications.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="🔬 Premium Formula Quality
+
+✓ Water-based formula
+✓ Non-toxic & safe
+✓ UV resistant
+✓ Made in USA
+
+TechniSoil products are engineered for performance AND safety. Quality you can see and feel! #TechniSoil #Premium Quality #ProductSpecs #MadeInUSA">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team at Work -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-team-work">
+                            <div class="photo-area">👷</div>
+                            <div class="info">
+                                <p class="badge">Our Team</p>
+                                <p class="caption">James providing expert installation support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Company Culture</p>
+                        <h3 class="template-name">Team Spotlight</h3>
+                        <p class="template-desc">Humanize your brand by showcasing your team in action.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="👋 Meet the TechniSoil Team! This is James from our Product & Technical Support team, providing expert installation guidance to a dealer. Our team is always here to help ensure your project succeeds. Questions? We've got answers! #TechniSoil #TeamSpotlight #ExpertSupport #CustomerService">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problem/Solution -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-problem-solution">
+                            <div class="section problem">
+                                <p class="label">Problem</p>
+                                <p class="text">Gravel constantly shifting and spreading</p>
+                            </div>
+                            <div class="divider">→</div>
+                            <div class="section solution">
+                                <p class="label">Solution</p>
+                                <p class="text">G3 stabilizes and locks it in place</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Solution</p>
+                        <h3 class="template-name">Problem Solver</h3>
+                        <p class="template-desc">Address common pain points and present TechniSoil as the solution.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="Problem: Gravel constantly shifting, spreading into grass, looking messy? 😤
+
+Solution: G3 Pathway Stabilizer locks aggregate in place while maintaining natural drainage and appearance! ✅
+
+Stop fighting with your gravel. Stabilize it! #TechniSoil #ProblemSolved #G3Pathway #LandscapeSolutions">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Limited Time Offer -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-offer">
+                            <span class="badge">Limited Time</span>
+                            <div class="discount">15%</div>
+                            <h3 class="title">OFF</h3>
+                            <p class="expiry">Ends March 31st</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Promotion</p>
+                        <h3 class="template-name">Special Offer</h3>
+                        <p class="template-desc">Drive urgency with limited-time promotions and discounts.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="🚨 LIMITED TIME OFFER! 🚨
+
+Save 15% on all TechniSoil products through March 31st! Perfect timing to stock up for spring projects. Don't miss out - this deal won't last long!
+
+Shop now and save → [Your link] #TechniSoil #Sale #LimitedOffer #SpringSavings">
                                 Copy Caption
                             </button>
                         </div>
