@@ -3,222 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechniSoil Brand House — Innovation for Modern Landscapes</title>
+    <title>TechniSoil Brand House — Marketing Toolkit for Dealers</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Custom Properties - Color System */
-        :root {
-            /* Primary Colors */
-            --forest-green: #00845f;
-            --forest-green-dark: #112637;
-            --forest-green-light: #00a577;
-
-            /* Secondary Earth Tones */
-            --sand: #d4a574;
-            --terracotta: #c65d3b;
-            --warm-tan: #b8956a;
-
-            /* Neutrals */
-            --cream: #faf8f4;
-            --warm-white: #f5f2ed;
-            --charcoal: #112637;
-            --mid-gray: #343e4a;
-            --light-gray: #e8e6e0;
-
-            /* Accent */
-            --gold: #9b600f;
-            --amber: #c17d10;
-
-            /* Typography */
-            --font-display: 'Outfit', sans-serif;
-            --font-mono: 'Space Mono', monospace;
-
-            /* Spacing */
-            --section-padding: 120px;
-            --section-padding-mobile: 60px;
-            --container-max: 1400px;
-            --grid-gap: 24px;
-
-            /* Transitions */
-            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --navy: #112637;
+            --slate: #343e4a;
+            --gold: #9b600f;
+            --green: #00845f;
+            --white: #ffffff;
+            --cream: #fafafa;
+        }
+
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
-            font-family: var(--font-display);
-            color: var(--charcoal);
-            background: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy);
+            background: var(--white);
             line-height: 1.6;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: clamp(3rem, 8vw, 7rem);
-        }
-
-        h2 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-        }
-
-        h3 {
-            font-size: clamp(1.75rem, 4vw, 3rem);
-        }
-
-        h4 {
-            font-size: clamp(1.25rem, 3vw, 2rem);
-        }
-
-        .mono {
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 0.875rem;
-        }
-
-        /* Container */
-        .container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(250, 248, 244, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--light-gray);
-            z-index: 1000;
-            transition: var(--transition-smooth);
-        }
-
-        nav.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--forest-green);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--charcoal);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--forest-green);
-            transition: var(--transition-smooth);
-        }
-
-        .nav-links a:hover {
-            color: var(--forest-green);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--forest-green);
-            cursor: pointer;
-        }
-
-        @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--cream);
-                flex-direction: column;
-                padding: 20px;
-                border-bottom: 1px solid var(--light-gray);
-                gap: 20px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-        }
-
-        /* Hero Section */
+        /* Hero Section - Bold & Minimal */
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 40px;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
-            background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
         }
 
         .hero::before {
@@ -228,84 +60,88 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(26, 77, 46, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 160, 116, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: 'INNOVATION';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: clamp(8rem, 20vw, 18rem);
-            font-weight: 800;
-            color: rgba(26, 77, 46, 0.03);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 0;
+            background:
+                linear-gradient(135deg, transparent 0%, rgba(0, 132, 95, 0.05) 100%);
         }
 
         .hero-content {
-            text-align: center;
             position: relative;
             z-index: 1;
+            max-width: 1200px;
         }
 
         .hero-eyebrow {
-            color: var(--forest-green);
-            margin-bottom: 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 32px;
             opacity: 0;
             animation: fadeUp 1s ease forwards 0.2s;
         }
 
-        .hero h1 {
-            color: var(--forest-green);
-            margin-bottom: 32px;
+        .hero-title {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 40px;
             opacity: 0;
             animation: fadeUp 1s ease forwards 0.4s;
         }
 
-        .hero-tagline {
-            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-            color: var(--mid-gray);
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin-bottom: 64px;
             opacity: 0;
             animation: fadeUp 1s ease forwards 0.6s;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 18px 48px;
-            background: var(--forest-green);
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            transition: var(--transition-smooth);
+        .hero-cta {
+            display: inline-flex;
+            gap: 24px;
             opacity: 0;
             animation: fadeUp 1s ease forwards 0.8s;
         }
 
-        .cta-button:hover {
-            background: var(--forest-green-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(26, 77, 46, 0.3);
+        .btn {
+            padding: 20px 48px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
         }
 
-        .cta-button.secondary {
-            background: var(--gold);
-            color: var(--charcoal);
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            border: 2px solid var(--green);
         }
 
-        .cta-button.secondary:hover {
-            background: var(--amber);
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--green);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy);
         }
 
         @keyframes fadeUp {
@@ -319,1769 +155,640 @@
             }
         }
 
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--forest-green);
-            color: white;
-            padding: 60px 0;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(17, 38, 55, 0.1);
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
+        .nav-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .stat-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition-smooth);
-        }
-
-        .stat-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stat-number {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            text-transform: uppercase;
+        .logo {
+            font-size: 1rem;
+            font-weight: 900;
             letter-spacing: 0.1em;
-            opacity: 0.9;
+            text-transform: uppercase;
+            color: var(--navy);
+            text-decoration: none;
         }
 
-        /* Section Styles */
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        /* Section Styling */
         section {
-            padding: var(--section-padding) 0;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: var(--section-padding-mobile) 0;
-            }
+            padding: 160px 48px;
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
         .section-header {
+            margin-bottom: 120px;
             text-align: center;
-            margin-bottom: 80px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition-smooth);
         }
 
-        .section-header.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-eyebrow {
-            color: var(--forest-green);
-            margin-bottom: 16px;
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
         }
 
         .section-title {
-            color: var(--forest-green);
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: var(--navy);
         }
 
         .section-description {
             font-size: 1.25rem;
-            color: var(--mid-gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: var(--grid-gap);
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            padding: 40px 32px;
-            border: 2px solid var(--light-gray);
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .product-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .product-card:hover {
-            border-color: var(--forest-green);
-            box-shadow: 0 12px 40px rgba(26, 77, 46, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .product-tag {
-            display: inline-block;
-            padding: 6px 12px;
-            background: var(--forest-green);
-            color: white;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: 3px;
-            margin-bottom: 20px;
-        }
-
-        .product-name {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 12px;
-        }
-
-        .product-description {
-            color: var(--mid-gray);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .product-applications {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .application-tag {
-            padding: 4px 10px;
-            background: var(--warm-white);
-            color: var(--charcoal);
-            font-size: 0.8rem;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-
-        /* Value Props */
-        .value-props {
-            background: var(--warm-white);
-        }
-
-        .props-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            text-align: center;
-        }
-
-        .prop-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition-smooth);
-        }
-
-        .prop-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .prop-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--forest-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2rem;
-        }
-
-        .prop-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 12px;
-        }
-
-        .prop-description {
-            color: var(--mid-gray);
-            line-height: 1.6;
-        }
-
-        /* Applications Section */
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: var(--grid-gap);
-        }
-
-        @media (max-width: 768px) {
-            .applications-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .application-card {
-            position: relative;
-            min-height: 500px;
-            background: var(--warm-white);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            padding: 48px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .application-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .application-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(26, 77, 46, 0.8) 100%);
-            transition: var(--transition-smooth);
-        }
-
-        .application-card:hover::before {
-            background: linear-gradient(180deg, transparent 0%, rgba(26, 77, 46, 0.9) 100%);
-        }
-
-        .application-content {
-            position: relative;
-            z-index: 1;
-            color: white;
-        }
-
-        .application-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 12px;
-        }
-
-        .application-description {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 24px;
-        }
-
-        .learn-more {
-            color: var(--gold);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition-smooth);
-        }
-
-        .learn-more:hover {
-            gap: 12px;
-        }
-
-        /* FAQ Section */
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            border: 2px solid var(--light-gray);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition-smooth);
-        }
-
-        .faq-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            padding: 24px 32px;
-            background: none;
-            border: none;
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--forest-green);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition-smooth);
-        }
-
-        .faq-question:hover {
-            background: var(--warm-white);
-        }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            transition: var(--transition-smooth);
-            color: var(--forest-green);
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .faq-answer-content {
-            padding: 0 32px 24px;
-            color: var(--mid-gray);
-            line-height: 1.8;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        /* MSDS Section */
-        .msds-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--grid-gap);
-        }
-
-        .msds-card {
-            background: white;
-            border: 2px solid var(--light-gray);
-            border-radius: 8px;
-            padding: 32px;
-            text-align: center;
-            transition: var(--transition-smooth);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .msds-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .msds-card:hover {
-            border-color: var(--forest-green);
-            box-shadow: 0 8px 32px rgba(26, 77, 46, 0.1);
-        }
-
-        .msds-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--warm-white);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-        }
-
-        .msds-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 8px;
-        }
-
-        .msds-subtitle {
-            font-size: 0.9rem;
-            color: var(--mid-gray);
-            margin-bottom: 20px;
-        }
-
-        .download-button {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--forest-green);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            transition: var(--transition-smooth);
-        }
-
-        .download-button:hover {
-            background: var(--forest-green-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Social Media Section */
-        .social-section {
-            background: var(--warm-white);
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--grid-gap);
-            margin-bottom: 48px;
-        }
-
-        .social-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--light-gray);
-            transition: var(--transition-smooth);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .social-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .social-card:hover {
-            border-color: var(--forest-green);
-            box-shadow: 0 8px 32px rgba(26, 77, 46, 0.1);
-        }
-
-        .social-preview {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--forest-green) 0%, var(--forest-green-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .social-info {
-            padding: 24px;
-        }
-
-        .social-platform {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--forest-green);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-        }
-
-        .social-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 16px;
-        }
-
-        .hashtags {
-            font-size: 0.9rem;
-            color: var(--mid-gray);
-            margin-bottom: 20px;
-        }
-
-        .download-kit {
-            display: inline-block;
-            padding: 10px 24px;
-            background: var(--gold);
-            color: var(--charcoal);
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: var(--transition-smooth);
-        }
-
-        .download-kit:hover {
-            background: var(--amber);
-            transform: translateY(-2px);
-        }
-
-        /* Newsletter Section */
-        .newsletter-section {
-            background: linear-gradient(135deg, var(--forest-green) 0%, var(--forest-green-dark) 100%);
-            color: white;
-        }
-
-        .newsletter-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .newsletter-title {
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .newsletter-tagline {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--gold);
-            margin-bottom: 32px;
-        }
-
-        .newsletter-description {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .newsletter-form {
-                flex-direction: column;
-            }
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 16px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-family: var(--font-display);
-            transition: var(--transition-smooth);
-        }
-
-        .newsletter-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .newsletter-submit {
-            padding: 16px 40px;
-            background: var(--gold);
-            color: var(--charcoal);
-            border: none;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            font-family: var(--font-display);
-        }
-
-        .newsletter-submit:hover {
-            background: var(--amber);
-            transform: translateY(-2px);
-        }
-
-        /* Get Inspired CTA */
-        .inspire-cta {
-            position: relative;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--warm-tan) 0%, var(--sand) 100%);
-            overflow: hidden;
-        }
-
-        .inspire-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 30% 30%, rgba(26, 77, 46, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(198, 93, 59, 0.1) 0%, transparent 50%);
-        }
-
-        .inspire-content {
-            position: relative;
-            z-index: 1;
-            color: var(--charcoal);
-        }
-
-        .inspire-content h2 {
-            color: var(--forest-green);
-            margin-bottom: 24px;
-        }
-
-        .inspire-content p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
+            color: var(--slate);
+            margin-top: 24px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 300;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 48px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            background: var(--cream);
+            padding: 64px;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            background: var(--white);
+            border-color: var(--navy);
+            transform: translateY(-4px);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        .resource-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .resource-description {
+            font-size: 1rem;
+            color: var(--slate);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .resource-meta {
+            font-size: 0.875rem;
+            color: var(--green);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Product Lines */
+        .product-line {
+            padding: 80px;
+            background: var(--navy);
+            color: var(--white);
+            margin-bottom: 48px;
+        }
+
+        .product-line-header {
+            margin-bottom: 48px;
+        }
+
+        .product-line-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .product-line-tagline {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .asset-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .asset-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--green);
+        }
+
+        .asset-type {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .asset-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .asset-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+        }
+
+        .asset-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-small {
+            padding: 12px 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--green);
+            color: var(--white);
+            border: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .btn-small:hover {
+            background: var(--gold);
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::after {
+            content: 'Download';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Media Library */
+        .media-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .media-category {
+            padding: 48px;
+            background: var(--cream);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .media-category:hover {
+            border-color: var(--green);
+            background: var(--white);
+        }
+
+        .media-category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .media-category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .media-category-count {
+            font-size: 0.875rem;
+            color: var(--slate);
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
-            background: var(--forest-green-dark);
-            color: white;
-            padding: 80px 0 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 60px;
-        }
-
-        .footer-column h4 {
-            color: var(--gold);
-            margin-bottom: 24px;
-            font-size: 1.1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-
-        .social-link:hover {
-            background: var(--gold);
-            color: var(--charcoal);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 32px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 48px 40px;
             text-align: center;
+        }
+
+        footer p {
+            font-size: 0.875rem;
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 50px;
-            height: 50px;
-            background: var(--forest-green);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-smooth);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background: var(--gold);
-            transform: translateY(-4px);
-        }
-
-        /* Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(17, 38, 55, 0.85);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 40px 20px;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            max-width: 1200px;
-            width: 100%;
-            position: relative;
-            margin: auto;
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            padding: 40px 48px 24px;
-            border-bottom: 2px solid var(--light-gray);
-        }
-
-        .modal-header h2 {
-            color: var(--forest-green);
-            margin-bottom: 8px;
-            font-size: clamp(2rem, 4vw, 2.5rem);
-        }
-
-        .modal-header p {
-            color: var(--mid-gray);
-            font-size: 1.1rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: var(--warm-white);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            color: var(--charcoal);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            background: var(--forest-green);
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 40px 48px;
-        }
-
-        @media (max-width: 768px) {
-            .modal-header,
-            .modal-body {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-        }
-
-        .docs-section {
-            margin-bottom: 48px;
-        }
-
-        .docs-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .docs-section h3 {
-            color: var(--forest-green);
-            font-size: 1.75rem;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .docs-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border: 2px solid var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .docs-table thead {
-            background: var(--forest-green);
-        }
-
-        .docs-table thead th {
-            color: white;
-            padding: 16px;
-            text-align: left;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        .docs-table tbody tr {
-            border-bottom: 1px solid var(--light-gray);
-            transition: var(--transition-smooth);
-        }
-
-        .docs-table tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        .docs-table tbody tr:hover {
-            background: var(--warm-white);
-        }
-
-        .docs-table tbody td {
-            padding: 16px;
-            color: var(--charcoal);
-        }
-
-        .docs-table tbody td:first-child {
-            font-weight: 700;
-            color: var(--forest-green);
-        }
-
-        .docs-table a {
-            color: var(--forest-green);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-smooth);
-            display: inline-block;
-        }
-
-        .docs-table a:hover {
-            color: var(--gold);
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .docs-table {
-                font-size: 0.9rem;
+        /* Responsive */
+        @media (max-width: 968px) {
+            section {
+                padding: 100px 32px;
             }
 
-            .docs-table thead th,
-            .docs-table tbody td {
-                padding: 12px 8px;
+            .nav-content {
+                padding: 20px 32px;
             }
-        }
 
-        /* Support Docs Card */
-        .support-docs-card {
-            background: linear-gradient(135deg, var(--forest-green) 0%, var(--forest-green-dark) 100%);
-            border-radius: 8px;
-            padding: 48px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            border: 2px solid var(--forest-green);
-            opacity: 0;
-            transform: translateY(20px);
-        }
+            .nav-links {
+                display: none;
+            }
 
-        .support-docs-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
 
-        .support-docs-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0, 132, 95, 0.3);
-        }
+            .resource-card,
+            .product-line {
+                padding: 40px;
+            }
 
-        .support-docs-card h3 {
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 16px;
-        }
-
-        .support-docs-card p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-        }
-
-        .support-docs-card .cta-button {
-            background: var(--gold);
-            color: white;
-        }
-
-        .support-docs-card .cta-button:hover {
-            background: var(--amber);
+            .hero {
+                padding: 60px 32px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo">TECHNISOIL</a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#applications">Applications</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-            </div>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">TechniSoil</a>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#social">Social</a></li>
+                <li><a href="#email">Email</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#media">Media</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <p class="mono hero-eyebrow">INNOVATION FOR MODERN LANDSCAPES</p>
-            <h1>FOR THE LOVE<br>OF NATURE</h1>
-            <p class="hero-tagline">Technical expertise meets natural beauty. Discover sustainable solutions for pathways, xeriscapes, and outdoor spaces.</p>
-            <a href="#products" class="cta-button">View Our Products</a>
+            <div class="hero-eyebrow">For Dealers & Partners</div>
+            <h1 class="hero-title">BRAND<br>HOUSE</h1>
+            <p class="hero-subtitle">Marketing tools, creative assets, and inspiration to power your TechniSoil sales.</p>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-primary">Explore Resources</a>
+                <a href="#media" class="btn btn-secondary">Download Assets</a>
+            </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">50M+</span>
-                    <span class="stat-label">Sq Ft Stabilized</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">10,000+</span>
-                    <span class="stat-label">Projects</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50</span>
-                    <span class="stat-label">All States</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">Since 2006</span>
-                    <span class="stat-label">Years of Excellence</span>
-                </div>
+    <!-- Quick Access Resources -->
+    <section id="resources">
+        <div class="section-header">
+            <div class="section-label">Quick Access</div>
+            <h2 class="section-title">Marketing Toolkit</h2>
+            <p class="section-description">Everything you need to promote TechniSoil products and grow your business.</p>
+        </div>
+
+        <div class="grid grid-3">
+            <div class="resource-card">
+                <span class="resource-icon">📱</span>
+                <h3 class="resource-title">Social Media Library</h3>
+                <p class="resource-description">Copy-paste ready posts, hashtags, and campaign concepts for Instagram, Facebook, and LinkedIn.</p>
+                <div class="resource-meta">50+ Templates</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">✉️</span>
+                <h3 class="resource-title">Email Templates</h3>
+                <p class="resource-description">Pre-written email campaigns, product announcements, and customer follow-ups.</p>
+                <div class="resource-meta">25+ Templates</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">📸</span>
+                <h3 class="resource-title">Image Gallery</h3>
+                <p class="resource-description">High-resolution product photos, installation images, and lifestyle photography.</p>
+                <div class="resource-meta">200+ Images</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">📄</span>
+                <h3 class="resource-title">Product Docs</h3>
+                <p class="resource-description">Technical specs, installation guides, brochures, and safety data sheets.</p>
+                <div class="resource-meta">All Products</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">🎨</span>
+                <h3 class="resource-title">Brand Guidelines</h3>
+                <p class="resource-description">Logo files, color palettes, typography, and brand usage guidelines.</p>
+                <div class="resource-meta">Complete Kit</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">🎬</span>
+                <h3 class="resource-title">Video Library</h3>
+                <p class="resource-description">Product demos, installation tutorials, and customer testimonials.</p>
+                <div class="resource-meta">30+ Videos</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Products Section -->
+    <!-- Product Marketing -->
     <section id="products">
-        <div class="container">
-            <div class="section-header">
-                <p class="mono section-eyebrow">OUR PRODUCTS</p>
-                <h2 class="section-title">Complete Solutions</h2>
-                <p class="section-description">From DIY pathways to commercial hardscapes, we have the right product for every landscape innovation project.</p>
+        <div class="section-header">
+            <div class="section-label">Product Marketing</div>
+            <h2 class="section-title">By Product Line</h2>
+            <p class="section-description">Campaign concepts, social posts, and messaging for each product.</p>
+        </div>
+
+        <!-- G3 Pathway -->
+        <div class="product-line">
+            <div class="product-line-header">
+                <h3 class="product-line-title">G3 Pathway Stabilizer</h3>
+                <p class="product-line-tagline">DIY-friendly pathway solutions for residential landscapes</p>
             </div>
-
-            <div class="product-grid">
-                <div class="product-card">
-                    <span class="product-tag">BESTSELLER</span>
-                    <h3 class="product-name">G3 Pathway Stabilizer</h3>
-                    <p class="product-description">DIY-friendly solution for residential pathways and garden trails. Creates a natural, permeable surface that stays in place.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Pathways</span>
-                        <span class="application-tag">Gardens</span>
-                        <span class="application-tag">DIY</span>
+            <div class="assets-grid">
+                <div class="asset-card">
+                    <div class="asset-type">Instagram Post</div>
+                    <h4 class="asset-title">Before & After Transformation</h4>
+                    <p class="asset-description">Transform your outdoor spaces with G3 Pathway Stabilizer! Create beautiful, permeable pathways that blend seamlessly with nature. #TechniSoil #NaturalPathways</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Text</button>
+                        <button class="btn-small">Download Image</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag">COMMERCIAL</span>
-                    <h3 class="product-name">G3 Commercial Surface</h3>
-                    <p class="product-description">Heavy-duty stabilization for high-traffic commercial applications. Engineered for parking areas, driveways, and public spaces.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Parking</span>
-                        <span class="application-tag">Driveways</span>
-                        <span class="application-tag">High Traffic</span>
+                <div class="asset-card">
+                    <div class="asset-type">Email Campaign</div>
+                    <h4 class="asset-title">New Product Introduction</h4>
+                    <p class="asset-description">Subject: Create Beautiful Pathways in One Weekend | Pre-written email introducing G3 to homeowners and DIY enthusiasts.</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Template</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag">PREMIUM</span>
-                    <h3 class="product-name">G5</h3>
-                    <p class="product-description">Advanced formulation for maximum durability and longevity. Perfect for challenging conditions and premium installations.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Premium</span>
-                        <span class="application-tag">Durable</span>
-                        <span class="application-tag">All Weather</span>
+                <div class="asset-card">
+                    <div class="asset-type">Facebook Post</div>
+                    <h4 class="asset-title">Spring Landscaping Tips</h4>
+                    <p class="asset-description">Spring is the perfect time for pathway projects! G3 Pathway Stabilizer makes it easy. #SpringLandscaping #DIYProjects</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Text</button>
+                        <button class="btn-small">Download Image</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NanoPave -->
+        <div class="product-line" style="background: var(--green);">
+            <div class="product-line-header">
+                <h3 class="product-line-title">NanoPave® JSS</h3>
+                <p class="product-line-tagline">Professional hardscape sealing for pavers and joints</p>
+            </div>
+            <div class="assets-grid">
+                <div class="asset-card">
+                    <div class="asset-type">LinkedIn Post</div>
+                    <h4 class="asset-title">Professional Results Guaranteed</h4>
+                    <p class="asset-description">Nano-technology meets hardscape durability. NanoPave JSS delivers lasting protection for commercial and residential projects. #ProfessionalLandscaping</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Text</button>
+                        <button class="btn-small">Download Image</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag">DUST CONTROL</span>
-                    <h3 class="product-name">DustCube</h3>
-                    <p class="product-description">Eco-friendly dust suppression for unpaved roads and work sites. Biodegradable formula keeps dust down and visibility up.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Roads</span>
-                        <span class="application-tag">Construction</span>
-                        <span class="application-tag">Eco-Friendly</span>
+                <div class="asset-card">
+                    <div class="asset-type">Email Campaign</div>
+                    <h4 class="asset-title">Contractor Outreach</h4>
+                    <p class="asset-description">Subject: Protect Your Hardscape Investments | Email template targeting landscape contractors and commercial property managers.</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Template</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag">DUST CONTROL</span>
-                    <h3 class="product-name">DustCube MAX</h3>
-                    <p class="product-description">Maximum strength dust control for demanding conditions. Extended performance in high-traffic and extreme weather scenarios.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Heavy Duty</span>
-                        <span class="application-tag">Industrial</span>
-                        <span class="application-tag">Extended Use</span>
+                <div class="asset-card">
+                    <div class="asset-type">Instagram Story</div>
+                    <h4 class="asset-title">Application Demo</h4>
+                    <p class="asset-description">Watch how easy it is to apply NanoPave JSS! Professional results in minutes. Swipe up to learn more. #HowTo #Hardscape</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Text</button>
+                        <button class="btn-small">Download Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EkoFlo -->
+        <div class="product-line" style="background: var(--slate);">
+            <div class="product-line-header">
+                <h3 class="product-line-title">EkoFlo® Pebble Binder</h3>
+                <p class="product-line-tagline">Permeable solutions for sustainable water management</p>
+            </div>
+            <div class="assets-grid">
+                <div class="asset-card">
+                    <div class="asset-type">Instagram Post</div>
+                    <h4 class="asset-title">Sustainability Spotlight</h4>
+                    <p class="asset-description">Beautiful AND eco-friendly? Yes! EkoFlo Pebble Binder creates stunning permeable surfaces that help manage stormwater naturally. #SustainableLandscaping #EcoFriendly</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Text</button>
+                        <button class="btn-small">Download Image</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag">SPECIALTY</span>
-                    <h3 class="product-name">BarkBinder</h3>
-                    <p class="product-description">Keeps mulch and bark in place on slopes and high-traffic areas. Natural look with superior holding power.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Mulch</span>
-                        <span class="application-tag">Slopes</span>
-                        <span class="application-tag">Landscaping</span>
+                <div class="asset-card">
+                    <div class="asset-type">Email Campaign</div>
+                    <h4 class="asset-title">Water-Smart Solutions</h4>
+                    <p class="asset-description">Subject: Meet Permeable Paving Requirements | Email template for architects and municipal projects requiring sustainable drainage.</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Template</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="product-tag">PAVING</span>
-                    <h3 class="product-name">NanoPave</h3>
-                    <p class="product-description">Nano-technology surface treatment for asphalt and concrete. Extends life and enhances appearance of paved surfaces.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Asphalt</span>
-                        <span class="application-tag">Concrete</span>
-                        <span class="application-tag">Protection</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <span class="product-tag">DRAINAGE</span>
-                    <h3 class="product-name">EkoFlo</h3>
-                    <p class="product-description">Permeable paving solution for sustainable water management. Allows natural drainage while maintaining surface stability.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Drainage</span>
-                        <span class="application-tag">Sustainable</span>
-                        <span class="application-tag">Permeable</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <span class="product-tag">GROUND COVER</span>
-                    <h3 class="product-name">Stabilized Ground Cover</h3>
-                    <p class="product-description">Binds decorative ground cover materials for long-lasting beauty. Ideal for xeriscapes and water-wise landscaping.</p>
-                    <div class="product-applications">
-                        <span class="application-tag">Xeriscape</span>
-                        <span class="application-tag">Decorative</span>
-                        <span class="application-tag">Low Water</span>
+                <div class="asset-card">
+                    <div class="asset-type">Facebook Post</div>
+                    <h4 class="asset-title">Drought-Tolerant Landscaping</h4>
+                    <p class="asset-description">Create water-wise landscapes that are as beautiful as they are sustainable. EkoFlo helps you achieve both. #WaterWise #Xeriscape</p>
+                    <div class="asset-actions">
+                        <button class="btn-small">Copy Text</button>
+                        <button class="btn-small">Download Image</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Props -->
-    <section class="value-props">
-        <div class="container">
-            <div class="props-grid">
-                <div class="prop-item">
-                    <div class="prop-icon">🛠️</div>
-                    <h4 class="prop-title">DIY Friendly</h4>
-                    <p class="prop-description">Easy application for homeowners and professionals alike. Clear instructions and support every step of the way.</p>
-                </div>
-                <div class="prop-item">
-                    <div class="prop-icon">🇺🇸</div>
-                    <h4 class="prop-title">Made in USA</h4>
-                    <p class="prop-description">Proudly manufactured in California. Quality you can trust, supporting American jobs and innovation.</p>
-                </div>
-                <div class="prop-item">
-                    <div class="prop-icon">🌱</div>
-                    <h4 class="prop-title">Sustainable Design</h4>
-                    <p class="prop-description">Eco-friendly formulations that work with nature. Permeable, non-toxic, and built to last.</p>
-                </div>
-                <div class="prop-item">
-                    <div class="prop-icon">💬</div>
-                    <h4 class="prop-title">Expert Support</h4>
-                    <p class="prop-description">Real people, real solutions. Our team is here to help you succeed with every project.</p>
-                </div>
-            </div>
+    <!-- Image Gallery -->
+    <section id="gallery">
+        <div class="section-header">
+            <div class="section-label">Visual Assets</div>
+            <h2 class="section-title">Image Gallery</h2>
+            <p class="section-description">High-resolution photography for all your marketing needs.</p>
+        </div>
+
+        <div class="image-gallery">
+            <div class="gallery-item">🏡</div>
+            <div class="gallery-item">🌿</div>
+            <div class="gallery-item">🏞️</div>
+            <div class="gallery-item">🌵</div>
+            <div class="gallery-item">🏘️</div>
+            <div class="gallery-item">🌳</div>
         </div>
     </section>
 
-    <!-- Applications Section -->
-    <section id="applications">
-        <div class="container">
-            <div class="section-header">
-                <p class="mono section-eyebrow">APPLICATIONS</p>
-                <h2 class="section-title">Designed for Every Landscape</h2>
-                <p class="section-description">From water-smart xeriscapes to natural pathways and commercial hardscapes, TechniSoil products adapt to your vision.</p>
-            </div>
-
-            <div class="applications-grid">
-                <div class="application-card">
-                    <div class="application-content">
-                        <h3 class="application-title">Water-Smart Xeriscapes</h3>
-                        <p class="application-description">Create stunning drought-tolerant landscapes with stabilized decorative rock, gravel, and ground cover. Perfect for California and desert climates.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-                </div>
-
-                <div class="application-card">
-                    <div class="application-content">
-                        <h3 class="application-title">Natural Pathways</h3>
-                        <p class="application-description">Design beautiful, permeable pathways that blend seamlessly with your landscape. DIY-friendly solutions for garden trails and walkways.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-                </div>
-
-                <div class="application-card">
-                    <div class="application-content">
-                        <h3 class="application-title">Hardscape & Masonry</h3>
-                        <p class="application-description">Professional-grade solutions for driveways, parking areas, and commercial surfaces. Engineered for durability and performance.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Media Library -->
+    <section id="media">
+        <div class="section-header">
+            <div class="section-label">Downloads</div>
+            <h2 class="section-title">Media Library</h2>
+            <p class="section-description">Logos, brand assets, and essential files.</p>
         </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <div class="section-header">
-                <p class="mono section-eyebrow">FREQUENTLY ASKED QUESTIONS</p>
-                <h2 class="section-title">We're Here to Help</h2>
-                <p class="section-description">Find quick answers to common questions about our products, applications, and best practices.</p>
+        <div class="media-categories">
+            <div class="media-category">
+                <span class="media-category-icon">📋</span>
+                <h3 class="media-category-title">Logo Package</h3>
+                <p class="media-category-count">12 files • SVG, PNG, EPS</p>
             </div>
 
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How much product do I need for my project?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Coverage varies by product and application. Generally, G3 covers approximately 200-300 sq ft per gallon on pathways. For specific calculations, use our online coverage calculator or contact our support team with your project dimensions.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How long does it take to dry and cure?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Initial drying occurs within 24-48 hours depending on weather conditions. Full cure time is typically 7-14 days. We recommend keeping traffic off treated areas during the initial drying period for best results.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Is TechniSoil safe for pets and plants?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Yes! All TechniSoil products are eco-friendly and non-toxic once cured. They're safe for pets, plants, and the environment. Our formulations are water-based and contain no harmful chemicals.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can I apply TechniSoil products myself?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Absolutely! Most TechniSoil products are designed to be DIY-friendly. Application is straightforward with basic tools like a pump sprayer or watering can. We provide detailed instructions and video tutorials to guide you through the process.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What's the difference between G3 and G5?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            G3 is our standard pathway stabilizer, perfect for residential applications and moderate traffic. G5 is our premium formula with enhanced durability, longer lifespan, and better performance in challenging conditions. Choose G5 for high-traffic areas or when maximum longevity is required.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Will TechniSoil work on slopes?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Yes! TechniSoil products are excellent for slopes and hillside applications. They help prevent erosion and keep materials in place. For steep slopes or areas prone to heavy water flow, we recommend G5 or consulting with our technical team for best results.
-                        </div>
-                    </div>
-                </div>
+            <div class="media-category">
+                <span class="media-category-icon">🎨</span>
+                <h3 class="media-category-title">Brand Guidelines</h3>
+                <p class="media-category-count">1 PDF • 24 pages</p>
             </div>
 
-            <div style="text-align: center; margin-top: 48px;">
-                <p style="color: var(--mid-gray); margin-bottom: 24px;">Can't find your answer?</p>
-                <a href="#contact" class="cta-button secondary">Contact Support</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- MSDS & Technical Documents -->
-    <section id="resources" style="background: var(--warm-white);">
-        <div class="container">
-            <div class="section-header">
-                <p class="mono section-eyebrow">TECHNICAL RESOURCES</p>
-                <h2 class="section-title">MSDS & Documentation</h2>
-                <p class="section-description">Download safety data sheets, technical specifications, and application guides for all TechniSoil products.</p>
+            <div class="media-category">
+                <span class="media-category-icon">📊</span>
+                <h3 class="media-category-title">Product Brochures</h3>
+                <p class="media-category-count">9 files • PDF</p>
             </div>
 
-            <div class="msds-grid">
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">G3 Pathway Stabilizer</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">G3 Commercial</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">G5 Premium</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">DustCube</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">BarkBinder</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">NanoPave</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">EkoFlo</h4>
-                    <p class="msds-subtitle">SDS & Tech Specs</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
-
-                <div class="msds-card">
-                    <div class="msds-icon">📄</div>
-                    <h4 class="msds-title">Application Guide</h4>
-                    <p class="msds-subtitle">Complete Manual</p>
-                    <a href="#" class="download-button">Download PDF</a>
-                </div>
+            <div class="media-category">
+                <span class="media-category-icon">🎬</span>
+                <h3 class="media-category-title">Video Files</h3>
+                <p class="media-category-count">30+ videos • MP4</p>
             </div>
 
-            <div style="margin-top: 48px;">
-                <div class="support-docs-card" id="supportDocsCard">
-                    <h3>📚 Complete Product Documentation</h3>
-                    <p>Access brochures, safety data sheets, and installation guides for all TechniSoil products.</p>
-                    <span class="cta-button">View All Documentation</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Samples -->
-    <section class="social-section">
-        <div class="container">
-            <div class="section-header">
-                <p class="mono section-eyebrow">SOCIAL MEDIA KIT</p>
-                <h2 class="section-title">Share the TechniSoil Story</h2>
-                <p class="section-description">Pre-designed social media templates for dealers, partners, and brand advocates. Download and share.</p>
+            <div class="media-category">
+                <span class="media-category-icon">📸</span>
+                <h3 class="media-category-title">Photo Library</h3>
+                <p class="media-category-count">200+ images • High-res</p>
             </div>
 
-            <div class="social-grid">
-                <div class="social-card">
-                    <div class="social-preview">📸</div>
-                    <div class="social-info">
-                        <p class="social-platform">Instagram Post</p>
-                        <h4 class="social-title">Product Showcase Template</h4>
-                        <p class="hashtags">#TechniSoil #NaturalPathways #SustainableLandscaping</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-preview">📱</div>
-                    <div class="social-info">
-                        <p class="social-platform">Instagram Story</p>
-                        <h4 class="social-title">Before & After Template</h4>
-                        <p class="hashtags">#TechniSoil #LandscapeTransformation</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-preview">💼</div>
-                    <div class="social-info">
-                        <p class="social-platform">LinkedIn Banner</p>
-                        <h4 class="social-title">Professional Header</h4>
-                        <p class="hashtags">#Innovation #SustainableDesign</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-preview">👍</div>
-                    <div class="social-info">
-                        <p class="social-platform">Facebook Cover</p>
-                        <h4 class="social-title">Dealer Cover Photo</h4>
-                        <p class="hashtags">#TechniSoil #MadeInUSA</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
+            <div class="media-category">
+                <span class="media-category-icon">📱</span>
+                <h3 class="media-category-title">Social Templates</h3>
+                <p class="media-category-count">50+ templates • PSD, Canva</p>
             </div>
-
-            <div style="text-align: center; margin-top: 48px;">
-                <a href="#" class="cta-button">Download Complete Kit</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2 class="newsletter-title">Stay Inspired</h2>
-                <p class="newsletter-tagline">"Our inspiration. Your inbox."</p>
-                <p class="newsletter-description">Get project ideas, application tips, product updates, and exclusive offers delivered monthly. Join thousands of landscape enthusiasts.</p>
-
-                <form class="newsletter-form" onsubmit="return false;">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
-                    <button type="submit" class="newsletter-submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Get Inspired CTA -->
-    <section class="inspire-cta">
-        <div class="inspire-content">
-            <h2>Get Inspired</h2>
-            <p>Looking to jump-start your next landscaping project? Explore our gallery of completed installations and discover what's possible.</p>
-            <a href="#" class="cta-button">View Project Gallery</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>TechniSoil Global</h4>
-                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
-                        Innovation for modern landscapes since 2006. Sustainable soil stabilization and hardscape solutions made in California.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
-                        <a href="#" class="social-link" aria-label="Facebook">👍</a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
-                        <a href="#" class="social-link" aria-label="YouTube">▶️</a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Products</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">G3 Pathway Stabilizer</a></li>
-                        <li><a href="#">G3 Commercial</a></li>
-                        <li><a href="#">G5 Premium</a></li>
-                        <li><a href="#">DustCube Series</a></li>
-                        <li><a href="#">Specialty Products</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Coverage Calculator</a></li>
-                        <li><a href="#">Product Selector</a></li>
-                        <li><a href="#">Application Guides</a></li>
-                        <li><a href="#">Technical Specs</a></li>
-                        <li><a href="#">Video Tutorials</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Dealer Locator</a></li>
-                        <li><a href="#">Become a Dealer</a></li>
-                        <li><a href="#">Contact Support</a></li>
-                        <li><a href="#">Warranty</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 TechniSoil Global. All rights reserved. | Made with care in California, USA</p>
-            </div>
-        </div>
+    <footer>
+        <p>© 2026 TechniSoil Global Inc. | Brand House for Authorized Dealers & Partners</p>
     </footer>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-
-    <!-- Support Documentation Modal -->
-    <div class="modal" id="supportDocsModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Product Documentation</h2>
-                <p>Complete technical resources for all TechniSoil products</p>
-                <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
-            </div>
-            <div class="modal-body">
-                <!-- Landscape & Xeriscape Products -->
-                <div class="docs-section">
-                    <h3>Landscape & Xeriscape Products</h3>
-                    <table class="docs-table">
-                        <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Brochure</th>
-                                <th>Safety Data Sheet</th>
-                                <th>Install Guide</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/g3-pathway-stabilizer/">G3 PATHWAY® STABILIZER</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-pathway-stabilizer-brochure-1.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-pathway-stabilizer-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-g3-pathway-stabilizer/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/g3-commercial-surface/">G3 COMMERICAL SURFACE®</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-commercial-surface-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-commercial-surface-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-g3-commercial-surface/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/ekoflo-pebble-binder/">EKOFLO® PEBBLE BINDER</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/ekoflo-pebble-binder-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/EkoFlo-Data-Sheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-ekoflo-pebble-binder/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/barkbinder/">BARKBINDER™</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/barkbinder-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/barkbinder-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-barkbinder/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/dustcube/">DUSTCUBE™</a></td>
-                                <td>—</td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/DustCube-Data-Sheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-dustcube/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/liquid-weed-fabric/">LIQUID WEED FABRIC</a></td>
-                                <td>—</td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/04/Liquid-Weed-Fabric-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-liquid-weed-fabric/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/ground-cover-stabilizer/">GROUND COVER STABILIZER</a></td>
-                                <td>—</td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/molecule-vms-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-ground-cover-stabilizer/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.com/products/sandpave-pro/">SANDPAVE PRO®</a></td>
-                                <td><a href="https://technisoil.com/wp-content/uploads/2025/10/SandPave-Pro-Brochure-1.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="http://technisoil.com/wp-content/uploads/2025/11/SandPave-Pro-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.com/guide/sandpave-pro/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Hardscape & Masonry Sealer Products -->
-                <div class="docs-section">
-                    <h3>Hardscape & Masonry Sealer Products</h3>
-                    <table class="docs-table">
-                        <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Brochure</th>
-                                <th>Safety Data Sheet</th>
-                                <th>Install Guide</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/molecule-srs/">MOLECULE™ [SRS]</a></td>
-                                <td>—</td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/04/Molecule-SRS-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-molecule-srs/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/molecule-hs/">MOLECULE™ [HS]</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/molecule-brochure-1.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/molecule-hs-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-molecule-hs/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/nanopave-jss/">NANOPAVE® JSS</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/nanopave-joint-stabilizer-and-sealer-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/nanopave-joint-stabilizer-and-sealer-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-nanopave-jss/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://technisoil.wpengine.com/products/nanopave-hardscape-sealer/">NANOPAVE® HARDSCAPE SEALER</a></td>
-                                <td>—</td>
-                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/04/NP-Hardscape-Sealer-Enhanced-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
-                                <td><a href="https://technisoil.wpengine.com/guide/install-nanopave-hardscape-sealer/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Nav scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                const isActive = faqItem.classList.contains('active');
-
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.section-header, .stat-item, .product-card, .prop-item, .application-card, .faq-item, .msds-card, .social-card, .support-docs-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Newsletter form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = e.target.querySelector('.newsletter-input').value;
-            alert(`Thank you for subscribing! We'll send updates to ${email}`);
-            e.target.reset();
-        });
-
-        // Support Documentation Modal
-        const supportDocsModal = document.getElementById('supportDocsModal');
-        const supportDocsCard = document.getElementById('supportDocsCard');
-        const modalClose = document.getElementById('modalClose');
-
-        // Open modal when clicking the support docs card
-        if (supportDocsCard) {
-            supportDocsCard.addEventListener('click', () => {
-                supportDocsModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-        }
-
-        // Close modal when clicking the close button
-        if (modalClose) {
-            modalClose.addEventListener('click', () => {
-                supportDocsModal.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
-            });
-        }
-
-        // Close modal when clicking outside the modal content
-        supportDocsModal.addEventListener('click', (e) => {
-            if (e.target === supportDocsModal) {
-                supportDocsModal.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && supportDocsModal.classList.contains('active')) {
-                supportDocsModal.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80; // Account for fixed nav
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
