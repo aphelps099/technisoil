@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Templates | TechniSoil Brand House</title>
+    <meta name="description" content="Ready-to-use social media templates for TechniSoil dealers and partners.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #112637;
+            --slate: #343e4a;
+            --gold: #9b600f;
+            --green: #00845f;
+            --electric: #00ff88;
+            --white: #ffffff;
+            --black: #000000;
+            --near-black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --gray-700: #2A2A2A;
+
+            --grid-line: rgba(0, 255, 136, 0.06);
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-muted: rgba(255, 255, 255, 0.4);
+
+            --font-display: 'Playfair Display', serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-mono);
+            background: var(--near-black);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 48px;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-back:hover { color: var(--electric); }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        /* Header */
+        .page-header {
+            padding: 160px 48px 80px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--electric);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .page-eyebrow::before,
+        .page-eyebrow::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--electric);
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .page-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Template Section */
+        .template-section {
+            padding: 80px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--electric);
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Template Grid */
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 1100px) {
+            .template-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 700px) {
+            .template-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Template Card */
+        .template-card {
+            background: var(--charcoal);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .template-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+        }
+
+        .template-preview {
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* POST TYPE 1: Product Launch */
+        .preview-product-launch {
+            background: linear-gradient(145deg, var(--green) 0%, var(--navy) 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-product-launch::before {
+            content: 'TS';
+            position: absolute;
+            right: -10%;
+            bottom: -10%;
+            font-size: 15rem;
+            font-family: var(--font-display);
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 1;
+        }
+
+        .preview-product-launch .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--black);
+            background: var(--electric);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .preview-product-launch .headline {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .preview-product-launch .subline {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: auto;
+        }
+
+        .preview-product-launch .logo {
+            margin-top: auto;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 900;
+            opacity: 0.9;
+        }
+
+        /* POST TYPE 2: Installation Showcase */
+        .preview-installation {
+            background: var(--navy);
+            display: grid;
+            grid-template-rows: 1fr auto;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-installation::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .preview-installation .image-placeholder {
+            background: linear-gradient(135deg, var(--slate) 0%, var(--navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .preview-installation .info-bar {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .preview-installation .badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            margin-bottom: 8px;
+        }
+
+        .preview-installation .title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .preview-installation .location {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* POST TYPE 3: Dealer Spotlight */
+        .preview-dealer {
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            height: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .preview-dealer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .preview-dealer .badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .preview-dealer .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+            background: var(--charcoal);
+            font-size: 2.5rem;
+        }
+
+        .preview-dealer .name {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .preview-dealer .company {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        /* POST TYPE 4: Pro Tip */
+        .preview-tip {
+            background: linear-gradient(135deg, var(--gold) 0%, #6B4709 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-tip .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--black);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .preview-tip .tip-number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.2);
+            margin-bottom: 16px;
+        }
+
+        .preview-tip .tip-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--black);
+            margin-bottom: auto;
+        }
+
+        .preview-tip .tip-detail {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: rgba(0, 0, 0, 0.7);
+            margin-top: 16px;
+        }
+
+        /* POST TYPE 5: Stats */
+        .preview-stats {
+            background: linear-gradient(180deg, var(--electric) 0%, var(--green) 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-stats .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--black);
+            background: rgba(0, 0, 0, 0.15);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 32px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .preview-stats .stat-number {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+
+        .preview-stats .stat-label {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--black);
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: auto;
+        }
+
+        .preview-stats .subtext {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--black);
+            opacity: 0.7;
+            margin-top: auto;
+        }
+
+        /* POST TYPE 6: Before & After */
+        .preview-before-after {
+            background: var(--charcoal);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-before-after .side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .preview-before-after .side.before {
+            background: linear-gradient(180deg, var(--slate) 0%, var(--navy) 100%);
+            border-right: 2px solid var(--electric);
+        }
+
+        .preview-before-after .side.after {
+            background: linear-gradient(180deg, var(--green) 0%, var(--navy) 100%);
+        }
+
+        .preview-before-after .label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--electric);
+            margin-bottom: 16px;
+        }
+
+        .preview-before-after .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .preview-before-after .text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* Template Info */
+        .template-info {
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .template-type {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--electric);
+            margin-bottom: 8px;
+        }
+
+        .template-name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .template-desc {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .template-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .template-size {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding: 6px 12px;
+            background: var(--gray-700);
+            border-radius: 4px;
+        }
+
+        .template-copy {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--electric);
+            background: none;
+            border: 1px solid var(--electric);
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .template-copy:hover {
+            background: var(--electric);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* Guidelines */
+        .guidelines-section {
+            padding: 80px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .guidelines-card {
+            background: var(--charcoal);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 48px;
+        }
+
+        .guidelines-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .guideline-item h3 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--electric);
+            margin-bottom: 12px;
+        }
+
+        .guideline-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .hashtags {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .hashtags h3 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--electric);
+            margin-bottom: 16px;
+        }
+
+        .hashtags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hashtag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--gray-700);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .hashtag:hover {
+            background: var(--electric);
+            color: var(--black);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 48px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-text {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .guidelines-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 16px 24px; }
+            .page-header { padding: 120px 24px 60px; }
+            .template-section { padding: 60px 24px; }
+            .guidelines-section { padding: 60px 24px; }
+            .guidelines-card { padding: 32px 24px; }
+            .section-header { flex-direction: column; gap: 8px; }
+        }
+
+        @media (max-width: 600px) {
+            .guidelines-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <nav class="nav">
+            <a href="index.html" class="nav-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Brand House
+            </a>
+            <div class="nav-logo">TECHNISOIL</div>
+        </nav>
+
+        <header class="page-header">
+            <p class="page-eyebrow">Dealer Toolkit</p>
+            <h1 class="page-title">Social Templates</h1>
+            <p class="page-subtitle">Professional social media templates designed for maximum impact. Copy the caption text and recreate the visual style for your posts.</p>
+        </header>
+
+        <!-- Square Posts -->
+        <section class="template-section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Square Posts (1080 × 1080)</h2>
+            </div>
+
+            <div class="template-grid">
+                <!-- Product Launch -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-product-launch">
+                            <span class="badge">New Product</span>
+                            <h3 class="headline">G3 Pathway Stabilizer</h3>
+                            <p class="subline">Natural-looking pathways in one weekend</p>
+                            <div class="logo">TECHNISOIL</div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Product Launch</p>
+                        <h3 class="template-name">Product Announcement</h3>
+                        <p class="template-desc">Showcase new products or highlight best-sellers with bold, branded visuals.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="Introducing G3 Pathway Stabilizer – the DIY solution for beautiful, natural-looking pathways! 🌿 Create professional results in a single weekend. Permeable, eco-friendly, and built to last. #TechniSoil #PathwayStabilizer #DIYLandscape #SustainableDesign">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installation Showcase -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-installation">
+                            <div class="image-placeholder">📸</div>
+                            <div class="info-bar">
+                                <p class="badge">Project Complete</p>
+                                <h3 class="title">Residential Pathway</h3>
+                                <p class="location">Austin, TX</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Project Showcase</p>
+                        <h3 class="template-name">Installation Highlight</h3>
+                        <p class="template-desc">Share completed projects with your photo and location. Perfect for portfolio building.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="Another successful installation in Austin! 🎉 This beautiful residential pathway showcases the natural aesthetic and durability of TechniSoil products. Interested in your own transformation? Contact us today! #TechniSoil #AustinLandscaping #PathwayDesign #BeforeAndAfter">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dealer Spotlight -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-dealer">
+                            <p class="badge">Dealer Spotlight</p>
+                            <div class="avatar">🏆</div>
+                            <h3 class="name">John Smith</h3>
+                            <p class="company">Smith Landscaping Co.</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Community</p>
+                        <h3 class="template-name">Dealer Feature</h3>
+                        <p class="template-desc">Celebrate top dealers and build community across your network.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="Dealer Spotlight: Meet John Smith from Smith Landscaping Co.! 🌟 With over 50 successful TechniSoil installations this year, John is leading the way in sustainable landscape design. Thank you for your partnership! #DealerSpotlight #TechniSoilPartner #LandscapingExcellence">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Tip -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-tip">
+                            <span class="badge">Pro Tip</span>
+                            <div class="tip-number">01</div>
+                            <p class="tip-text">Always wet the surface before application</p>
+                            <p class="tip-detail">TECHNISOIL PRO SERIES</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Education</p>
+                        <h3 class="template-name">Installation Tip</h3>
+                        <p class="template-desc">Share expert installation tips and best practices with your audience.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="💡 Pro Tip: Always wet the surface before applying TechniSoil products! This ensures optimal bonding and prevents premature drying. Follow us for more expert installation tips. #ProTip #InstallationAdvice #TechniSoil #LandscapingTips">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats / Milestone -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-stats">
+                            <span class="badge">Impact</span>
+                            <div class="stat-number">50M+</div>
+                            <p class="stat-label">Square Feet Stabilized</p>
+                            <p class="subtext">Making landscapes sustainable, one project at a time.</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Milestone</p>
+                        <h3 class="template-name">Impact Numbers</h3>
+                        <p class="template-desc">Celebrate company milestones and showcase your environmental impact.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="50 million square feet stabilized and counting! 🌍 Since 2006, TechniSoil has been leading the way in sustainable landscape solutions. Thank you to our amazing dealer network for making this possible! #TechniSoil #Milestone #SustainableLandscaping #GreenSolutions">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before & After -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-before-after">
+                            <div class="side before">
+                                <p class="label">Before</p>
+                                <div class="icon">❌</div>
+                                <p class="text">Loose Gravel</p>
+                            </div>
+                            <div class="side after">
+                                <p class="label">After</p>
+                                <div class="icon">✓</div>
+                                <p class="text">Stabilized Beauty</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <p class="template-type">Transformation</p>
+                        <h3 class="template-name">Before & After</h3>
+                        <p class="template-desc">Show dramatic transformations and the power of TechniSoil products.</p>
+                        <div class="template-meta">
+                            <span class="template-size">1080 × 1080</span>
+                            <button class="template-copy" data-text="The difference is night and day! 🌟 From loose, unstable gravel to a beautifully stabilized surface that looks natural and lasts for years. See the TechniSoil transformation for yourself. #BeforeAndAfter #Transformation #TechniSoil #LandscapeDesign">
+                                Copy Caption
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="guidelines-section">
+            <div class="guidelines-card">
+                <h2 class="guidelines-title">Brand Guidelines</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline-item">
+                        <h3>Brand Colors</h3>
+                        <p>Navy #112637, Green #00845f, Gold #9b600f, Electric #00ff88 for accents and CTAs.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <h3>Typography</h3>
+                        <p>Playfair Display for headlines. Space Mono for labels, stats, and technical details.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <h3>Logo Usage</h3>
+                        <p>Include "TECHNISOIL" branding on all posts. Use high contrast for readability.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <h3>Voice & Tone</h3>
+                        <p>Professional yet approachable. Focus on sustainability, innovation, and results.</p>
+                    </div>
+                </div>
+
+                <div class="hashtags">
+                    <h3>Recommended Hashtags</h3>
+                    <div class="hashtags-list">
+                        <span class="hashtag">#TechniSoil</span>
+                        <span class="hashtag">#SustainableLandscaping</span>
+                        <span class="hashtag">#PathwayStabilizer</span>
+                        <span class="hashtag">#GreenSolutions</span>
+                        <span class="hashtag">#LandscapeDesign</span>
+                        <span class="hashtag">#DIYLandscape</span>
+                        <span class="hashtag">#EcoFriendly</span>
+                        <span class="hashtag">#Xeriscape</span>
+                        <span class="hashtag">#MadeInUSA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="footer-text">© 2026 TECHNISOIL GLOBAL INC. — BRAND HOUSE FOR AUTHORIZED DEALERS</p>
+        </footer>
+    </div>
+
+    <script>
+        // Copy caption functionality
+        document.querySelectorAll('.template-copy').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const text = this.dataset.text;
+                try {
+                    await navigator.clipboard.writeText(text);
+                    const original = this.innerHTML;
+                    this.innerHTML = '✓ Copied!';
+                    this.style.background = 'var(--electric)';
+                    this.style.color = 'var(--black)';
+                    setTimeout(() => {
+                        this.innerHTML = original;
+                        this.style.background = 'none';
+                        this.style.color = 'var(--electric)';
+                    }, 2000);
+                } catch (err) {
+                    alert('Failed to copy. Please try again.');
+                }
+            });
+        });
+
+        // Copy hashtag on click
+        document.querySelectorAll('.hashtag').forEach(tag => {
+            tag.addEventListener('click', async function() {
+                try {
+                    await navigator.clipboard.writeText(this.textContent);
+                    const original = this.textContent;
+                    this.textContent = '✓ Copied';
+                    setTimeout(() => {
+                        this.textContent = original;
+                    }, 1500);
+                } catch (err) {
+                    console.error('Copy failed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
