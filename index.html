@@ -759,12 +759,12 @@
     <!-- Data Hub -->
     <section class="data-hub" id="data">
         <div class="data-grid">
-            <div class="data-card reveal" data-modal="social">
+            <a href="social-templates.html" class="data-card reveal" style="text-decoration: none; color: inherit;">
                 <div class="data-card-icon">📱</div>
                 <h3 class="data-card-title">Social Media</h3>
-                <p class="data-card-desc">Copy-paste Instagram, Facebook & LinkedIn posts. Hashtags included.</p>
-                <div class="data-card-meta">Open Templates →</div>
-            </div>
+                <p class="data-card-desc">Professional templates with visual previews. Copy captions instantly.</p>
+                <div class="data-card-meta">View Templates →</div>
+            </a>
 
             <div class="data-card reveal" data-modal="email">
                 <div class="data-card-icon">✉️</div>
@@ -1159,7 +1159,7 @@ Electric #00ff88">Copy Colors</button>
         animateCursor();
 
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, .data-card, [data-modal]');
+        const hoverElements = document.querySelectorAll('a, button, .data-card, [data-modal], [href]');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
