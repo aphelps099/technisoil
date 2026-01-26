@@ -14,9 +14,9 @@
         /* CSS Custom Properties - Color System */
         :root {
             /* Primary Colors */
-            --forest-green: #1a4d2e;
-            --forest-green-dark: #0f2919;
-            --forest-green-light: #2d6b47;
+            --forest-green: #00845f;
+            --forest-green-dark: #112637;
+            --forest-green-light: #00a577;
 
             /* Secondary Earth Tones */
             --sand: #d4a574;
@@ -26,13 +26,13 @@
             /* Neutrals */
             --cream: #faf8f4;
             --warm-white: #f5f2ed;
-            --charcoal: #2d2d2d;
-            --mid-gray: #6b6b6b;
+            --charcoal: #112637;
+            --mid-gray: #343e4a;
             --light-gray: #e8e6e0;
 
             /* Accent */
-            --gold: #d4a03f;
-            --amber: #e8b44c;
+            --gold: #9b600f;
+            --amber: #c17d10;
 
             /* Typography */
             --font-display: 'Outfit', sans-serif;
@@ -1061,6 +1061,230 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 38, 55, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            margin: auto;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 40px 48px 24px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .modal-header h2 {
+            color: var(--forest-green);
+            margin-bottom: 8px;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+        }
+
+        .modal-header p {
+            color: var(--mid-gray);
+            font-size: 1.1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: var(--warm-white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--forest-green);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 40px 48px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-header,
+            .modal-body {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+        }
+
+        .docs-section {
+            margin-bottom: 48px;
+        }
+
+        .docs-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .docs-section h3 {
+            color: var(--forest-green);
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .docs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .docs-table thead {
+            background: var(--forest-green);
+        }
+
+        .docs-table thead th {
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .docs-table tbody tr {
+            border-bottom: 1px solid var(--light-gray);
+            transition: var(--transition-smooth);
+        }
+
+        .docs-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .docs-table tbody tr:hover {
+            background: var(--warm-white);
+        }
+
+        .docs-table tbody td {
+            padding: 16px;
+            color: var(--charcoal);
+        }
+
+        .docs-table tbody td:first-child {
+            font-weight: 700;
+            color: var(--forest-green);
+        }
+
+        .docs-table a {
+            color: var(--forest-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .docs-table a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .docs-table {
+                font-size: 0.9rem;
+            }
+
+            .docs-table thead th,
+            .docs-table tbody td {
+                padding: 12px 8px;
+            }
+        }
+
+        /* Support Docs Card */
+        .support-docs-card {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--forest-green-dark) 100%);
+            border-radius: 8px;
+            padding: 48px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 2px solid var(--forest-green);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .support-docs-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .support-docs-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 132, 95, 0.3);
+        }
+
+        .support-docs-card h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .support-docs-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .support-docs-card .cta-button {
+            background: var(--gold);
+            color: white;
+        }
+
+        .support-docs-card .cta-button:hover {
+            background: var(--amber);
+        }
     </style>
 </head>
 <body>
@@ -1448,6 +1672,14 @@
                     <a href="#" class="download-button">Download PDF</a>
                 </div>
             </div>
+
+            <div style="margin-top: 48px;">
+                <div class="support-docs-card" id="supportDocsCard">
+                    <h3>📚 Complete Product Documentation</h3>
+                    <p>Access brochures, safety data sheets, and installation guides for all TechniSoil products.</p>
+                    <span class="cta-button">View All Documentation</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1593,6 +1825,124 @@
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
+    <!-- Support Documentation Modal -->
+    <div class="modal" id="supportDocsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Product Documentation</h2>
+                <p>Complete technical resources for all TechniSoil products</p>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- Landscape & Xeriscape Products -->
+                <div class="docs-section">
+                    <h3>Landscape & Xeriscape Products</h3>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Brochure</th>
+                                <th>Safety Data Sheet</th>
+                                <th>Install Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/g3-pathway-stabilizer/">G3 PATHWAY® STABILIZER</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-pathway-stabilizer-brochure-1.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-pathway-stabilizer-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-g3-pathway-stabilizer/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/g3-commercial-surface/">G3 COMMERICAL SURFACE®</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-commercial-surface-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/g3-commercial-surface-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-g3-commercial-surface/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/ekoflo-pebble-binder/">EKOFLO® PEBBLE BINDER</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/ekoflo-pebble-binder-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/EkoFlo-Data-Sheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-ekoflo-pebble-binder/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/barkbinder/">BARKBINDER™</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/barkbinder-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/barkbinder-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-barkbinder/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/dustcube/">DUSTCUBE™</a></td>
+                                <td>—</td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/DustCube-Data-Sheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-dustcube/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/liquid-weed-fabric/">LIQUID WEED FABRIC</a></td>
+                                <td>—</td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/04/Liquid-Weed-Fabric-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-liquid-weed-fabric/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/ground-cover-stabilizer/">GROUND COVER STABILIZER</a></td>
+                                <td>—</td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/molecule-vms-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-ground-cover-stabilizer/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.com/products/sandpave-pro/">SANDPAVE PRO®</a></td>
+                                <td><a href="https://technisoil.com/wp-content/uploads/2025/10/SandPave-Pro-Brochure-1.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="http://technisoil.com/wp-content/uploads/2025/11/SandPave-Pro-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.com/guide/sandpave-pro/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Hardscape & Masonry Sealer Products -->
+                <div class="docs-section">
+                    <h3>Hardscape & Masonry Sealer Products</h3>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Brochure</th>
+                                <th>Safety Data Sheet</th>
+                                <th>Install Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/molecule-srs/">MOLECULE™ [SRS]</a></td>
+                                <td>—</td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/04/Molecule-SRS-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-molecule-srs/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/molecule-hs/">MOLECULE™ [HS]</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/molecule-brochure-1.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/molecule-hs-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-molecule-hs/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/nanopave-jss/">NANOPAVE® JSS</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/nanopave-joint-stabilizer-and-sealer-brochure.pdf" target="_blank" rel="noreferrer noopener">Brochure</a></td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/03/nanopave-joint-stabilizer-and-sealer-cutsheet.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-nanopave-jss/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://technisoil.wpengine.com/products/nanopave-hardscape-sealer/">NANOPAVE® HARDSCAPE SEALER</a></td>
+                                <td>—</td>
+                                <td><a href="https://technisoil.wpengine.com/wp-content/uploads/2023/04/NP-Hardscape-Sealer-Enhanced-SDS.pdf" target="_blank" rel="noreferrer noopener">Safety Data Sheet</a></td>
+                                <td><a href="https://technisoil.wpengine.com/guide/install-nanopave-hardscape-sealer/" target="_blank" rel="noreferrer noopener">Install Guide</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -1669,7 +2019,7 @@
         }, observerOptions);
 
         // Observe elements
-        document.querySelectorAll('.section-header, .stat-item, .product-card, .prop-item, .application-card, .faq-item, .msds-card, .social-card').forEach(el => {
+        document.querySelectorAll('.section-header, .stat-item, .product-card, .prop-item, .application-card, .faq-item, .msds-card, .social-card, .support-docs-card').forEach(el => {
             observer.observe(el);
         });
 
@@ -1679,6 +2029,43 @@
             const email = e.target.querySelector('.newsletter-input').value;
             alert(`Thank you for subscribing! We'll send updates to ${email}`);
             e.target.reset();
+        });
+
+        // Support Documentation Modal
+        const supportDocsModal = document.getElementById('supportDocsModal');
+        const supportDocsCard = document.getElementById('supportDocsCard');
+        const modalClose = document.getElementById('modalClose');
+
+        // Open modal when clicking the support docs card
+        if (supportDocsCard) {
+            supportDocsCard.addEventListener('click', () => {
+                supportDocsModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        }
+
+        // Close modal when clicking the close button
+        if (modalClose) {
+            modalClose.addEventListener('click', () => {
+                supportDocsModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+        }
+
+        // Close modal when clicking outside the modal content
+        supportDocsModal.addEventListener('click', (e) => {
+            if (e.target === supportDocsModal) {
+                supportDocsModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && supportDocsModal.classList.contains('active')) {
+                supportDocsModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
         });
 
         // Smooth scroll for anchor links
