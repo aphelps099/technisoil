@@ -105,37 +105,22 @@
             transform: translateY(0);
         }
 
-        /* Hero - Bold Asymmetric */
+        /* Hero - Full Bleed with Floating Card */
         .hero {
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            background: var(--green);
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--green) 0%, #006b4d 100%);
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(0,132,95,0.95) 0%, rgba(0,132,95,0.2) 70%);
-            z-index: 1;
-        }
-
-        .hero-left {
-            padding: 140px 80px 80px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: flex-end;
+            padding: 80px;
+        }
+
+        .hero-card {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px;
+            max-width: 580px;
             position: relative;
             z-index: 10;
         }
@@ -151,12 +136,12 @@
         }
 
         .hero-title {
-            font-size: clamp(4.5rem, 12vw, 11rem);
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 300;
             line-height: 0.88;
             letter-spacing: -0.02em;
             color: var(--white);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             text-transform: uppercase;
         }
 
@@ -266,26 +251,17 @@
             transform: translateY(0);
         }
 
-        .hero-right {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
         .hero-visual {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
         }
 
         .hero-visual::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,132,95,0.2) 100%);
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
             z-index: 2;
         }
 
@@ -334,7 +310,7 @@
 
         .data-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
         .data-card {
@@ -372,8 +348,12 @@
         }
 
         .data-card-icon {
-            font-size: 3rem;
-            margin-bottom: 32px;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 36px;
+            stroke: var(--electric);
+            stroke-width: 1.5;
+            fill: none;
         }
 
         .data-card-title {
@@ -400,6 +380,48 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Manifesto - Scroll Reveal */
+        .manifesto {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 80px;
+            background: var(--white);
+        }
+
+        .manifesto-content {
+            max-width: 1200px;
+        }
+
+        .manifesto-text {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+            color: var(--navy);
+            margin-bottom: 60px;
+        }
+
+        .manifesto-text span {
+            display: inline-block;
+            opacity: 0.2;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .manifesto-text span.active {
+            opacity: 1;
+        }
+
+        .manifesto-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
         }
 
         /* Mission - Split Layout */
@@ -760,6 +782,77 @@
             color: var(--white);
         }
 
+        /* Products Modal */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1600px;
+        }
+
+        .product-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover {
+            border-color: rgba(0,255,136,0.3);
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%);
+        }
+
+        .product-category {
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--electric);
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--white);
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 1400px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--black);
@@ -775,11 +868,12 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .hero {
-                grid-template-columns: 1fr;
+                padding: 40px;
             }
 
-            .hero-right {
-                display: none;
+            .hero-card {
+                max-width: 100%;
+                padding: 48px;
             }
 
             .data-grid {
@@ -794,7 +888,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero-left,
             .mission-text,
             .team,
             .timeline,
@@ -808,6 +901,14 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 24px;
+            }
+
+            .hero-card {
+                padding: 40px 32px;
+            }
+
             .hero-stats {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -826,14 +927,20 @@
 <body>
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-left">
+        <div class="hero-visual">
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+
+        <div class="hero-card">
             <div class="hero-label">For Dealers & Partners</div>
             <h1 class="hero-title">
                 BRAND<br>
                 <span>HOUSE</span>
             </h1>
             <p class="hero-desc">Copy-paste marketing. Download assets. Drive sales. Your complete TechniSoil toolkit.</p>
-            
+
             <div class="hero-stats">
                 <div>
                     <div class="hero-stat-num">50+</div>
@@ -850,59 +957,78 @@
                 <a href="#team" class="btn btn-secondary">Our Team</a>
             </div>
         </div>
-        <div class="hero-right">
-            <div class="hero-visual">
-                <div class="hero-slide"></div>
-                <div class="hero-slide"></div>
-                <div class="hero-slide"></div>
-            </div>
-        </div>
     </section>
 
     <!-- Data Hub -->
     <section class="data-hub" id="data">
         <div class="data-grid">
             <a href="social-templates.html" class="data-card reveal" style="text-decoration: none; color: inherit;">
-                <div class="data-card-icon">📱</div>
+                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="6" y="4" width="20" height="24" rx="2"/><line x1="10" y1="10" x2="22" y2="10"/><line x1="10" y1="14" x2="18" y2="14"/><circle cx="14" cy="20" r="2"/></svg>
                 <h3 class="data-card-title">Social Media</h3>
                 <p class="data-card-desc">Professional templates with visual previews. Copy captions instantly.</p>
                 <div class="data-card-meta">View Templates →</div>
             </a>
 
             <div class="data-card reveal" data-modal="email">
-                <div class="data-card-icon">✉️</div>
+                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="2"/><path d="M4 10 L16 18 L28 10"/></svg>
                 <h3 class="data-card-title">Email Campaigns</h3>
                 <p class="data-card-desc">Pre-written sales emails. Product intros. Follow-ups.</p>
                 <div class="data-card-meta">Open Templates →</div>
             </div>
 
             <div class="data-card reveal" data-modal="brand">
-                <div class="data-card-icon">🎨</div>
+                <svg class="data-card-icon" viewBox="0 0 32 32"><circle cx="16" cy="10" r="6"/><circle cx="8" cy="22" r="6"/><circle cx="24" cy="22" r="6"/></svg>
                 <h3 class="data-card-title">Brand Assets</h3>
                 <p class="data-card-desc">Logos, colors, typography. Everything you need.</p>
                 <div class="data-card-meta">Download Files →</div>
             </div>
 
             <div class="data-card reveal" data-modal="docs">
-                <div class="data-card-icon">📄</div>
+                <svg class="data-card-icon" viewBox="0 0 32 32"><path d="M8 4 L20 4 L24 8 L24 28 L8 28 Z"/><line x1="12" y1="14" x2="20" y2="14"/><line x1="12" y1="18" x2="20" y2="18"/><line x1="12" y1="22" x2="16" y2="22"/></svg>
                 <h3 class="data-card-title">Product Docs</h3>
                 <p class="data-card-desc">Tech specs, SDS, installation guides for all products.</p>
                 <div class="data-card-meta">View Documentation →</div>
             </div>
 
             <div class="data-card reveal" data-modal="gallery">
-                <div class="data-card-icon">📸</div>
+                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="2"/><circle cx="12" cy="14" r="3"/><path d="M4 22 L10 16 L14 20 L22 12 L28 18 L28 26 L4 26 Z"/></svg>
                 <h3 class="data-card-title">Image Library</h3>
                 <p class="data-card-desc">High-res product photos. Before & afters. Lifestyle shots.</p>
                 <div class="data-card-meta">Browse Gallery →</div>
             </div>
 
             <div class="data-card reveal" data-modal="video">
-                <div class="data-card-icon">🎬</div>
+                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="8" width="18" height="16" rx="1"/><path d="M22 12 L28 8 L28 24 L22 20 Z"/></svg>
                 <h3 class="data-card-title">Video Content</h3>
                 <p class="data-card-desc">Installation tutorials. Product demos. Testimonials.</p>
                 <div class="data-card-meta">Watch Videos →</div>
             </div>
+
+            <a href="https://technisoil.com/wp-content/uploads/2023/03/2023-Technisoil-Catalog.pdf" target="_blank" class="data-card reveal" style="text-decoration: none; color: inherit;">
+                <svg class="data-card-icon" viewBox="0 0 32 32"><path d="M10 4 L22 4 L28 10 L28 28 L10 28 Z M22 4 L22 10 L28 10"/><path d="M14 16 L18 20 L14 24"/><line x1="4" y1="28" x2="4" y2="12" stroke-dasharray="2,2"/></svg>
+                <h3 class="data-card-title">Product Catalog</h3>
+                <p class="data-card-desc">Complete Technisoil product catalog with specs and applications.</p>
+                <div class="data-card-meta">Download PDF →</div>
+            </a>
+
+            <div class="data-card reveal" data-modal="products">
+                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="8" width="10" height="10" rx="1"/><rect x="18" y="8" width="10" height="10" rx="1"/><rect x="4" y="22" width="10" height="6" rx="1"/><rect x="18" y="22" width="10" height="6" rx="1"/></svg>
+                <h3 class="data-card-title">Products</h3>
+                <p class="data-card-desc">Browse our complete lineup of landscape & hardscape solutions.</p>
+                <div class="data-card-meta">View All Products →</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto">
+        <div class="manifesto-content">
+            <p class="manifesto-text">
+                <span>We</span> <span>believe</span> <span>sustainable</span> <span>design</span> <span>shouldn't</span> <span>compromise</span> <span>beauty.</span>
+                <span>Our</span> <span>products</span> <span>empower</span> <span>professionals</span> <span>and</span> <span>homeowners</span> <span>to</span> <span>create</span>
+                <span>stunning</span> <span>landscapes</span> <span>that</span> <span>work</span> <span>with</span> <span>nature,</span> <span>not</span> <span>against</span> <span>it.</span>
+            </p>
+            <div class="manifesto-label">Technisoil — Founded 2006, California</div>
         </div>
     </section>
 
@@ -1229,6 +1355,116 @@ Electric #00ff88">Copy Colors</button>
         </div>
     </div>
 
+    <div class="modal" id="modal-products">
+        <button class="modal-close">✕</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">PRODUCTS</h2>
+                <p class="modal-subtitle">Landscape & hardscape solutions</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/03/2023G3path-1.jpg" alt="G3 Pathway Stabilizer" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">G3 Pathway® Stabilizer</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/03/header-rammed-earth-12.jpg" alt="SandPave Pro" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">SandPave Pro®</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2026/01/large_rocks_wood_accents_and_concre_269dd34e-4d27-4fbb-82c3-320b6161438a.jpg" alt="G3 Commercial Surface" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">G3 Commercial Surface®</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2026/01/sustainable_garden_design_with_native_plants_ornamenta_754b135c-0685-4b37-9bbb-c336b1e4cc97.jpg" alt="EkoFlo Permeable Pebble Binder" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">EkoFlo® Pebble Binder</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/11/winter-blog.jpg" alt="Ground Cover Stabilizer" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Xeriscape</div>
+                        <div class="product-name">Ground Cover Stabilizer™</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/03/2023G3path-1.jpg" alt="Liquid Weed Fabric" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">Liquid Weed Fabric</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/03/header-rammed-earth-12.jpg" alt="BarkBinder" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">BarkBinder®</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2026/01/large_rocks_wood_accents_and_concre_269dd34e-4d27-4fbb-82c3-320b6161438a.jpg" alt="NanoPave JSS" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Hardscape</div>
+                        <div class="product-name">NanoPave® JSS</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2026/01/sustainable_garden_design_with_native_plants_ornamenta_754b135c-0685-4b37-9bbb-c336b1e4cc97.jpg" alt="NanoPave Hardscape Sealer" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Hardscape</div>
+                        <div class="product-name">NanoPave® Hardscape Sealer</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/11/winter-blog.jpg" alt="Molecule SRS" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Masonry</div>
+                        <div class="product-name">Molecule™ SRS</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/03/2023G3path-1.jpg" alt="Molecule HS" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Masonry</div>
+                        <div class="product-name">Molecule™ [HS]</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2023/03/header-rammed-earth-12.jpg" alt="Kuro Slate" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Hardscape</div>
+                        <div class="product-name">Kuro Slate</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2026/01/large_rocks_wood_accents_and_concre_269dd34e-4d27-4fbb-82c3-320b6161438a.jpg" alt="DustCube" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">DustCube™</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://technisoil.com/wp-content/uploads/2026/01/sustainable_garden_design_with_native_plants_ornamenta_754b135c-0685-4b37-9bbb-c336b1e4cc97.jpg" alt="DustCube Max" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-category">Landscape</div>
+                        <div class="product-name">DustCube Max™</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 TECHNISOIL GLOBAL INC. — BRAND HOUSE FOR AUTHORIZED DEALERS & PARTNERS</p>
     </footer>
@@ -1283,6 +1519,29 @@ Electric #00ff88">Copy Colors</button>
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Manifesto Word Reveal
+        const manifestoSpans = document.querySelectorAll('.manifesto-text span');
+
+        const manifestoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    manifestoSpans.forEach((span, index) => {
+                        setTimeout(() => {
+                            span.classList.add('active');
+                        }, index * 80);
+                    });
+                    manifestoObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        const manifestoSection = document.querySelector('.manifesto');
+        if (manifestoSection) {
+            manifestoObserver.observe(manifestoSection);
+        }
 
         // Modal System
         const cards = document.querySelectorAll('[data-modal]');
