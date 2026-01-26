@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechniSoil Brand House — Marketing Toolkit for Dealers</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>TechniSoil Brand House — Dealer Marketing Toolkit</title>
 
     <style>
         * {
@@ -22,8 +17,10 @@
             --slate: #343e4a;
             --gold: #9b600f;
             --green: #00845f;
+            --bright-green: #00ff88;
             --white: #ffffff;
-            --cream: #fafafa;
+            --cream: #f8f8f8;
+            --black: #000000;
         }
 
         html {
@@ -31,128 +28,11 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             color: var(--navy);
             background: var(--white);
-            line-height: 1.6;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-        }
-
-        /* Hero Section - Bold & Minimal */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: var(--navy);
-            color: var(--white);
-            padding: 80px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                linear-gradient(135deg, transparent 0%, rgba(0, 132, 95, 0.05) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-        }
-
-        .hero-eyebrow {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 32px;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.2s;
-        }
-
-        .hero-title {
-            font-size: clamp(4rem, 12vw, 10rem);
-            font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -0.03em;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.4s;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 300;
-            letter-spacing: -0.01em;
-            margin-bottom: 64px;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.6s;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            gap: 24px;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.8s;
-        }
-
-        .btn {
-            padding: 20px 48px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-size: 0.875rem;
-        }
-
-        .btn-primary {
-            background: var(--green);
-            color: var(--white);
-            border: 2px solid var(--green);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--green);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--navy);
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Navigation */
@@ -164,355 +44,542 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(17, 38, 55, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .nav-content {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 24px 48px;
+            padding: 20px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
             color: var(--navy);
             text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 48px;
+            gap: 40px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--green);
         }
 
-        /* Section Styling */
-        section {
-            padding: 160px 48px;
-            max-width: 1600px;
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background: var(--green);
+            color: var(--white);
+            padding: 120px 48px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            width: 600px;
+            height: 600px;
+            background: url('data:image/svg+xml,<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" font-family="Helvetica Neue" font-size="120" font-weight="900" fill="rgba(255,255,255,0.05)" text-anchor="middle" dominant-baseline="middle">TS</text></svg>');
+            transform: translateY(-50%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+            max-width: 900px;
+        }
+
+        .hero-description {
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 48px;
+            max-width: 700px;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--bright-green);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: #00dd77;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--green);
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 120px 48px;
+            background: var(--white);
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-header {
-            margin-bottom: 120px;
-            text-align: center;
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .section-label {
-            font-size: 0.75rem;
+        .mission-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 24px;
-        }
-
-        .section-title {
-            font-size: clamp(3rem, 6vw, 6rem);
-            font-weight: 900;
-            line-height: 0.95;
+            line-height: 1.1;
             letter-spacing: -0.02em;
             color: var(--navy);
         }
 
-        .section-description {
-            font-size: 1.25rem;
+        .mission-content p {
+            font-size: 1.125rem;
+            line-height: 1.7;
             color: var(--slate);
-            margin-top: 24px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+            margin-bottom: 24px;
         }
 
-        /* Grid System */
-        .grid {
+        .mission-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 80px 48px;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
-            gap: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 60px;
+            text-align: center;
         }
 
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        .stat-number {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--bright-green);
+            display: block;
+            margin-bottom: 12px;
+            line-height: 1;
         }
 
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        .stat-label {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
         }
 
-        /* Resource Cards */
-        .resource-card {
+        /* Resources Section */
+        .resources {
+            padding: 120px 48px;
             background: var(--cream);
-            padding: 64px;
-            transition: all 0.4s ease;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 80px;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--slate);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resources-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            padding: 48px 40px;
+            transition: all 0.3s ease;
             border: 1px solid transparent;
             cursor: pointer;
         }
 
         .resource-card:hover {
-            background: var(--white);
-            border-color: var(--navy);
+            border-color: var(--green);
             transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
         .resource-icon {
-            font-size: 3rem;
-            margin-bottom: 32px;
-            display: block;
-        }
-
-        .resource-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--navy);
-        }
-
-        .resource-description {
-            font-size: 1rem;
-            color: var(--slate);
-            margin-bottom: 32px;
-            line-height: 1.8;
-        }
-
-        .resource-meta {
-            font-size: 0.875rem;
-            color: var(--green);
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        /* Product Lines */
-        .product-line {
-            padding: 80px;
-            background: var(--navy);
-            color: var(--white);
-            margin-bottom: 48px;
-        }
-
-        .product-line-header {
-            margin-bottom: 48px;
-        }
-
-        .product-line-title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .product-line-tagline {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 300;
-        }
-
-        .assets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .asset-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .asset-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--green);
-        }
-
-        .asset-type {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 16px;
-        }
-
-        .asset-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .asset-description {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 24px;
-        }
-
-        .asset-actions {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn-small {
-            padding: 12px 24px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            background: var(--green);
-            color: var(--white);
-            border: none;
-            transition: all 0.3s ease;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .btn-small:hover {
-            background: var(--gold);
-        }
-
-        /* Image Gallery */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 4/3;
-            background: var(--cream);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gallery-item::after {
-            content: 'Download';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--navy);
-            color: var(--white);
-            padding: 16px;
-            text-align: center;
-            font-size: 0.875rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover::after {
-            transform: translateY(0);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-        }
-
-        /* Media Library */
-        .media-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .media-category {
-            padding: 48px;
-            background: var(--cream);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .media-category:hover {
-            border-color: var(--green);
-            background: var(--white);
-        }
-
-        .media-category-icon {
             font-size: 2.5rem;
             margin-bottom: 24px;
             display: block;
         }
 
-        .media-category-title {
+        .resource-title {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 12px;
             color: var(--navy);
         }
 
-        .media-category-count {
-            font-size: 0.875rem;
+        .resource-description {
+            font-size: 1rem;
             color: var(--slate);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .resource-meta {
+            font-size: 0.875rem;
+            color: var(--green);
             font-weight: 600;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 120px 48px;
+            background: var(--white);
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--cream);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .team-member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .team-member-role {
+            font-size: 0.9375rem;
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            padding: 120px 48px;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .timeline-items {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            gap: 60px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 40px;
+        }
+
+        .timeline-year {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--bright-green);
+            line-height: 1;
+        }
+
+        .timeline-content p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            margin: auto;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 48px 48px 32px;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: var(--slate);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--navy);
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .modal-subtitle {
+            font-size: 1.125rem;
+            color: var(--slate);
+        }
+
+        .modal-body {
+            padding: 48px;
+        }
+
+        .content-item {
+            padding: 32px;
+            background: var(--cream);
+            margin-bottom: 24px;
+        }
+
+        .content-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .content-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--slate);
+            margin-bottom: 20px;
+        }
+
+        .content-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-copy {
+            padding: 12px 24px;
+            background: var(--green);
+            color: var(--white);
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background: var(--navy);
+        }
+
+        .btn-copy.copied {
+            background: var(--bright-green);
+            color: var(--black);
         }
 
         /* Footer */
         footer {
-            background: var(--navy);
+            background: var(--black);
             color: var(--white);
-            padding: 80px 48px 40px;
+            padding: 60px 48px 40px;
             text-align: center;
         }
 
         footer p {
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 0.05em;
+            opacity: 0.7;
         }
 
         /* Responsive */
         @media (max-width: 968px) {
-            section {
-                padding: 100px 32px;
-            }
-
-            .nav-content {
-                padding: 20px 32px;
-            }
-
             .nav-links {
                 display: none;
             }
 
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-
-            .resource-card,
-            .product-line {
-                padding: 40px;
-            }
-
             .hero {
-                padding: 60px 32px;
+                padding: 100px 32px 60px;
+            }
+
+            .mission-grid,
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .resources,
+            .team,
+            .timeline,
+            .mission {
+                padding: 80px 32px;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding: 32px;
             }
         }
     </style>
@@ -521,13 +588,11 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-content">
-            <a href="#" class="logo">TechniSoil</a>
+            <a href="#" class="logo">TECHNISOIL</a>
             <ul class="nav-links">
-                <li><a href="#products">Products</a></li>
-                <li><a href="#social">Social</a></li>
-                <li><a href="#email">Email</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#media">Media</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#timeline">Our Story</a></li>
             </ul>
         </div>
     </nav>
@@ -535,260 +600,536 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-eyebrow">For Dealers & Partners</div>
-            <h1 class="hero-title">BRAND<br>HOUSE</h1>
-            <p class="hero-subtitle">Marketing tools, creative assets, and inspiration to power your TechniSoil sales.</p>
+            <div class="hero-eyebrow">Dealer Marketing Toolkit</div>
+            <h1 class="hero-title">POWERING YOUR<br>SALES SUCCESS</h1>
+            <p class="hero-description">Marketing tools, creative assets, and brand resources designed to help you promote TechniSoil products and grow your business.</p>
             <div class="hero-cta">
-                <a href="#products" class="btn btn-primary">Explore Resources</a>
-                <a href="#media" class="btn btn-secondary">Download Assets</a>
+                <a href="#resources" class="btn btn-primary">Explore Resources</a>
+                <a href="#timeline" class="btn btn-secondary">Our Story</a>
             </div>
         </div>
     </section>
 
-    <!-- Quick Access Resources -->
-    <section id="resources">
+    <!-- Mission -->
+    <section class="mission">
+        <div class="mission-grid">
+            <div>
+                <h2 class="mission-title">GREEN IS MORE THAN A BUZZWORD</h2>
+            </div>
+            <div class="mission-content">
+                <p>At Technisoil, green is more than just a buzzword – it's our guiding principle.</p>
+                <p>Our greatest assets are our people and the environment. United by a passion for environmental sustainability and innovation, our team is dedicated to advancing industry standards in modern landscape design through a product line that is user-friendly and backed by world-class product support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div>
+                <span class="stat-number">2006</span>
+                <span class="stat-label">Founded</span>
+            </div>
+            <div>
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div>
+                <span class="stat-number">50M+</span>
+                <span class="stat-label">Sq Ft Stabilized</span>
+            </div>
+            <div>
+                <span class="stat-number">50</span>
+                <span class="stat-label">All States</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="resources" id="resources">
         <div class="section-header">
-            <div class="section-label">Quick Access</div>
-            <h2 class="section-title">Marketing Toolkit</h2>
-            <p class="section-description">Everything you need to promote TechniSoil products and grow your business.</p>
+            <div class="section-label">Marketing Toolkit</div>
+            <h2 class="section-title">Brand Resources</h2>
+            <p class="section-description">Click any resource to access copy-paste ready content, templates, and downloadable assets.</p>
         </div>
 
-        <div class="grid grid-3">
-            <div class="resource-card">
+        <div class="resources-grid">
+            <div class="resource-card" data-modal="social">
                 <span class="resource-icon">📱</span>
-                <h3 class="resource-title">Social Media Library</h3>
+                <h3 class="resource-title">Social Media</h3>
                 <p class="resource-description">Copy-paste ready posts, hashtags, and campaign concepts for Instagram, Facebook, and LinkedIn.</p>
-                <div class="resource-meta">50+ Templates</div>
+                <div class="resource-meta">Click to open →</div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" data-modal="email">
                 <span class="resource-icon">✉️</span>
                 <h3 class="resource-title">Email Templates</h3>
                 <p class="resource-description">Pre-written email campaigns, product announcements, and customer follow-ups.</p>
-                <div class="resource-meta">25+ Templates</div>
+                <div class="resource-meta">Click to open →</div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" data-modal="product-docs">
+                <span class="resource-icon">📄</span>
+                <h3 class="resource-title">Product Documentation</h3>
+                <p class="resource-description">Technical specs, installation guides, brochures, and safety data sheets for all products.</p>
+                <div class="resource-meta">Click to open →</div>
+            </div>
+
+            <div class="resource-card" data-modal="brand">
+                <span class="resource-icon">🎨</span>
+                <h3 class="resource-title">Brand Guidelines</h3>
+                <p class="resource-description">Logo files, color palettes, typography guidelines, and brand usage standards.</p>
+                <div class="resource-meta">Click to open →</div>
+            </div>
+
+            <div class="resource-card" data-modal="gallery">
                 <span class="resource-icon">📸</span>
                 <h3 class="resource-title">Image Gallery</h3>
                 <p class="resource-description">High-resolution product photos, installation images, and lifestyle photography.</p>
-                <div class="resource-meta">200+ Images</div>
+                <div class="resource-meta">Click to open →</div>
             </div>
 
-            <div class="resource-card">
-                <span class="resource-icon">📄</span>
-                <h3 class="resource-title">Product Docs</h3>
-                <p class="resource-description">Technical specs, installation guides, brochures, and safety data sheets.</p>
-                <div class="resource-meta">All Products</div>
-            </div>
-
-            <div class="resource-card">
-                <span class="resource-icon">🎨</span>
-                <h3 class="resource-title">Brand Guidelines</h3>
-                <p class="resource-description">Logo files, color palettes, typography, and brand usage guidelines.</p>
-                <div class="resource-meta">Complete Kit</div>
-            </div>
-
-            <div class="resource-card">
+            <div class="resource-card" data-modal="video">
                 <span class="resource-icon">🎬</span>
                 <h3 class="resource-title">Video Library</h3>
-                <p class="resource-description">Product demos, installation tutorials, and customer testimonials.</p>
-                <div class="resource-meta">30+ Videos</div>
+                <p class="resource-description">Product demos, installation tutorials, and customer testimonial videos.</p>
+                <div class="resource-meta">Click to open →</div>
             </div>
         </div>
     </section>
 
-    <!-- Product Marketing -->
-    <section id="products">
+    <!-- Team -->
+    <section class="team" id="team">
         <div class="section-header">
-            <div class="section-label">Product Marketing</div>
-            <h2 class="section-title">By Product Line</h2>
-            <p class="section-description">Campaign concepts, social posts, and messaging for each product.</p>
+            <div class="section-label">Our People</div>
+            <h2 class="section-title">Small Business, Big Impact</h2>
+            <p class="section-description">We're a tight-knit team that embraces the essence of small business with ambitious goals. Our nine to fives are spent working together to supply the landscaping scene with sustainable, high-impact products and end-to-end customer support.</p>
         </div>
 
-        <!-- G3 Pathway -->
-        <div class="product-line">
-            <div class="product-line-header">
-                <h3 class="product-line-title">G3 Pathway Stabilizer</h3>
-                <p class="product-line-tagline">DIY-friendly pathway solutions for residential landscapes</p>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-member-photo">SW</div>
+                <h3 class="team-member-name">Sean Weaver</h3>
+                <p class="team-member-role">President, Founder</p>
             </div>
-            <div class="assets-grid">
-                <div class="asset-card">
-                    <div class="asset-type">Instagram Post</div>
-                    <h4 class="asset-title">Before & After Transformation</h4>
-                    <p class="asset-description">Transform your outdoor spaces with G3 Pathway Stabilizer! Create beautiful, permeable pathways that blend seamlessly with nature. #TechniSoil #NaturalPathways</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Text</button>
-                        <button class="btn-small">Download Image</button>
-                    </div>
-                </div>
 
-                <div class="asset-card">
-                    <div class="asset-type">Email Campaign</div>
-                    <h4 class="asset-title">New Product Introduction</h4>
-                    <p class="asset-description">Subject: Create Beautiful Pathways in One Weekend | Pre-written email introducing G3 to homeowners and DIY enthusiasts.</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Template</button>
-                    </div>
-                </div>
-
-                <div class="asset-card">
-                    <div class="asset-type">Facebook Post</div>
-                    <h4 class="asset-title">Spring Landscaping Tips</h4>
-                    <p class="asset-description">Spring is the perfect time for pathway projects! G3 Pathway Stabilizer makes it easy. #SpringLandscaping #DIYProjects</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Text</button>
-                        <button class="btn-small">Download Image</button>
-                    </div>
-                </div>
+            <div class="team-member">
+                <div class="team-member-photo">JA</div>
+                <h3 class="team-member-name">James Abner</h3>
+                <p class="team-member-role">Product & Technical Support</p>
             </div>
-        </div>
 
-        <!-- NanoPave -->
-        <div class="product-line" style="background: var(--green);">
-            <div class="product-line-header">
-                <h3 class="product-line-title">NanoPave® JSS</h3>
-                <p class="product-line-tagline">Professional hardscape sealing for pavers and joints</p>
+            <div class="team-member">
+                <div class="team-member-photo">BM</div>
+                <h3 class="team-member-name">Brenda Moore</h3>
+                <p class="team-member-role">Sales Director</p>
             </div>
-            <div class="assets-grid">
-                <div class="asset-card">
-                    <div class="asset-type">LinkedIn Post</div>
-                    <h4 class="asset-title">Professional Results Guaranteed</h4>
-                    <p class="asset-description">Nano-technology meets hardscape durability. NanoPave JSS delivers lasting protection for commercial and residential projects. #ProfessionalLandscaping</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Text</button>
-                        <button class="btn-small">Download Image</button>
-                    </div>
-                </div>
 
-                <div class="asset-card">
-                    <div class="asset-type">Email Campaign</div>
-                    <h4 class="asset-title">Contractor Outreach</h4>
-                    <p class="asset-description">Subject: Protect Your Hardscape Investments | Email template targeting landscape contractors and commercial property managers.</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Template</button>
-                    </div>
-                </div>
-
-                <div class="asset-card">
-                    <div class="asset-type">Instagram Story</div>
-                    <h4 class="asset-title">Application Demo</h4>
-                    <p class="asset-description">Watch how easy it is to apply NanoPave JSS! Professional results in minutes. Swipe up to learn more. #HowTo #Hardscape</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Text</button>
-                        <button class="btn-small">Download Template</button>
-                    </div>
-                </div>
+            <div class="team-member">
+                <div class="team-member-photo">CE</div>
+                <h3 class="team-member-name">Coree Ellis</h3>
+                <p class="team-member-role">Operations Manager</p>
             </div>
-        </div>
 
-        <!-- EkoFlo -->
-        <div class="product-line" style="background: var(--slate);">
-            <div class="product-line-header">
-                <h3 class="product-line-title">EkoFlo® Pebble Binder</h3>
-                <p class="product-line-tagline">Permeable solutions for sustainable water management</p>
+            <div class="team-member">
+                <div class="team-member-photo">KC</div>
+                <h3 class="team-member-name">Kevin Cuny</h3>
+                <p class="team-member-role">Executive Sales Rep</p>
             </div>
-            <div class="assets-grid">
-                <div class="asset-card">
-                    <div class="asset-type">Instagram Post</div>
-                    <h4 class="asset-title">Sustainability Spotlight</h4>
-                    <p class="asset-description">Beautiful AND eco-friendly? Yes! EkoFlo Pebble Binder creates stunning permeable surfaces that help manage stormwater naturally. #SustainableLandscaping #EcoFriendly</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Text</button>
-                        <button class="btn-small">Download Image</button>
-                    </div>
-                </div>
 
-                <div class="asset-card">
-                    <div class="asset-type">Email Campaign</div>
-                    <h4 class="asset-title">Water-Smart Solutions</h4>
-                    <p class="asset-description">Subject: Meet Permeable Paving Requirements | Email template for architects and municipal projects requiring sustainable drainage.</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Template</button>
-                    </div>
-                </div>
-
-                <div class="asset-card">
-                    <div class="asset-type">Facebook Post</div>
-                    <h4 class="asset-title">Drought-Tolerant Landscaping</h4>
-                    <p class="asset-description">Create water-wise landscapes that are as beautiful as they are sustainable. EkoFlo helps you achieve both. #WaterWise #Xeriscape</p>
-                    <div class="asset-actions">
-                        <button class="btn-small">Copy Text</button>
-                        <button class="btn-small">Download Image</button>
-                    </div>
-                </div>
+            <div class="team-member">
+                <div class="team-member-photo">AL</div>
+                <h3 class="team-member-name">Angela Logue</h3>
+                <p class="team-member-role">Sales Rep</p>
             </div>
         </div>
     </section>
 
-    <!-- Image Gallery -->
-    <section id="gallery">
+    <!-- Timeline -->
+    <section class="timeline" id="timeline">
         <div class="section-header">
-            <div class="section-label">Visual Assets</div>
-            <h2 class="section-title">Image Gallery</h2>
-            <p class="section-description">High-resolution photography for all your marketing needs.</p>
+            <div class="section-label" style="color: var(--bright-green);">Company Growth</div>
+            <h2 class="section-title" style="color: var(--white);">Our Journey</h2>
+            <p class="section-description" style="color: rgba(255,255,255,0.8);">As Technisoil journeyed through the years, it morphed and adapted, staying true to its roots in the landscape industry while remaining a vanguard of sustainable design and innovation.</p>
         </div>
 
-        <div class="image-gallery">
-            <div class="gallery-item">🏡</div>
-            <div class="gallery-item">🌿</div>
-            <div class="gallery-item">🏞️</div>
-            <div class="gallery-item">🌵</div>
-            <div class="gallery-item">🏘️</div>
-            <div class="gallery-item">🌳</div>
-        </div>
-    </section>
-
-    <!-- Media Library -->
-    <section id="media">
-        <div class="section-header">
-            <div class="section-label">Downloads</div>
-            <h2 class="section-title">Media Library</h2>
-            <p class="section-description">Logos, brand assets, and essential files.</p>
-        </div>
-
-        <div class="media-categories">
-            <div class="media-category">
-                <span class="media-category-icon">📋</span>
-                <h3 class="media-category-title">Logo Package</h3>
-                <p class="media-category-count">12 files • SVG, PNG, EPS</p>
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <div class="timeline-year">2011</div>
+                <div class="timeline-content">
+                    <p>In a humble metal building with no restroom, Technisoil sprouted, fueled by a single employee's passion. Pathway Stabilizer® emerged, and we set sail in California.</p>
+                </div>
             </div>
 
-            <div class="media-category">
-                <span class="media-category-icon">🎨</span>
-                <h3 class="media-category-title">Brand Guidelines</h3>
-                <p class="media-category-count">1 PDF • 24 pages</p>
+            <div class="timeline-item">
+                <div class="timeline-year">2012</div>
+                <div class="timeline-content">
+                    <p>The NanoPave® launch stirred the market, garnering a warm reception. Another team member joined the fold.</p>
+                </div>
             </div>
 
-            <div class="media-category">
-                <span class="media-category-icon">📊</span>
-                <h3 class="media-category-title">Product Brochures</h3>
-                <p class="media-category-count">9 files • PDF</p>
+            <div class="timeline-item">
+                <div class="timeline-year">2014</div>
+                <div class="timeline-content">
+                    <p>Innovation blossomed as Ekoflo® came into being and took flight. This major triumph propelled the company's ongoing growth.</p>
+                </div>
             </div>
 
-            <div class="media-category">
-                <span class="media-category-icon">🎬</span>
-                <h3 class="media-category-title">Video Files</h3>
-                <p class="media-category-count">30+ videos • MP4</p>
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <div class="timeline-content">
+                    <p>Technisoil found a new abode, complete with a restroom. Barkbinder® soon followed, making its grand debut.</p>
+                </div>
             </div>
 
-            <div class="media-category">
-                <span class="media-category-icon">📸</span>
-                <h3 class="media-category-title">Photo Library</h3>
-                <p class="media-category-count">200+ images • High-res</p>
-            </div>
-
-            <div class="media-category">
-                <span class="media-category-icon">📱</span>
-                <h3 class="media-category-title">Social Templates</h3>
-                <p class="media-category-count">50+ templates • PSD, Canva</p>
+            <div class="timeline-item">
+                <div class="timeline-year">2017</div>
+                <div class="timeline-content">
+                    <p>The innovative Molecule™ series of sealers took shape as they were meticulously developed, rigorously tested, and ultimately introduced to the market with great anticipation.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Social Media Modal -->
+    <div class="modal" id="modal-social">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">×</button>
+                <h2 class="modal-title">Social Media Templates</h2>
+                <p class="modal-subtitle">Copy-paste ready content for your social channels</p>
+            </div>
+            <div class="modal-body">
+                <div class="content-item">
+                    <div class="content-label">Instagram Post</div>
+                    <h3 class="content-title">G3 Pathway Transformation</h3>
+                    <p class="content-text">Transform your outdoor spaces with G3 Pathway Stabilizer! Create beautiful, permeable pathways that blend seamlessly with nature. DIY-friendly and eco-conscious. 🌿✨<br><br>#TechniSoil #NaturalPathways #SustainableLandscaping #DIYLandscape #EcoFriendly</p>
+                    <div class="content-actions">
+                        <button class="btn-copy" data-copy="Transform your outdoor spaces with G3 Pathway Stabilizer! Create beautiful, permeable pathways that blend seamlessly with nature. DIY-friendly and eco-conscious. 🌿✨
+
+#TechniSoil #NaturalPathways #SustainableLandscaping #DIYLandscape #EcoFriendly">Copy Text</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">Facebook Post</div>
+                    <h3 class="content-title">Water-Smart Xeriscaping</h3>
+                    <p class="content-text">Looking to create a water-smart xeriscape? TechniSoil's ground cover stabilizers keep decorative rocks and gravel in place while maintaining natural drainage. Perfect for drought-tolerant landscapes! 🌵<br><br>#TechniSoil #Xeriscape #WaterWise #DroughtTolerant</p>
+                    <div class="content-actions">
+                        <button class="btn-copy" data-copy="Looking to create a water-smart xeriscape? TechniSoil's ground cover stabilizers keep decorative rocks and gravel in place while maintaining natural drainage. Perfect for drought-tolerant landscapes! 🌵
+
+#TechniSoil #Xeriscape #WaterWise #DroughtTolerant">Copy Text</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">LinkedIn Post</div>
+                    <h3 class="content-title">Made in USA</h3>
+                    <p class="content-text">Proudly made in the USA since 2006, TechniSoil continues to innovate in sustainable landscape solutions. Our products have stabilized over 50 million square feet across all 50 states. Join us in building better outdoor spaces. 🇺🇸<br><br>#TechniSoil #MadeInUSA #Innovation #SustainableDesign</p>
+                    <div class="content-actions">
+                        <button class="btn-copy" data-copy="Proudly made in the USA since 2006, TechniSoil continues to innovate in sustainable landscape solutions. Our products have stabilized over 50 million square feet across all 50 states. Join us in building better outdoor spaces. 🇺🇸
+
+#TechniSoil #MadeInUSA #Innovation #SustainableDesign">Copy Text</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Templates Modal -->
+    <div class="modal" id="modal-email">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">×</button>
+                <h2 class="modal-title">Email Templates</h2>
+                <p class="modal-subtitle">Pre-written campaigns ready to send</p>
+            </div>
+            <div class="modal-body">
+                <div class="content-item">
+                    <div class="content-label">Product Introduction</div>
+                    <h3 class="content-title">Subject: Create Beautiful Pathways in One Weekend</h3>
+                    <p class="content-text">Hi [Name],<br><br>Ready to transform your outdoor space? G3 Pathway Stabilizer makes creating beautiful, natural-looking pathways easier than ever.<br><br>✓ DIY-friendly application<br>✓ Permeable & eco-friendly<br>✓ Professional results<br><br>Our customers complete most pathway projects in a single weekend. Let me show you how easy it is.<br><br>Best regards,<br>[Your Name]</p>
+                    <div class="content-actions">
+                        <button class="btn-copy" data-copy="Subject: Create Beautiful Pathways in One Weekend
+
+Hi [Name],
+
+Ready to transform your outdoor space? G3 Pathway Stabilizer makes creating beautiful, natural-looking pathways easier than ever.
+
+✓ DIY-friendly application
+✓ Permeable & eco-friendly
+✓ Professional results
+
+Our customers complete most pathway projects in a single weekend. Let me show you how easy it is.
+
+Best regards,
+[Your Name]">Copy Template</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">Contractor Outreach</div>
+                    <h3 class="content-title">Subject: Professional Hardscape Solutions</h3>
+                    <p class="content-text">Hi [Name],<br><br>As a landscape professional, you know the importance of delivering lasting results. NanoPave JSS provides the protection your hardscape projects deserve.<br><br>Benefits for your business:<br>• Quick application saves time<br>• Long-lasting results keep customers happy<br>• Competitive pricing improves your margins<br><br>Let's discuss how NanoPave can elevate your next project.<br><br>[Your Name]</p>
+                    <div class="content-actions">
+                        <button class="btn-copy" data-copy="Subject: Professional Hardscape Solutions
+
+Hi [Name],
+
+As a landscape professional, you know the importance of delivering lasting results. NanoPave JSS provides the protection your hardscape projects deserve.
+
+Benefits for your business:
+• Quick application saves time
+• Long-lasting results keep customers happy
+• Competitive pricing improves your margins
+
+Let's discuss how NanoPave can elevate your next project.
+
+[Your Name]">Copy Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Docs Modal -->
+    <div class="modal" id="modal-product-docs">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">×</button>
+                <h2 class="modal-title">Product Documentation</h2>
+                <p class="modal-subtitle">Technical resources and installation guides</p>
+            </div>
+            <div class="modal-body">
+                <div class="content-item">
+                    <div class="content-label">G3 Pathway Stabilizer</div>
+                    <h3 class="content-title">Complete Documentation Set</h3>
+                    <p class="content-text">Product brochure, safety data sheet, installation guide, and technical specifications.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download Brochure</button>
+                        <button class="btn-copy">Download SDS</button>
+                        <button class="btn-copy">Installation Guide</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">NanoPave JSS</div>
+                    <h3 class="content-title">Complete Documentation Set</h3>
+                    <p class="content-text">Product brochure, safety data sheet, installation guide, and technical specifications.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download Brochure</button>
+                        <button class="btn-copy">Download SDS</button>
+                        <button class="btn-copy">Installation Guide</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">EkoFlo Pebble Binder</div>
+                    <h3 class="content-title">Complete Documentation Set</h3>
+                    <p class="content-text">Product brochure, safety data sheet, installation guide, and technical specifications.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download Brochure</button>
+                        <button class="btn-copy">Download SDS</button>
+                        <button class="btn-copy">Installation Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Guidelines Modal -->
+    <div class="modal" id="modal-brand">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">×</button>
+                <h2 class="modal-title">Brand Guidelines</h2>
+                <p class="modal-subtitle">Logo files and brand standards</p>
+            </div>
+            <div class="modal-body">
+                <div class="content-item">
+                    <div class="content-label">Logo Package</div>
+                    <h3 class="content-title">TechniSoil Brand Logos</h3>
+                    <p class="content-text">Complete logo package including SVG, PNG, and EPS formats in full color, white, and black variations.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download Logo Package</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">Brand Colors</div>
+                    <h3 class="content-title">Official Color Palette</h3>
+                    <p class="content-text">Navy #112637 | Slate #343e4a | Gold #9b600f | Green #00845f</p>
+                    <div class="content-actions">
+                        <button class="btn-copy" data-copy="Navy #112637
+Slate #343e4a
+Gold #9b600f
+Green #00845f">Copy Color Codes</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">Typography</div>
+                    <h3 class="content-title">Brand Fonts</h3>
+                    <p class="content-text">Primary: Helvetica Neue (700, 600, 500, 400, 300)<br>Web fallback: Helvetica, Arial, sans-serif</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Modal -->
+    <div class="modal" id="modal-gallery">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">×</button>
+                <h2 class="modal-title">Image Gallery</h2>
+                <p class="modal-subtitle">High-resolution photography</p>
+            </div>
+            <div class="modal-body">
+                <div class="content-item">
+                    <div class="content-label">Product Photography</div>
+                    <h3 class="content-title">High-Resolution Product Images</h3>
+                    <p class="content-text">Professional product photography in various settings and applications. All images are 300 DPI and print-ready.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download All (ZIP)</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">Installation Photos</div>
+                    <h3 class="content-title">Before & After Galleries</h3>
+                    <p class="content-text">Real project transformations showing application process and final results.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download All (ZIP)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Library Modal -->
+    <div class="modal" id="modal-video">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">×</button>
+                <h2 class="modal-title">Video Library</h2>
+                <p class="modal-subtitle">Product demos and tutorials</p>
+            </div>
+            <div class="modal-body">
+                <div class="content-item">
+                    <div class="content-label">Installation Tutorials</div>
+                    <h3 class="content-title">Step-by-Step Application Videos</h3>
+                    <p class="content-text">Comprehensive installation tutorials for all TechniSoil products. Perfect for training or customer education.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">View G3 Tutorial</button>
+                        <button class="btn-copy">View NanoPave Tutorial</button>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-label">Product Demos</div>
+                    <h3 class="content-title">Product Feature Demonstrations</h3>
+                    <p class="content-text">Short-form videos highlighting key product features and benefits.</p>
+                    <div class="content-actions">
+                        <button class="btn-copy">Download All Videos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>© 2026 TechniSoil Global Inc. | Brand House for Authorized Dealers & Partners</p>
     </footer>
+
+    <script>
+        // Modal functionality
+        const resourceCards = document.querySelectorAll('[data-modal]');
+        const modals = document.querySelectorAll('.modal');
+        const modalCloses = document.querySelectorAll('.modal-close');
+
+        // Open modal on card click
+        resourceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const modalId = 'modal-' + card.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal on close button
+        modalCloses.forEach(closeBtn => {
+            closeBtn.addEventListener('click', () => {
+                closeBtn.closest('.modal').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close modal on background click
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    if (modal.classList.contains('active')) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+
+        // Copy to clipboard functionality
+        const copyButtons = document.querySelectorAll('.btn-copy[data-copy]');
+        
+        copyButtons.forEach(button => {
+            button.addEventListener('click', async () => {
+                const textToCopy = button.getAttribute('data-copy');
+                
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    
+                    // Visual feedback
+                    const originalText = button.textContent;
+                    button.textContent = '✓ Copied!';
+                    button.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                    alert('Failed to copy to clipboard');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
