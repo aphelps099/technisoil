@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechniSoil Brand House — Dealer Toolkit</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -24,14 +29,54 @@
 
         html {
             scroll-behavior: smooth;
+            cursor: none;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Space Mono', monospace;
             color: var(--navy);
             background: var(--white);
-            line-height: 1.4;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: var(--electric);
+            border-color: var(--electric);
+        }
+
+        /* Typography System */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Hero - Bold Asymmetric */
@@ -44,6 +89,22 @@
             overflow: hidden;
         }
 
+        .hero::before {
+            content: 'BRAND HOUSE';
+            position: absolute;
+            font-size: clamp(10rem, 20vw, 25rem);
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: rgba(255,255,255,0.03);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+            letter-spacing: -0.05em;
+        }
+
         .hero-left {
             padding: 140px 80px 80px;
             display: flex;
@@ -54,6 +115,7 @@
         }
 
         .hero-label {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.2em;
@@ -113,14 +175,30 @@
         }
 
         .btn {
+            font-family: 'Space Mono', monospace;
             padding: 20px 48px;
             font-size: 0.9375rem;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             letter-spacing: 0.02em;
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
         }
 
         .btn-primary {
@@ -129,9 +207,11 @@
         }
 
         .btn-primary:hover {
-            background: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--green);
+        }
+
+        .btn-primary:hover::after {
+            transform: translateY(0);
         }
 
         .btn-secondary {
@@ -140,9 +220,16 @@
             border: 2px solid var(--white);
         }
 
-        .btn-secondary:hover {
+        .btn-secondary::after {
             background: var(--white);
+        }
+
+        .btn-secondary:hover {
             color: var(--green);
+        }
+
+        .btn-secondary:hover::after {
+            transform: translateY(0);
         }
 
         .hero-right {
@@ -176,13 +263,35 @@
         .data-card {
             padding: 100px 80px;
             border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,255,136,0.05) 0%, transparent 50%);
+            transform: translateY(100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .data-card:hover::before {
+            transform: translateY(0);
         }
 
         .data-card:hover {
-            background: rgba(255,255,255,0.02);
             border-color: var(--electric);
+            transform: translateY(-8px);
+        }
+
+        .data-card:hover .data-card-meta {
+            transform: translateX(10px);
         }
 
         .data-card-icon {
@@ -205,11 +314,13 @@
         }
 
         .data-card-meta {
+            font-family: 'Space Mono', monospace;
             font-size: 0.875rem;
             font-weight: 700;
             color: var(--electric);
             letter-spacing: 0.1em;
             text-transform: uppercase;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Mission - Split Layout */
@@ -228,6 +339,7 @@
         }
 
         .mission-label {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.2em;
@@ -295,6 +407,7 @@
         }
 
         .team-label {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.2em;
@@ -354,6 +467,7 @@
         }
 
         .timeline-label {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.2em;
@@ -430,13 +544,14 @@
             font-size: 1.5rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 10000;
+            font-family: 'Space Mono', monospace;
         }
 
         .modal-close:hover {
             background: var(--electric);
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
         }
 
         .modal-header {
@@ -477,6 +592,7 @@
         }
 
         .content-tag {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.15em;
@@ -506,6 +622,7 @@
         }
 
         .btn-copy {
+            font-family: 'Space Mono', monospace;
             padding: 16px 32px;
             background: var(--electric);
             color: var(--black);
@@ -513,13 +630,31 @@
             font-size: 0.875rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-copy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .btn-copy:hover::before {
+            transform: translateY(0);
         }
 
         .btn-copy:hover {
-            background: var(--white);
-            transform: translateY(-2px);
+            color: var(--black);
         }
 
         .btn-copy.copied {
@@ -535,6 +670,7 @@
             color: rgba(255,255,255,0.5);
             font-size: 0.875rem;
             letter-spacing: 0.05em;
+            font-family: 'Space Mono', monospace;
         }
 
         /* Responsive */
@@ -623,42 +759,42 @@
     <!-- Data Hub -->
     <section class="data-hub" id="data">
         <div class="data-grid">
-            <div class="data-card" data-modal="social">
+            <div class="data-card reveal" data-modal="social">
                 <div class="data-card-icon">📱</div>
                 <h3 class="data-card-title">Social Media</h3>
                 <p class="data-card-desc">Copy-paste Instagram, Facebook & LinkedIn posts. Hashtags included.</p>
                 <div class="data-card-meta">Open Templates →</div>
             </div>
 
-            <div class="data-card" data-modal="email">
+            <div class="data-card reveal" data-modal="email">
                 <div class="data-card-icon">✉️</div>
                 <h3 class="data-card-title">Email Campaigns</h3>
                 <p class="data-card-desc">Pre-written sales emails. Product intros. Follow-ups.</p>
                 <div class="data-card-meta">Open Templates →</div>
             </div>
 
-            <div class="data-card" data-modal="brand">
+            <div class="data-card reveal" data-modal="brand">
                 <div class="data-card-icon">🎨</div>
                 <h3 class="data-card-title">Brand Assets</h3>
                 <p class="data-card-desc">Logos, colors, typography. Everything you need.</p>
                 <div class="data-card-meta">Download Files →</div>
             </div>
 
-            <div class="data-card" data-modal="docs">
+            <div class="data-card reveal" data-modal="docs">
                 <div class="data-card-icon">📄</div>
                 <h3 class="data-card-title">Product Docs</h3>
                 <p class="data-card-desc">Tech specs, SDS, installation guides for all products.</p>
                 <div class="data-card-meta">View Documentation →</div>
             </div>
 
-            <div class="data-card" data-modal="gallery">
+            <div class="data-card reveal" data-modal="gallery">
                 <div class="data-card-icon">📸</div>
                 <h3 class="data-card-title">Image Library</h3>
                 <p class="data-card-desc">High-res product photos. Before & afters. Lifestyle shots.</p>
                 <div class="data-card-meta">Browse Gallery →</div>
             </div>
 
-            <div class="data-card" data-modal="video">
+            <div class="data-card reveal" data-modal="video">
                 <div class="data-card-icon">🎬</div>
                 <h3 class="data-card-title">Video Content</h3>
                 <p class="data-card-desc">Installation tutorials. Product demos. Testimonials.</p>
@@ -669,13 +805,13 @@
 
     <!-- Mission -->
     <section class="mission">
-        <div class="mission-text">
+        <div class="mission-text reveal">
             <div class="mission-label">Our Mission</div>
             <h2 class="mission-title">GREEN IS MORE THAN A BUZZWORD</h2>
             <p class="mission-copy">At TechniSoil, green is our guiding principle. Our greatest assets are our people and the environment.</p>
             <p class="mission-copy">United by a passion for environmental sustainability and innovation, our team is dedicated to advancing industry standards in modern landscape design.</p>
         </div>
-        <div class="mission-visual">
+        <div class="mission-visual reveal">
             <div class="mission-stat-grid">
                 <div class="mission-stat">
                     <div class="mission-stat-num">2006</div>
@@ -695,7 +831,7 @@
 
     <!-- Team -->
     <section class="team" id="team">
-        <div class="team-header">
+        <div class="team-header reveal">
             <div class="team-label">Our People</div>
             <h2 class="team-title">SMALL BUSINESS, BIG IMPACT</h2>
             <p class="team-desc">A tight-knit team with ambitious goals. We're weekend warriors, but our nine-to-fives are spent supplying the landscaping scene with sustainable, high-impact products.</p>
@@ -731,7 +867,7 @@
 
     <!-- Timeline -->
     <section class="timeline">
-        <div class="timeline-header">
+        <div class="timeline-header reveal">
             <div class="timeline-label">Company Growth</div>
             <h2 class="timeline-title">OUR JOURNEY</h2>
         </div>
@@ -995,6 +1131,56 @@ Electric #00ff88">Copy Colors</button>
     </footer>
 
     <script>
+        // Custom Cursor
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            const speed = 0.15;
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, .data-card, [data-modal]');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
         // Modal System
         const cards = document.querySelectorAll('[data-modal]');
         const modals = document.querySelectorAll('.modal');
