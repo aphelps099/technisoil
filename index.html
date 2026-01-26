@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         /* CSS Custom Properties - Color System */
@@ -35,7 +35,7 @@
             --amber: #c17d10;
 
             /* Typography */
-            --font-display: 'Outfit', sans-serif;
+            --font-display: 'Montserrat', sans-serif;
             --font-mono: 'Space Mono', monospace;
 
             /* Spacing */
@@ -1285,6 +1285,202 @@
         .support-docs-card .cta-button:hover {
             background: var(--amber);
         }
+
+        /* Social Media Posts Grid in Modal */
+        .social-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .social-post {
+            background: var(--warm-white);
+            border-radius: 8px;
+            padding: 24px;
+            border: 2px solid var(--light-gray);
+            transition: var(--transition-smooth);
+        }
+
+        .social-post:hover {
+            border-color: var(--forest-green);
+            box-shadow: 0 4px 16px rgba(0, 132, 95, 0.1);
+        }
+
+        .social-post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .social-post-platform {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--forest-green);
+            background: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .social-post-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--forest-green-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 3rem;
+        }
+
+        .social-post-content {
+            margin-bottom: 16px;
+        }
+
+        .social-post-text {
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .social-post-hashtags {
+            color: var(--forest-green);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .social-post-actions {
+            display: flex;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .social-post-btn {
+            flex: 1;
+            padding: 10px 20px;
+            background: var(--forest-green);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .social-post-btn:hover {
+            background: var(--forest-green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Newsletter Cards in Modal */
+        .newsletter-items-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .newsletter-item {
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-item:hover {
+            border-color: var(--forest-green);
+            box-shadow: 0 8px 24px rgba(0, 132, 95, 0.1);
+        }
+
+        .newsletter-item-header {
+            background: var(--forest-green);
+            color: white;
+            padding: 24px;
+        }
+
+        .newsletter-item-date {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-item-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-item-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .newsletter-item-body {
+            padding: 24px;
+        }
+
+        .newsletter-item-excerpt {
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-item-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-topic {
+            padding: 6px 12px;
+            background: var(--warm-white);
+            color: var(--forest-green);
+            font-size: 0.85rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .newsletter-item-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter-btn {
+            padding: 12px 24px;
+            background: var(--forest-green);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-btn:hover {
+            background: var(--forest-green-dark);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-btn.secondary {
+            background: white;
+            color: var(--forest-green);
+            border: 2px solid var(--forest-green);
+        }
+
+        .newsletter-btn.secondary:hover {
+            background: var(--warm-white);
+        }
     </style>
 </head>
 <body>
@@ -1692,50 +1888,12 @@
                 <p class="section-description">Pre-designed social media templates for dealers, partners, and brand advocates. Download and share.</p>
             </div>
 
-            <div class="social-grid">
-                <div class="social-card">
-                    <div class="social-preview">📸</div>
-                    <div class="social-info">
-                        <p class="social-platform">Instagram Post</p>
-                        <h4 class="social-title">Product Showcase Template</h4>
-                        <p class="hashtags">#TechniSoil #NaturalPathways #SustainableLandscaping</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="support-docs-card" id="socialMediaCard">
+                    <h3>📱 Social Media Post Templates</h3>
+                    <p>Ready-to-use social media content for Instagram, Facebook, LinkedIn and more. Share TechniSoil's story with your audience.</p>
+                    <span class="cta-button">View All Templates</span>
                 </div>
-
-                <div class="social-card">
-                    <div class="social-preview">📱</div>
-                    <div class="social-info">
-                        <p class="social-platform">Instagram Story</p>
-                        <h4 class="social-title">Before & After Template</h4>
-                        <p class="hashtags">#TechniSoil #LandscapeTransformation</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-preview">💼</div>
-                    <div class="social-info">
-                        <p class="social-platform">LinkedIn Banner</p>
-                        <h4 class="social-title">Professional Header</h4>
-                        <p class="hashtags">#Innovation #SustainableDesign</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-preview">👍</div>
-                    <div class="social-info">
-                        <p class="social-platform">Facebook Cover</p>
-                        <h4 class="social-title">Dealer Cover Photo</h4>
-                        <p class="hashtags">#TechniSoil #MadeInUSA</p>
-                        <a href="#" class="download-kit">Download</a>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 48px;">
-                <a href="#" class="cta-button">Download Complete Kit</a>
             </div>
         </div>
     </section>
@@ -1752,6 +1910,12 @@
                     <input type="email" class="newsletter-input" placeholder="Enter your email" required>
                     <button type="submit" class="newsletter-submit">Subscribe</button>
                 </form>
+
+                <div style="margin-top: 32px;">
+                    <button id="viewNewslettersBtn" style="background: rgba(255, 255, 255, 0.2); color: white; border: 2px solid rgba(255, 255, 255, 0.4); padding: 12px 32px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: var(--font-display); font-size: 1rem;">
+                        📰 View Past Newsletters
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -1824,6 +1988,199 @@
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+    <!-- Social Media Posts Modal -->
+    <div class="modal" id="socialMediaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Social Media Templates</h2>
+                <p>Ready-to-use content for your social media channels</p>
+                <button class="modal-close" id="socialMediaModalClose" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="social-posts-grid">
+                    <!-- Instagram Post 1 -->
+                    <div class="social-post">
+                        <div class="social-post-header">
+                            <span class="social-post-platform">Instagram Post</span>
+                        </div>
+                        <div class="social-post-image">🌿</div>
+                        <div class="social-post-content">
+                            <p class="social-post-text">Transform your outdoor spaces with G3 Pathway Stabilizer! Create beautiful, permeable pathways that blend seamlessly with nature. DIY-friendly and eco-conscious. 🏡✨</p>
+                            <p class="social-post-hashtags">#TechniSoil #NaturalPathways #SustainableLandscaping #DIYLandscape #EcoFriendly #PathwayDesign</p>
+                        </div>
+                        <div class="social-post-actions">
+                            <a href="#" class="social-post-btn">Download Image</a>
+                            <a href="#" class="social-post-btn">Copy Text</a>
+                        </div>
+                    </div>
+
+                    <!-- Facebook Post -->
+                    <div class="social-post">
+                        <div class="social-post-header">
+                            <span class="social-post-platform">Facebook Post</span>
+                        </div>
+                        <div class="social-post-image">🏞️</div>
+                        <div class="social-post-content">
+                            <p class="social-post-text">Looking to create a water-smart xeriscape? TechniSoil's ground cover stabilizers keep decorative rocks and gravel in place while maintaining natural drainage. Perfect for drought-tolerant landscapes! 🌵</p>
+                            <p class="social-post-hashtags">#TechniSoil #Xeriscape #WaterWise #DroughtTolerant #LandscapeDesign</p>
+                        </div>
+                        <div class="social-post-actions">
+                            <a href="#" class="social-post-btn">Download Image</a>
+                            <a href="#" class="social-post-btn">Copy Text</a>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post -->
+                    <div class="social-post">
+                        <div class="social-post-header">
+                            <span class="social-post-platform">LinkedIn</span>
+                        </div>
+                        <div class="social-post-image">💼</div>
+                        <div class="social-post-content">
+                            <p class="social-post-text">Proudly made in the USA since 2006, TechniSoil continues to innovate in sustainable landscape solutions. Our products have stabilized over 50 million square feet across all 50 states. Join us in building better outdoor spaces. 🇺🇸</p>
+                            <p class="social-post-hashtags">#TechniSoil #MadeInUSA #Innovation #SustainableDesign #CommercialLandscaping</p>
+                        </div>
+                        <div class="social-post-actions">
+                            <a href="#" class="social-post-btn">Download Image</a>
+                            <a href="#" class="social-post-btn">Copy Text</a>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Story -->
+                    <div class="social-post">
+                        <div class="social-post-header">
+                            <span class="social-post-platform">Instagram Story</span>
+                        </div>
+                        <div class="social-post-image">📱</div>
+                        <div class="social-post-content">
+                            <p class="social-post-text">Before & After Alert! 🎯 Watch this driveway transformation with G3 Commercial Surface. Swipe to see the stunning results. DM us your project photos!</p>
+                            <p class="social-post-hashtags">#TechniSoil #BeforeAndAfter #LandscapeTransformation #DIY</p>
+                        </div>
+                        <div class="social-post-actions">
+                            <a href="#" class="social-post-btn">Download Template</a>
+                            <a href="#" class="social-post-btn">Copy Text</a>
+                        </div>
+                    </div>
+
+                    <!-- Twitter/X Post -->
+                    <div class="social-post">
+                        <div class="social-post-header">
+                            <span class="social-post-platform">Twitter / X</span>
+                        </div>
+                        <div class="social-post-image">🐦</div>
+                        <div class="social-post-content">
+                            <p class="social-post-text">Stop erosion. Start beautifying. 🌿 TechniSoil's pathway stabilizers work with nature, not against it. Permeable, durable, and DIY-friendly. Learn more → [link]</p>
+                            <p class="social-post-hashtags">#TechniSoil #EcoFriendly #Landscaping</p>
+                        </div>
+                        <div class="social-post-actions">
+                            <a href="#" class="social-post-btn">Download Image</a>
+                            <a href="#" class="social-post-btn">Copy Text</a>
+                        </div>
+                    </div>
+
+                    <!-- Pinterest Pin -->
+                    <div class="social-post">
+                        <div class="social-post-header">
+                            <span class="social-post-platform">Pinterest</span>
+                        </div>
+                        <div class="social-post-image">📌</div>
+                        <div class="social-post-content">
+                            <p class="social-post-text">15 Beautiful Pathway Ideas Using Decomposed Granite | Create stunning, low-maintenance garden paths with TechniSoil stabilizers. Perfect for modern landscapes! Pin for later 💡</p>
+                            <p class="social-post-hashtags">#PathwayIdeas #GardenDesign #Landscaping #DIYProjects</p>
+                        </div>
+                        <div class="social-post-actions">
+                            <a href="#" class="social-post-btn">Download Pin</a>
+                            <a href="#" class="social-post-btn">Copy Text</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletters Modal -->
+    <div class="modal" id="newslettersModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Past Newsletters</h2>
+                <p>Inspiration and insights from the TechniSoil team</p>
+                <button class="modal-close" id="newslettersModalClose" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="newsletter-items-grid">
+                    <!-- Newsletter 1 -->
+                    <div class="newsletter-item">
+                        <div class="newsletter-item-header">
+                            <div class="newsletter-item-date">January 2026</div>
+                            <h3 class="newsletter-item-title">New Year, New Landscapes</h3>
+                            <p class="newsletter-item-subtitle">Trending design ideas and winter project planning</p>
+                        </div>
+                        <div class="newsletter-item-body">
+                            <p class="newsletter-item-excerpt">
+                                Start 2026 with fresh landscape inspiration! This month we explore top design trends for xeriscaping, share winter preparation tips, and introduce our expanded color range for decomposed granite pathways. Plus, meet a landscape architect who's transformed 50+ commercial properties with TechniSoil products.
+                            </p>
+                            <div class="newsletter-item-topics">
+                                <span class="newsletter-topic">Design Trends</span>
+                                <span class="newsletter-topic">Winter Tips</span>
+                                <span class="newsletter-topic">Case Study</span>
+                            </div>
+                            <div class="newsletter-item-actions">
+                                <a href="#" class="newsletter-btn">Read Newsletter</a>
+                                <a href="#" class="newsletter-btn secondary">Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter 2 -->
+                    <div class="newsletter-item">
+                        <div class="newsletter-item-header">
+                            <div class="newsletter-item-date">December 2025</div>
+                            <h3 class="newsletter-item-title">Year in Review: 2025 Highlights</h3>
+                            <p class="newsletter-item-subtitle">Celebrating innovation and customer success stories</p>
+                        </div>
+                        <div class="newsletter-item-body">
+                            <p class="newsletter-item-excerpt">
+                                What a year! From launching SandPave Pro to reaching 10,000 completed projects, 2025 was transformative. Read about our favorite customer installations, learn about new sustainability initiatives, and get a sneak peek at what's coming in 2026. Thank you for being part of the TechniSoil community!
+                            </p>
+                            <div class="newsletter-item-topics">
+                                <span class="newsletter-topic">Year in Review</span>
+                                <span class="newsletter-topic">Customer Stories</span>
+                                <span class="newsletter-topic">Product Launch</span>
+                            </div>
+                            <div class="newsletter-item-actions">
+                                <a href="#" class="newsletter-btn">Read Newsletter</a>
+                                <a href="#" class="newsletter-btn secondary">Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter 3 -->
+                    <div class="newsletter-item">
+                        <div class="newsletter-item-header">
+                            <div class="newsletter-item-date">November 2025</div>
+                            <h3 class="newsletter-item-title">Fall Hardscape Maintenance</h3>
+                            <p class="newsletter-item-subtitle">Preparing your outdoor spaces for winter</p>
+                        </div>
+                        <div class="newsletter-item-body">
+                            <p class="newsletter-item-excerpt">
+                                Fall is the perfect time for hardscape maintenance. Learn essential cleaning and sealing techniques, discover how to protect pavers from freeze-thaw damage, and find out which TechniSoil products work best for autumn applications. Includes a printable maintenance checklist!
+                            </p>
+                            <div class="newsletter-item-topics">
+                                <span class="newsletter-topic">Maintenance</span>
+                                <span class="newsletter-topic">Seasonal Tips</span>
+                                <span class="newsletter-topic">How-To Guide</span>
+                            </div>
+                            <div class="newsletter-item-actions">
+                                <a href="#" class="newsletter-btn">Read Newsletter</a>
+                                <a href="#" class="newsletter-btn secondary">Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Support Documentation Modal -->
     <div class="modal" id="supportDocsModal">
@@ -2023,6 +2380,21 @@
             observer.observe(el);
         });
 
+        // Add hover effect to view newsletters button
+        const newsBtn = document.getElementById('viewNewslettersBtn');
+        if (newsBtn) {
+            newsBtn.addEventListener('mouseenter', () => {
+                newsBtn.style.background = 'rgba(255, 255, 255, 0.3)';
+                newsBtn.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+                newsBtn.style.transform = 'translateY(-2px)';
+            });
+            newsBtn.addEventListener('mouseleave', () => {
+                newsBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+                newsBtn.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                newsBtn.style.transform = 'translateY(0)';
+            });
+        }
+
         // Newsletter form submission
         document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -2065,6 +2437,78 @@
             if (e.key === 'Escape' && supportDocsModal.classList.contains('active')) {
                 supportDocsModal.classList.remove('active');
                 document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Social Media Modal
+        const socialMediaModal = document.getElementById('socialMediaModal');
+        const socialMediaCard = document.getElementById('socialMediaCard');
+        const socialMediaModalClose = document.getElementById('socialMediaModalClose');
+
+        // Open social media modal
+        if (socialMediaCard) {
+            socialMediaCard.addEventListener('click', () => {
+                socialMediaModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        // Close social media modal
+        if (socialMediaModalClose) {
+            socialMediaModalClose.addEventListener('click', () => {
+                socialMediaModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close social media modal when clicking outside
+        socialMediaModal.addEventListener('click', (e) => {
+            if (e.target === socialMediaModal) {
+                socialMediaModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Newsletters Modal
+        const newslettersModal = document.getElementById('newslettersModal');
+        const viewNewslettersBtn = document.getElementById('viewNewslettersBtn');
+        const newslettersModalClose = document.getElementById('newslettersModalClose');
+
+        // Open newsletters modal
+        if (viewNewslettersBtn) {
+            viewNewslettersBtn.addEventListener('click', () => {
+                newslettersModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        // Close newsletters modal
+        if (newslettersModalClose) {
+            newslettersModalClose.addEventListener('click', () => {
+                newslettersModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close newsletters modal when clicking outside
+        newslettersModal.addEventListener('click', (e) => {
+            if (e.target === newslettersModal) {
+                newslettersModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Update Escape key handler to close any active modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (socialMediaModal.classList.contains('active')) {
+                    socialMediaModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                if (newslettersModal.classList.contains('active')) {
+                    newslettersModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             }
         });
 
