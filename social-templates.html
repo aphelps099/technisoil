@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -27,7 +27,7 @@
             --text-secondary: rgba(255, 255, 255, 0.6);
             --text-muted: rgba(255, 255, 255, 0.4);
 
-            --font-display: 'Playfair Display', serif;
+            --font-display: 'Inter', sans-serif;
             --font-mono: 'Space Mono', monospace;
         }
 
@@ -222,18 +222,18 @@
             padding: 40px;
             height: 100%;
             position: relative;
+            overflow: hidden;
         }
 
         .preview-product-launch::before {
-            content: 'TS';
+            content: '';
             position: absolute;
-            right: -10%;
-            bottom: -10%;
-            font-size: 15rem;
-            font-family: var(--font-display);
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.03);
-            line-height: 1;
+            inset: 0;
+            background-image: url('https://technisoil.com/wp-content/uploads/2023/03/2023G3path-1.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            z-index: 0;
         }
 
         .preview-product-launch .badge {
@@ -249,6 +249,8 @@
             margin-bottom: 24px;
             font-weight: 700;
             align-self: flex-start;
+            position: relative;
+            z-index: 2;
         }
 
         .preview-product-launch .headline {
@@ -256,24 +258,32 @@
             font-size: 2rem;
             font-weight: 900;
             line-height: 1.1;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             margin-bottom: 16px;
             text-transform: uppercase;
+            position: relative;
+            z-index: 2;
         }
 
         .preview-product-launch .subline {
             font-family: var(--font-mono);
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: auto;
+            position: relative;
+            z-index: 2;
+            line-height: 1.5;
         }
 
         .preview-product-launch .logo {
             margin-top: auto;
             font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 900;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            font-weight: 800;
+            opacity: 0.95;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 2;
         }
 
         /* POST TYPE 2: Installation Showcase */
@@ -294,12 +304,12 @@
         }
 
         .preview-installation .image-placeholder {
-            background: linear-gradient(135deg, var(--slate) 0%, var(--navy) 100%);
+            background-image: url('https://technisoil.com/wp-content/uploads/2023/03/slidegal2.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            opacity: 0.3;
         }
 
         .preview-installation .info-bar {
@@ -1125,12 +1135,12 @@
         }
 
         .preview-team-work .photo-area {
-            background: linear-gradient(135deg, var(--slate) 0%, var(--navy) 100%);
+            background-image: url('https://technisoil.com/wp-content/uploads/2023/03/EF-Backyard.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            opacity: 0.3;
         }
 
         .preview-team-work .info {
@@ -1343,7 +1353,7 @@
                 <div class="template-card">
                     <div class="template-preview">
                         <div class="preview-installation">
-                            <div class="image-placeholder">📸</div>
+                            <div class="image-placeholder"></div>
                             <div class="info-bar">
                                 <p class="badge">Project Complete</p>
                                 <h3 class="title">Residential Pathway</h3>
@@ -1755,7 +1765,7 @@ TechniSoil products are engineered for performance AND safety. Quality you can s
                 <div class="template-card">
                     <div class="template-preview">
                         <div class="preview-team-work">
-                            <div class="photo-area">👷</div>
+                            <div class="photo-area"></div>
                             <div class="info">
                                 <p class="badge">Our Team</p>
                                 <p class="caption">James providing expert installation support</p>
