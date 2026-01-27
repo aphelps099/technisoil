@@ -439,11 +439,11 @@
 
         .data-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
         }
 
         .data-card {
-            padding: 120px 100px;
+            padding: 80px 60px;
             border: 1px solid rgba(255,255,255,0.06);
             transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
@@ -517,7 +517,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 80px;
+            padding: 100px 80px;
             background: var(--white);
         }
 
@@ -568,7 +568,7 @@
                 radial-gradient(circle at 80% 10%, rgba(0,0,0,0.04) 1px, transparent 1px),
                 linear-gradient(135deg, var(--sand) 0%, var(--brown) 100%);
             background-size: 50px 50px, 80px 80px, 100px 100px, 100% 100%;
-            padding: 120px 80px;
+            padding: 100px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -603,16 +603,46 @@
         }
 
         .mission-visual {
-            background: var(--blue);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Cloudy_sky_%2826171935906%29.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--blue);
+            mix-blend-mode: multiply;
+            opacity: 0.85;
+            z-index: 1;
+        }
+
+        .mission-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74, 144, 164, 0.6) 0%, rgba(26, 58, 82, 0.8) 100%);
+            z-index: 2;
         }
 
         .mission-stat-grid {
             display: grid;
-            gap: 60px;
+            gap: 80px;
+            position: relative;
+            z-index: 3;
         }
 
         .mission-stat {
@@ -620,24 +650,25 @@
         }
 
         .mission-stat-num {
-            font-size: 4.5rem;
+            font-size: 5.5rem;
             font-weight: 200;
             color: var(--electric);
             line-height: 1;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
+            font-variant-numeric: tabular-nums;
         }
 
         .mission-stat-label {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.7);
-            font-weight: 300;
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
             letter-spacing: 0.02em;
         }
 
         /* Team - Minimal Cards */
         .team {
-            padding: 140px 80px;
+            padding: 100px 80px;
             background: var(--white);
         }
 
@@ -700,7 +731,7 @@
 
         /* Timeline - Horizontal Scroll */
         .timeline {
-            padding: 140px 0 140px 80px;
+            padding: 100px 0 100px 80px;
             background: var(--navy);
             color: var(--white);
             overflow-x: auto;
@@ -1057,7 +1088,7 @@
 
         /* Testimonials */
         .testimonials {
-            padding: 140px 80px;
+            padding: 100px 80px;
             background: var(--white);
         }
 
@@ -1126,7 +1157,7 @@
 
         /* Contact/Support */
         .support {
-            padding: 140px 80px;
+            padding: 100px 80px;
             background: var(--navy);
             color: var(--white);
         }
@@ -1358,7 +1389,11 @@
             }
 
             .data-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .data-card {
+                padding: 60px 40px;
             }
 
             .mission {
@@ -1440,6 +1475,14 @@
             .hero-stats {
                 grid-template-columns: 1fr;
                 gap: 32px;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-card {
+                padding: 60px 32px;
             }
 
             .team-grid {
@@ -1596,15 +1639,15 @@
         <div class="mission-visual reveal">
             <div class="mission-stat-grid">
                 <div class="mission-stat">
-                    <div class="mission-stat-num">2006</div>
+                    <div class="mission-stat-num" data-target="2006" data-suffix="">2006</div>
                     <div class="mission-stat-label">Founded in California</div>
                 </div>
                 <div class="mission-stat">
-                    <div class="mission-stat-num">50M+</div>
+                    <div class="mission-stat-num" data-target="50" data-suffix="M+">0</div>
                     <div class="mission-stat-label">Square Feet Stabilized</div>
                 </div>
                 <div class="mission-stat">
-                    <div class="mission-stat-num">10K+</div>
+                    <div class="mission-stat-num" data-target="10" data-suffix="K+">0</div>
                     <div class="mission-stat-label">Completed Projects</div>
                 </div>
             </div>
@@ -2675,6 +2718,41 @@ Electric #00ff88">Copy Colors</button>
 
         // Initialize language on page load
         setLanguage(currentLang);
+
+        // Number Counter Animation for Mission Stats
+        function animateCounter(element, target, suffix, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, 16);
+        }
+
+        // Observe mission stats for animation trigger
+        const missionStats = document.querySelectorAll('.mission-stat-num[data-target]');
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const suffix = entry.target.getAttribute('data-suffix');
+                    animateCounter(entry.target, target, suffix);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        missionStats.forEach(stat => statsObserver.observe(stat));
     </script>
 </body>
 </html>
