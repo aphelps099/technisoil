@@ -245,73 +245,74 @@
         }
 
         .hero-card {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 48px;
-            max-width: 520px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(201, 168, 106, 0.15);
+            padding: 40px;
+            max-width: 480px;
             position: relative;
             z-index: 10;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
         }
 
         .hero-label {
             font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.55);
-            margin-bottom: 24px;
+            color: var(--sand);
+            margin-bottom: 16px;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 7vw, 6rem);
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
             font-weight: 300;
-            line-height: 0.95;
-            letter-spacing: -0.02em;
+            line-height: 0.88;
+            letter-spacing: -0.025em;
             color: var(--white);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             text-transform: uppercase;
         }
 
         .hero-title span {
             display: block;
-            color: var(--electric);
+            color: var(--sand);
             font-weight: 300;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.15em;
         }
 
         .hero-desc {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             font-weight: 300;
-            color: rgba(255,255,255,0.75);
-            max-width: 420px;
-            margin-bottom: 40px;
-            line-height: 1.6;
-            letter-spacing: 0.01em;
+            color: rgba(255,255,255,0.7);
+            max-width: 400px;
+            margin-bottom: 28px;
+            line-height: 1.55;
+            letter-spacing: 0.015em;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin-bottom: 40px;
+            gap: 28px;
+            margin-bottom: 32px;
         }
 
         .hero-stat-num {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 200;
-            color: var(--electric);
+            color: var(--sand);
             line-height: 1;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: -0.02em;
         }
 
         .hero-stat-label {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 400;
-            color: rgba(255,255,255,0.65);
-            letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
@@ -320,64 +321,45 @@
             gap: 20px;
         }
 
-        .btn {
-            font-family: 'Zalando Sans', sans-serif;
-            padding: 18px 40px;
-            font-size: 0.8125rem;
-            font-weight: 500;
+        .btn-explore {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            padding: 20px 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            letter-spacing: 0.12em;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             cursor: pointer;
-            border: none;
+            border: 1px solid rgba(201, 168, 106, 0.4);
+            background: rgba(201, 168, 106, 0.08);
+            color: var(--sand);
             position: relative;
             overflow: hidden;
+            display: inline-block;
+            backdrop-filter: blur(10px);
         }
 
-        .btn::after {
+        .btn-explore::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
-            background: var(--white);
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.2), transparent);
+            transition: left 0.6s;
         }
 
-        .btn-primary {
-            background: var(--electric);
-            color: var(--black);
+        .btn-explore:hover::before {
+            left: 100%;
         }
 
-        .btn-primary:hover {
-            color: var(--green);
-        }
-
-        .btn-primary:hover::after {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-secondary::after {
-            background: var(--white);
-        }
-
-        .btn-secondary:hover {
-            color: var(--green);
-            border-color: var(--white);
-        }
-
-        .btn-secondary:hover::after {
-            transform: translateY(0);
+        .btn-explore:hover {
+            border-color: var(--sand);
+            background: rgba(201, 168, 106, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 168, 106, 0.2);
         }
 
         .hero-visual {
@@ -1718,8 +1700,7 @@
             </div>
 
             <div class="hero-cta">
-                <a href="#data" class="btn btn-primary" data-translate="hero-btn-1">Get Started</a>
-                <a href="#team" class="btn btn-secondary" data-translate="hero-btn-2">Our Team</a>
+                <button class="btn-explore" id="exploreBtn">EXPLORE</button>
             </div>
         </div>
     </section>
@@ -2923,6 +2904,17 @@ Electric #00ff88">Copy Colors</button>
 
         // Initialize language on page load
         setLanguage(currentLang);
+
+        // Explore Button Smooth Scroll
+        const exploreBtn = document.getElementById('exploreBtn');
+        if (exploreBtn) {
+            exploreBtn.addEventListener('click', () => {
+                const manifesto = document.querySelector('.manifesto');
+                if (manifesto) {
+                    manifesto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
 
         // Number Counter Animation for Mission Stats
         function animateCounter(element, target, suffix, duration = 2000) {
