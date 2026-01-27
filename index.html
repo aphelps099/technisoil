@@ -245,7 +245,7 @@
 
         /* Hero - Full Bleed with Floating Card */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -262,14 +262,14 @@
         }
 
         .hero-card {
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(201, 168, 106, 0.15);
-            padding: 48px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(60px) saturate(180%);
+            border: 1px solid rgba(201, 168, 106, 0.2);
+            padding: 56px;
             max-width: 640px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 1px rgba(201, 168, 106, 0.3) inset;
         }
 
         .hero-label {
@@ -405,7 +405,8 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            animation: heroFade 18s infinite;
+            animation: heroFade 21s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            will-change: opacity, transform;
         }
 
         .hero-slide:nth-child(1) {
@@ -415,27 +416,39 @@
 
         .hero-slide:nth-child(2) {
             background-image: url('http://technisoil.com/wp-content/uploads/2026/01/sustainable_garden_design_with_native_plants_ornamenta_754b135c-0685-4b37-9bbb-c336b1e4cc97.jpg');
-            animation-delay: 6s;
+            animation-delay: 7s;
         }
 
         .hero-slide:nth-child(3) {
             background-image: url('http://technisoil.com/wp-content/uploads/2023/11/winter-blog.jpg');
-            animation-delay: 12s;
+            animation-delay: 14s;
         }
 
         @keyframes heroFade {
             0% { opacity: 0; transform: scale(1); }
-            5% { opacity: 1; transform: scale(1); }
-            33.33% { opacity: 1; transform: scale(1.05); }
-            38.33% { opacity: 0; transform: scale(1.05); }
+            4.76% { opacity: 1; transform: scale(1); }
+            28.57% { opacity: 1; transform: scale(1.08); }
+            33.33% { opacity: 0; transform: scale(1.08); }
             100% { opacity: 0; transform: scale(1); }
         }
 
         /* Data Section - Creative Grid */
         .data-hub {
-            padding: 120px 80px;
+            padding: 160px 80px;
             background: var(--black);
             color: var(--white);
+            position: relative;
+        }
+
+        .data-hub::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 140px;
+            background: linear-gradient(to bottom, var(--navy), var(--black));
+            pointer-events: none;
         }
 
         .data-hub-header {
@@ -564,7 +577,19 @@
         /* How It Works - Architectural 3-Step Grid */
         .how-it-works {
             background: var(--navy);
-            padding: 100px 0 0 0;
+            padding: 160px 0 0 0;
+            position: relative;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+            pointer-events: none;
         }
 
         .how-header {
@@ -760,10 +785,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 140px 80px;
-            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80');
+            padding: 180px 80px;
+            background-image: url('http://technisoil.com/wp-content/uploads/2026/01/sustainable_garden_design_with_native_plants_ornamenta_754b135c-0685-4b37-9bbb-c336b1e4cc97.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             overflow: hidden;
         }
 
@@ -946,6 +972,18 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 80vh;
+            position: relative;
+        }
+
+        .mission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(201, 168, 106, 0.3), transparent);
         }
 
         .mission-text {
@@ -991,7 +1029,7 @@
         }
 
         .mission-visual {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Cloudy_sky_%2826171935906%29.jpg');
+            background-image: url('http://technisoil.com/wp-content/uploads/2026/01/large_rocks_wood_accents_and_concre_269dd34e-4d27-4fbb-82c3-320b6161438a.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -1056,77 +1094,101 @@
 
         /* Team - Minimal Cards */
         .team {
-            padding: 100px 80px;
-            background: var(--white);
+            padding: 120px 80px;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .team::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sand), transparent);
+            opacity: 0.3;
         }
 
         .team-header {
-            max-width: 800px;
-            margin-bottom: 100px;
+            max-width: 900px;
+            margin: 0 auto 80px auto;
+            text-align: center;
         }
 
         .team-label {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.6875rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.625rem;
             font-weight: 500;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 32px;
+            color: var(--sand);
+            margin-bottom: 24px;
         }
 
         .team-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 300;
-            line-height: 0.95;
-            letter-spacing: -0.015em;
-            margin-bottom: 40px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+            color: var(--navy);
         }
 
         .team-desc {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             font-weight: 300;
             color: var(--slate);
-            line-height: 1.8;
-            letter-spacing: 0.01em;
+            line-height: 1.7;
+            letter-spacing: 0.005em;
+            max-width: 700px;
+            margin: 0 auto 24px auto;
         }
 
         .team-journey {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             font-weight: 300;
             color: var(--brown);
-            line-height: 1.7;
-            margin-top: 32px;
-            padding: 32px;
-            background: linear-gradient(135deg, rgba(245,234,216,0.4), rgba(240,229,201,0.6));
-            border-left: 3px solid var(--sand);
-            font-style: italic;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 24px 0;
+            border-top: 1px solid rgba(201, 168, 106, 0.3);
+            border-bottom: 1px solid rgba(201, 168, 106, 0.3);
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .team-member {
-            border-top: 1px solid rgba(17,38,55,0.15);
-            padding-top: 28px;
+            text-align: center;
+            padding: 24px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-4px);
         }
 
         .team-name {
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
             color: var(--navy);
             letter-spacing: -0.01em;
         }
 
         .team-role {
-            font-size: 0.9375rem;
+            font-size: 0.8125rem;
             color: var(--slate);
             font-weight: 300;
             letter-spacing: 0.01em;
+            line-height: 1.4;
         }
 
         /* Timeline - Vertical Story Layout */
@@ -1531,10 +1593,23 @@
 
         /* Testimonials - Premium Layout */
         .testimonials {
-            padding: 140px 80px;
+            padding: 160px 80px;
             background: var(--white);
             max-width: 1600px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sand), transparent);
+            opacity: 0.3;
         }
 
         .testimonials-header {
@@ -1658,6 +1733,18 @@
             color: var(--white);
             display: flex;
             align-items: center;
+            position: relative;
+        }
+
+        .support::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 140px;
+            background: linear-gradient(to bottom, var(--cream), var(--navy));
+            pointer-events: none;
         }
 
         .support-inner {
@@ -1775,7 +1862,7 @@
         /* Request Access Form */
         .request-access {
             background: linear-gradient(135deg, var(--navy) 0%, #0a1628 100%);
-            padding: 120px 80px;
+            padding: 160px 80px;
             position: relative;
             overflow: hidden;
         }
@@ -1786,8 +1873,9 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--sand), transparent);
+            height: 120px;
+            background: linear-gradient(to bottom, var(--navy), #0a1628);
+            pointer-events: none;
         }
 
         .request-access-content {
