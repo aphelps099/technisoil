@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Library | TechniSoil Brand House</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Zalando+Sans:wght@300;400;500;600;700&family=Zalando+Sans+Expanded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Arizona/Aztec Base Palette */
+            --navy: #1a3a52;
+            --slate: #6b7280;
+            --sand: #c9a86a;
+            --brown: #8b6f47;
+            --terracotta: #c17855;
+
+            /* Rich Plant Green */
+            --forest: #4a6741;
+            --sage: #7a8a6f;
+
+            /* Teal/Turquoise Accents */
+            --teal: #2d7b7e;
+            --turquoise: #5fa5a5;
+
+            /* Sky Blues */
+            --sky: #9fb8c7;
+            --sky-light: #c5d8e3;
+
+            /* Creamy Corn */
+            --cream: #f5ead8;
+            --corn: #f0e5c9;
+
+            /* Base */
+            --white: #ffffff;
+            --black: #0d0d0d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Zalando Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--navy);
+            background: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 300;
+        }
+
+        /* Typography System */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 60px;
+            background: var(--black);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-brand {
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: letter-spacing 0.3s ease;
+        }
+
+        .nav-brand:hover {
+            letter-spacing: 0.25em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 14px 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .nav-link:hover {
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 60px 100px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Grey Grid Pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        /* Grain texture */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            border: 1px solid var(--sand);
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s ease 0.3s forwards;
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--sand);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: heroFadeUp 1s ease 0.5s forwards;
+        }
+
+        .hero h1 span {
+            color: var(--sand);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s ease 0.7s forwards;
+        }
+
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 60px 60px 40px;
+            background: var(--black);
+            position: relative;
+        }
+
+        .filter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .filter-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .filter-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--teal);
+        }
+
+        .stats-text {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .stats-text strong {
+            color: var(--sand);
+            font-weight: 600;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .filter-btn.active {
+            background: var(--sand);
+            border-color: var(--sand);
+            color: var(--black);
+        }
+
+        /* Featured Section */
+        .featured-section {
+            padding: 80px 60px;
+            background: var(--black);
+            position: relative;
+        }
+
+        .featured-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .featured-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .featured-card:hover {
+            border-color: var(--teal);
+        }
+
+        .featured-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            display: block;
+        }
+
+        .featured-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .featured-card:hover .featured-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13, 13, 13, 0);
+            transition: background 0.4s ease;
+        }
+
+        .featured-card:hover .play-overlay,
+        .video-card:hover .play-overlay {
+            background: rgba(13, 13, 13, 0.4);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--sand);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .featured-card:hover .play-button,
+        .video-card:hover .play-button {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .play-button svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--black);
+            margin-left: 4px;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: var(--black);
+            color: var(--white);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .featured-info {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-tag {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+            align-self: flex-start;
+        }
+
+        .video-tag.company { background: var(--sand); color: var(--black); }
+        .video-tag.trowelpave { background: rgba(193, 120, 85, 0.2); color: var(--terracotta); border: 1px solid var(--terracotta); }
+        .video-tag.molecule { background: rgba(74, 103, 65, 0.2); color: var(--sage); border: 1px solid var(--sage); }
+        .video-tag.nanopave { background: rgba(45, 123, 126, 0.2); color: var(--teal); border: 1px solid var(--teal); }
+        .video-tag.ekoflo { background: rgba(74, 103, 65, 0.2); color: var(--forest); border: 1px solid var(--forest); }
+        .video-tag.g3 { background: rgba(139, 111, 71, 0.2); color: var(--brown); border: 1px solid var(--brown); }
+        .video-tag.barkbinder { background: rgba(139, 111, 71, 0.2); color: var(--brown); border: 1px solid var(--brown); }
+        .video-tag.dustcube { background: rgba(107, 114, 128, 0.2); color: var(--slate); border: 1px solid var(--slate); }
+        .video-tag.ground-cover { background: rgba(74, 103, 65, 0.2); color: var(--sage); border: 1px solid var(--sage); }
+        .video-tag.sandpave { background: rgba(201, 168, 106, 0.2); color: var(--sand); border: 1px solid var(--sand); }
+        .video-tag.crypto-deck { background: rgba(159, 184, 199, 0.2); color: var(--sky); border: 1px solid var(--sky); }
+
+        .featured-info .video-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .featured-info .video-description {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .watch-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 36px;
+            background: transparent;
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            align-self: flex-start;
+        }
+
+        .watch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--teal);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .watch-btn:hover {
+            color: var(--black);
+        }
+
+        .watch-btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .watch-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.4s ease;
+        }
+
+        .watch-btn:hover svg {
+            transform: translateX(6px);
+        }
+
+        /* Video Grid Section */
+        .video-grid-section {
+            padding: 80px 60px 140px;
+            background: var(--black);
+            position: relative;
+        }
+
+        .video-grid-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .video-grid-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3px;
+        }
+
+        .video-card {
+            background: var(--sand);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .video-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-card:nth-child(1) { transition-delay: 0s; }
+        .video-card:nth-child(2) { transition-delay: 0.05s; }
+        .video-card:nth-child(3) { transition-delay: 0.1s; }
+        .video-card:nth-child(4) { transition-delay: 0.15s; }
+        .video-card:nth-child(5) { transition-delay: 0.2s; }
+        .video-card:nth-child(6) { transition-delay: 0.25s; }
+        .video-card:nth-child(7) { transition-delay: 0.3s; }
+        .video-card:nth-child(8) { transition-delay: 0.35s; }
+        .video-card:nth-child(9) { transition-delay: 0.4s; }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+
+        .video-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            display: block;
+            z-index: 1;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-content {
+            padding: 28px 32px 32px;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .video-tags .video-tag {
+            font-size: 0.5625rem;
+            padding: 5px 10px;
+            margin-bottom: 0;
+            background: rgba(0,0,0,0.1);
+            color: var(--black);
+            border: none;
+        }
+
+        .video-card:hover .video-tags .video-tag {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .video-card .video-title {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 12px;
+            line-height: 1.3;
+            transition: color 0.4s ease;
+        }
+
+        .video-card:hover .video-title {
+            color: var(--white);
+        }
+
+        .video-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.75rem;
+            color: rgba(0,0,0,0.5);
+            margin-top: auto;
+            transition: color 0.4s ease;
+        }
+
+        .video-card:hover .video-meta {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-meta svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .video-card-arrow {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .video-card:hover .video-card-arrow {
+            color: var(--sand);
+            transform: translateX(8px);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            padding: 0 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 80px 60px;
+            color: var(--white);
+            font-family: 'Zalando Sans', sans-serif;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.125rem;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: var(--teal);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-info {
+                padding: 40px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 24px 80px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .filter-section {
+                padding: 40px 24px 32px;
+            }
+
+            .filter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 10px 16px;
+                font-size: 0.6875rem;
+            }
+
+            .featured-section {
+                padding: 60px 24px;
+            }
+
+            .featured-info {
+                padding: 32px 24px;
+            }
+
+            .featured-info .video-title {
+                font-size: 1.5rem;
+            }
+
+            .video-grid-section {
+                padding: 60px 24px 100px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 60px 24px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-brand">TechniSoil</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Brand House</a>
+                <a href="social-templates.html" class="nav-link">Social</a>
+                <a href="videos.html" class="nav-link">Videos</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                Video Library
+            </div>
+            <h1>Learn. Watch. <span>Create.</span></h1>
+            <p>Installation guides, product demos, and project inspiration to help you create stunning, eco-friendly landscapes.</p>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="filter-content">
+            <div class="filter-header">
+                <span class="filter-label">Filter by Product</span>
+                <p class="stats-text">Showing <strong id="video-count">28</strong> videos</p>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Videos</button>
+                <button class="filter-btn" data-filter="trowelpave">TrowelPave</button>
+                <button class="filter-btn" data-filter="molecule">Molecule</button>
+                <button class="filter-btn" data-filter="nanopave">NanoPave</button>
+                <button class="filter-btn" data-filter="ekoflo">EkoFlo</button>
+                <button class="filter-btn" data-filter="g3">G3 Pathway</button>
+                <button class="filter-btn" data-filter="barkbinder">BarkBinder</button>
+                <button class="filter-btn" data-filter="ground-cover">Ground Cover</button>
+                <button class="filter-btn" data-filter="dustcube">DustCube</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-section">
+        <div class="featured-content">
+            <div class="section-label">Featured Video</div>
+            <div class="featured-card" data-category="company">
+                <a href="https://youtu.be/QQxDJKINVTo" target="_blank" class="featured-thumbnail">
+                    <img src="https://img.youtube.com/vi/QQxDJKINVTo/maxresdefault.jpg" alt="The First Ten Years of TechniSoil">
+                    <div class="play-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <span class="video-duration">17:34</span>
+                </a>
+                <div class="featured-info">
+                    <span class="video-tag company">TechniSoil Story</span>
+                    <h2 class="video-title">The First Ten Years of TechniSoil</h2>
+                    <p class="video-description">A short documentary exploring our journey from a humble metal building to becoming a leader in sustainable landscape innovation. See how passion, persistence, and a commitment to eco-friendly products shaped who we are today.</p>
+                    <a href="https://youtu.be/QQxDJKINVTo" target="_blank" class="watch-btn">
+                        Watch Documentary
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-grid-section">
+        <div class="video-grid-content">
+            <div class="section-label">All Product Videos</div>
+            <div class="video-grid" id="video-grid">
+
+                <article class="video-card" data-category="ground-cover">
+                    <a href="https://youtu.be/2U262xx3pSc" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/2U262xx3pSc/maxresdefault.jpg" alt="Ground Cover Stabilizer Installation">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:39</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Ground Cover</span><span class="video-tag">Installation</span></div>
+                        <h3 class="video-title">Ground Cover Stabilizer Installation Video</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>139 views</span><span>3 months ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="molecule">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=Molecule+SRS" alt="Molecule SRS Installation">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">0:34</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Molecule</span><span class="video-tag">Installation</span></div>
+                        <h3 class="video-title">Molecule SRS Installation Video</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>34 views</span><span>3 months ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="sandpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c9a86a/0d0d0d?text=SandPave+Pro" alt="SandPave Pro Installation">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:27</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">SandPave Pro</span><span class="video-tag">Installation</span></div>
+                        <h3 class="video-title">SandPave Pro Installation Video</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>247 views</span><span>6 months ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="crypto-deck">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/9fb8c7/0d0d0d?text=Crypto+Deck" alt="Crypto Deck Installation">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:40</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Crypto Deck</span><span class="video-tag">Installation</span></div>
+                        <h3 class="video-title">Crypto Deck Installation Video</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>109 views</span><span>6 months ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="trowelpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c17855/ffffff?text=TrowelPave+Bulk" alt="TrowelPave Bulk">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:25</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">TrowelPave</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">TrowelPave Bulk - Large Asphalt & Concrete Repairs</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>1.1K views</span><span>5 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="ekoflo">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=EkoFlo" alt="EkoFlo Permeable Pavement">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:11</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">EkoFlo</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">EkoFlo Permeable Pavement Binder</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>4.1K views</span><span>5 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="nanopave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/2d7b7e/ffffff?text=NanoPave+JSS" alt="NanoPave JSS Quick Steps">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:04</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">NanoPave</span><span class="video-tag">Quick Guide</span></div>
+                        <h3 class="video-title">NanoPave JSS Quick Steps - Joint Sand Installation</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>2.7K views</span><span>5 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="trowelpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c17855/ffffff?text=Crack+Attack" alt="Crack Attack">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:42</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">TrowelPave</span><span class="video-tag">Popular</span></div>
+                        <h3 class="video-title">Fix Cracked Asphalt! Crack Attack Wide Crack Filler</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>140K views</span><span>6 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="trowelpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c17855/ffffff?text=DIY+Sidewalk" alt="TrowelPave Concrete DIY">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">2:22</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">TrowelPave</span><span class="video-tag">DIY</span></div>
+                        <h3 class="video-title">TrowelPave Concrete Best Fix DIY Sidewalk Repair Kit</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>51K views</span><span>6 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="trowelpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c17855/ffffff?text=Pothole+Repair" alt="DIY Freight Yard Pothole Repair">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">0:48</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">TrowelPave</span><span class="video-tag">DIY</span></div>
+                        <h3 class="video-title">DIY Freight Yard Pothole Repair</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>617 views</span><span>6 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="trowelpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c17855/ffffff?text=Runway+Grade" alt="World's Strongest Pothole Repair">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:57</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">TrowelPave</span><span class="video-tag">Popular</span></div>
+                        <h3 class="video-title">World's Strongest Pothole Repair - Runway Grade Asphalt</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>14K views</span><span>7 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="trowelpave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/c17855/ffffff?text=Trip+Hazard" alt="TrowelPave Concrete Virtual Demo">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">2:39</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">TrowelPave</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">TrowelPave Concrete - City Sidewalk Trip Hazard Repair</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>79K views</span><span>7 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="g3">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/8b6f47/ffffff?text=G3+Commercial" alt="G3 Commercial Surface Demo">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">2:39</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">G3 Pathway</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">G3 Commercial Surface - Backyard Patio & Stabilized Ground Cover</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>27K views</span><span>8 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="molecule">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=Molecule+DS" alt="Molecule DS Driveway Sealer">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:19</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Molecule</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">Molecule [DS] Driveway Sealer - Stain Resistance Demo</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>1.1K views</span><span>8 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="molecule">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=Sealer+Guide" alt="How to Choose a Hardscape Sealer">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">6:11</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Molecule</span><span class="video-tag">Guide</span></div>
+                        <h3 class="video-title">How to Choose a Hardscape Sealer - Molecule [DS] Demo</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>1.5K views</span><span>8 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="molecule">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=Hardscape+Shampoo" alt="Molecule HS Hardscape Shampoo">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:26</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Molecule</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">Molecule [HS] Hardscape Shampoo - Wash & Wax Treatment</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>1.9K views</span><span>8 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="molecule">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=VMS+Sealer" alt="Molecule VMS Vertical Masonry Sealer">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:23</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">Molecule</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">Molecule [VMS] Vertical Masonry Sealer</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>5.1K views</span><span>8 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="ekoflo">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=Tree+Well" alt="EkoFlo Tree Well Project">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:01</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">EkoFlo</span><span class="video-tag">Time-Lapse</span></div>
+                        <h3 class="video-title">EkoFlo Tree Well Project Time-Lapse</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>5.4K views</span><span>8 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="barkbinder">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/8b6f47/ffffff?text=BarkBinder" alt="BarkBinder Product Demo">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:34</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">BarkBinder</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">BarkBinder Product Demo - Keep Bark and Mulch in Place</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>13K views</span><span>9 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="nanopave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/2d7b7e/ffffff?text=Decorative+Rock" alt="NanoPave Hardscape Sealer">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:20</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">NanoPave</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">NanoPave Hardscape Sealer - Enhance Decorative Rock</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>15K views</span><span>9 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="nanopave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/2d7b7e/ffffff?text=Flagstone+Walkway" alt="NanoPave Flagstone Walkway">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:49</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">NanoPave</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">NanoPave Hardscape Sealer - Clean and Seal Flagstone</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>5.5K views</span><span>9 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="dustcube">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/6b7280/ffffff?text=DustCube" alt="DustCube Product Demo">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:35</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">DustCube</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">DustCube Product Demo - DIY Dust Control for Gravel Roads</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>16K views</span><span>9 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="ekoflo">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/4a6741/ffffff?text=Backyard+Patio" alt="EkoFlo Backyard Patio">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">2:29</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">EkoFlo</span><span class="video-tag">Popular</span></div>
+                        <h3 class="video-title">EkoFlo Product Demo - Permeable Pebble Backyard Patio</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>47K views</span><span>10 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="nanopave">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/2d7b7e/ffffff?text=NanoPave+2-in-1" alt="NanoPave 2-in-1 JSS">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">2:10</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">NanoPave</span><span class="video-tag">Popular</span></div>
+                        <h3 class="video-title">NanoPave 2-in-1 Joint Stabilizer & Sealer (JSS)</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>23K views</span><span>11 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="g3">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/8b6f47/ffffff?text=G3+Pathway" alt="G3 Pathway Stabilizer">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:34</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">G3 Pathway</span><span class="video-tag">Popular</span></div>
+                        <h3 class="video-title">G3 Pathway Stabilizer - Backyard Decomposed Granite</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>137K views</span><span>12 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="barkbinder">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/8b6f47/ffffff?text=BarkBinder+Stabilizer" alt="BarkBinder Stabilizer">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">1:23</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">BarkBinder</span><span class="video-tag">Demo</span></div>
+                        <h3 class="video-title">TechniSoil BarkBinder Bark / Mulch Stabilizer & Sealer</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>5.1K views</span><span>12 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+                <article class="video-card" data-category="g3">
+                    <a href="https://www.youtube.com/@TechniSoil" target="_blank" class="video-thumbnail">
+                        <img src="https://placehold.co/640x360/8b6f47/ffffff?text=G3+Education" alt="G3 Education Video">
+                        <div class="play-overlay"><div class="play-button"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+                        <span class="video-duration">2:37</span>
+                    </a>
+                    <div class="video-content">
+                        <div class="video-tags"><span class="video-tag">G3 Pathway</span><span class="video-tag">Education</span></div>
+                        <h3 class="video-title">TechniSoil G3 - Pathway / Commercial Aggregate Education</h3>
+                        <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>12K views</span><span>14 years ago</span></div>
+                    </div>
+                    <span class="video-card-arrow">&rarr;</span>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">TechniSoil</div>
+                    <p class="footer-tagline">Innovation for Modern Landscapes. Creating sustainable, eco-friendly solutions for hardscape and landscape professionals since 2010.</p>
+                    <p class="footer-tagline">5670 Westside Road, Redding, CA 96001</p>
+                    <div class="footer-social">
+                        <a href="https://www.youtube.com/@TechniSoil" target="_blank" aria-label="YouTube">&#9658;</a>
+                        <a href="https://www.instagram.com/technisoil" target="_blank" aria-label="Instagram">&#9679;</a>
+                        <a href="https://www.facebook.com/TechniSoil" target="_blank" aria-label="Facebook">f</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <div class="footer-links">
+                        <a href="https://technisoil.com/products/g3-pathway">G3 Pathway</a>
+                        <a href="https://technisoil.com/products/ekoflo">EkoFlo</a>
+                        <a href="https://technisoil.com/products/nanopave">NanoPave</a>
+                        <a href="https://technisoil.com/products/trowelpave">TrowelPave</a>
+                        <a href="https://technisoil.com/products/molecule">Molecule</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Brand House</a>
+                        <a href="social-templates.html">Social Templates</a>
+                        <a href="videos.html">Video Library</a>
+                        <a href="https://technisoil.com/support">Support</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="https://technisoil.com/about">About Us</a>
+                        <a href="https://technisoil.com/contact">Contact</a>
+                        <a href="https://technisoil.com/dealers">Find a Dealer</a>
+                        <a href="https://technisoil.com/careers">Careers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 TechniSoil. All rights reserved.</span>
+                <div class="footer-legal">
+                    <a href="https://technisoil.com/privacy">Privacy Policy</a>
+                    <a href="https://technisoil.com/terms">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+        const featuredSection = document.querySelector('.featured-section');
+        const videoCount = document.getElementById('video-count');
+
+        function updateVideoCount(filter) {
+            let count = 0;
+            videoCards.forEach(card => {
+                const category = card.dataset.category;
+                if (filter === 'all' || category === filter) count++;
+            });
+            if (filter === 'all') count++; // Add 1 for featured video
+            videoCount.textContent = count;
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                videoCards.forEach((card, index) => {
+                    const category = card.dataset.category;
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                        card.classList.remove('in-view');
+                        setTimeout(() => {
+                            card.classList.add('in-view');
+                        }, index * 30);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide featured section
+                featuredSection.style.display = filter === 'all' ? 'block' : 'none';
+
+                updateVideoCount(filter);
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all video cards
+        videoCards.forEach(card => {
+            observer.observe(card);
+        });
+
+        // Initialize count
+        updateVideoCount('all');
+    </script>
+</body>
+</html>
