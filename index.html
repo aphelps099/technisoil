@@ -712,17 +712,68 @@
             color: var(--black);
             margin-bottom: 48px;
             font-style: italic;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Emphasized words */
+        .manifesto.visible .manifesto-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Emphasized words with animated underlines */
         .manifesto-highlight {
             font-style: normal;
             font-weight: 600;
             color: var(--forest);
+            position: relative;
+            display: inline;
+        }
+
+        .manifesto-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--forest);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .manifesto.visible .manifesto-highlight::after {
+            transform: scaleX(1);
+        }
+
+        /* Stagger the underline animations */
+        .manifesto.visible .manifesto-highlight:nth-of-type(1)::after {
+            transition-delay: 0.4s;
+        }
+        .manifesto.visible .manifesto-highlight:nth-of-type(2)::after {
+            transition-delay: 0.55s;
+        }
+        .manifesto.visible .manifesto-highlight:nth-of-type(3)::after {
+            transition-delay: 0.7s;
+        }
+        .manifesto.visible .manifesto-highlight:nth-of-type(4)::after {
+            transition-delay: 0.85s;
         }
 
         .manifesto-footer {
             margin-top: 48px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+                        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+        }
+
+        .manifesto.visible .manifesto-footer {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .manifesto-label {
@@ -2399,7 +2450,7 @@
     <section class="manifesto">
         <div class="manifesto-content">
             <p class="manifesto-text" data-translate="manifesto-text">
-                We believe <span class="manifesto-highlight">sustainable</span> design shouldn't compromise <span class="manifesto-highlight">beauty</span>. Our products empower professionals and homeowners to create <span class="manifesto-highlight">stunning</span> landscapes that work with nature, not against it.
+                We believe <span class="manifesto-highlight">sustainable</span> design shouldn't compromise <span class="manifesto-highlight">beauty</span>. Our products empower professionals and homeowners to create <span class="manifesto-highlight">stunning</span> landscapes that work with <span class="manifesto-highlight">nature</span>, not against it.
             </p>
             <div class="manifesto-footer">
                 <div class="manifesto-label" data-translate="manifesto-label">TECHNISOIL — FOUNDED 2006, CALIFORNIA</div>
