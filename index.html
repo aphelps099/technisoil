@@ -875,533 +875,348 @@
             }
         }
 
-        /* Testimonials - ZAG Asymmetric Layout */
+        /* Testimonials - Premium Editorial */
         .testimonials {
-            padding: 0;
-            background: var(--cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-inner {
-            display: grid;
-            grid-template-columns: 45% 55%;
-            min-height: 100vh;
-        }
-
-        .testimonials-left {
             background: var(--navy);
-            padding: 120px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
+            padding: 160px 80px;
         }
 
-        .testimonials-left::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -80px;
-            width: 160px;
-            height: 100%;
-            background: var(--navy);
-            clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
-            z-index: 1;
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .testimonials-header {
-            position: relative;
-            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: end;
+            margin-bottom: 100px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .testimonials-intro {
+            max-width: 500px;
         }
 
         .testimonials-label {
-            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .testimonials-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
             font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--white);
+        }
+
+        .testimonials-stats {
+            display: flex;
+            gap: 60px;
+            justify-content: flex-end;
+        }
+
+        .stat-item {
+            text-align: right;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 200;
+            color: var(--white);
             line-height: 1;
-            letter-spacing: -0.015em;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+        }
+
+        .testimonial-featured {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 60px;
+        }
+
+        .testimonial-quote {
+            font-size: 1.625rem;
+            font-weight: 300;
+            line-height: 1.5;
             color: var(--white);
             margin-bottom: 48px;
         }
 
-        .testimonial-featured {
-            position: relative;
-            z-index: 2;
+        .testimonial-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
 
-        .testimonial-quote-mark {
-            font-size: 10rem;
-            line-height: 1;
-            color: var(--teal);
-            opacity: 0.2;
-            position: absolute;
-            top: -60px;
-            left: -30px;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-featured-stars {
-            color: var(--sand);
-            font-size: 1.25rem;
-            margin-bottom: 24px;
-            letter-spacing: 4px;
-        }
-
-        .testimonial-featured-text {
-            font-size: 1.5rem;
-            font-weight: 300;
-            line-height: 1.6;
-            color: var(--white);
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .testimonial-featured-author {
+        .testimonial-author-info {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            padding-left: 24px;
-            border-left: 2px solid var(--sand);
+            gap: 4px;
         }
 
-        .testimonial-featured-name {
+        .testimonial-name {
             font-size: 1rem;
             font-weight: 500;
             color: var(--white);
         }
 
-        .testimonial-featured-role {
+        .testimonial-role {
             font-size: 0.875rem;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.5);
         }
 
-        .testimonials-right {
-            padding: 80px 80px 80px 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
+        .testimonial-metric {
+            text-align: right;
         }
 
-        .testimonials-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .testimonial-small {
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(26, 58, 82, 0.1);
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-small:first-child {
-            padding-top: 0;
-        }
-
-        .testimonial-small:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .testimonial-small:hover {
-            padding-left: 20px;
-        }
-
-        .testimonial-small::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 60%;
-            background: var(--sand);
-            transition: width 0.4s ease;
-        }
-
-        .testimonial-small:hover::before {
-            width: 3px;
-        }
-
-        .testimonial-small-stars {
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 300;
             color: var(--sand);
-            font-size: 0.875rem;
-            margin-bottom: 16px;
-            letter-spacing: 2px;
+            line-height: 1;
         }
 
-        .testimonial-small-text {
+        .metric-label {
+            font-size: 0.6875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+        }
+
+        .testimonials-secondary {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        .testimonial-card-quote {
             font-size: 1.0625rem;
             font-weight: 300;
             line-height: 1.7;
-            color: var(--navy);
-            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 28px;
         }
 
-        .testimonial-small-author {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-
-        .testimonial-small-location {
-            font-size: 0.8125rem;
-            color: var(--slate);
-            opacity: 0.7;
-        }
-
-        .testimonial-small-stars {
-            color: var(--sand);
-            font-size: 1rem;
-            margin-bottom: 16px;
-        }
-
-        /* Contact/Support - ZAG Diagonal Layout */
-        .support {
-            background: var(--white);
-            color: var(--navy);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .support-inner {
-            display: grid;
-            grid-template-columns: 55% 45%;
-            min-height: 100vh;
-        }
-
-        .support-left {
-            padding: 120px 80px;
+        .testimonial-card-footer {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .testimonial-card-author {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .testimonial-card-company {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Support - Clean Editorial */
+        .support {
+            background: var(--cream);
+            padding: 160px 80px;
+        }
+
+        .support-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .support-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .support-intro {
+            max-width: 480px;
         }
 
         .support-label {
-            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .support-title {
-            font-size: clamp(3rem, 6vw, 5rem);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
             font-weight: 300;
-            line-height: 1;
+            line-height: 1.1;
             letter-spacing: -0.02em;
-            margin-bottom: 40px;
             color: var(--navy);
         }
 
         .support-message {
             font-size: 1.125rem;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.7;
             color: var(--slate);
-            max-width: 480px;
-            margin-bottom: 60px;
+            align-self: end;
         }
 
-        .support-directory {
+        .support-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 1px;
+            background: rgba(26, 58, 82, 0.1);
         }
 
-        .support-dept {
-            padding: 32px;
-            background: var(--cream);
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .support-dept:nth-child(2) {
-            transform: translateY(40px);
-        }
-
-        .support-dept:nth-child(3) {
-            transform: translateY(80px);
-        }
-
-        .support-dept:hover {
-            background: var(--navy);
-        }
-
-        .support-dept:hover .support-dept-name,
-        .support-dept:hover .support-dept-title,
-        .support-dept:hover .support-dept-desc,
-        .support-dept:hover .support-hours {
-            color: var(--white);
-        }
-
-        .support-dept:hover .support-dept-name {
-            color: var(--sand);
-        }
-
-        .support-dept:hover .support-contact-link {
-            color: var(--sand);
-        }
-
-        .support-dept-name {
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 20px;
-            transition: color 0.4s ease;
-        }
-
-        .support-dept-title {
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 12px;
-            color: var(--navy);
-            transition: color 0.4s ease;
-        }
-
-        .support-dept-desc {
-            font-size: 0.875rem;
-            font-weight: 300;
-            color: var(--slate);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color 0.4s ease;
-        }
-
-        .support-contact-info {
+        .support-card {
+            background: var(--white);
+            padding: 48px 40px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            min-height: 320px;
         }
 
-        .support-contact-link {
+        .support-card-number {
+            font-size: 0.6875rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--sand);
+            margin-bottom: 32px;
+        }
+
+        .support-card-title {
+            font-size: 1.375rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .support-card-desc {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--slate);
+            margin-bottom: auto;
+            padding-bottom: 32px;
+        }
+
+        .support-card-contact {
+            padding-top: 24px;
+            border-top: 1px solid rgba(26, 58, 82, 0.08);
+        }
+
+        .support-card-link {
+            display: block;
             font-size: 0.9375rem;
             font-weight: 400;
             color: var(--teal);
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
+            margin-bottom: 8px;
+            transition: color 0.2s ease;
         }
 
-        .support-contact-link:hover {
-            transform: translateX(4px);
+        .support-card-link:last-child {
+            margin-bottom: 0;
         }
 
-        .support-hours {
-            font-size: 0.75rem;
+        .support-card-link:hover {
+            color: var(--navy);
+        }
+
+        .support-card-hours {
+            font-size: 0.8125rem;
             color: var(--slate);
-            margin-top: 12px;
-            transition: color 0.4s ease;
+            margin-top: 16px;
         }
 
-        .support-right {
-            background: var(--forest);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .support-right::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100px;
-            width: 200px;
-            height: 100%;
-            background: var(--forest);
-            clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
-            z-index: 1;
-        }
-
-        .support-visual {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 60px;
-        }
-
-        .support-visual-icon {
-            font-size: 4rem;
-            margin-bottom: 32px;
-            opacity: 0.9;
-        }
-
-        .support-visual-text {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--white);
-            line-height: 1.5;
-            max-width: 280px;
-        }
-
-        .support-visual-cta {
-            display: inline-block;
-            margin-top: 32px;
-            padding: 16px 40px;
-            background: var(--white);
-            color: var(--forest);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .support-visual-cta:hover {
-            background: var(--sand);
-            color: var(--white);
-        }
-
-        /* Request Access Form - ZAG Split Layout */
+        /* Request Access - Premium Form */
         .request-access {
-            background: var(--navy);
-            position: relative;
-            overflow: hidden;
+            background: var(--forest);
+            padding: 160px 80px;
         }
 
-        .request-access-inner {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            min-height: 100vh;
+        .request-access-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .request-access-left {
-            background: linear-gradient(180deg, var(--teal) 0%, var(--forest) 100%);
-            padding: 100px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
-        .request-access-left::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -60px;
-            width: 120px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--teal) 0%, var(--forest) 100%);
-            clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
-            z-index: 1;
-        }
-
-        .request-access-benefits {
-            position: relative;
-            z-index: 2;
+        .request-access-header {
+            text-align: center;
+            margin-bottom: 80px;
         }
 
         .request-access-label {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.625rem;
+            font-size: 0.6875rem;
+            font-weight: 500;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
             margin-bottom: 24px;
-        }
-
-        .request-access-headline {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 300;
-            line-height: 1.2;
-            color: var(--white);
-            margin-bottom: 40px;
-        }
-
-        .benefit-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .benefit-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .benefit-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .benefit-text {
-            font-size: 1rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.9);
-            line-height: 1.5;
-        }
-
-        .benefit-text strong {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .request-access-right {
-            padding: 80px 100px 80px 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .request-access-content {
-            max-width: 600px;
         }
 
         .request-access-title {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
             line-height: 1.1;
             letter-spacing: -0.02em;
             color: var(--white);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .request-access-desc {
-            font-size: 1rem;
+            font-size: 1.125rem;
+            font-weight: 300;
             line-height: 1.6;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 40px;
+            color: rgba(255,255,255,0.6);
+            max-width: 560px;
+            margin: 0 auto;
         }
 
         .request-access-form {
+            background: var(--white);
+            padding: 60px;
+        }
+
+        .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
+            gap: 24px;
+            margin-bottom: 32px;
         }
 
         .form-group {
@@ -1412,118 +1227,126 @@
             grid-column: 1 / -1;
         }
 
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 10px;
+        }
+
         .form-input,
         .form-select,
         .form-textarea {
             width: 100%;
-            padding: 16px 18px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 0;
-            color: var(--white);
+            padding: 16px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(26, 58, 82, 0.15);
+            color: var(--navy);
             font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.9375rem;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
 
         .form-input:focus,
         .form-select:focus,
         .form-textarea:focus {
             outline: none;
-            background: rgba(255,255,255,0.08);
-            border-color: var(--sand);
+            border-color: var(--teal);
         }
 
         .form-input::placeholder,
         .form-textarea::placeholder {
-            color: rgba(255,255,255,0.4);
+            color: var(--slate);
+            opacity: 0.5;
         }
 
         .form-select {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C9A86A' stroke-width='2'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%231a3a52' stroke-width='1.5'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 18px center;
+            background-position: right 0 center;
             cursor: pointer;
+        }
+
+        .form-select option {
+            color: var(--navy);
         }
 
         .form-textarea {
             resize: vertical;
             min-height: 100px;
-        }
-
-        .form-submit-group {
-            display: flex;
-            align-items: center;
-            gap: 24px;
+            border: 1px solid rgba(26, 58, 82, 0.15);
+            padding: 16px;
             margin-top: 8px;
         }
 
-        .btn-submit {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            padding: 18px 48px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            border: none;
-            background: var(--sand);
-            color: var(--navy);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(201, 168, 106, 0.4);
-            background: var(--white);
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(26, 58, 82, 0.08);
         }
 
         .form-privacy {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
+            font-size: 0.8125rem;
+            color: var(--slate);
+            max-width: 320px;
             line-height: 1.5;
-            flex: 1;
         }
 
         .form-privacy a {
-            color: var(--sand);
+            color: var(--teal);
             text-decoration: none;
-            border-bottom: 1px solid rgba(201, 168, 106, 0.3);
-            transition: border-color 0.3s ease;
         }
 
         .form-privacy a:hover {
-            border-color: var(--sand);
+            text-decoration: underline;
         }
 
-        @media (max-width: 1024px) {
-            .request-access-inner {
-                grid-template-columns: 1fr;
-            }
+        .btn-submit {
+            font-family: 'Zalando Sans', sans-serif;
+            padding: 18px 48px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: none;
+            background: var(--navy);
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-            .request-access-left {
-                padding: 60px 40px;
-            }
-
-            .request-access-left::after {
-                display: none;
-            }
-
-            .request-access-right {
-                padding: 60px 40px;
-            }
+        .btn-submit:hover {
+            background: var(--teal);
         }
 
         @media (max-width: 768px) {
+            .request-access {
+                padding: 100px 32px;
+            }
+
             .request-access-form {
+                padding: 40px 32px;
+            }
+
+            .form-grid {
                 grid-template-columns: 1fr;
             }
 
-            .form-submit-group {
+            .form-footer {
                 flex-direction: column;
-                align-items: stretch;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .form-privacy {
+                max-width: 100%;
             }
         }
 
@@ -1698,10 +1521,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-main {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1713,48 +1532,40 @@
                 padding: 80px 40px;
             }
 
-            /* Testimonials ZAG responsive */
-            .testimonials-inner {
+            /* Testimonials responsive */
+            .testimonials {
+                padding: 100px 40px;
+            }
+
+            .testimonials-header {
                 grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 60px;
+                padding-bottom: 40px;
             }
 
-            .testimonials-left {
-                padding: 80px 40px;
+            .testimonials-stats {
+                justify-content: flex-start;
             }
 
-            .testimonials-left::after {
-                display: none;
-            }
-
-            .testimonials-right {
-                padding: 60px 40px;
-            }
-
-            /* Support ZAG responsive */
-            .support-inner {
+            .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
 
-            .support-left {
-                padding: 80px 40px;
+            /* Support responsive */
+            .support {
+                padding: 100px 40px;
             }
 
-            .support-directory {
+            .support-header {
                 grid-template-columns: 1fr;
                 gap: 24px;
+                margin-bottom: 60px;
             }
 
-            .support-dept:nth-child(2),
-            .support-dept:nth-child(3) {
-                transform: translateY(0);
-            }
-
-            .support-right {
-                min-height: 300px;
-            }
-
-            .support-right::before {
-                display: none;
+            .support-grid {
+                grid-template-columns: 1fr;
             }
 
             .timeline-item {
@@ -2513,45 +2324,62 @@ Electric #00ff88">Copy Colors</button>
 
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
-        <div class="testimonials-inner">
-            <div class="testimonials-left">
-                <div class="testimonials-header reveal">
+        <div class="testimonials-container">
+            <div class="testimonials-header reveal">
+                <div class="testimonials-intro">
                     <div class="testimonials-label" data-translate="testimonials-label">Dealer Success</div>
-                    <h2 class="testimonials-title" data-translate="testimonials-title">TRUSTED BY<br>PROFESSIONALS</h2>
+                    <h2 class="testimonials-title" data-translate="testimonials-title">Trusted by Professionals Nationwide</h2>
                 </div>
-
-                <div class="testimonial-featured reveal">
-                    <div class="testimonial-quote-mark">"</div>
-                    <div class="testimonial-featured-stars">★★★★★</div>
-                    <p class="testimonial-featured-text">Within 6 months of using the Brand House, our TechniSoil product sales jumped 43% and we cut marketing prep time from 8 hours per week to under 2.</p>
-                    <div class="testimonial-featured-author">
-                        <div class="testimonial-featured-name">Michael Chen, Owner</div>
-                        <div class="testimonial-featured-role">Phoenix Landscape Supply • $2.4M Revenue</div>
+                <div class="testimonials-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Active Dealers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">43%</div>
+                        <div class="stat-label">Avg. Sales Increase</div>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonials-right">
-                <div class="testimonials-list">
-                    <div class="testimonial-small reveal">
-                        <div class="testimonial-small-stars">★★★★★</div>
-                        <p class="testimonial-small-text">"We added $180K in TechniSoil revenue in Year 1. The email campaigns convert at 12% — 3x higher than our old generic emails. The before/after image library sealed the deal on our biggest commercial project yet."</p>
-                        <div class="testimonial-small-author">Sarah Martinez, VP Sales</div>
-                        <div class="testimonial-small-location">Desert Vista Hardscapes • Palm Springs, CA</div>
+            <div class="testimonials-grid">
+                <div class="testimonial-featured reveal">
+                    <p class="testimonial-quote">"Within 6 months of using the Brand House, our TechniSoil product sales jumped 43% and we cut marketing prep time from 8 hours per week to under 2. The ROI templates showed our customers a 3-year payback on xeriscaping projects."</p>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-author-info">
+                            <div class="testimonial-name">Michael Chen</div>
+                            <div class="testimonial-role">Owner, Phoenix Landscape Supply</div>
+                        </div>
+                        <div class="testimonial-metric">
+                            <div class="metric-value">$2.4M</div>
+                            <div class="metric-label">Annual Revenue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-secondary">
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-card-quote">"We added $180K in TechniSoil revenue in Year 1. The email campaigns convert at 12% — 3x higher than our old generic emails."</p>
+                        <div class="testimonial-card-footer">
+                            <div class="testimonial-card-author">Sarah Martinez</div>
+                            <div class="testimonial-card-company">Desert Vista Hardscapes</div>
+                        </div>
                     </div>
 
-                    <div class="testimonial-small reveal">
-                        <div class="testimonial-small-stars">★★★★★</div>
-                        <p class="testimonial-small-text">"Social media engagement up 220%, website traffic up 65%, and most importantly — our avg. TechniSoil deal size increased from $3,200 to $5,800. Premium positioning educates customers on value."</p>
-                        <div class="testimonial-small-author">James Anderson, Marketing Director</div>
-                        <div class="testimonial-small-location">Rocky Mountain Materials • Denver, CO</div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-card-quote">"Social media engagement up 220%, and our average deal size increased from $3,200 to $5,800. Premium positioning educates customers on value."</p>
+                        <div class="testimonial-card-footer">
+                            <div class="testimonial-card-author">James Anderson</div>
+                            <div class="testimonial-card-company">Rocky Mountain Materials</div>
+                        </div>
                     </div>
 
-                    <div class="testimonial-small reveal">
-                        <div class="testimonial-small-stars">★★★★★</div>
-                        <p class="testimonial-small-text">"The technical documentation gave our sales team instant credibility. We went from 'landscape supply dealer' to 'xeriscaping consultants' in customers' eyes. Repeat business up 31%."</p>
-                        <div class="testimonial-small-author">Linda Thompson, General Manager</div>
-                        <div class="testimonial-small-location">Coastal Landscape Solutions • Tampa, FL</div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-card-quote">"The technical documentation gave our sales team instant credibility. Repeat business up 31%."</p>
+                        <div class="testimonial-card-footer">
+                            <div class="testimonial-card-author">Linda Thompson</div>
+                            <div class="testimonial-card-company">Coastal Landscape Solutions</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2560,50 +2388,46 @@ Electric #00ff88">Copy Colors</button>
 
     <!-- Support -->
     <section class="support" id="support">
-        <div class="support-inner">
-            <div class="support-left reveal">
-                <div class="support-label" data-translate="support-label">Get Help</div>
-                <h2 class="support-title" data-translate="support-title">WE'RE HERE<br>FOR YOU</h2>
-                <p class="support-message">Whether you need product guidance, technical assistance, or marketing support — our team is ready to help you succeed.</p>
-
-                <div class="support-directory">
-                    <div class="support-dept">
-                        <div class="support-dept-name">Sales</div>
-                        <h3 class="support-dept-title" data-translate="support-card-1-title">Sales Support</h3>
-                        <p class="support-dept-desc" data-translate="support-card-1-desc">Product selection, pricing, and dealer partnerships.</p>
-                        <div class="support-contact-info">
-                            <a href="mailto:sales@technisoil.com" class="support-contact-link">sales@technisoil.com</a>
-                        </div>
-                        <div class="support-hours" data-translate="support-card-1-hours">Mon-Fri 8AM-6PM PST</div>
-                    </div>
-
-                    <div class="support-dept">
-                        <div class="support-dept-name">Technical</div>
-                        <h3 class="support-dept-title" data-translate="support-card-2-title">Tech Support</h3>
-                        <p class="support-dept-desc" data-translate="support-card-2-desc">Installation guidance and troubleshooting.</p>
-                        <div class="support-contact-info">
-                            <a href="mailto:support@technisoil.com" class="support-contact-link">support@technisoil.com</a>
-                        </div>
-                        <div class="support-hours" data-translate="support-card-2-hours">Mon-Fri 7AM-7PM PST</div>
-                    </div>
-
-                    <div class="support-dept">
-                        <div class="support-dept-name">Marketing</div>
-                        <h3 class="support-dept-title" data-translate="support-card-3-title">Marketing</h3>
-                        <p class="support-dept-desc" data-translate="support-card-3-desc">Brand assets and co-op advertising.</p>
-                        <div class="support-contact-info">
-                            <a href="mailto:marketing@technisoil.com" class="support-contact-link">marketing@technisoil.com</a>
-                        </div>
-                        <div class="support-hours" data-translate="support-card-3-hours">Response within 24hrs</div>
-                    </div>
+        <div class="support-container">
+            <div class="support-header reveal">
+                <div class="support-intro">
+                    <div class="support-label" data-translate="support-label">Get Help</div>
+                    <h2 class="support-title" data-translate="support-title">We're Here For You</h2>
                 </div>
+                <p class="support-message">Whether you need product guidance, technical assistance, or marketing support — our team is ready to help you succeed.</p>
             </div>
 
-            <div class="support-right">
-                <div class="support-visual">
-                    <div class="support-visual-icon">🌿</div>
-                    <p class="support-visual-text">Dedicated support for every stage of your journey</p>
-                    <a href="#request-access" class="support-visual-cta">Become a Partner</a>
+            <div class="support-grid">
+                <div class="support-card reveal">
+                    <div class="support-card-number">01</div>
+                    <h3 class="support-card-title" data-translate="support-card-1-title">Sales Support</h3>
+                    <p class="support-card-desc" data-translate="support-card-1-desc">Product selection, pricing, bulk orders, and dealer partnership inquiries.</p>
+                    <div class="support-card-contact">
+                        <a href="mailto:sales@technisoil.com" class="support-card-link">sales@technisoil.com</a>
+                        <a href="tel:+18005550123" class="support-card-link">(800) 555-0123</a>
+                        <div class="support-card-hours" data-translate="support-card-1-hours">Mon-Fri 8AM-6PM PST</div>
+                    </div>
+                </div>
+
+                <div class="support-card reveal">
+                    <div class="support-card-number">02</div>
+                    <h3 class="support-card-title" data-translate="support-card-2-title">Technical Support</h3>
+                    <p class="support-card-desc" data-translate="support-card-2-desc">Installation guidance, application questions, troubleshooting, and product specifications.</p>
+                    <div class="support-card-contact">
+                        <a href="mailto:support@technisoil.com" class="support-card-link">support@technisoil.com</a>
+                        <a href="tel:+18005550124" class="support-card-link">(800) 555-0124</a>
+                        <div class="support-card-hours" data-translate="support-card-2-hours">Mon-Fri 7AM-7PM PST</div>
+                    </div>
+                </div>
+
+                <div class="support-card reveal">
+                    <div class="support-card-number">03</div>
+                    <h3 class="support-card-title" data-translate="support-card-3-title">Marketing Help</h3>
+                    <p class="support-card-desc" data-translate="support-card-3-desc">Brand assets, custom templates, co-op advertising programs, and marketing strategy.</p>
+                    <div class="support-card-contact">
+                        <a href="mailto:marketing@technisoil.com" class="support-card-link">marketing@technisoil.com</a>
+                        <div class="support-card-hours" data-translate="support-card-3-hours">Response within 24 hours</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2611,105 +2435,76 @@ Electric #00ff88">Copy Colors</button>
 
     <!-- Request Access -->
     <section class="request-access" id="request-access">
-        <div class="request-access-inner">
-            <div class="request-access-left">
-                <div class="request-access-benefits">
-                    <div class="request-access-label">BECOME A PARTNER</div>
-                    <h2 class="request-access-headline">Join 500+ Successful Dealers Nationwide</h2>
+        <div class="request-access-container">
+            <div class="request-access-header reveal">
+                <div class="request-access-label">Become a Partner</div>
+                <h2 class="request-access-title">Request Dealer Access</h2>
+                <p class="request-access-desc">Join our network of successful dealers and get instant access to professional marketing resources, product documentation, and dedicated support.</p>
+            </div>
 
-                    <div class="benefit-list">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">📊</div>
-                            <div class="benefit-text">
-                                <strong>Marketing Resources</strong>
-                                Ready-to-use templates, social content, and email campaigns
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">📚</div>
-                            <div class="benefit-text">
-                                <strong>Product Documentation</strong>
-                                Technical specs, SDS sheets, and installation guides
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🎯</div>
-                            <div class="benefit-text">
-                                <strong>Dedicated Support</strong>
-                                Direct access to sales, technical, and marketing teams
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">💰</div>
-                            <div class="benefit-text">
-                                <strong>Dealer Pricing</strong>
-                                Competitive margins and volume discounts
-                            </div>
-                        </div>
+            <form class="request-access-form reveal" id="accessForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" required name="firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" required name="lastName">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Business Email</label>
+                        <input type="email" class="form-input" required name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" required name="phone">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">Company Name</label>
+                        <input type="text" class="form-input" required name="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Business Type</label>
+                        <select class="form-select" required name="businessType">
+                            <option value="">Select one</option>
+                            <option value="landscape-supply">Landscape Supply Dealer</option>
+                            <option value="hardscape">Hardscape Contractor</option>
+                            <option value="nursery">Garden Center / Nursery</option>
+                            <option value="distributor">Distributor</option>
+                            <option value="architect">Landscape Architect</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Annual Revenue</label>
+                        <select class="form-select" required name="annualRevenue">
+                            <option value="">Select range</option>
+                            <option value="under-500k">Under $500K</option>
+                            <option value="500k-1m">$500K - $1M</option>
+                            <option value="1m-5m">$1M - $5M</option>
+                            <option value="5m-10m">$5M - $10M</option>
+                            <option value="over-10m">Over $10M</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">Message (Optional)</label>
+                        <textarea class="form-textarea" name="message" placeholder="Tell us about your business..."></textarea>
                     </div>
                 </div>
-            </div>
 
-            <div class="request-access-right">
-                <div class="request-access-content">
-                    <h2 class="request-access-title">Request Access</h2>
-                    <p class="request-access-desc">Complete the form below and our team will contact you within 24 hours.</p>
-
-                    <form class="request-access-form" id="accessForm">
-                        <div class="form-group">
-                            <input type="text" class="form-input" placeholder="First Name *" required name="firstName">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Last Name *" required name="lastName">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Business Email *" required name="email">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="tel" class="form-input" placeholder="Phone *" required name="phone">
-                        </div>
-
-                        <div class="form-group full-width">
-                            <input type="text" class="form-input" placeholder="Company Name *" required name="company">
-                        </div>
-
-                        <div class="form-group">
-                            <select class="form-select" required name="businessType">
-                                <option value="">Business Type *</option>
-                                <option value="landscape-supply">Landscape Supply Dealer</option>
-                                <option value="hardscape">Hardscape Contractor</option>
-                                <option value="nursery">Garden Center / Nursery</option>
-                                <option value="distributor">Distributor</option>
-                                <option value="architect">Landscape Architect</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <select class="form-select" required name="annualRevenue">
-                                <option value="">Annual Revenue *</option>
-                                <option value="under-500k">Under $500K</option>
-                                <option value="500k-1m">$500K - $1M</option>
-                                <option value="1m-5m">$1M - $5M</option>
-                                <option value="5m-10m">$5M - $10M</option>
-                                <option value="over-10m">Over $10M</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <textarea class="form-textarea" placeholder="Tell us about your business..." name="message"></textarea>
-                        </div>
-
-                        <div class="form-submit-group full-width">
-                            <button type="submit" class="btn-submit">SUBMIT REQUEST</button>
-                            <p class="form-privacy">By submitting, you agree to our <a href="https://technisoil.com/privacy" target="_blank">Privacy Policy</a></p>
-                        </div>
-                    </form>
+                <div class="form-footer">
+                    <p class="form-privacy">By submitting, you agree to our <a href="https://technisoil.com/privacy" target="_blank">Privacy Policy</a></p>
+                    <button type="submit" class="btn-submit">Submit Request</button>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 
