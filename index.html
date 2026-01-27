@@ -718,7 +718,7 @@
                         transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .manifesto.visible .manifesto-text {
+        .manifesto.in-view .manifesto-text {
             opacity: 1;
             transform: translateY(0);
         }
@@ -745,21 +745,21 @@
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .manifesto.visible .manifesto-highlight::after {
+        .manifesto.in-view .manifesto-highlight::after {
             transform: scaleX(1);
         }
 
         /* Stagger the underline animations */
-        .manifesto.visible .manifesto-highlight:nth-of-type(1)::after {
+        .manifesto.in-view .manifesto-highlight:nth-of-type(1)::after {
             transition-delay: 0.4s;
         }
-        .manifesto.visible .manifesto-highlight:nth-of-type(2)::after {
+        .manifesto.in-view .manifesto-highlight:nth-of-type(2)::after {
             transition-delay: 0.55s;
         }
-        .manifesto.visible .manifesto-highlight:nth-of-type(3)::after {
+        .manifesto.in-view .manifesto-highlight:nth-of-type(3)::after {
             transition-delay: 0.7s;
         }
-        .manifesto.visible .manifesto-highlight:nth-of-type(4)::after {
+        .manifesto.in-view .manifesto-highlight:nth-of-type(4)::after {
             transition-delay: 0.85s;
         }
 
@@ -771,7 +771,7 @@
                         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
         }
 
-        .manifesto.visible .manifesto-footer {
+        .manifesto.in-view .manifesto-footer {
             opacity: 1;
             transform: translateY(0);
         }
