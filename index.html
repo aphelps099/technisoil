@@ -1268,6 +1268,65 @@
             transform: rotate(45deg);
         }
 
+        /* Marquee Text on Hover */
+        .testimonials-marquee {
+            position: absolute;
+            bottom: 24px;
+            right: 0;
+            width: 400px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.2s;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .testimonials-trigger:hover .testimonials-marquee {
+            opacity: 1;
+        }
+
+        .testimonials-marquee::before,
+        .testimonials-marquee::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .testimonials-marquee::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--teal), transparent);
+        }
+
+        .testimonials-marquee::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent, var(--teal));
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 8s linear infinite;
+        }
+
+        .marquee-text {
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--black);
+            white-space: nowrap;
+            padding-right: 40px;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
         /* Testimonials Modal */
         .testimonials-modal {
             display: none;
@@ -1492,7 +1551,31 @@
         }
 
         .support-card:hover {
-            background: rgba(45, 123, 126, 0.15);
+            background: var(--teal);
+        }
+
+        .support-card:hover .support-card-number {
+            color: var(--black);
+        }
+
+        .support-card:hover .support-card-title {
+            color: var(--black);
+        }
+
+        .support-card:hover .support-card-desc {
+            color: rgba(0,0,0,0.7);
+        }
+
+        .support-card:hover .support-card-link {
+            color: var(--black);
+        }
+
+        .support-card:hover .support-card-hours {
+            color: rgba(0,0,0,0.5);
+        }
+
+        .support-card:hover .support-card-contact {
+            border-top-color: rgba(0,0,0,0.15);
         }
 
         .support-card-number {
@@ -2935,6 +3018,15 @@ Electric #00ff88">Copy Colors</button>
                 </div>
             </div>
             <div class="trigger-arrow">→</div>
+        </div>
+        <!-- Marquee appears on hover -->
+        <div class="testimonials-marquee">
+            <div class="marquee-track">
+                <span class="marquee-text">Read Dealer Testimonials</span>
+                <span class="marquee-text">Read Dealer Testimonials</span>
+                <span class="marquee-text">Read Dealer Testimonials</span>
+                <span class="marquee-text">Read Dealer Testimonials</span>
+            </div>
         </div>
     </section>
 
