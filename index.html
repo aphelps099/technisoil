@@ -1483,6 +1483,186 @@
             margin-top: 12px;
         }
 
+        /* Request Access Form */
+        .request-access {
+            background: linear-gradient(135deg, var(--navy) 0%, #0a1628 100%);
+            padding: 120px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .request-access::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sand), transparent);
+        }
+
+        .request-access-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .request-access-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.625rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 24px;
+        }
+
+        .request-access-title {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .request-access-desc {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .request-access-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 18px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0;
+            color: var(--white);
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            background: rgba(255,255,255,0.08);
+            border-color: var(--sand);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C9A86A' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            cursor: pointer;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            padding: 20px 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            border: 1px solid rgba(201, 168, 106, 0.4);
+            background: rgba(201, 168, 106, 0.1);
+            color: var(--sand);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 168, 106, 0.3);
+            background: rgba(201, 168, 106, 0.15);
+            border-color: rgba(201, 168, 106, 0.6);
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .form-privacy {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.4);
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .form-privacy a {
+            color: var(--sand);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201, 168, 106, 0.3);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-privacy a:hover {
+            border-color: var(--sand);
+        }
+
+        @media (max-width: 768px) {
+            .request-access {
+                padding: 80px 32px;
+            }
+
+            .request-access-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--black);
@@ -2704,6 +2884,69 @@ Electric #00ff88">Copy Colors</button>
         </div>
     </section>
 
+    <!-- Request Access -->
+    <section class="request-access" id="request-access">
+        <div class="request-access-content">
+            <div class="request-access-label">BECOME A PARTNER</div>
+            <h2 class="request-access-title">REQUEST DEALER ACCESS</h2>
+            <p class="request-access-desc">Join our network of successful dealers and get instant access to professional marketing resources, product documentation, and dedicated support.</p>
+
+            <form class="request-access-form" id="accessForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="First Name *" required name="firstName">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Last Name *" required name="lastName">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Business Email *" required name="email">
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Phone Number *" required name="phone">
+                </div>
+
+                <div class="form-group full-width">
+                    <input type="text" class="form-input" placeholder="Company Name *" required name="company">
+                </div>
+
+                <div class="form-group">
+                    <select class="form-select" required name="businessType">
+                        <option value="">Business Type *</option>
+                        <option value="landscape-supply">Landscape Supply Dealer</option>
+                        <option value="hardscape">Hardscape Contractor</option>
+                        <option value="nursery">Garden Center / Nursery</option>
+                        <option value="distributor">Distributor</option>
+                        <option value="architect">Landscape Architect</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-select" required name="annualRevenue">
+                        <option value="">Estimated Annual Revenue *</option>
+                        <option value="under-500k">Under $500K</option>
+                        <option value="500k-1m">$500K - $1M</option>
+                        <option value="1m-5m">$1M - $5M</option>
+                        <option value="5m-10m">$5M - $10M</option>
+                        <option value="over-10m">Over $10M</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <textarea class="form-textarea" placeholder="Tell us about your business and how you plan to use TechniSoil products..." name="message"></textarea>
+                </div>
+
+                <div class="form-submit-group">
+                    <button type="submit" class="btn-submit">SUBMIT REQUEST</button>
+                    <p class="form-privacy">By submitting this form, you agree to our <a href="https://technisoil.com/privacy" target="_blank">Privacy Policy</a> and consent to be contacted by TechniSoil.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-main">
@@ -3110,6 +3353,39 @@ Electric #00ff88">Copy Colors</button>
         });
 
         missionStats.forEach(stat => statsObserver.observe(stat));
+
+        // Request Access Form Handler
+        const accessForm = document.getElementById('accessForm');
+        if (accessForm) {
+            accessForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(accessForm);
+                const data = Object.fromEntries(formData);
+
+                // Log form data (in production, this would send to a server)
+                console.log('Dealer Access Request:', data);
+
+                // Show success message
+                const submitBtn = accessForm.querySelector('.btn-submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'REQUEST SUBMITTED ✓';
+                submitBtn.style.background = 'rgba(0, 255, 136, 0.2)';
+                submitBtn.style.borderColor = 'rgba(0, 255, 136, 0.6)';
+                submitBtn.style.color = 'rgba(0, 255, 136, 1)';
+                submitBtn.disabled = true;
+
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    accessForm.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
+        }
     </script>
 </body>
 </html>
