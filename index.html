@@ -2652,9 +2652,287 @@
                 min-width: 300px;
             }
         }
+
+        /* Password Protection Overlay */
+        .password-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--slate-dark) 0%, var(--slate) 50%, var(--slate-light) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .password-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .password-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .password-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .password-logo {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: passwordFadeIn 0.8s ease 0.2s forwards;
+        }
+
+        .password-logo-text {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .password-logo-text span {
+            color: var(--sand);
+        }
+
+        .password-subtitle {
+            font-family: 'IBM Plex Serif', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.5rem;
+        }
+
+        .password-form {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: passwordFadeIn 0.8s ease 0.4s forwards;
+        }
+
+        .password-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 1rem;
+        }
+
+        .password-input-wrap {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .password-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.05em;
+        }
+
+        .password-input:focus {
+            border-color: var(--sand);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .password-input.error {
+            border-color: #e74c3c;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .password-submit {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--slate-dark);
+            background: var(--sand);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .password-submit:hover {
+            background: var(--sand-bright);
+            transform: translateY(-2px);
+        }
+
+        .password-error {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #e74c3c;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .password-error.visible {
+            opacity: 1;
+        }
+
+        @keyframes passwordFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading state */
+        .password-overlay.loading .password-submit {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .password-overlay.loading .password-submit::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+            border: 2px solid var(--slate-dark);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Decorative stripes on password screen */
+        .password-stripes {
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 40%;
+            height: 60%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .password-stripe {
+            position: absolute;
+            background: var(--sand);
+            transform: rotate(-55deg);
+            transform-origin: top right;
+            opacity: 0.15;
+        }
+
+        .password-stripe-1 {
+            width: 80px;
+            height: 200%;
+            right: 60px;
+            top: -50%;
+        }
+
+        .password-stripe-2 {
+            width: 30px;
+            height: 200%;
+            right: 160px;
+            top: -50%;
+        }
+
+        .password-stripes-bottom {
+            position: absolute;
+            bottom: -15%;
+            left: -8%;
+            width: 30%;
+            height: 50%;
+            pointer-events: none;
+        }
+
+        .password-stripe-teal {
+            position: absolute;
+            background: var(--teal);
+            transform: rotate(-55deg);
+            opacity: 0.2;
+        }
+
+        .password-stripe-3 {
+            width: 60px;
+            height: 200%;
+            left: 40px;
+            bottom: -50%;
+        }
     </style>
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <!-- Decorative stripes -->
+        <div class="password-stripes">
+            <div class="password-stripe password-stripe-1"></div>
+            <div class="password-stripe password-stripe-2"></div>
+        </div>
+        <div class="password-stripes-bottom">
+            <div class="password-stripe-teal password-stripe-3"></div>
+        </div>
+
+        <div class="password-content">
+            <div class="password-logo">
+                <div class="password-logo-text">Techni<span>Soil</span></div>
+                <div class="password-subtitle">Dealer Brand House</div>
+            </div>
+
+            <form class="password-form" id="passwordForm">
+                <label class="password-label">Enter Access Code</label>
+                <div class="password-input-wrap">
+                    <input
+                        type="password"
+                        class="password-input"
+                        id="passwordInput"
+                        placeholder="••••••••"
+                        autocomplete="off"
+                        autofocus
+                    >
+                </div>
+                <button type="submit" class="password-submit">Access Brand House</button>
+                <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
+            </form>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-content">
@@ -3710,6 +3988,64 @@ Let's discuss your next project.
     </footer>
 
     <script>
+        // Password Protection
+        (function() {
+            const CORRECT_PASSWORD = 'dealers';
+            const SESSION_KEY = 'technisoil_access';
+
+            const overlay = document.getElementById('passwordOverlay');
+            const form = document.getElementById('passwordForm');
+            const input = document.getElementById('passwordInput');
+            const errorMsg = document.getElementById('passwordError');
+
+            // Check if already authenticated in this session
+            if (sessionStorage.getItem(SESSION_KEY) === 'granted') {
+                overlay.classList.add('hidden');
+                return;
+            }
+
+            // Prevent scrolling when overlay is visible
+            document.body.style.overflow = 'hidden';
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const password = input.value.trim().toLowerCase();
+
+                if (password === CORRECT_PASSWORD) {
+                    // Success
+                    overlay.classList.add('loading');
+                    errorMsg.classList.remove('visible');
+                    input.classList.remove('error');
+
+                    // Store in session
+                    sessionStorage.setItem(SESSION_KEY, 'granted');
+
+                    // Fade out after brief delay
+                    setTimeout(function() {
+                        overlay.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 600);
+                } else {
+                    // Error
+                    input.classList.add('error');
+                    errorMsg.classList.add('visible');
+                    input.value = '';
+                    input.focus();
+
+                    // Remove error class after animation
+                    setTimeout(function() {
+                        input.classList.remove('error');
+                    }, 500);
+                }
+            });
+
+            // Clear error on input
+            input.addEventListener('input', function() {
+                errorMsg.classList.remove('visible');
+            });
+        })();
+
         // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
 
