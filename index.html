@@ -257,146 +257,75 @@
             color: var(--white);
         }
 
-        /* Data Section - Creative Grid */
+        /* Resources */
         .data-hub {
-            padding: 160px 80px;
-            background: var(--black);
-            color: var(--white);
-            position: relative;
+            padding: 120px 60px;
+            background: var(--white);
         }
 
-        .data-hub::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 140px;
-            background: linear-gradient(to bottom, var(--navy), var(--black));
-            pointer-events: none;
+        .data-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .data-hub-header {
-            max-width: 1400px;
-            margin: 0 auto 80px auto;
-            text-align: center;
-        }
-
-        .data-hub-label {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.625rem;
+        .data-label {
+            font-size: 0.6875rem;
+            font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
-        .data-hub-title {
-            font-family: 'Zalando Sans Expanded', sans-serif;
+        .data-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 400;
+            font-weight: 300;
             line-height: 1.1;
             letter-spacing: -0.02em;
-            color: var(--white);
+            color: var(--navy);
             margin-bottom: 24px;
         }
 
-        .data-hub-subtitle {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.6);
+        .data-desc {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--slate);
             max-width: 700px;
-            margin: 0 auto;
+            margin-bottom: 80px;
         }
 
         .data-grid {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: repeat(4, 200px);
-            gap: 2px;
-            background: rgba(255,255,255,0.05);
-        }
-
-        .data-card-featured {
-            grid-column: 1;
-            grid-row: 1 / 3;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(26, 58, 82, 0.1);
         }
 
         .data-card {
-            padding: 48px;
-            background: var(--black);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .data-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(45,123,126,0.08) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .data-card:hover::before {
-            opacity: 1;
+            background: var(--white);
+            padding: 48px 40px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: background 0.2s ease;
         }
 
         .data-card:hover {
-            background: rgba(255,255,255,0.02);
-        }
-
-        .data-card-featured {
-            padding: 60px;
-        }
-
-        .data-card:hover .data-card-meta {
-            transform: translateX(10px);
-        }
-
-        .data-card-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 36px;
-            stroke: var(--teal);
-            stroke-width: 1.5;
-            fill: none;
+            background: var(--cream);
         }
 
         .data-card-title {
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             font-weight: 400;
-            margin-bottom: 20px;
             letter-spacing: -0.01em;
+            color: var(--navy);
+            margin-bottom: 12px;
         }
 
         .data-card-desc {
             font-size: 0.9375rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 40px;
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-        }
-
-        .data-card-meta {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--teal);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            line-height: 1.6;
+            color: var(--slate);
         }
 
         /* Manifesto - Bold Image Treatment */
@@ -1867,69 +1796,53 @@
         </div>
     </section>
 
-    <!-- Data Hub -->
+    <!-- Resources -->
     <section class="data-hub" id="data">
-        <div class="data-hub-header">
-            <div class="data-hub-label">BRAND RESOURCES</div>
-            <h2 class="data-hub-title">EVERYTHING YOU NEED</h2>
-            <p class="data-hub-subtitle">From social media templates to product catalogs, access our complete library of professional marketing assets designed to help you sell more TechniSoil.</p>
-        </div>
+        <div class="data-content">
+            <div class="data-label">Brand Resources</div>
+            <h2 class="data-title">Everything You Need</h2>
+            <p class="data-desc">Professional marketing assets designed to help you sell more TechniSoil. From social templates to product docs.</p>
 
-        <div class="data-grid">
-            <a href="social-templates.html" class="data-card data-card-featured reveal" style="text-decoration: none; color: inherit;">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="6" y="4" width="20" height="24" rx="2"/><line x1="10" y1="10" x2="22" y2="10"/><line x1="10" y1="14" x2="18" y2="14"/><circle cx="14" cy="20" r="2"/></svg>
-                <h3 class="data-card-title">Social Media</h3>
-                <p class="data-card-desc">Professional templates with visual previews. Copy captions instantly.</p>
-                <div class="data-card-meta">View Templates →</div>
-            </a>
+            <div class="data-grid">
+                <a href="social-templates.html" class="data-card">
+                    <h3 class="data-card-title">Social Media Templates</h3>
+                    <p class="data-card-desc">Ready-to-post content for Instagram, Facebook, and LinkedIn.</p>
+                </a>
 
-            <div class="data-card reveal" data-modal="email">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="2"/><path d="M4 10 L16 18 L28 10"/></svg>
-                <h3 class="data-card-title">Email Campaigns</h3>
-                <p class="data-card-desc">Pre-written sales emails. Product intros. Follow-ups.</p>
-                <div class="data-card-meta">Open Templates →</div>
-            </div>
+                <div class="data-card" data-modal="email">
+                    <h3 class="data-card-title">Email Campaigns</h3>
+                    <p class="data-card-desc">Pre-written sales emails and product introductions.</p>
+                </div>
 
-            <div class="data-card reveal" data-modal="brand">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><circle cx="16" cy="10" r="6"/><circle cx="8" cy="22" r="6"/><circle cx="24" cy="22" r="6"/></svg>
-                <h3 class="data-card-title">Brand Assets</h3>
-                <p class="data-card-desc">Logos, colors, typography. Everything you need.</p>
-                <div class="data-card-meta">Download Files →</div>
-            </div>
+                <div class="data-card" data-modal="brand">
+                    <h3 class="data-card-title">Brand Assets</h3>
+                    <p class="data-card-desc">Logos, colors, and typography guidelines.</p>
+                </div>
 
-            <div class="data-card reveal" data-modal="docs">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><path d="M8 4 L20 4 L24 8 L24 28 L8 28 Z"/><line x1="12" y1="14" x2="20" y2="14"/><line x1="12" y1="18" x2="20" y2="18"/><line x1="12" y1="22" x2="16" y2="22"/></svg>
-                <h3 class="data-card-title">Product Docs</h3>
-                <p class="data-card-desc">Tech specs, SDS, installation guides for all products.</p>
-                <div class="data-card-meta">View Documentation →</div>
-            </div>
+                <div class="data-card" data-modal="docs">
+                    <h3 class="data-card-title">Product Documentation</h3>
+                    <p class="data-card-desc">Technical specs, SDS, and installation guides.</p>
+                </div>
 
-            <div class="data-card reveal" data-modal="gallery">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="2"/><circle cx="12" cy="14" r="3"/><path d="M4 22 L10 16 L14 20 L22 12 L28 18 L28 26 L4 26 Z"/></svg>
-                <h3 class="data-card-title">Image Library</h3>
-                <p class="data-card-desc">High-res product photos. Before & afters. Lifestyle shots.</p>
-                <div class="data-card-meta">Browse Gallery →</div>
-            </div>
+                <div class="data-card" data-modal="gallery">
+                    <h3 class="data-card-title">Image Library</h3>
+                    <p class="data-card-desc">High-res product photos and lifestyle shots.</p>
+                </div>
 
-            <div class="data-card reveal" data-modal="video">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="8" width="18" height="16" rx="1"/><path d="M22 12 L28 8 L28 24 L22 20 Z"/></svg>
-                <h3 class="data-card-title">Video Content</h3>
-                <p class="data-card-desc">Installation tutorials. Product demos. Testimonials.</p>
-                <div class="data-card-meta">Watch Videos →</div>
-            </div>
+                <div class="data-card" data-modal="video">
+                    <h3 class="data-card-title">Video Content</h3>
+                    <p class="data-card-desc">Installation tutorials and product demos.</p>
+                </div>
 
-            <a href="https://technisoil.com/wp-content/uploads/2023/03/2023-Technisoil-Catalog.pdf" target="_blank" class="data-card reveal" style="text-decoration: none; color: inherit;">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><path d="M10 4 L22 4 L28 10 L28 28 L10 28 Z M22 4 L22 10 L28 10"/><path d="M14 16 L18 20 L14 24"/><line x1="4" y1="28" x2="4" y2="12" stroke-dasharray="2,2"/></svg>
-                <h3 class="data-card-title">Product Catalog</h3>
-                <p class="data-card-desc">Complete Technisoil product catalog with specs and applications.</p>
-                <div class="data-card-meta">Download PDF →</div>
-            </a>
+                <a href="https://technisoil.com/wp-content/uploads/2023/03/2023-Technisoil-Catalog.pdf" target="_blank" class="data-card">
+                    <h3 class="data-card-title">Product Catalog</h3>
+                    <p class="data-card-desc">Complete product catalog with specifications.</p>
+                </a>
 
-            <div class="data-card reveal" data-modal="products">
-                <svg class="data-card-icon" viewBox="0 0 32 32"><rect x="4" y="8" width="10" height="10" rx="1"/><rect x="18" y="8" width="10" height="10" rx="1"/><rect x="4" y="22" width="10" height="6" rx="1"/><rect x="18" y="22" width="10" height="6" rx="1"/></svg>
-                <h3 class="data-card-title">Products</h3>
-                <p class="data-card-desc">Browse our complete lineup of landscape & hardscape solutions.</p>
-                <div class="data-card-meta">View All Products →</div>
+                <div class="data-card" data-modal="products">
+                    <h3 class="data-card-title">All Products</h3>
+                    <p class="data-card-desc">Browse the complete TechniSoil product lineup.</p>
+                </div>
             </div>
         </div>
     </section>
