@@ -68,43 +68,49 @@
             right: 0;
             z-index: 1000;
             padding: 0 60px;
+            mix-blend-mode: difference;
         }
 
         .nav-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 100px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            height: 80px;
         }
 
         .nav-brand {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
             color: var(--white);
             text-decoration: none;
             text-transform: uppercase;
+            transition: letter-spacing 0.3s ease;
+        }
+
+        .nav-brand:hover {
+            letter-spacing: 0.25em;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 8px;
             align-items: center;
         }
 
         .nav-link {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--white);
             text-decoration: none;
             text-transform: uppercase;
-            padding: 12px 20px;
+            padding: 14px 24px;
             position: relative;
             overflow: hidden;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .nav-link::before {
@@ -115,17 +121,20 @@
             right: 0;
             bottom: 0;
             background: var(--white);
-            transform: translateY(100%);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: -1;
         }
 
         .nav-link:hover {
             color: var(--black);
+            border-color: var(--white);
         }
 
         .nav-link:hover::before {
-            transform: translateY(0);
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .lang-switcher {
@@ -508,7 +517,7 @@
             max-width: 420px;
         }
 
-        /* Manifesto - Sky Blue Industrial */
+        /* Manifesto - Dark with Fading Images */
         .manifesto {
             position: relative;
             min-height: 100vh;
@@ -516,109 +525,43 @@
             align-items: center;
             justify-content: center;
             padding: 180px 80px;
-            background: #a6c6dd;
+            background: var(--black);
             overflow: hidden;
         }
 
-        /* Subtle Grid Pattern */
-        .manifesto::before {
-            content: '';
+        /* Fading Background Images */
+        .manifesto-bg-images {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image:
-                linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
-            background-size: 60px 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
             z-index: 1;
             pointer-events: none;
         }
 
-        /* SVG Plant - Animated Growing Effect */
-        .manifesto-plant {
+        .manifesto-bg-cell {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .manifesto-bg-cell img {
             position: absolute;
-            top: 50%;
-            right: -20%;
-            transform: translateY(-50%);
-            width: 2400px;
-            height: 2400px;
-            z-index: 1;
-            pointer-events: none;
-            overflow: visible;
-        }
-
-        .manifesto-plant path {
-            stroke: rgba(0,0,0,0.08);
-            fill: none;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            transition: stroke-dashoffset 2.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .manifesto-plant .stem {
-            stroke-width: 8;
-        }
-
-        .manifesto-plant .branch {
-            stroke-width: 6;
-        }
-
-        .manifesto-plant .twig {
-            stroke-width: 4;
-        }
-
-        .manifesto-plant circle {
-            stroke: rgba(0,0,0,0.06);
-            fill: none;
-            stroke-width: 4;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0;
-            transform: scale(0);
-            transform-origin: center;
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: opacity 2s ease;
         }
 
-        /* Animated states when in view */
-        .manifesto.in-view .manifesto-plant path {
-            stroke-dashoffset: 0;
+        .manifesto-bg-cell img.visible {
+            opacity: 0.15;
         }
-
-        .manifesto.in-view .manifesto-plant .stem {
-            transition-delay: 0s;
-        }
-
-        .manifesto.in-view .manifesto-plant .branch:nth-of-type(2) {
-            transition-delay: 0.3s;
-        }
-
-        .manifesto.in-view .manifesto-plant .branch:nth-of-type(3) {
-            transition-delay: 0.5s;
-        }
-
-        .manifesto.in-view .manifesto-plant .branch:nth-of-type(4) {
-            transition-delay: 0.4s;
-        }
-
-        .manifesto.in-view .manifesto-plant .branch:nth-of-type(5) {
-            transition-delay: 0.6s;
-        }
-
-        .manifesto.in-view .manifesto-plant .twig {
-            transition-delay: 0.8s;
-        }
-
-        .manifesto.in-view .manifesto-plant circle {
-            opacity: 0.08;
-            transform: scale(1);
-        }
-
-        .manifesto.in-view .manifesto-plant circle:nth-of-type(1) { transition-delay: 1.2s; }
-        .manifesto.in-view .manifesto-plant circle:nth-of-type(2) { transition-delay: 1.4s; }
-        .manifesto.in-view .manifesto-plant circle:nth-of-type(3) { transition-delay: 1.3s; }
-        .manifesto.in-view .manifesto-plant circle:nth-of-type(4) { transition-delay: 1.5s; }
-        .manifesto.in-view .manifesto-plant circle:nth-of-type(5) { transition-delay: 1.6s; }
-        .manifesto.in-view .manifesto-plant circle:nth-of-type(6) { transition-delay: 1.7s; }
 
         .manifesto-content {
             position: relative;
@@ -631,8 +574,8 @@
             font-family: Georgia, serif;
             font-size: 12rem;
             line-height: 1;
-            color: var(--black);
-            opacity: 0.06;
+            color: var(--sand);
+            opacity: 0.15;
             position: absolute;
             top: -60px;
             left: 50%;
@@ -649,15 +592,16 @@
             font-weight: 700;
             line-height: 1.35;
             letter-spacing: -0.01em;
-            color: var(--black);
+            color: var(--white);
             margin-bottom: 60px;
             text-transform: uppercase;
         }
 
-        /* Manifesto Animated Underlines */
+        /* Gold highlighted words */
         .manifesto-highlight {
             position: relative;
             display: inline-block;
+            color: var(--sand);
         }
 
         .manifesto-highlight::after {
@@ -667,7 +611,7 @@
             left: 0;
             width: 0;
             height: 0.08em;
-            background: var(--black);
+            background: var(--sand);
             transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -703,8 +647,8 @@
             font-weight: 600;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--black);
-            opacity: 0.5;
+            color: var(--sand);
+            opacity: 0.6;
         }
 
         @media (max-width: 1200px) {
@@ -2345,21 +2289,21 @@
 
     <!-- Manifesto -->
     <section class="manifesto">
-        <!-- Animated Plant SVG - Grows on scroll (non-overlapping curves) -->
-        <svg class="manifesto-plant" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
-            <!-- Separate flowing curves - no overlaps -->
-            <path class="stem" d="M50 400 Q80 300 120 250 Q160 200 200 180"/>
-            <path class="branch" d="M80 380 Q150 320 220 300 Q280 285 340 290"/>
-            <path class="branch" d="M30 280 Q100 240 180 220 Q250 205 320 220"/>
-            <path class="branch" d="M60 180 Q130 150 200 140 Q270 130 350 150"/>
-            <path class="twig" d="M100 100 Q170 80 240 70 Q300 62 380 80"/>
-            <path class="twig" d="M150 40 Q220 25 300 30"/>
-            <!-- Accent circles - positioned away from paths -->
-            <circle cx="340" cy="290" r="20"/>
-            <circle cx="320" cy="220" r="16"/>
-            <circle cx="350" cy="150" r="14"/>
-            <circle cx="380" cy="80" r="12"/>
-        </svg>
+        <!-- Fading Background Images Grid -->
+        <div class="manifesto-bg-images">
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1518012312832-96aea3c91144?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400" alt=""></div>
+            <div class="manifesto-bg-cell"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400" alt=""></div>
+        </div>
         <div class="manifesto-content">
             <div class="manifesto-quote-mark">"</div>
             <p class="manifesto-text">
@@ -3334,6 +3278,44 @@ Electric #00ff88">Copy Colors</button>
         // Observe manifesto section
         const manifesto = document.querySelector('.manifesto');
         if (manifesto) scrollAnimateObserver.observe(manifesto);
+
+        // Manifesto Fading Background Images
+        const manifestoBgImages = document.querySelectorAll('.manifesto-bg-cell img');
+        let fadeInterval;
+
+        function fadeRandomImage() {
+            // Pick a random image
+            const randomIndex = Math.floor(Math.random() * manifestoBgImages.length);
+            const img = manifestoBgImages[randomIndex];
+
+            // Toggle visibility
+            if (img.classList.contains('visible')) {
+                img.classList.remove('visible');
+            } else {
+                img.classList.add('visible');
+            }
+        }
+
+        // Start fading images when manifesto is in view
+        const manifestoFadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Start with a couple visible
+                    fadeRandomImage();
+                    setTimeout(fadeRandomImage, 500);
+                    // Continue fading every 3-5 seconds
+                    fadeInterval = setInterval(() => {
+                        fadeRandomImage();
+                    }, 3000 + Math.random() * 2000);
+                } else {
+                    clearInterval(fadeInterval);
+                    // Hide all images when out of view
+                    manifestoBgImages.forEach(img => img.classList.remove('visible'));
+                }
+            });
+        }, { threshold: 0.2 });
+
+        if (manifesto) manifestoFadeObserver.observe(manifesto);
 
         // How It Works - No additional JS needed (uses pure CSS hover effects)
 
