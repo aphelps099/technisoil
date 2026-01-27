@@ -729,16 +729,17 @@
             letter-spacing: 0.01em;
         }
 
-        /* Timeline - Horizontal Scroll */
+        /* Timeline - Vertical Story Layout */
         .timeline {
-            padding: 100px 0 100px 80px;
+            padding: 140px 80px;
             background: var(--navy);
             color: var(--white);
-            overflow-x: auto;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .timeline-header {
-            margin-bottom: 80px;
+            margin-bottom: 120px;
         }
 
         .timeline-label {
@@ -758,31 +759,73 @@
             letter-spacing: -0.015em;
         }
 
-        .timeline-scroll {
-            display: flex;
-            gap: 100px;
-            padding-bottom: 40px;
+        .timeline-content {
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(0,255,136,0), rgba(0,255,136,0.3), rgba(0,255,136,0));
         }
 
         .timeline-item {
-            min-width: 400px;
-            flex-shrink: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .timeline-item:nth-child(even) > * {
+            direction: ltr;
         }
 
         .timeline-year {
-            font-size: 5.5rem;
+            font-size: 8rem;
             font-weight: 200;
             color: var(--electric);
             line-height: 1;
-            margin-bottom: 28px;
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .timeline-content-left,
+        .timeline-content-right {
+            padding-top: 60px;
+        }
+
+        .timeline-number {
+            font-size: 3rem;
+            font-weight: 200;
+            color: var(--electric);
+            line-height: 1;
+            margin-bottom: 24px;
             letter-spacing: -0.02em;
         }
 
         .timeline-text {
-            font-size: 1.0625rem;
+            font-size: 1.125rem;
             font-weight: 300;
             line-height: 1.75;
-            color: rgba(255,255,255,0.75);
+            color: rgba(255,255,255,0.85);
             letter-spacing: 0.01em;
         }
 
@@ -1086,15 +1129,17 @@
             }
         }
 
-        /* Testimonials */
+        /* Testimonials - Premium Layout */
         .testimonials {
-            padding: 100px 80px;
+            padding: 140px 80px;
             background: var(--white);
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
         .testimonials-header {
             max-width: 800px;
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
         .testimonials-label {
@@ -1112,63 +1157,122 @@
             font-weight: 300;
             line-height: 0.95;
             letter-spacing: -0.015em;
-            margin-bottom: 40px;
         }
 
-        .testimonials-grid {
+        .testimonials-content {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: start;
         }
 
-        .testimonial-card {
-            background: var(--gray-50);
-            padding: 48px;
-            border-radius: 8px;
-            border-left: 4px solid var(--sand);
+        .testimonial-featured {
+            position: relative;
         }
 
-        .testimonial-stars {
+        .testimonial-quote-mark {
+            font-size: 8rem;
+            line-height: 1;
             color: var(--sand);
-            font-size: 1.25rem;
-            margin-bottom: 20px;
+            opacity: 0.15;
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            font-family: Georgia, serif;
         }
 
-        .testimonial-text {
+        .testimonial-featured-text {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--navy);
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .testimonial-featured-author {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .testimonial-featured-name {
             font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .testimonial-featured-role {
+            font-size: 0.9375rem;
+            color: var(--slate);
+        }
+
+        .testimonial-featured-stars {
+            color: var(--sand);
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+        }
+
+        .testimonials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .testimonial-small {
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 32px;
+        }
+
+        .testimonial-small-text {
+            font-size: 1.0625rem;
             font-weight: 300;
             line-height: 1.7;
             color: var(--navy);
             margin-bottom: 24px;
-            font-style: italic;
         }
 
-        .testimonial-author {
-            font-size: 0.9375rem;
+        .testimonial-small-author {
+            font-size: 0.875rem;
             font-weight: 500;
             color: var(--slate);
+            margin-bottom: 4px;
         }
 
-        .testimonial-location {
-            font-size: 0.875rem;
+        .testimonial-small-location {
+            font-size: 0.8125rem;
             color: var(--slate);
             opacity: 0.7;
         }
 
-        /* Contact/Support */
+        .testimonial-small-stars {
+            color: var(--sand);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        /* Contact/Support - Premium Split Layout */
         .support {
-            padding: 100px 80px;
+            min-height: 100vh;
             background: var(--navy);
             color: var(--white);
+            display: flex;
+            align-items: center;
         }
 
         .support-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
         }
 
-        .support-header {
-            margin-bottom: 80px;
+        .support-left {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(255,255,255,0.08);
         }
 
         .support-label {
@@ -1182,65 +1286,90 @@
         }
 
         .support-title {
-            font-size: clamp(3rem, 6vw, 5rem);
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
             font-weight: 300;
-            line-height: 0.95;
-            letter-spacing: -0.015em;
+            line-height: 0.92;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
         }
 
-        .support-grid {
+        .support-message {
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.75);
+            max-width: 480px;
+        }
+
+        .support-right {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .support-directory {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 60px;
         }
 
-        .support-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
-            padding: 40px;
-            border-radius: 8px;
-            transition: all 0.3s;
+        .support-dept {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 32px;
         }
 
-        .support-card:hover {
-            border-color: rgba(0,255,136,0.3);
-            transform: translateY(-4px);
+        .support-dept:last-child {
+            border-bottom: none;
         }
 
-        .support-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 24px;
-            stroke: var(--electric);
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .support-card-title {
-            font-size: 1.5rem;
+        .support-dept-name {
+            font-size: 0.6875rem;
             font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 24px;
+        }
+
+        .support-dept-title {
+            font-size: 2rem;
+            font-weight: 400;
             margin-bottom: 16px;
             color: var(--white);
         }
 
-        .support-card-desc {
+        .support-dept-desc {
             font-size: 0.9375rem;
             font-weight: 300;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
             line-height: 1.7;
             margin-bottom: 24px;
         }
 
-        .support-contact {
+        .support-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .support-contact-link {
             font-size: 1.125rem;
-            font-weight: 500;
+            font-weight: 400;
             color: var(--electric);
-            margin-bottom: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .support-contact-link:hover {
+            color: var(--white);
+            transform: translateX(4px);
         }
 
         .support-hours {
             font-size: 0.875rem;
             color: rgba(255,255,255,0.5);
+            margin-top: 12px;
         }
 
         /* Footer */
@@ -1420,9 +1549,49 @@
             .team,
             .timeline,
             .testimonials,
-            .support,
             .modal-content {
                 padding: 80px 40px;
+            }
+
+            .support-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .support-left,
+            .support-right {
+                padding: 60px 40px;
+            }
+
+            .support-left {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .testimonials-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                margin-bottom: 80px;
+            }
+
+            .timeline-content::before {
+                left: 20px;
+            }
+
+            .timeline-year {
+                display: none;
+            }
+
+            .timeline-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .timeline-content-left,
+            .timeline-content-right {
+                padding-left: 60px;
             }
 
             .data-card {
@@ -1697,26 +1866,50 @@
             <h2 class="timeline-title" data-translate="timeline-title">OUR JOURNEY</h2>
         </div>
 
-        <div class="timeline-scroll">
-            <div class="timeline-item">
+        <div class="timeline-content">
+            <div class="timeline-item reveal">
                 <div class="timeline-year">2011</div>
-                <p class="timeline-text">In a humble metal building with no restroom, TechniSoil sprouted, fueled by a single employee's passion. Pathway Stabilizer® emerged.</p>
+                <div class="timeline-content-left">
+                    <div class="timeline-number">2011</div>
+                    <p class="timeline-text">In a humble metal building with no restroom, TechniSoil sprouted, fueled by a single employee's passion. Pathway Stabilizer® emerged.</p>
+                </div>
+                <div class="timeline-content-right"></div>
             </div>
-            <div class="timeline-item">
+
+            <div class="timeline-item reveal">
                 <div class="timeline-year">2012</div>
-                <p class="timeline-text">The NanoPave® launch stirred the market, garnering warm reception. Another team member joined the fold.</p>
+                <div class="timeline-content-left"></div>
+                <div class="timeline-content-right">
+                    <div class="timeline-number">2012</div>
+                    <p class="timeline-text">The NanoPave® launch stirred the market, garnering warm reception. Another team member joined the fold.</p>
+                </div>
             </div>
-            <div class="timeline-item">
+
+            <div class="timeline-item reveal">
                 <div class="timeline-year">2014</div>
-                <p class="timeline-text">Innovation blossomed as EkoFlo® came into being and took flight. This major triumph propelled ongoing growth.</p>
+                <div class="timeline-content-left">
+                    <div class="timeline-number">2014</div>
+                    <p class="timeline-text">Innovation blossomed as EkoFlo® came into being and took flight. This major triumph propelled ongoing growth.</p>
+                </div>
+                <div class="timeline-content-right"></div>
             </div>
-            <div class="timeline-item">
+
+            <div class="timeline-item reveal">
                 <div class="timeline-year">2015</div>
-                <p class="timeline-text">TechniSoil found a new abode, complete with a restroom. BarkBinder® soon followed, making its grand debut.</p>
+                <div class="timeline-content-left"></div>
+                <div class="timeline-content-right">
+                    <div class="timeline-number">2015</div>
+                    <p class="timeline-text">TechniSoil found a new abode, complete with a restroom. BarkBinder® soon followed, making its grand debut.</p>
+                </div>
             </div>
-            <div class="timeline-item">
+
+            <div class="timeline-item reveal">
                 <div class="timeline-year">2017</div>
-                <p class="timeline-text">The innovative Molecule™ series of sealers took shape—meticulously developed, rigorously tested, and introduced to market.</p>
+                <div class="timeline-content-left">
+                    <div class="timeline-number">2017</div>
+                    <p class="timeline-text">The innovative Molecule™ series of sealers took shape—meticulously developed, rigorously tested, and introduced to market.</p>
+                </div>
+                <div class="timeline-content-right"></div>
             </div>
         </div>
     </section>
@@ -2268,33 +2461,38 @@ Electric #00ff88">Copy Colors</button>
             <h2 class="testimonials-title" data-translate="testimonials-title">TRUSTED BY PROFESSIONALS</h2>
         </div>
 
-        <div class="testimonials-grid">
-            <div class="testimonial-card reveal">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"The Brand House has transformed how we market TechniSoil products. Copy-paste templates save us hours every week, and our social media engagement has tripled."</p>
-                <div class="testimonial-author">Mike Chen</div>
-                <div class="testimonial-location">Phoenix Landscape Supply, AZ</div>
+        <div class="testimonials-content">
+            <div class="testimonial-featured reveal">
+                <div class="testimonial-quote-mark">"</div>
+                <div class="testimonial-featured-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-featured-text">The Brand House has transformed how we market TechniSoil products. Copy-paste templates save us hours every week, and our social media engagement has tripled.</p>
+                <div class="testimonial-featured-author">
+                    <div class="testimonial-featured-name">Mike Chen</div>
+                    <div class="testimonial-featured-role">Phoenix Landscape Supply, AZ</div>
+                </div>
             </div>
 
-            <div class="testimonial-card reveal">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Finally, professional marketing assets that actually work. Our customers love the before/after photos, and product sales have increased 40% since we started using these templates."</p>
-                <div class="testimonial-author">Sarah Martinez</div>
-                <div class="testimonial-location">Desert Vista Hardscapes, CA</div>
-            </div>
+            <div class="testimonials-list">
+                <div class="testimonial-small reveal">
+                    <div class="testimonial-small-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-small-text">"Finally, professional marketing assets that actually work. Our customers love the before/after photos, and product sales have increased 40% since we started using these templates."</p>
+                    <div class="testimonial-small-author">Sarah Martinez</div>
+                    <div class="testimonial-small-location">Desert Vista Hardscapes, CA</div>
+                </div>
 
-            <div class="testimonial-card reveal">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"TechniSoil's support team is phenomenal. Quick responses, expert guidance, and they genuinely care about our success. Best supplier partnership we've ever had."</p>
-                <div class="testimonial-author">James Anderson</div>
-                <div class="testimonial-location">Rocky Mountain Materials, CO</div>
-            </div>
+                <div class="testimonial-small reveal">
+                    <div class="testimonial-small-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-small-text">"TechniSoil's support team is phenomenal. Quick responses, expert guidance, and they genuinely care about our success."</p>
+                    <div class="testimonial-small-author">James Anderson</div>
+                    <div class="testimonial-small-location">Rocky Mountain Materials, CO</div>
+                </div>
 
-            <div class="testimonial-card reveal">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"The product documentation and installation guides are invaluable. We can confidently answer any customer question on the spot. Game changer for our sales process."</p>
-                <div class="testimonial-author">Linda Thompson</div>
-                <div class="testimonial-location">Coastal Landscape Solutions, FL</div>
+                <div class="testimonial-small reveal">
+                    <div class="testimonial-small-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-small-text">"The product documentation and installation guides are invaluable. We can confidently answer any customer question on the spot."</p>
+                    <div class="testimonial-small-author">Linda Thompson</div>
+                    <div class="testimonial-small-location">Coastal Landscape Solutions, FL</div>
+                </div>
             </div>
         </div>
     </section>
@@ -2302,48 +2500,45 @@ Electric #00ff88">Copy Colors</button>
     <!-- Support -->
     <section class="support" id="support">
         <div class="support-inner">
-            <div class="support-header reveal">
+            <div class="support-left reveal">
                 <div class="support-label" data-translate="support-label">Get Help</div>
                 <h2 class="support-title" data-translate="support-title">WE'RE HERE FOR YOU</h2>
+                <p class="support-message">Whether you need product guidance, technical assistance, or marketing support, our team is ready to help you succeed.</p>
             </div>
 
-            <div class="support-grid">
-                <div class="support-card reveal">
-                    <svg class="support-icon" viewBox="0 0 32 32">
-                        <path d="M16 28 C8 28 4 22 4 16 C4 10 8 4 16 4 C24 4 28 10 28 16 C28 19 27 21 26 22 L28 28 L22 26 C21 27 19 28 16 28 Z"/>
-                        <line x1="12" y1="14" x2="20" y2="14"/>
-                        <line x1="12" y1="18" x2="18" y2="18"/>
-                    </svg>
-                    <h3 class="support-card-title" data-translate="support-card-1-title">Sales Support</h3>
-                    <p class="support-card-desc" data-translate="support-card-1-desc">Product selection, pricing, bulk orders, and dealer partnership inquiries.</p>
-                    <div class="support-contact">sales@technisoil.com</div>
-                    <div class="support-contact">(800) 555-0123</div>
-                    <div class="support-hours" data-translate="support-card-1-hours">Mon-Fri 8AM-6PM PST</div>
-                </div>
+            <div class="support-right reveal">
+                <div class="support-directory">
+                    <div class="support-dept">
+                        <div class="support-dept-name">01 / Sales</div>
+                        <h3 class="support-dept-title" data-translate="support-card-1-title">Sales Support</h3>
+                        <p class="support-dept-desc" data-translate="support-card-1-desc">Product selection, pricing, bulk orders, and dealer partnership inquiries.</p>
+                        <div class="support-contact-info">
+                            <a href="mailto:sales@technisoil.com" class="support-contact-link">sales@technisoil.com</a>
+                            <a href="tel:+18005550123" class="support-contact-link">(800) 555-0123</a>
+                        </div>
+                        <div class="support-hours" data-translate="support-card-1-hours">Mon-Fri 8AM-6PM PST</div>
+                    </div>
 
-                <div class="support-card reveal">
-                    <svg class="support-icon" viewBox="0 0 32 32">
-                        <circle cx="16" cy="12" r="4"/>
-                        <path d="M16 18 C10 18 6 20 6 24 L6 28 L26 28 L26 24 C26 20 22 18 16 18 Z"/>
-                        <path d="M20 8 L22 4 L26 6"/>
-                    </svg>
-                    <h3 class="support-card-title" data-translate="support-card-2-title">Technical Support</h3>
-                    <p class="support-card-desc" data-translate="support-card-2-desc">Installation guidance, application questions, troubleshooting, and product specs.</p>
-                    <div class="support-contact">support@technisoil.com</div>
-                    <div class="support-contact">(800) 555-0124</div>
-                    <div class="support-hours" data-translate="support-card-2-hours">Mon-Fri 7AM-7PM PST</div>
-                </div>
+                    <div class="support-dept">
+                        <div class="support-dept-name">02 / Technical</div>
+                        <h3 class="support-dept-title" data-translate="support-card-2-title">Technical Support</h3>
+                        <p class="support-dept-desc" data-translate="support-card-2-desc">Installation guidance, application questions, troubleshooting, and product specs.</p>
+                        <div class="support-contact-info">
+                            <a href="mailto:support@technisoil.com" class="support-contact-link">support@technisoil.com</a>
+                            <a href="tel:+18005550124" class="support-contact-link">(800) 555-0124</a>
+                        </div>
+                        <div class="support-hours" data-translate="support-card-2-hours">Mon-Fri 7AM-7PM PST</div>
+                    </div>
 
-                <div class="support-card reveal">
-                    <svg class="support-icon" viewBox="0 0 32 32">
-                        <rect x="4" y="8" width="24" height="20" rx="2"/>
-                        <path d="M4 12 L16 18 L28 12"/>
-                        <circle cx="24" cy="10" r="4" fill="var(--electric)"/>
-                    </svg>
-                    <h3 class="support-card-title" data-translate="support-card-3-title">Marketing Help</h3>
-                    <p class="support-card-desc" data-translate="support-card-3-desc">Brand assets, custom templates, co-op advertising, and marketing strategy.</p>
-                    <div class="support-contact">marketing@technisoil.com</div>
-                    <div class="support-hours" data-translate="support-card-3-hours">Response within 24 hours</div>
+                    <div class="support-dept">
+                        <div class="support-dept-name">03 / Marketing</div>
+                        <h3 class="support-dept-title" data-translate="support-card-3-title">Marketing Help</h3>
+                        <p class="support-dept-desc" data-translate="support-card-3-desc">Brand assets, custom templates, co-op advertising, and marketing strategy.</p>
+                        <div class="support-contact-info">
+                            <a href="mailto:marketing@technisoil.com" class="support-contact-link">marketing@technisoil.com</a>
+                        </div>
+                        <div class="support-hours" data-translate="support-card-3-hours">Response within 24 hours</div>
+                    </div>
                 </div>
             </div>
         </div>
