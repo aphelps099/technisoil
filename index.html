@@ -216,6 +216,16 @@
             overflow: hidden;
         }
 
+        /* Greyscale background image */
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1920&q=80') center center / cover no-repeat;
+            filter: grayscale(100%) contrast(1.1);
+            opacity: 0.35;
+            z-index: 0;
+        }
+
         /* Animated gradient background */
         .hero::before {
             content: '';
@@ -225,8 +235,9 @@
                 radial-gradient(circle at 20% 80%, var(--teal) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, var(--sand) 0%, transparent 40%),
                 radial-gradient(circle at 50% 50%, rgba(45, 123, 126, 0.3) 0%, transparent 60%);
-            opacity: 0.4;
+            opacity: 0.5;
             animation: heroGradient 15s ease infinite;
+            z-index: 1;
         }
 
         @keyframes heroGradient {
@@ -2422,6 +2433,7 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-bg-image"></div>
         <div class="hero-accent hero-accent-left">Est. 2006 California</div>
         <div class="hero-accent hero-accent-right">Dealer Partner Network</div>
 
