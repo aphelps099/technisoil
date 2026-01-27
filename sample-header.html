@@ -5,131 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechniSoil Brand House — Hero Sample</title>
 
-    <!-- Google Fonts (matching Brand House) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Zalando+Sans:wght@300;400;500;600;700;800&family=Zalando+Sans+Expanded:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            /* Brand House Palette - with warm accent */
+            --sand: #c9a86a;
+            --sand-bright: #d4b87a;
+            --sand-dark: #a88a4a;
+            --slate: #1a1d21;
+            --slate-dark: #0d0f12;
+            --slate-light: #2a2e35;
+            --teal: #2d7b7e;
+            --teal-light: #3a9598;
+            --forest: #4a6741;
+            --sky-blue: #1976B5;
+            --white: #FFFFFF;
+            --cream: #F5F2EB;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            /* Brand House Palette */
-            --navy: #1a3a52;
-            --slate: #6b7280;
-            --sand: #c9a86a;
-            --sand-light: #d4b87a;
-            --brown: #8b6f47;
-            --terracotta: #c17855;
-            --forest: #4a6741;
-            --sage: #7a8a6f;
-            --teal: #2d7b7e;
-            --turquoise: #5fa5a5;
-            --sky: #9fb8c7;
-            --cream: #f5ead8;
-            --white: #ffffff;
-            --black: #0d0d0d;
-        }
-
         html {
-            scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Zalando Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Outfit', sans-serif;
+            background: var(--slate-dark);
             color: var(--white);
-            background: var(--black);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-weight: 300;
+            overflow-x: hidden;
         }
 
-        /* ========================================
-           NAVIGATION
-        ======================================== */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 0 60px;
-        }
-
-        .nav-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        .nav-brand {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            color: var(--white);
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: letter-spacing 0.3s ease;
-        }
-
-        .nav-brand:hover {
-            letter-spacing: 0.25em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .nav-link {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--white);
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 14px 24px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--white);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
-        }
-
-        .nav-link:hover {
-            color: var(--black);
-            border-color: var(--white);
-        }
-
-        .nav-link:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* ========================================
-           HERO SECTION
-        ======================================== */
+        /* Hero Section */
         .hero {
             position: relative;
             width: 100%;
@@ -137,174 +52,332 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
             overflow: hidden;
-            background: var(--black);
+            background: linear-gradient(135deg, var(--slate-dark) 0%, var(--slate) 50%, var(--slate-light) 100%);
         }
 
-        /* Animated Swoosh Background */
-        .swoosh-bg {
+        /* Diagonal Stripes - Top Right */
+        .diagonal-stripes {
             position: absolute;
-            width: 200%;
-            height: 100%;
-            left: -50%;
-            top: 0;
+            top: -10%;
+            right: -5%;
+            width: 50%;
+            height: 70%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .stripe {
+            position: absolute;
+            background: var(--sand);
+            transform: rotate(-55deg);
+            transform-origin: top right;
+        }
+
+        .stripe-1 {
+            width: 120px;
+            height: 200%;
+            right: 80px;
+            top: -50%;
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.3s forwards;
+        }
+
+        .stripe-2 {
+            width: 60px;
+            height: 200%;
+            right: 220px;
+            top: -50%;
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.5s forwards;
+        }
+
+        .stripe-3 {
+            width: 8px;
+            height: 200%;
+            right: 300px;
+            top: -50%;
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.7s forwards;
+        }
+
+        .stripe-4 {
+            width: 4px;
+            height: 200%;
+            right: 320px;
+            top: -50%;
+            background: var(--sand-bright);
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.8s forwards;
+        }
+
+        @keyframes stripeSlide {
+            from {
+                opacity: 0;
+                transform: rotate(-55deg) translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(-55deg) translateY(0);
+            }
+        }
+
+        /* Bottom Left Diagonal Accent */
+        .diagonal-accent-bottom {
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 40%;
+            height: 60%;
             z-index: 1;
             pointer-events: none;
         }
 
-        .swoosh-bg svg {
+        .accent-stripe {
+            position: absolute;
+            background: var(--teal);
+            transform: rotate(-55deg);
+        }
+
+        .accent-1 {
+            width: 80px;
+            height: 200%;
+            left: 50px;
+            bottom: -50%;
+            opacity: 0;
+            animation: stripeSlideUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .accent-2 {
+            width: 6px;
+            height: 200%;
+            left: 150px;
+            bottom: -50%;
+            background: var(--teal-light);
+            opacity: 0;
+            animation: stripeSlideUp 0.8s ease-out 1s forwards;
+        }
+
+        @keyframes stripeSlideUp {
+            from {
+                opacity: 0;
+                transform: rotate(-55deg) translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(-55deg) translateY(0);
+            }
+        }
+
+        /* Animated Swoosh Lines */
+        .swoosh-container {
+            position: absolute;
             width: 100%;
             height: 100%;
-            position: absolute;
+            z-index: 2;
+            pointer-events: none;
         }
 
-        .swoosh-path-1 {
-            stroke-dasharray: 3000;
-            stroke-dashoffset: 3000;
-            animation: drawSwoosh 2.5s ease-out 0.3s forwards;
+        .swoosh-container svg {
+            width: 100%;
+            height: 100%;
         }
 
-        .swoosh-path-2 {
-            stroke-dasharray: 3000;
-            stroke-dashoffset: 3000;
-            animation: drawSwoosh 2.5s ease-out 0.5s forwards;
+        .swoosh-line {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: drawLine 2s ease-out forwards;
         }
 
-        .swoosh-path-3 {
-            stroke-dasharray: 3000;
-            stroke-dashoffset: 3000;
-            animation: drawSwoosh 2.5s ease-out 0.7s forwards;
-        }
+        .swoosh-line-1 { animation-delay: 1.2s; }
+        .swoosh-line-2 { animation-delay: 1.4s; }
+        .swoosh-line-3 { animation-delay: 1.6s; }
 
-        @keyframes drawSwoosh {
+        @keyframes drawLine {
             to {
                 stroke-dashoffset: 0;
             }
         }
 
-        /* Grain Texture */
+        /* Grain Overlay */
         .grain {
             position: absolute;
             inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            opacity: 0.35;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-        }
-
-        /* Hero Logo */
-        .hero-logo {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-            opacity: 0;
-            animation: logoFadeIn 1s ease 2.4s forwards;
-        }
-
-        .hero-logo svg {
-            width: 180px;
-            height: auto;
-            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
-        }
-
-        @keyframes logoFadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Side Accents */
-        .hero-accent {
-            position: absolute;
-            font-size: 0.625rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.15);
-            writing-mode: vertical-rl;
             z-index: 3;
+            pointer-events: none;
+            opacity: 0.25;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        .hero-accent-left {
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%) rotate(180deg);
+        /* Logo - Top Right */
+        .logo-container {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 1.8s forwards;
         }
 
-        .hero-accent-right {
-            right: 40px;
-            top: 50%;
-            transform: translateY(-50%);
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--sand);
         }
 
-        /* Hero Content */
+        .logo-text span {
+            color: var(--white);
+        }
+
+        .logo-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--sand);
+            position: relative;
+        }
+
+        .logo-badge .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 45%;
+            background: var(--sky-blue);
+        }
+
+        .logo-badge .swoosh-divider {
+            position: absolute;
+            top: 35%;
+            left: 0;
+            right: 0;
+            height: 20%;
+            background: var(--white);
+            border-radius: 0 0 100% 0;
+        }
+
+        .logo-badge .leaf {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 18px;
+            height: 18px;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Navigation */
+        .nav {
+            position: absolute;
+            top: 2rem;
+            left: 4rem;
+            z-index: 20;
+            display: flex;
+            gap: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 3s forwards;
+        }
+
+        .nav-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--sand);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sand);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Content */
         .hero-content {
             position: relative;
             z-index: 10;
-            text-align: center;
-            padding: 0 40px;
-            max-width: 1200px;
+            padding: 2rem 4rem;
+            max-width: 900px;
         }
 
-        /* Eyebrow */
-        .hero-eyebrow {
-            font-size: 0.75rem;
+        /* Pre-title */
+        .pre-title {
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 40px;
+            margin-bottom: 1rem;
             opacity: 0;
-            transform: translateY(30px);
-            animation: heroFadeUp 1s ease 1.8s forwards;
+            transform: translateX(-20px);
+            animation: slideRight 0.6s ease-out 2s forwards;
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* Main Title */
         .hero-title {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 800;
-            line-height: 0.95;
-            letter-spacing: -0.02em;
-            color: var(--white);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 400;
+            line-height: 0.9;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
 
-        .hero-title-line {
+        .title-line {
             display: block;
             overflow: hidden;
         }
 
-        .hero-title-line span {
+        .title-line span {
             display: inline-block;
             opacity: 0;
             transform: translateY(100%);
-            animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .hero-title-line:nth-child(1) span {
-            animation-delay: 2s;
+        .title-line:nth-child(1) span {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+            color: var(--white);
         }
 
-        .hero-title-line:nth-child(2) span {
-            animation-delay: 2.2s;
-        }
-
-        .hero-title-accent {
+        .title-line:nth-child(2) span {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
             color: var(--sand);
         }
 
-        @keyframes heroReveal {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes heroFadeUp {
+        @keyframes slideUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -314,75 +387,61 @@
         /* Tagline */
         .hero-tagline {
             font-family: 'IBM Plex Serif', Georgia, serif;
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: 1.1rem;
             font-weight: 400;
             font-style: italic;
             color: rgba(255, 255, 255, 0.6);
-            max-width: 600px;
-            margin: 48px auto 0;
+            max-width: 500px;
             line-height: 1.7;
+            margin-bottom: 2.5rem;
             opacity: 0;
             transform: translateY(20px);
-            animation: heroFadeUp 0.8s ease-out 2.6s forwards;
+            animation: fadeUp 0.6s ease-out 2.6s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* CTA Buttons */
-        .hero-cta-wrap {
+        .hero-cta {
             display: flex;
-            gap: 20px;
-            justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 60px;
             opacity: 0;
             transform: translateY(20px);
-            animation: heroFadeUp 0.8s ease-out 2.8s forwards;
+            animation: fadeUp 0.6s ease-out 2.8s forwards;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 16px;
-            padding: 20px 48px;
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            border: none;
         }
 
         .btn-primary {
             background: var(--sand);
-            color: var(--black);
-            border: 2px solid var(--sand);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--sand-light);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
+            color: var(--slate-dark);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+            padding-right: 2.5rem;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(201, 168, 106, 0.3);
-        }
-
-        .btn-primary:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
+            background: var(--sand-bright);
+            transform: translateX(4px);
         }
 
         .btn-secondary {
@@ -391,208 +450,224 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .btn-secondary::before {
-            content: '';
+        .btn-secondary:hover {
+            border-color: var(--sand);
+            color: var(--sand);
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Bottom Bar */
+        .bottom-bar {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: var(--white);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 2rem 4rem;
         }
 
-        .btn-secondary:hover {
-            color: var(--black);
-            border-color: var(--white);
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 3s forwards;
         }
 
-        .btn-secondary:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
+        .stat {
+            text-align: left;
         }
 
-        .btn-arrow {
-            transition: transform 0.4s ease;
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--sand);
+            line-height: 1;
         }
 
-        .btn:hover .btn-arrow {
-            transform: translateX(8px);
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.25rem;
+        }
+
+        /* Website URL */
+        .website-url {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.05em;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 3.2s forwards;
         }
 
         /* Scroll Indicator */
-        .hero-scroll {
+        .scroll-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            z-index: 10;
+            gap: 0.5rem;
             opacity: 0;
-            animation: heroFadeUp 1s ease 3.2s forwards;
+            animation: fadeUp 0.6s ease-out 3.4s forwards;
         }
 
-        .hero-scroll-text {
-            font-size: 0.625rem;
+        .scroll-text {
+            font-size: 0.65rem;
             font-weight: 600;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255, 255, 255, 0.4);
         }
 
-        .hero-scroll-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--sand), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--sand);
+            border-bottom: 2px solid var(--sand);
+            transform: rotate(45deg);
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        @keyframes scrollPulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scaleY(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scaleY(0.7);
-            }
+        @keyframes bounce {
+            0%, 100% { transform: rotate(45deg) translate(0, 0); }
+            50% { transform: rotate(45deg) translate(5px, 5px); }
         }
 
-        /* ========================================
-           RESPONSIVE
-        ======================================== */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .nav {
-                padding: 0 40px;
-            }
-
-            .hero-accent {
-                display: none;
-            }
-
-            .hero-logo {
-                right: 40px;
-            }
-
-            .hero-logo svg {
-                width: 140px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hero-logo {
-                position: static;
-                transform: none;
-                margin-bottom: 40px;
-            }
-
-            .hero-logo svg {
-                width: 120px;
-            }
-
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+            .diagonal-stripes {
+                width: 60%;
             }
         }
 
         @media (max-width: 768px) {
-            .nav {
-                padding: 0 24px;
+            .hero-content {
+                padding: 2rem;
             }
 
-            .nav-links {
+            .bottom-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .nav {
+                left: 2rem;
+                gap: 1rem;
+            }
+
+            .logo-container {
+                right: 2rem;
+            }
+
+            .diagonal-stripes {
+                width: 70%;
+            }
+
+            .stripe-1 { width: 80px; right: 40px; }
+            .stripe-2 { width: 40px; right: 140px; }
+            .stripe-3 { right: 200px; }
+            .stripe-4 { right: 215px; }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
                 display: none;
             }
 
-            .hero-content {
-                padding: 0 24px;
-            }
-
-            .hero-eyebrow {
-                font-size: 0.625rem;
-                margin-bottom: 24px;
-            }
-
             .hero-title {
-                font-size: clamp(2rem, 12vw, 4rem);
+                font-size: clamp(3rem, 15vw, 5rem);
             }
 
             .hero-tagline {
                 font-size: 1rem;
-                margin-top: 32px;
             }
 
-            .hero-cta-wrap {
+            .hero-cta {
                 flex-direction: column;
-                align-items: center;
-                margin-top: 40px;
             }
 
             .btn {
-                padding: 16px 32px;
-                font-size: 0.75rem;
                 width: 100%;
-                max-width: 280px;
                 justify-content: center;
             }
 
-            .hero-scroll {
-                bottom: 24px;
-            }
-
-            .hero-scroll-line {
-                height: 40px;
+            .btn-primary {
+                clip-path: none;
+                padding-right: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="#" class="nav-brand">TechniSoil Brand House</a>
-            <div class="nav-links">
-                <a href="#" class="nav-link">Resources</a>
-                <a href="#" class="nav-link">Videos</a>
-                <a href="#" class="nav-link">Support</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero -->
     <section class="hero">
-        <!-- Animated Swoosh Background -->
-        <div class="swoosh-bg">
+        <!-- Diagonal Stripes - Top Right -->
+        <div class="diagonal-stripes">
+            <div class="stripe stripe-1"></div>
+            <div class="stripe stripe-2"></div>
+            <div class="stripe stripe-3"></div>
+            <div class="stripe stripe-4"></div>
+        </div>
+
+        <!-- Diagonal Accent - Bottom Left (Teal) -->
+        <div class="diagonal-accent-bottom">
+            <div class="accent-stripe accent-1"></div>
+            <div class="accent-stripe accent-2"></div>
+        </div>
+
+        <!-- Animated Swoosh Lines -->
+        <div class="swoosh-container">
             <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-                <!-- Teal swoosh (sky) - top -->
-                <path class="swoosh-path-1"
-                      d="M-100,300 C200,450 500,500 800,400 C1100,300 1400,350 1700,450"
-                      stroke="rgba(45, 123, 126, 0.15)"
-                      stroke-width="200"
+                <path class="swoosh-line swoosh-line-1"
+                      d="M0,600 C300,700 600,750 900,650 C1200,550 1400,580 1600,620"
+                      stroke="rgba(201, 168, 106, 0.15)"
+                      stroke-width="3"
                       fill="none"
                       stroke-linecap="round"/>
-
-                <!-- Sand swoosh - middle -->
-                <path class="swoosh-path-2"
-                      d="M-100,500 C250,350 550,300 850,420 C1150,540 1450,480 1700,380"
-                      stroke="rgba(201, 168, 106, 0.2)"
-                      stroke-width="180"
+                <path class="swoosh-line swoosh-line-2"
+                      d="M0,650 C350,720 650,780 950,680 C1250,580 1450,600 1600,660"
+                      stroke="rgba(201, 168, 106, 0.1)"
+                      stroke-width="2"
                       fill="none"
                       stroke-linecap="round"/>
-
-                <!-- Accent swoosh - thin line -->
-                <path class="swoosh-path-3"
-                      d="M-50,420 C220,520 520,540 820,440 C1120,340 1420,380 1700,460"
-                      stroke="rgba(201, 168, 106, 0.4)"
-                      stroke-width="4"
+                <path class="swoosh-line swoosh-line-3"
+                      d="M0,550 C250,680 550,720 850,620 C1150,520 1350,560 1600,580"
+                      stroke="rgba(45, 123, 126, 0.08)"
+                      stroke-width="1"
                       fill="none"
                       stroke-linecap="round"/>
             </svg>
@@ -601,64 +676,79 @@
         <!-- Grain Texture -->
         <div class="grain"></div>
 
-        <!-- Side Accents -->
-        <div class="hero-accent hero-accent-left">Est. 2006 California</div>
-        <div class="hero-accent hero-accent-right">Dealer Partner Network</div>
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="#products" class="nav-link">Products</a>
+            <a href="#videos" class="nav-link">Videos</a>
+            <a href="#guidelines" class="nav-link">Guidelines</a>
+            <a href="#downloads" class="nav-link">Downloads</a>
+        </nav>
 
         <!-- Logo -->
-        <div class="hero-logo">
-            <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Leaves -->
-                <path d="M58 8 C48 18 45 32 52 42 C56 38 58 30 58 22 C58 30 60 38 64 42 C71 32 68 18 58 8Z" fill="#2D5A27"/>
-                <path d="M72 12 C66 20 64 30 68 38 C71 35 72 29 72 23 C72 29 73 35 76 38 C80 30 78 20 72 12Z" fill="#4A7A3D"/>
-
-                <!-- Blue wave -->
-                <path d="M90 28 C100 28 108 32 120 28 C132 24 145 26 160 30 L160 50 C145 46 132 44 120 48 C108 52 100 48 90 48 Z" fill="#1976B5"/>
-
-                <!-- Soil block -->
-                <path d="M90 48 C100 48 108 52 120 48 C132 44 145 46 160 50 L160 110 L90 110 Z" fill="#A67C3D"/>
-
-                <!-- TechniSoil text -->
-                <text x="0" y="145" font-family="Georgia, serif" font-size="28" font-style="italic" font-weight="500" fill="#A67C3D">
-                    <tspan>Techni</tspan><tspan font-weight="600">Soil</tspan>
-                </text>
-                <text x="162" y="132" font-family="Arial, sans-serif" font-size="10" fill="#A67C3D">®</text>
-            </svg>
+        <div class="logo-container">
+            <span class="logo-text">Techni<span>Soil</span></span>
+            <div class="logo-badge">
+                <div class="sky"></div>
+                <div class="swoosh-divider"></div>
+                <svg class="leaf" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5 C10 12 8 22 15 30 C17 27 19 22 20 17 C21 22 23 27 25 30 C32 22 30 12 20 5Z" fill="#4a6741"/>
+                </svg>
+            </div>
         </div>
 
         <!-- Main Content -->
         <div class="hero-content">
-            <!-- Eyebrow -->
-            <div class="hero-eyebrow">TechniSoil Dealer Network</div>
+            <!-- Pre-title -->
+            <p class="pre-title">TechniSoil Dealer Network</p>
 
             <!-- Main Title -->
             <h1 class="hero-title">
-                <span class="hero-title-line"><span>Brand</span></span>
-                <span class="hero-title-line"><span class="hero-title-accent">House</span></span>
+                <span class="title-line"><span>Brand</span></span>
+                <span class="title-line"><span>House</span></span>
             </h1>
 
             <!-- Tagline -->
             <p class="hero-tagline">
-                Your central hub for dealer resources, marketing assets, and everything you need to grow with TechniSoil.
+                Your central hub for brand assets, product videos, and marketing resources. Everything you need to represent TechniSoil's eco-friendly landscape solutions.
             </p>
 
             <!-- CTA Buttons -->
-            <div class="hero-cta-wrap">
-                <a href="#" class="btn btn-primary">
+            <div class="hero-cta">
+                <a href="#explore" class="btn btn-primary">
                     Explore Resources
-                    <span class="btn-arrow">→</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                 </a>
-                <a href="#" class="btn btn-secondary">
+                <a href="#videos" class="btn btn-secondary">
                     Watch Videos
-                    <span class="btn-arrow">→</span>
                 </a>
             </div>
         </div>
 
+        <!-- Bottom Bar -->
+        <div class="bottom-bar">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Videos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Products</div>
+                </div>
+            </div>
+            <div class="website-url">technisoil.com</div>
+        </div>
+
         <!-- Scroll Indicator -->
-        <div class="hero-scroll">
-            <span class="hero-scroll-text">Scroll</span>
-            <div class="hero-scroll-line"></div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 </body>
