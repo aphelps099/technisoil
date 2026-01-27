@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechniSoil Brand House — Hero Sample</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (matching index.html) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Zalando+Sans:wght@300;400;500;600;700&family=Zalando+Sans+Expanded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -38,10 +38,11 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Zalando Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--slate-dark);
             color: var(--white);
             overflow-x: hidden;
+            font-weight: 300;
         }
 
         /* Hero Section */
@@ -211,117 +212,15 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* Logo - Top Right */
-        .logo-container {
-            position: absolute;
-            top: 2rem;
-            right: 2.5rem;
-            z-index: 20;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out 1.8s forwards;
-        }
-
-        .logo-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--sand);
-        }
-
-        .logo-text span {
-            color: var(--white);
-        }
-
-        .logo-badge {
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--sand);
-            position: relative;
-        }
-
-        .logo-badge .sky {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 45%;
-            background: var(--sky-blue);
-        }
-
-        .logo-badge .swoosh-divider {
-            position: absolute;
-            top: 35%;
-            left: 0;
-            right: 0;
-            height: 20%;
-            background: var(--white);
-            border-radius: 0 0 100% 0;
-        }
-
-        .logo-badge .leaf {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 18px;
-            height: 18px;
-        }
-
         @keyframes fadeIn {
             to { opacity: 1; }
-        }
-
-        /* Navigation */
-        .nav {
-            position: absolute;
-            top: 2rem;
-            left: 4rem;
-            z-index: 20;
-            display: flex;
-            gap: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out 3s forwards;
-        }
-
-        .nav-link {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--sand);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--sand);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
         }
 
         /* Content */
         .hero-content {
             position: relative;
             z-index: 10;
-            padding: 2rem 4rem;
+            padding: 100px 4rem 2rem;
             max-width: 900px;
         }
 
@@ -347,11 +246,11 @@
 
         /* Main Title */
         .hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(4rem, 12vw, 10rem);
-            font-weight: 400;
-            line-height: 0.9;
-            letter-spacing: 0.02em;
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
@@ -421,7 +320,7 @@
             align-items: center;
             gap: 0.75rem;
             padding: 1rem 2rem;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
@@ -491,7 +390,7 @@
         }
 
         .stat-number {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Zalando Sans Expanded', sans-serif;
             font-size: 3rem;
             color: var(--sand);
             line-height: 1;
@@ -508,7 +407,7 @@
 
         /* Website URL */
         .website-url {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.9rem;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.4);
@@ -581,15 +480,6 @@
                 font-size: 2rem;
             }
 
-            .nav {
-                left: 2rem;
-                gap: 1rem;
-            }
-
-            .logo-container {
-                right: 2rem;
-            }
-
             .diagonal-stripes {
                 width: 70%;
             }
@@ -605,10 +495,6 @@
         }
 
         @media (max-width: 480px) {
-            .nav {
-                display: none;
-            }
-
             .hero-title {
                 font-size: clamp(3rem, 15vw, 5rem);
             }
@@ -675,26 +561,6 @@
 
         <!-- Grain Texture -->
         <div class="grain"></div>
-
-        <!-- Navigation -->
-        <nav class="nav">
-            <a href="#products" class="nav-link">Products</a>
-            <a href="#videos" class="nav-link">Videos</a>
-            <a href="#guidelines" class="nav-link">Guidelines</a>
-            <a href="#downloads" class="nav-link">Downloads</a>
-        </nav>
-
-        <!-- Logo -->
-        <div class="logo-container">
-            <span class="logo-text">Techni<span>Soil</span></span>
-            <div class="logo-badge">
-                <div class="sky"></div>
-                <div class="swoosh-divider"></div>
-                <svg class="leaf" viewBox="0 0 40 40" fill="none">
-                    <path d="M20 5 C10 12 8 22 15 30 C17 27 19 22 20 17 C21 22 23 27 25 30 C32 22 30 12 20 5Z" fill="#4a6741"/>
-                </svg>
-            </div>
-        </div>
 
         <!-- Main Content -->
         <div class="hero-content">
