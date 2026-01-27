@@ -211,79 +211,223 @@
             position: relative;
             display: flex;
             align-items: center;
-            padding: 0 60px;
-            background: url('http://technisoil.com/wp-content/uploads/2026/01/sustainable_garden_design_with_native_plants_ornamenta_754b135c-0685-4b37-9bbb-c336b1e4cc97.jpg') center/cover no-repeat;
+            justify-content: center;
+            background: var(--black);
+            overflow: hidden;
         }
 
+        /* Animated gradient background */
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            inset: -50%;
+            background:
+                radial-gradient(circle at 20% 80%, var(--teal) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--sand) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(45, 123, 126, 0.3) 0%, transparent 60%);
+            opacity: 0.4;
+            animation: heroGradient 15s ease infinite;
         }
 
+        @keyframes heroGradient {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+        }
+
+        /* Grain texture */
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            max-width: 800px;
-            z-index: 1;
+            z-index: 3;
+            text-align: center;
+            padding: 0 40px;
         }
 
-        .hero-label {
-            font-size: 0.6875rem;
-            font-weight: 400;
-            letter-spacing: 0.3em;
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s ease 0.3s forwards;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -0.03em;
             color: var(--white);
-            margin-bottom: 40px;
+            margin-bottom: 0;
             text-transform: uppercase;
         }
 
-        .hero-desc {
-            font-size: 1.125rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.7);
-            max-width: 500px;
-            margin-bottom: 48px;
-            line-height: 1.6;
+        .hero-title-line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title-line span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-title-line:nth-child(1) span { animation-delay: 0.5s; }
+        .hero-title-line:nth-child(2) span { animation-delay: 0.7s; }
+
+        .hero-title-accent {
+            color: var(--sand);
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
+            margin-top: 48px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: heroFadeUp 1s ease 1.2s forwards;
+        }
+
+        .hero-cta-wrap {
+            margin-top: 60px;
+            opacity: 0;
+            animation: heroFadeUp 1s ease 1.5s forwards;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            z-index: 3;
+            opacity: 0;
+            animation: heroFadeUp 1s ease 2s forwards;
+        }
+
+        .hero-scroll-text {
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--sand), transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.5; transform: scaleY(0.7); }
+        }
+
+        /* Side accents */
+        .hero-accent {
+            position: absolute;
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.15);
+            writing-mode: vertical-rl;
+            z-index: 3;
+        }
+
+        .hero-accent-left {
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .hero-accent-right {
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 18px 48px;
-            background: var(--white);
-            color: var(--navy);
-            font-size: 0.75rem;
-            font-weight: 600;
+            gap: 16px;
+            padding: 20px 48px;
+            background: transparent;
+            border: 2px solid var(--sand);
+            color: var(--sand);
+            font-size: 0.8125rem;
+            font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--sand);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
         }
 
         .hero-cta:hover {
-            background: var(--sand);
-            color: var(--white);
+            color: var(--black);
+        }
+
+        .hero-cta:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero-cta-arrow {
+            transition: transform 0.4s ease;
+        }
+
+        .hero-cta:hover .hero-cta-arrow {
+            transform: translateX(8px);
         }
 
         /* Resources */
@@ -2038,12 +2182,19 @@
             }
 
             .hero {
-                padding: 32px 40px 40px;
+                padding: 32px 24px 40px;
             }
 
-            .hero-card {
-                max-width: 100%;
-                padding: 40px;
+            .hero-accent {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: clamp(3rem, 12vw, 8rem);
+            }
+
+            .hero-scroll {
+                bottom: 24px;
             }
 
             .data-hub {
@@ -2189,27 +2340,34 @@
             }
 
             .hero {
-                padding: 24px 24px 24px;
+                padding: 24px 16px 24px;
             }
 
-            .hero-logo {
-                width: 140px;
-            }
-
-            .hero-card {
-                padding: 32px 24px;
-                max-width: 100%;
+            .hero-eyebrow {
+                font-size: 0.625rem;
+                margin-bottom: 24px;
             }
 
             .hero-title {
-                font-size: 1.75rem;
-                letter-spacing: 0.03em;
-                line-height: 1;
+                font-size: clamp(2.5rem, 18vw, 6rem);
             }
 
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 32px;
+            .hero-tagline {
+                font-size: 0.875rem;
+                margin-top: 32px;
+            }
+
+            .hero-cta-wrap {
+                margin-top: 40px;
+            }
+
+            .hero-cta {
+                padding: 16px 32px;
+                font-size: 0.75rem;
+            }
+
+            .hero-scroll {
+                display: none;
             }
 
             .data-hub {
@@ -2277,13 +2435,27 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-accent hero-accent-left">Est. 2006 California</div>
+        <div class="hero-accent hero-accent-right">Dealer Partner Network</div>
+
         <div class="hero-content">
-            <div class="hero-label" data-translate="hero-label">For Dealers & Partners</div>
-            <h1 class="hero-title" data-translate="hero-title">TECHNISOIL BRAND HOUSE</h1>
-            <p class="hero-desc" data-translate="hero-desc">Professional marketing resources for TechniSoil dealers. Everything you need to grow your business.</p>
-            <a href="#data" class="hero-cta" id="exploreBtn">
-                Explore Resources
-            </a>
+            <div class="hero-eyebrow">TechniSoil Dealer Network</div>
+            <h1 class="hero-title">
+                <span class="hero-title-line"><span>Ground</span></span>
+                <span class="hero-title-line"><span class="hero-title-accent">Up.</span></span>
+            </h1>
+            <p class="hero-tagline">Build what lasts. Grow what matters.</p>
+            <div class="hero-cta-wrap">
+                <a href="#data" class="hero-cta" id="exploreBtn">
+                    Explore Resources
+                    <span class="hero-cta-arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <span class="hero-scroll-text">Scroll</span>
+            <div class="hero-scroll-line"></div>
         </div>
     </section>
 
