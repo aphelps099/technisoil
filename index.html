@@ -388,208 +388,72 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* How It Works - Architectural 3-Step Grid */
+        /* How It Works */
         .how-it-works {
-            background: var(--navy);
-            padding: 160px 0 0 0;
-            position: relative;
+            background: var(--white);
+            padding: 120px 60px;
         }
 
-        .how-it-works::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
-            pointer-events: none;
+        .how-content {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .how-header {
-            padding: 0 80px 80px 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .how-category {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.625rem;
+        .how-label {
+            font-size: 0.6875rem;
+            font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 24px;
-        }
-
-        .how-title {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: clamp(3rem, 6vw, 6rem);
-            font-weight: 400;
-            line-height: 0.9;
-            letter-spacing: -0.02em;
-            color: var(--white);
             margin-bottom: 32px;
         }
 
-        .how-subtitle {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.6);
-            max-width: 700px;
+        .how-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin-bottom: 80px;
         }
 
-        .how-grid {
+        .how-steps {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+            gap: 60px;
         }
 
         .how-step {
-            position: relative;
-            padding: 80px 60px;
-            border-right: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .how-step:hover {
-            background: rgba(255,255,255,0.02);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 40px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(26, 58, 82, 0.1);
         }
 
         .how-step:last-child {
-            border-right: none;
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .how-step-number-giant {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: 15rem;
+        .how-step-number {
+            font-size: 4rem;
             font-weight: 200;
             line-height: 1;
             color: var(--sand);
-            opacity: 0.08;
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            pointer-events: none;
         }
 
-        .how-step-icon {
-            position: relative;
-            z-index: 2;
-            width: 140px;
-            height: 140px;
-            margin-bottom: 48px;
-        }
-
-        .how-step-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--teal);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .how-step:hover .how-step-icon svg {
-            fill: var(--turquoise);
-            transform: scale(1.05);
-        }
-
-        .how-step-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .how-step-label {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: 1.75rem;
-            font-weight: 600;
-            line-height: 1.2;
+        .how-step-title {
+            font-size: 1.5rem;
+            font-weight: 400;
             letter-spacing: -0.01em;
-            color: var(--white);
+            color: var(--navy);
             margin-bottom: 16px;
         }
 
         .how-step-desc {
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 32px;
-        }
-
-        .how-step-value {
-            margin-top: auto;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .how-step-value-label {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.625rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 8px;
-        }
-
-        .how-step-value-stat {
-            font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--sand);
-            line-height: 1;
-        }
-
-        @media (max-width: 1200px) {
-            .how-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .how-step {
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-                padding: 100px 60px;
-            }
-
-            .how-step:last-child {
-                border-bottom: none;
-            }
-
-            .how-step-number-giant {
-                font-size: 12rem;
-            }
-
-            .how-step-icon {
-                width: 120px;
-                height: 120px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .how-header {
-                padding: 0 32px 48px 32px;
-            }
-
-            .how-title {
-                font-size: 2.5rem;
-            }
-
-            .how-step {
-                padding: 80px 40px;
-            }
-
-            .how-step-number-giant {
-                font-size: 8rem;
-                top: -20px;
-            }
-
-            .how-step-icon {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 32px;
-            }
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--slate);
         }
 
         /* Manifesto - Bold Image Treatment */
@@ -2213,70 +2077,32 @@
 
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
-        <div class="how-header">
-            <div class="how-category" data-translate="how-category">ONBOARDING | SUPPORT | SUCCESS</div>
-            <h2 class="how-title" data-translate="how-title">HOW IT WORKS</h2>
-            <p class="how-subtitle" data-translate="how-subtitle">Three simple steps to transform your TechniSoil marketing from zero to hero. Get onboarded, access resources, and watch your sales grow.</p>
-        </div>
+        <div class="how-content">
+            <div class="how-label" data-translate="how-label">How It Works</div>
+            <h2 class="how-title" data-translate="how-title">Three Simple Steps</h2>
 
-        <div class="how-grid">
-            <!-- Step 1: Request Access -->
-            <div class="how-step">
-                <div class="how-step-number-giant">1</div>
-                <div class="how-step-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                        <path d="M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z"/>
-                        <path d="M26,30H24V25a5,5,0,0,0-5-5H13a5,5,0,0,0-5,5v5H6V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z"/>
-                    </svg>
-                </div>
-                <div class="how-step-content">
-                    <h3 class="how-step-label">REQUEST ACCESS</h3>
-                    <p class="how-step-desc">Complete a simple form to request dealer access. Our team reviews and approves qualified partners within 24 hours.</p>
-                    <div class="how-step-value">
-                        <div class="how-step-value-label">Onboarding Time</div>
-                        <div class="how-step-value-stat">&lt;24 hrs</div>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="how-step-number">1</div>
+                    <div>
+                        <h3 class="how-step-title" data-translate="how-step-1-title">Request Access</h3>
+                        <p class="how-step-desc" data-translate="how-step-1-desc">Submit a quick form. Our team reviews and approves qualified dealers within 24 hours.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 2: Get Resources -->
-            <div class="how-step">
-                <div class="how-step-number-giant">2</div>
-                <div class="how-step-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                        <path d="M27.307,14.121,17.184,4H4V28H28V16.312ZM18,6.828,25.172,14H18ZM26,26H6V6h10v10H26Z"/>
-                        <rect x="8" y="20" width="16" height="2"/>
-                        <rect x="8" y="16" width="10" height="2"/>
-                    </svg>
-                </div>
-                <div class="how-step-content">
-                    <h3 class="how-step-label">ACCESS RESOURCES</h3>
-                    <p class="how-step-desc">Unlock 200+ ready-to-use marketing assets, social templates, email campaigns, and product documentation. Everything you need in one place.</p>
-                    <div class="how-step-value">
-                        <div class="how-step-value-label">Time Saved Per Week</div>
-                        <div class="how-step-value-stat">15 hrs</div>
+                <div class="how-step">
+                    <div class="how-step-number">2</div>
+                    <div>
+                        <h3 class="how-step-title" data-translate="how-step-2-title">Access Resources</h3>
+                        <p class="how-step-desc" data-translate="how-step-2-desc">Download marketing assets, social templates, product docs, and sales materials.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 3: Drive Sales -->
-            <div class="how-step">
-                <div class="how-step-number-giant">3</div>
-                <div class="how-step-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                        <polygon points="28 2 28 4 26.586 4 22 8.586 17.707 4.293 16.293 5.707 21 10.414 26 5.414 26 7 28 7 28 2"/>
-                        <path d="M28,16v6H22V16Zm-2,4H24V18h2Z"/>
-                        <path d="M20,16v6H14V16Zm-2,4H16V18h2Z"/>
-                        <path d="M12,22V16H6v6Zm-2-2H8V18h2Z"/>
-                        <path d="M28,30H4a2.0023,2.0023,0,0,1-2-2V4A2.0023,2.0023,0,0,1,4,2H14V4H4V28H28V14h2V28A2.0023,2.0023,0,0,1,28,30Z"/>
-                    </svg>
-                </div>
-                <div class="how-step-content">
-                    <h3 class="how-step-label">GROW REVENUE</h3>
-                    <p class="how-step-desc">Deploy professional marketing that converts. Our dealers report average sales increases of 37% within their first year of partnership.</p>
-                    <div class="how-step-value">
-                        <div class="how-step-value-label">Avg. Revenue Growth</div>
-                        <div class="how-step-value-stat">+37%</div>
+                <div class="how-step">
+                    <div class="how-step-number">3</div>
+                    <div>
+                        <h3 class="how-step-title" data-translate="how-step-3-title">Grow Your Business</h3>
+                        <p class="how-step-desc" data-translate="how-step-3-desc">Deploy professional marketing and watch your TechniSoil sales grow.</p>
                     </div>
                 </div>
             </div>
