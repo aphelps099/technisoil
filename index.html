@@ -875,103 +875,251 @@
             }
         }
 
-        /* Testimonials - Premium Editorial */
-        .testimonials {
-            background: var(--navy);
-            padding: 160px 80px;
+        /* Testimonials - Trigger Block */
+        .testimonials-trigger {
+            background: var(--black);
+            padding: 100px 80px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .testimonials-container {
+        .testimonials-trigger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--teal);
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .testimonials-trigger:hover::before {
+            transform: translateY(0);
+        }
+
+        .testimonials-trigger-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .testimonials-trigger-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .testimonials-trigger-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--teal);
+            transition: color 0.4s ease;
+        }
+
+        .testimonials-trigger:hover .testimonials-trigger-label {
+            color: var(--black);
+        }
+
+        .testimonials-trigger-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .testimonials-trigger:hover .testimonials-trigger-title {
+            color: var(--black);
+        }
+
+        .testimonials-trigger-stats {
+            display: flex;
+            gap: 48px;
+        }
+
+        .trigger-stat {
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .trigger-stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+            transition: color 0.4s ease;
+        }
+
+        .testimonials-trigger:hover .trigger-stat-number {
+            color: var(--black);
+        }
+
+        .trigger-stat-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-top: 8px;
+            transition: color 0.4s ease;
+        }
+
+        .testimonials-trigger:hover .trigger-stat-label {
+            color: rgba(0,0,0,0.6);
+        }
+
+        .trigger-arrow {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--teal);
+            transition: all 0.4s ease;
+        }
+
+        .testimonials-trigger:hover .trigger-arrow {
+            background: var(--black);
+            border-color: var(--black);
+            color: var(--white);
+            transform: rotate(45deg);
+        }
+
+        /* Testimonials Modal */
+        .testimonials-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            z-index: 9999;
+            overflow-y: auto;
+        }
+
+        .testimonials-modal.active {
+            display: block;
+        }
+
+        .testimonials-modal-content {
+            padding: 120px 80px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .testimonials-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: end;
-            margin-bottom: 100px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+        .testimonials-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .testimonials-intro {
-            max-width: 500px;
-        }
-
-        .testimonials-label {
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 24px;
-        }
-
-        .testimonials-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 300;
-            line-height: 1.1;
+        .testimonials-modal-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
             letter-spacing: -0.02em;
             color: var(--white);
-        }
-
-        .testimonials-stats {
-            display: flex;
-            gap: 60px;
-            justify-content: flex-end;
-        }
-
-        .stat-item {
-            text-align: right;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 200;
-            color: var(--white);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
+        }
+
+        .testimonials-modal-close {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .testimonials-modal-close:hover {
+            background: var(--teal);
+            color: var(--black);
+            transform: rotate(90deg);
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
 
-        .testimonial-featured {
+        .testimonial-card {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            padding: 60px;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 48px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--teal);
+            background: rgba(45, 123, 126, 0.1);
+        }
+
+        .testimonial-card.featured {
+            grid-column: 1 / -1;
+            background: var(--teal);
+            border-color: var(--teal);
+        }
+
+        .testimonial-card.featured .testimonial-quote,
+        .testimonial-card.featured .testimonial-name,
+        .testimonial-card.featured .testimonial-role,
+        .testimonial-card.featured .testimonial-metric-value {
+            color: var(--black);
+        }
+
+        .testimonial-card.featured .testimonial-metric-label {
+            color: rgba(0,0,0,0.6);
         }
 
         .testimonial-quote {
-            font-size: 1.625rem;
-            font-weight: 300;
-            line-height: 1.5;
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
             color: var(--white);
-            margin-bottom: 48px;
+            margin-bottom: 32px;
         }
 
-        .testimonial-meta {
+        .testimonial-card.featured .testimonial-quote {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .testimonial-footer {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .testimonial-author-info {
+        .testimonial-card.featured .testimonial-footer {
+            border-color: rgba(0,0,0,0.2);
+        }
+
+        .testimonial-author {
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -979,7 +1127,7 @@
 
         .testimonial-name {
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--white);
         }
 
@@ -992,66 +1140,26 @@
             text-align: right;
         }
 
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--sand);
+        .testimonial-metric-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--teal);
             line-height: 1;
         }
 
-        .metric-label {
-            font-size: 0.6875rem;
-            letter-spacing: 0.1em;
+        .testimonial-metric-label {
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: rgba(255,255,255,0.4);
             margin-top: 4px;
         }
 
-        .testimonials-secondary {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .testimonial-card {
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: border-color 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: rgba(255,255,255,0.12);
-        }
-
-        .testimonial-card-quote {
-            font-size: 1.0625rem;
-            font-weight: 300;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 28px;
-        }
-
-        .testimonial-card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .testimonial-card-author {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--white);
-        }
-
-        .testimonial-card-company {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.4);
-        }
-
-        /* Support - Clean Editorial */
+        /* Support - Industrial Style */
         .support {
-            background: var(--cream);
-            padding: 160px 80px;
+            background: var(--black);
+            padding: 120px 80px;
         }
 
         .support-container {
@@ -1060,94 +1168,104 @@
         }
 
         .support-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .support-intro {
-            max-width: 480px;
+            max-width: 600px;
         }
 
         .support-label {
             font-size: 0.6875rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 24px;
+            color: var(--teal);
+            margin-bottom: 16px;
         }
 
         .support-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 300;
-            line-height: 1.1;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1;
             letter-spacing: -0.02em;
-            color: var(--navy);
+            color: var(--white);
+            text-transform: uppercase;
         }
 
         .support-message {
-            font-size: 1.125rem;
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--slate);
-            align-self: end;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.5);
+            max-width: 400px;
+            text-align: right;
         }
 
         .support-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: rgba(26, 58, 82, 0.1);
+            gap: 2px;
+            background: var(--teal);
         }
 
         .support-card {
-            background: var(--white);
+            background: var(--black);
             padding: 48px 40px;
             display: flex;
             flex-direction: column;
-            min-height: 320px;
+            min-height: 340px;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            background: rgba(45, 123, 126, 0.15);
         }
 
         .support-card-number {
-            font-size: 0.6875rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            color: var(--sand);
-            margin-bottom: 32px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 24px;
+            line-height: 1;
         }
 
         .support-card-title {
-            font-size: 1.375rem;
-            font-weight: 400;
-            color: var(--navy);
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         .support-card-desc {
             font-size: 0.9375rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.6;
-            color: var(--slate);
+            color: rgba(255,255,255,0.6);
             margin-bottom: auto;
             padding-bottom: 32px;
         }
 
         .support-card-contact {
             padding-top: 24px;
-            border-top: 1px solid rgba(26, 58, 82, 0.08);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .support-card-link {
             display: block;
             font-size: 0.9375rem;
-            font-weight: 400;
+            font-weight: 500;
             color: var(--teal);
             text-decoration: none;
             margin-bottom: 8px;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .support-card-link:last-child {
@@ -1155,68 +1273,199 @@
         }
 
         .support-card-link:hover {
-            color: var(--navy);
+            color: var(--white);
+            transform: translateX(4px);
         }
 
         .support-card-hours {
-            font-size: 0.8125rem;
-            color: var(--slate);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
             margin-top: 16px;
         }
 
-        /* Request Access - Premium Form */
-        .request-access {
-            background: var(--forest);
-            padding: 160px 80px;
+        /* Request Access - Trigger Block */
+        .request-trigger {
+            background: var(--teal);
+            padding: 100px 80px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .request-access-container {
-            max-width: 1000px;
+        .request-trigger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .request-trigger:hover::before {
+            transform: translateX(0);
+        }
+
+        .request-trigger-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .request-trigger-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .request-trigger-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--black);
+            transition: color 0.4s ease;
+        }
+
+        .request-trigger:hover .request-trigger-label {
+            color: var(--teal);
+        }
+
+        .request-trigger-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--black);
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .request-trigger:hover .request-trigger-title {
+            color: var(--white);
+        }
+
+        .request-trigger-desc {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: rgba(0,0,0,0.6);
+            max-width: 500px;
+            transition: color 0.4s ease;
+        }
+
+        .request-trigger:hover .request-trigger-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .request-trigger .trigger-arrow {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .request-trigger:hover .trigger-arrow {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: var(--black);
+        }
+
+        /* Request Access Modal */
+        .request-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            z-index: 9999;
+            overflow-y: auto;
+        }
+
+        .request-modal.active {
+            display: block;
+        }
+
+        .request-modal-content {
+            padding: 120px 80px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .request-access-header {
+        .request-modal-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
-        .request-access-label {
+        .request-modal-close {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .request-modal-close:hover {
+            background: var(--teal);
+            color: var(--black);
+            transform: rotate(90deg);
+        }
+
+        .request-modal-label {
             font-size: 0.6875rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 24px;
-        }
-
-        .request-access-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            color: var(--white);
+            color: var(--teal);
             margin-bottom: 20px;
         }
 
-        .request-access-desc {
+        .request-modal-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .request-modal-desc {
             font-size: 1.125rem;
-            font-weight: 300;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
             max-width: 560px;
             margin: 0 auto;
         }
 
-        .request-access-form {
-            background: var(--white);
+        .request-form {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
             padding: 60px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 32px;
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
         .form-group {
@@ -1229,26 +1478,25 @@
 
         .form-label {
             display: block;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--slate);
-            margin-bottom: 10px;
+            color: var(--teal);
+            margin-bottom: 12px;
         }
 
         .form-input,
         .form-select,
         .form-textarea {
             width: 100%;
-            padding: 16px 0;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(26, 58, 82, 0.15);
-            color: var(--navy);
+            padding: 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
             font-family: 'Zalando Sans', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .form-input:focus,
@@ -1256,32 +1504,30 @@
         .form-textarea:focus {
             outline: none;
             border-color: var(--teal);
+            background: rgba(45, 123, 126, 0.1);
         }
 
         .form-input::placeholder,
         .form-textarea::placeholder {
-            color: var(--slate);
-            opacity: 0.5;
+            color: rgba(255,255,255,0.3);
         }
 
         .form-select {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%231a3a52' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%232d7b7e' stroke-width='2'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 0 center;
+            background-position: right 16px center;
             cursor: pointer;
         }
 
         .form-select option {
-            color: var(--navy);
+            background: var(--black);
+            color: var(--white);
         }
 
         .form-textarea {
             resize: vertical;
-            min-height: 100px;
-            border: 1px solid rgba(26, 58, 82, 0.15);
-            padding: 16px;
-            margin-top: 8px;
+            min-height: 120px;
         }
 
         .form-footer {
@@ -1289,12 +1535,12 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 32px;
-            border-top: 1px solid rgba(26, 58, 82, 0.08);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .form-privacy {
             font-size: 0.8125rem;
-            color: var(--slate);
+            color: rgba(255,255,255,0.4);
             max-width: 320px;
             line-height: 1.5;
         }
@@ -1310,29 +1556,39 @@
 
         .btn-submit {
             font-family: 'Zalando Sans', sans-serif;
-            padding: 18px 48px;
+            padding: 20px 56px;
             font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
+            font-weight: 700;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             border: none;
-            background: var(--navy);
-            color: var(--white);
+            background: var(--teal);
+            color: var(--black);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .btn-submit:hover {
-            background: var(--teal);
+            background: var(--white);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
-            .request-access {
+            .request-trigger {
+                padding: 80px 32px;
+            }
+
+            .request-trigger-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .request-modal-content {
                 padding: 100px 32px;
             }
 
-            .request-access-form {
-                padding: 40px 32px;
+            .request-form {
+                padding: 40px 24px;
             }
 
             .form-grid {
@@ -1532,36 +1788,41 @@
                 padding: 80px 40px;
             }
 
-            /* Testimonials responsive */
-            .testimonials {
-                padding: 100px 40px;
+            /* Testimonials trigger responsive */
+            .testimonials-trigger {
+                padding: 80px 40px;
             }
 
-            .testimonials-header {
+            .testimonials-trigger-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                margin-bottom: 60px;
-                padding-bottom: 40px;
             }
 
-            .testimonials-stats {
+            .testimonials-trigger-stats {
                 justify-content: flex-start;
+            }
+
+            .testimonials-modal-content {
+                padding: 100px 40px;
             }
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
             }
 
             /* Support responsive */
             .support {
-                padding: 100px 40px;
+                padding: 80px 40px;
             }
 
             .support-header {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 24px;
-                margin-bottom: 60px;
+                align-items: flex-start;
+            }
+
+            .support-message {
+                text-align: left;
             }
 
             .support-grid {
@@ -2322,69 +2583,94 @@ Electric #00ff88">Copy Colors</button>
         </div>
     </div>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="testimonials-container">
-            <div class="testimonials-header reveal">
-                <div class="testimonials-intro">
-                    <div class="testimonials-label" data-translate="testimonials-label">Dealer Success</div>
-                    <h2 class="testimonials-title" data-translate="testimonials-title">Trusted by Professionals Nationwide</h2>
+    <!-- Testimonials Trigger -->
+    <section class="testimonials-trigger" id="testimonials" onclick="openTestimonialsModal()">
+        <div class="testimonials-trigger-content">
+            <div class="testimonials-trigger-left">
+                <div class="testimonials-trigger-label">Dealer Success</div>
+                <h2 class="testimonials-trigger-title">Trusted By<br>Professionals</h2>
+            </div>
+            <div class="testimonials-trigger-stats">
+                <div class="trigger-stat">
+                    <div class="trigger-stat-number">500+</div>
+                    <div class="trigger-stat-label">Dealers</div>
                 </div>
-                <div class="testimonials-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Active Dealers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">43%</div>
-                        <div class="stat-label">Avg. Sales Increase</div>
-                    </div>
+                <div class="trigger-stat">
+                    <div class="trigger-stat-number">43%</div>
+                    <div class="trigger-stat-label">Avg Growth</div>
                 </div>
+            </div>
+            <div class="trigger-arrow">→</div>
+        </div>
+    </section>
+
+    <!-- Testimonials Modal -->
+    <div class="testimonials-modal" id="testimonialsModal">
+        <div class="testimonials-modal-content">
+            <div class="testimonials-modal-header">
+                <h2 class="testimonials-modal-title">Dealer<br>Success Stories</h2>
+                <button class="testimonials-modal-close" onclick="closeTestimonialsModal()">×</button>
             </div>
 
             <div class="testimonials-grid">
-                <div class="testimonial-featured reveal">
+                <div class="testimonial-card featured">
                     <p class="testimonial-quote">"Within 6 months of using the Brand House, our TechniSoil product sales jumped 43% and we cut marketing prep time from 8 hours per week to under 2. The ROI templates showed our customers a 3-year payback on xeriscaping projects."</p>
-                    <div class="testimonial-meta">
-                        <div class="testimonial-author-info">
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
                             <div class="testimonial-name">Michael Chen</div>
                             <div class="testimonial-role">Owner, Phoenix Landscape Supply</div>
                         </div>
                         <div class="testimonial-metric">
-                            <div class="metric-value">$2.4M</div>
-                            <div class="metric-label">Annual Revenue</div>
+                            <div class="testimonial-metric-value">+43%</div>
+                            <div class="testimonial-metric-label">Sales Growth</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonials-secondary">
-                    <div class="testimonial-card reveal">
-                        <p class="testimonial-card-quote">"We added $180K in TechniSoil revenue in Year 1. The email campaigns convert at 12% — 3x higher than our old generic emails."</p>
-                        <div class="testimonial-card-footer">
-                            <div class="testimonial-card-author">Sarah Martinez</div>
-                            <div class="testimonial-card-company">Desert Vista Hardscapes</div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"We added $180K in TechniSoil revenue in Year 1. The email campaigns convert at 12% — 3x higher than our old generic emails."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">Sarah Martinez</div>
+                            <div class="testimonial-role">VP Sales, Desert Vista Hardscapes</div>
+                        </div>
+                        <div class="testimonial-metric">
+                            <div class="testimonial-metric-value">$180K</div>
+                            <div class="testimonial-metric-label">Year 1 Revenue</div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="testimonial-card reveal">
-                        <p class="testimonial-card-quote">"Social media engagement up 220%, and our average deal size increased from $3,200 to $5,800. Premium positioning educates customers on value."</p>
-                        <div class="testimonial-card-footer">
-                            <div class="testimonial-card-author">James Anderson</div>
-                            <div class="testimonial-card-company">Rocky Mountain Materials</div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Social media engagement up 220%, and our average deal size increased from $3,200 to $5,800. Premium positioning educates customers on value."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">James Anderson</div>
+                            <div class="testimonial-role">Marketing Director, Rocky Mountain Materials</div>
+                        </div>
+                        <div class="testimonial-metric">
+                            <div class="testimonial-metric-value">+220%</div>
+                            <div class="testimonial-metric-label">Engagement</div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="testimonial-card reveal">
-                        <p class="testimonial-card-quote">"The technical documentation gave our sales team instant credibility. Repeat business up 31%."</p>
-                        <div class="testimonial-card-footer">
-                            <div class="testimonial-card-author">Linda Thompson</div>
-                            <div class="testimonial-card-company">Coastal Landscape Solutions</div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"The technical documentation gave our sales team instant credibility. Repeat business up 31%, customer satisfaction at all-time high."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">Linda Thompson</div>
+                            <div class="testimonial-role">GM, Coastal Landscape Solutions</div>
+                        </div>
+                        <div class="testimonial-metric">
+                            <div class="testimonial-metric-value">+31%</div>
+                            <div class="testimonial-metric-label">Repeat Business</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Support -->
     <section class="support" id="support">
@@ -2433,16 +2719,29 @@ Electric #00ff88">Copy Colors</button>
         </div>
     </section>
 
-    <!-- Request Access -->
-    <section class="request-access" id="request-access">
-        <div class="request-access-container">
-            <div class="request-access-header reveal">
-                <div class="request-access-label">Become a Partner</div>
-                <h2 class="request-access-title">Request Dealer Access</h2>
-                <p class="request-access-desc">Join our network of successful dealers and get instant access to professional marketing resources, product documentation, and dedicated support.</p>
+    <!-- Request Access Trigger -->
+    <section class="request-trigger" id="request-access" onclick="openRequestModal()">
+        <div class="request-trigger-content">
+            <div class="request-trigger-left">
+                <div class="request-trigger-label">Become a Partner</div>
+                <h2 class="request-trigger-title">Request<br>Dealer Access</h2>
+                <p class="request-trigger-desc">Join our network of 500+ successful dealers nationwide.</p>
+            </div>
+            <div class="trigger-arrow">→</div>
+        </div>
+    </section>
+
+    <!-- Request Access Modal -->
+    <div class="request-modal" id="requestModal">
+        <button class="request-modal-close" onclick="closeRequestModal()">×</button>
+        <div class="request-modal-content">
+            <div class="request-modal-header">
+                <div class="request-modal-label">Become a Partner</div>
+                <h2 class="request-modal-title">Request<br>Dealer Access</h2>
+                <p class="request-modal-desc">Join our network of successful dealers and get instant access to professional marketing resources, product documentation, and dedicated support.</p>
             </div>
 
-            <form class="request-access-form reveal" id="accessForm">
+            <form class="request-form" id="accessForm">
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">First Name</label>
@@ -2506,7 +2805,7 @@ Electric #00ff88">Copy Colors</button>
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -2617,8 +2916,41 @@ Electric #00ff88">Copy Colors</button>
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 modals.forEach(m => m.classList.remove('active'));
+                closeTestimonialsModal();
+                closeRequestModal();
                 document.body.style.overflow = '';
             }
+        });
+
+        // Testimonials Modal
+        function openTestimonialsModal() {
+            document.getElementById('testimonialsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTestimonialsModal() {
+            document.getElementById('testimonialsModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Request Modal
+        function openRequestModal() {
+            document.getElementById('requestModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRequestModal() {
+            document.getElementById('requestModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modals on background click
+        document.getElementById('testimonialsModal')?.addEventListener('click', (e) => {
+            if (e.target.id === 'testimonialsModal') closeTestimonialsModal();
+        });
+
+        document.getElementById('requestModal')?.addEventListener('click', (e) => {
+            if (e.target.id === 'requestModal') closeRequestModal();
         });
 
         // Product Card Click Handlers
