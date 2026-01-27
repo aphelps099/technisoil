@@ -258,13 +258,15 @@
         }
 
         /* Resources */
-        /* Brand Resources - Industrial Black/Gold */
+        /* Brand Resources - Industrial Gold/Black */
         .data-hub {
-            padding: 120px 60px;
-            background: var(--black);
+            padding: 140px 60px;
+            background: var(--sand);
             position: relative;
+            overflow: hidden;
         }
 
+        /* Black/Gold Grid Pattern */
         .data-hub::before {
             content: '';
             position: absolute;
@@ -273,9 +275,24 @@
             right: 0;
             bottom: 0;
             background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        /* SVG Plant/Path Pattern */
+        .data-hub::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -5%;
+            transform: translateY(-50%);
+            width: 700px;
+            height: 700px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cpath d='M200 380 Q200 300 180 250 Q160 200 200 150 Q240 100 200 50' stroke='%230d0d0d' stroke-width='4' fill='none' opacity='0.08'/%3E%3Cpath d='M180 250 Q130 220 80 250 Q60 260 50 290' stroke='%230d0d0d' stroke-width='3' fill='none' opacity='0.06'/%3E%3Cpath d='M200 200 Q250 170 300 190 Q330 200 350 180' stroke='%230d0d0d' stroke-width='3' fill='none' opacity='0.06'/%3E%3Cpath d='M200 150 Q150 120 100 140' stroke='%230d0d0d' stroke-width='3' fill='none' opacity='0.06'/%3E%3Cpath d='M200 150 Q250 120 300 130' stroke='%230d0d0d' stroke-width='3' fill='none' opacity='0.06'/%3E%3Cpath d='M200 100 Q180 70 150 60' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.05'/%3E%3Cpath d='M200 100 Q220 70 250 65' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.05'/%3E%3Ccircle cx='80' cy='250' r='25' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.04'/%3E%3Ccircle cx='300' cy='190' r='20' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.04'/%3E%3Ccircle cx='100' cy='140' r='18' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.04'/%3E%3Ccircle cx='300' cy='130' r='15' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.04'/%3E%3Ccircle cx='150' cy='60' r='12' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.04'/%3E%3Ccircle cx='250' cy='65' r='10' stroke='%230d0d0d' stroke-width='2' fill='none' opacity='0.04'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
             pointer-events: none;
         }
 
@@ -290,60 +307,127 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 3px solid var(--black);
         }
 
         .data-header-left {
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .data-label {
             font-size: 0.6875rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 16px;
+            color: var(--black);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .data-hub.in-view .data-label {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .data-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            line-height: 1;
-            letter-spacing: -0.02em;
-            color: var(--white);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            color: var(--black);
             text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
         }
 
+        .data-hub.in-view .data-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animated underline for highlighted words */
+        .word-highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .word-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.05em;
+            left: 0;
+            width: 0;
+            height: 0.1em;
+            background: var(--black);
+            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .data-hub.in-view .word-highlight::after {
+            width: 100%;
+        }
+
+        .word-highlight:nth-child(1)::after { transition-delay: 0.6s; }
+        .word-highlight:nth-child(2)::after { transition-delay: 0.8s; }
+        .word-highlight:nth-child(3)::after { transition-delay: 1s; }
+
         .data-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.5);
-            max-width: 400px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: rgba(0,0,0,0.6);
+            max-width: 380px;
             text-align: right;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+        }
+
+        .data-hub.in-view .data-desc {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .data-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: rgba(201, 168, 106, 0.3);
+            gap: 3px;
+            background: var(--black);
         }
 
         .data-card {
-            background: var(--black);
+            background: var(--sand);
             padding: 48px 40px;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
-            min-height: 280px;
+            min-height: 300px;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease, background 0.4s ease;
         }
+
+        .data-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .data-card:nth-child(1) { transition-delay: 0s; }
+        .data-card:nth-child(2) { transition-delay: 0.08s; }
+        .data-card:nth-child(3) { transition-delay: 0.16s; }
+        .data-card:nth-child(4) { transition-delay: 0.24s; }
+        .data-card:nth-child(5) { transition-delay: 0.32s; }
+        .data-card:nth-child(6) { transition-delay: 0.4s; }
+        .data-card:nth-child(7) { transition-delay: 0.48s; }
+        .data-card:nth-child(8) { transition-delay: 0.56s; }
 
         .data-card::before {
             content: '';
@@ -352,14 +436,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--sand);
-            transform: translateY(100%);
+            background: var(--black);
+            transform: scaleY(0);
+            transform-origin: bottom;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 0;
         }
 
         .data-card:hover::before {
-            transform: translateY(0);
+            transform: scaleY(1);
         }
 
         .data-card-inner {
@@ -371,55 +456,56 @@
         }
 
         .data-card-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--sand);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
             line-height: 1;
             margin-bottom: 24px;
             transition: color 0.4s ease;
         }
 
         .data-card:hover .data-card-number {
-            color: var(--black);
+            color: var(--sand);
         }
 
         .data-card-title {
-            font-size: 1.375rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             letter-spacing: -0.01em;
-            color: var(--white);
+            color: var(--black);
             margin-bottom: 12px;
             text-transform: uppercase;
             transition: color 0.4s ease;
         }
 
         .data-card:hover .data-card-title {
-            color: var(--black);
+            color: var(--white);
         }
 
         .data-card-desc {
-            font-size: 0.9375rem;
+            font-size: 1rem;
             line-height: 1.6;
-            color: rgba(255,255,255,0.6);
+            color: rgba(0,0,0,0.6);
             margin-bottom: auto;
             transition: color 0.4s ease;
         }
 
         .data-card:hover .data-card-desc {
-            color: rgba(0,0,0,0.7);
+            color: rgba(255,255,255,0.7);
         }
 
         .data-card-arrow {
-            font-size: 1.5rem;
-            color: var(--sand);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--black);
             margin-top: 24px;
             transition: all 0.4s ease;
             align-self: flex-end;
         }
 
         .data-card:hover .data-card-arrow {
-            color: var(--black);
-            transform: translateX(8px);
+            color: var(--sand);
+            transform: translateX(12px);
         }
 
         .data-card-featured {
@@ -429,16 +515,16 @@
         }
 
         .data-card-featured .data-card-number {
-            font-size: 4rem;
+            font-size: 5rem;
         }
 
         .data-card-featured .data-card-title {
-            font-size: 2rem;
+            font-size: 2.25rem;
         }
 
         .data-card-featured .data-card-desc {
-            font-size: 1.0625rem;
-            max-width: 400px;
+            font-size: 1.125rem;
+            max-width: 420px;
         }
 
         /* Manifesto - Bold Image Treatment */
@@ -512,6 +598,39 @@
             color: var(--white);
             margin-bottom: 60px;
             text-wrap: balance;
+        }
+
+        /* Manifesto Animated Underlines */
+        .manifesto-highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .manifesto-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.05em;
+            left: 0;
+            width: 0;
+            height: 0.08em;
+            background: var(--sand);
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .manifesto.in-view .manifesto-highlight::after {
+            width: 100%;
+        }
+
+        .manifesto.in-view .manifesto-highlight:nth-of-type(1)::after {
+            transition-delay: 0.3s;
+        }
+
+        .manifesto.in-view .manifesto-highlight:nth-of-type(2)::after {
+            transition-delay: 0.6s;
+        }
+
+        .manifesto.in-view .manifesto-highlight:nth-of-type(3)::after {
+            transition-delay: 0.9s;
         }
 
         .manifesto-footer {
@@ -2116,8 +2235,8 @@
         <div class="manifesto-texture"></div>
         <div class="manifesto-content">
             <div class="manifesto-quote-mark">"</div>
-            <p class="manifesto-text" data-translate="manifesto-text">
-                We believe sustainable design shouldn't compromise beauty. Our products empower professionals and homeowners to create stunning landscapes that work with nature, not against it.
+            <p class="manifesto-text">
+                We believe <span class="manifesto-highlight">sustainable</span> design shouldn't compromise <span class="manifesto-highlight">beauty</span>. Our products empower professionals and homeowners to create <span class="manifesto-highlight">stunning</span> landscapes that work with nature, not against it.
             </p>
             <div class="manifesto-footer">
                 <div class="manifesto-line"></div>
@@ -2133,7 +2252,7 @@
             <div class="data-header">
                 <div class="data-header-left">
                     <div class="data-label">Brand Resources</div>
-                    <h2 class="data-title">Everything<br>You Need</h2>
+                    <h2 class="data-title"><span class="word-highlight">Build</span> <span class="word-highlight">Beautiful</span><br><span class="word-highlight">Brands</span></h2>
                 </div>
                 <p class="data-desc">Professional marketing assets designed to help you sell more TechniSoil.</p>
             </div>
@@ -3052,6 +3171,33 @@ Electric #00ff88">Copy Colors</button>
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Brand Resources & Manifesto Scroll Animations
+        const scrollAnimateObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe data-hub section
+        const dataHub = document.querySelector('.data-hub');
+        if (dataHub) scrollAnimateObserver.observe(dataHub);
+
+        // Observe individual data-cards with staggered delays
+        const dataCards = document.querySelectorAll('.data-card');
+        dataCards.forEach((card, index) => {
+            card.style.transitionDelay = `${0.1 + (index * 0.15)}s`;
+            scrollAnimateObserver.observe(card);
+        });
+
+        // Observe manifesto section
+        const manifesto = document.querySelector('.manifesto');
+        if (manifesto) scrollAnimateObserver.observe(manifesto);
 
         // How It Works - No additional JS needed (uses pure CSS hover effects)
 
