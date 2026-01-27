@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&family=Zalando+Sans+Expanded:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -35,7 +35,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Zalando Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--navy);
             background: var(--white);
             line-height: 1.75;
@@ -68,9 +68,9 @@
 
         /* Typography System — Architectural */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.015em;
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         /* Animated Underline */
@@ -136,7 +136,7 @@
         }
 
         .hero-label {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
             letter-spacing: 0.35em;
@@ -202,7 +202,7 @@
         }
 
         .btn {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             padding: 18px 40px;
             font-size: 0.8125rem;
             font-weight: 500;
@@ -383,7 +383,7 @@
         }
 
         .data-card-meta {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.75rem;
             font-weight: 500;
             color: var(--electric);
@@ -426,7 +426,7 @@
         }
 
         .manifesto-label {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
             letter-spacing: 0.35em;
@@ -456,7 +456,7 @@
         }
 
         .mission-label {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
             letter-spacing: 0.35em;
@@ -528,7 +528,7 @@
         }
 
         .team-label {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
             letter-spacing: 0.35em;
@@ -592,7 +592,7 @@
         }
 
         .timeline-label {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
             letter-spacing: 0.35em;
@@ -674,7 +674,7 @@
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 10000;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             backdrop-filter: blur(10px);
         }
 
@@ -725,7 +725,7 @@
         }
 
         .content-tag {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             font-size: 0.6875rem;
             font-weight: 500;
             letter-spacing: 0.25em;
@@ -757,7 +757,7 @@
         }
 
         .btn-copy {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Zalando Sans', sans-serif;
             padding: 16px 36px;
             background: var(--electric);
             color: var(--black);
@@ -936,16 +936,275 @@
             }
         }
 
+        /* Testimonials */
+        .testimonials {
+            padding: 140px 80px;
+            background: var(--white);
+        }
+
+        .testimonials-header {
+            max-width: 800px;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-label {
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 32px;
+        }
+
+        .testimonials-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 300;
+            line-height: 0.95;
+            letter-spacing: -0.015em;
+            margin-bottom: 40px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--gray-50);
+            padding: 48px;
+            border-radius: 8px;
+            border-left: 4px solid var(--sand);
+        }
+
+        .testimonial-stars {
+            color: var(--sand);
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--navy);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--slate);
+        }
+
+        .testimonial-location {
+            font-size: 0.875rem;
+            color: var(--slate);
+            opacity: 0.7;
+        }
+
+        /* Contact/Support */
+        .support {
+            padding: 140px 80px;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .support-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .support-header {
+            margin-bottom: 80px;
+        }
+
+        .support-label {
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--electric);
+            margin-bottom: 32px;
+        }
+
+        .support-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 300;
+            line-height: 0.95;
+            letter-spacing: -0.015em;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .support-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 40px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .support-card:hover {
+            border-color: rgba(0,255,136,0.3);
+            transform: translateY(-4px);
+        }
+
+        .support-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 24px;
+            stroke: var(--electric);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .support-card-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .support-card-desc {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .support-contact {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--electric);
+            margin-bottom: 8px;
+        }
+
+        .support-hours {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.5);
+        }
+
         /* Footer */
         footer {
             background: var(--black);
             padding: 80px;
-            text-align: center;
-            color: rgba(255,255,255,0.4);
-            font-size: 0.6875rem;
-            font-weight: 400;
+            color: var(--white);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.125rem;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--electric);
+            color: var(--electric);
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
             letter-spacing: 0.15em;
-            font-family: 'Inter', sans-serif;
+            color: var(--electric);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--electric);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: var(--electric);
         }
 
         /* Responsive */
@@ -971,9 +1230,23 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+
             .mission-text,
             .team,
             .timeline,
+            .testimonials,
+            .support,
             .modal-content {
                 padding: 80px 40px;
             }
@@ -1002,6 +1275,10 @@
             }
 
             .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
                 grid-template-columns: 1fr;
             }
 
@@ -1754,8 +2031,150 @@ Electric #00ff88">Copy Colors</button>
         </div>
     </div>
 
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-header reveal">
+            <div class="testimonials-label">Dealer Success</div>
+            <h2 class="testimonials-title">TRUSTED BY PROFESSIONALS</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The Brand House has transformed how we market TechniSoil products. Copy-paste templates save us hours every week, and our social media engagement has tripled."</p>
+                <div class="testimonial-author">Mike Chen</div>
+                <div class="testimonial-location">Phoenix Landscape Supply, AZ</div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Finally, professional marketing assets that actually work. Our customers love the before/after photos, and product sales have increased 40% since we started using these templates."</p>
+                <div class="testimonial-author">Sarah Martinez</div>
+                <div class="testimonial-location">Desert Vista Hardscapes, CA</div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"TechniSoil's support team is phenomenal. Quick responses, expert guidance, and they genuinely care about our success. Best supplier partnership we've ever had."</p>
+                <div class="testimonial-author">James Anderson</div>
+                <div class="testimonial-location">Rocky Mountain Materials, CO</div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The product documentation and installation guides are invaluable. We can confidently answer any customer question on the spot. Game changer for our sales process."</p>
+                <div class="testimonial-author">Linda Thompson</div>
+                <div class="testimonial-location">Coastal Landscape Solutions, FL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="support">
+        <div class="support-inner">
+            <div class="support-header reveal">
+                <div class="support-label">Get Help</div>
+                <h2 class="support-title">WE'RE HERE FOR YOU</h2>
+            </div>
+
+            <div class="support-grid">
+                <div class="support-card reveal">
+                    <svg class="support-icon" viewBox="0 0 32 32">
+                        <path d="M16 28 C8 28 4 22 4 16 C4 10 8 4 16 4 C24 4 28 10 28 16 C28 19 27 21 26 22 L28 28 L22 26 C21 27 19 28 16 28 Z"/>
+                        <line x1="12" y1="14" x2="20" y2="14"/>
+                        <line x1="12" y1="18" x2="18" y2="18"/>
+                    </svg>
+                    <h3 class="support-card-title">Sales Support</h3>
+                    <p class="support-card-desc">Product selection, pricing, bulk orders, and dealer partnership inquiries.</p>
+                    <div class="support-contact">sales@technisoil.com</div>
+                    <div class="support-contact">(800) 555-0123</div>
+                    <div class="support-hours">Mon-Fri 8AM-6PM PST</div>
+                </div>
+
+                <div class="support-card reveal">
+                    <svg class="support-icon" viewBox="0 0 32 32">
+                        <circle cx="16" cy="12" r="4"/>
+                        <path d="M16 18 C10 18 6 20 6 24 L6 28 L26 28 L26 24 C26 20 22 18 16 18 Z"/>
+                        <path d="M20 8 L22 4 L26 6"/>
+                    </svg>
+                    <h3 class="support-card-title">Technical Support</h3>
+                    <p class="support-card-desc">Installation guidance, application questions, troubleshooting, and product specs.</p>
+                    <div class="support-contact">support@technisoil.com</div>
+                    <div class="support-contact">(800) 555-0124</div>
+                    <div class="support-hours">Mon-Fri 7AM-7PM PST</div>
+                </div>
+
+                <div class="support-card reveal">
+                    <svg class="support-icon" viewBox="0 0 32 32">
+                        <rect x="4" y="8" width="24" height="20" rx="2"/>
+                        <path d="M4 12 L16 18 L28 12"/>
+                        <circle cx="24" cy="10" r="4" fill="var(--electric)"/>
+                    </svg>
+                    <h3 class="support-card-title">Marketing Help</h3>
+                    <p class="support-card-desc">Brand assets, custom templates, co-op advertising, and marketing strategy.</p>
+                    <div class="support-contact">marketing@technisoil.com</div>
+                    <div class="support-hours">Response within 24 hours</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2026 TECHNISOIL GLOBAL INC. — BRAND HOUSE FOR AUTHORIZED DEALERS & PARTNERS</p>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">TECHNISOIL</div>
+                    <p class="footer-tagline">Sustainable landscape solutions since 2006. Empowering dealers and professionals with premium products and marketing tools.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/technisoil" target="_blank" rel="noopener">📷</a>
+                        <a href="https://facebook.com/technisoil" target="_blank" rel="noopener">f</a>
+                        <a href="https://linkedin.com/company/technisoil" target="_blank" rel="noopener">in</a>
+                        <a href="https://youtube.com/@technisoil" target="_blank" rel="noopener">▶</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="social-templates.html">Social Templates</a>
+                        <a href="https://technisoil.com/wp-content/uploads/2023/03/2023-Technisoil-Catalog.pdf" target="_blank">Product Catalog</a>
+                        <a href="#data">Brand Assets</a>
+                        <a href="#data">Image Library</a>
+                        <a href="#data">Video Content</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="#team">Our Team</a>
+                        <a href="#timeline">Our Story</a>
+                        <a href="https://technisoil.com" target="_blank">Main Website</a>
+                        <a href="https://technisoil.com/blog" target="_blank">Blog</a>
+                        <a href="https://technisoil.com/careers" target="_blank">Careers</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <div class="footer-links">
+                        <a href="mailto:sales@technisoil.com">Sales</a>
+                        <a href="mailto:support@technisoil.com">Technical Support</a>
+                        <a href="mailto:marketing@technisoil.com">Marketing</a>
+                        <a href="tel:+18005550123">(800) 555-0123</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 TECHNISOIL GLOBAL INC.</div>
+                <div class="footer-legal">
+                    <a href="https://technisoil.com/privacy" target="_blank">Privacy Policy</a>
+                    <a href="https://technisoil.com/terms" target="_blank">Terms of Use</a>
+                    <a href="https://technisoil.com/dealers" target="_blank">Dealer Agreement</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
