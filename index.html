@@ -20,10 +20,17 @@
         :root {
             /* Arizona/Aztec Base Palette */
             --navy: #1a3a52;
-            --slate: #6b7280;
             --sand: #c9a86a;
+            --sand-bright: #d4b87a;
+            --sand-dark: #a88a4a;
             --brown: #8b6f47;
             --terracotta: #c17855;
+
+            /* Slate/Dark backgrounds */
+            --slate: #1a1d21;
+            --slate-dark: #0d0f12;
+            --slate-light: #2a2e35;
+            --slate-gray: #6b7280;
 
             /* Rich Plant Green (replaces electric) */
             --forest: #4a6741;
@@ -31,11 +38,13 @@
 
             /* Teal/Turquoise Accents */
             --teal: #2d7b7e;
+            --teal-light: #3a9598;
             --turquoise: #5fa5a5;
 
             /* Sky Blues */
             --sky: #9fb8c7;
             --sky-light: #c5d8e3;
+            --sky-blue: #1976B5;
 
             /* Creamy Corn */
             --cream: #f5ead8;
@@ -205,256 +214,408 @@
             transform: translateY(0);
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
-            height: 100vh;
             position: relative;
+            width: 100%;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            background: var(--black);
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--slate-dark) 0%, var(--slate) 50%, var(--slate-light) 100%);
+        }
+
+        /* Diagonal Stripes - Top Right */
+        .diagonal-stripes {
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 50%;
+            height: 70%;
+            z-index: 1;
+            pointer-events: none;
             overflow: hidden;
         }
 
-        /* Background image */
-        .hero-bg-image {
+        .stripe {
             position: absolute;
-            inset: 0;
-            background: url('https://technisoil.wpengine.com/wp-content/uploads/2023/03/header-g3-commerical-12.jpg') 50% 50% / cover no-repeat;
-            filter: grayscale(100%);
-            opacity: 0.5;
-            z-index: 0;
+            background: var(--sand);
+            transform: rotate(-55deg);
+            transform-origin: top right;
         }
 
-        /* Dramatic vignette overlay */
-        .hero-vignette {
+        .stripe-1 {
+            width: 120px;
+            height: 200%;
+            right: 80px;
+            top: -50%;
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.3s forwards;
+        }
+
+        .stripe-2 {
+            width: 60px;
+            height: 200%;
+            right: 220px;
+            top: -50%;
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.5s forwards;
+        }
+
+        .stripe-3 {
+            width: 8px;
+            height: 200%;
+            right: 300px;
+            top: -50%;
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.7s forwards;
+        }
+
+        .stripe-4 {
+            width: 4px;
+            height: 200%;
+            right: 320px;
+            top: -50%;
+            background: var(--sand-bright);
+            opacity: 0;
+            animation: stripeSlide 0.8s ease-out 0.8s forwards;
+        }
+
+        @keyframes stripeSlide {
+            from {
+                opacity: 0;
+                transform: rotate(-55deg) translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(-55deg) translateY(0);
+            }
+        }
+
+        /* Bottom Left Diagonal Accent */
+        .diagonal-accent-bottom {
             position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                ellipse 80% 70% at 50% 50%,
-                transparent 0%,
-                transparent 30%,
-                rgba(0, 0, 0, 0.3) 60%,
-                rgba(0, 0, 0, 0.7) 85%,
-                rgba(0, 0, 0, 0.9) 100%
-            );
+            bottom: -20%;
+            left: -10%;
+            width: 40%;
+            height: 60%;
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Animated gradient background */
-        .hero::before {
-            content: '';
+        .accent-stripe {
             position: absolute;
-            inset: -50%;
-            background:
-                radial-gradient(circle at 20% 80%, var(--teal) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, var(--sand) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(45, 123, 126, 0.3) 0%, transparent 60%);
-            opacity: 0.4;
-            animation: heroGradient 15s ease infinite;
+            background: var(--teal);
+            transform: rotate(-55deg);
+        }
+
+        .accent-1 {
+            width: 80px;
+            height: 200%;
+            left: 50px;
+            bottom: -50%;
+            opacity: 0;
+            animation: stripeSlideUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .accent-2 {
+            width: 6px;
+            height: 200%;
+            left: 150px;
+            bottom: -50%;
+            background: var(--teal-light);
+            opacity: 0;
+            animation: stripeSlideUp 0.8s ease-out 1s forwards;
+        }
+
+        @keyframes stripeSlideUp {
+            from {
+                opacity: 0;
+                transform: rotate(-55deg) translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(-55deg) translateY(0);
+            }
+        }
+
+        /* Animated Swoosh Lines */
+        .swoosh-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             z-index: 2;
+            pointer-events: none;
         }
 
-        @keyframes heroGradient {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
+        .swoosh-container svg {
+            width: 100%;
+            height: 100%;
         }
 
-        /* Grain texture */
-        .hero::after {
-            content: '';
+        .swoosh-line {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: drawLine 2s ease-out forwards;
+        }
+
+        .swoosh-line-1 { animation-delay: 1.2s; }
+        .swoosh-line-2 { animation-delay: 1.4s; }
+        .swoosh-line-3 { animation-delay: 1.6s; }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Hero Grain Overlay */
+        .hero-grain {
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-            pointer-events: none;
             z-index: 3;
+            pointer-events: none;
+            opacity: 0.25;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
+        /* Hero Content */
         .hero-content {
             position: relative;
-            z-index: 4;
-            text-align: center;
-            padding: 0 40px;
+            z-index: 10;
+            padding: 100px 4rem 2rem;
+            max-width: 900px;
         }
 
-        .hero-eyebrow {
-            font-size: 0.75rem;
+        /* Pre-title */
+        .pre-title {
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 40px;
+            margin-bottom: 1rem;
             opacity: 0;
-            transform: translateY(30px);
-            animation: heroFadeUp 1s ease 0.3s forwards;
+            transform: translateX(-20px);
+            animation: slideRight 0.6s ease-out 2s forwards;
         }
 
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hero Title */
         .hero-title {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            font-weight: 800;
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 700;
             line-height: 0.95;
             letter-spacing: -0.02em;
-            color: var(--white);
-            margin-bottom: 0;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
 
-        .hero-title-line {
+        .title-line {
             display: block;
             overflow: hidden;
         }
 
-        .hero-title-line span {
+        .title-line span {
             display: inline-block;
             opacity: 0;
             transform: translateY(100%);
-            animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .hero-title-line:nth-child(1) span { animation-delay: 0.5s; }
-        .hero-title-line:nth-child(2) span { animation-delay: 0.7s; }
+        .title-line:nth-child(1) span {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+            color: var(--white);
+        }
 
-        .hero-title-accent {
+        .title-line:nth-child(2) span {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
             color: var(--sand);
         }
 
-        @keyframes heroReveal {
+        @keyframes slideUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes heroFadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Hero Tagline */
         .hero-tagline {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-family: 'IBM Plex Serif', Georgia, serif;
+            font-size: 1.1rem;
             font-weight: 400;
-            color: rgba(255,255,255,0.6);
-            margin-top: 48px;
-            letter-spacing: 0.1em;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease-out 2.6s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero CTA Buttons */
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease-out 2.8s forwards;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
             text-transform: uppercase;
-            opacity: 0;
-            animation: heroFadeUp 1s ease 1.2s forwards;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
-        .hero-cta-wrap {
-            margin-top: 60px;
-            opacity: 0;
-            animation: heroFadeUp 1s ease 1.5s forwards;
+        .hero-btn-primary {
+            background: var(--sand);
+            color: var(--slate-dark);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+            padding-right: 2.5rem;
         }
 
-        .hero-scroll {
+        .hero-btn-primary:hover {
+            background: var(--sand-bright);
+            transform: translateX(4px);
+        }
+
+        .hero-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-btn-secondary:hover {
+            border-color: var(--sand);
+            color: var(--sand);
+        }
+
+        .hero-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Bottom Bar */
+        .bottom-bar {
             position: absolute;
-            bottom: 40px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 2rem 4rem;
+        }
+
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 3s forwards;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: 3rem;
+            color: var(--sand);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.25rem;
+        }
+
+        /* Website URL */
+        .website-url {
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.05em;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 3.2s forwards;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            z-index: 3;
+            gap: 0.5rem;
             opacity: 0;
-            animation: heroFadeUp 1s ease 2s forwards;
+            animation: fadeUp 0.6s ease-out 3.4s forwards;
         }
 
-        .hero-scroll-text {
-            font-size: 0.625rem;
+        .scroll-text {
+            font-size: 0.65rem;
             font-weight: 600;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255, 255, 255, 0.4);
         }
 
-        .hero-scroll-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--sand), transparent);
-            animation: scrollPulse 2s ease infinite;
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--sand);
+            border-bottom: 2px solid var(--sand);
+            transform: rotate(45deg);
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 1; transform: scaleY(1); }
-            50% { opacity: 0.5; transform: scaleY(0.7); }
-        }
-
-        /* Side accents */
-        .hero-accent {
-            position: absolute;
-            font-size: 0.625rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.15);
-            writing-mode: vertical-rl;
-            z-index: 3;
-        }
-
-        .hero-accent-left {
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%) rotate(180deg);
-        }
-
-        .hero-accent-right {
-            right: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 48px;
-            background: transparent;
-            border: 2px solid var(--sand);
-            color: var(--sand);
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--sand);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
-        }
-
-        .hero-cta:hover {
-            color: var(--black);
-        }
-
-        .hero-cta:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        .hero-cta-arrow {
-            transition: transform 0.4s ease;
-        }
-
-        .hero-cta:hover .hero-cta-arrow {
-            transform: translateX(8px);
+        @keyframes bounce {
+            0%, 100% { transform: rotate(45deg) translate(0, 0); }
+            50% { transform: rotate(45deg) translate(5px, 5px); }
         }
 
         /* Resources */
@@ -2239,20 +2400,40 @@
                 font-size: 0.75rem;
             }
 
-            .hero {
-                padding: 32px 24px 40px;
+            .diagonal-stripes {
+                width: 60%;
             }
 
-            .hero-accent {
+            .hero-content {
+                padding: 100px 2rem 2rem;
+            }
+
+            .bottom-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .hero-stat-number {
+                font-size: 2rem;
+            }
+
+            .diagonal-stripes {
+                width: 70%;
+            }
+
+            .stripe-1 { width: 80px; right: 40px; }
+            .stripe-2 { width: 40px; right: 140px; }
+            .stripe-3 { right: 200px; }
+            .stripe-4 { right: 215px; }
+
+            .scroll-indicator {
                 display: none;
-            }
-
-            .hero-title {
-                font-size: clamp(2rem, 6vw, 4rem);
-            }
-
-            .hero-scroll {
-                bottom: 24px;
             }
 
             .data-hub {
@@ -2397,34 +2578,33 @@
                 padding: 8px 12px;
             }
 
-            .hero {
-                padding: 24px 16px 24px;
-            }
-
-            .hero-eyebrow {
-                font-size: 0.625rem;
-                margin-bottom: 24px;
-            }
-
             .hero-title {
-                font-size: clamp(1.75rem, 10vw, 3rem);
+                font-size: clamp(3rem, 15vw, 5rem);
             }
 
             .hero-tagline {
-                font-size: 0.875rem;
-                margin-top: 32px;
-            }
-
-            .hero-cta-wrap {
-                margin-top: 40px;
+                font-size: 1rem;
             }
 
             .hero-cta {
-                padding: 16px 32px;
-                font-size: 0.75rem;
+                flex-direction: column;
             }
 
-            .hero-scroll {
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-btn-primary {
+                clip-path: none;
+                padding-right: 2rem;
+            }
+
+            .pre-title {
+                font-size: 0.7rem;
+            }
+
+            .bottom-bar {
                 display: none;
             }
 
@@ -2493,29 +2673,100 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-bg-image"></div>
-        <div class="hero-vignette"></div>
-        <div class="hero-accent hero-accent-left">Est. 2006 California</div>
-        <div class="hero-accent hero-accent-right">Dealer Partner Network</div>
+        <!-- Diagonal Stripes - Top Right -->
+        <div class="diagonal-stripes">
+            <div class="stripe stripe-1"></div>
+            <div class="stripe stripe-2"></div>
+            <div class="stripe stripe-3"></div>
+            <div class="stripe stripe-4"></div>
+        </div>
 
+        <!-- Diagonal Accent - Bottom Left (Teal) -->
+        <div class="diagonal-accent-bottom">
+            <div class="accent-stripe accent-1"></div>
+            <div class="accent-stripe accent-2"></div>
+        </div>
+
+        <!-- Animated Swoosh Lines -->
+        <div class="swoosh-container">
+            <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                <path class="swoosh-line swoosh-line-1"
+                      d="M0,600 C300,700 600,750 900,650 C1200,550 1400,580 1600,620"
+                      stroke="rgba(201, 168, 106, 0.15)"
+                      stroke-width="3"
+                      fill="none"
+                      stroke-linecap="round"/>
+                <path class="swoosh-line swoosh-line-2"
+                      d="M0,650 C350,720 650,780 950,680 C1250,580 1450,600 1600,660"
+                      stroke="rgba(201, 168, 106, 0.1)"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"/>
+                <path class="swoosh-line swoosh-line-3"
+                      d="M0,550 C250,680 550,720 850,620 C1150,520 1350,560 1600,580"
+                      stroke="rgba(45, 123, 126, 0.08)"
+                      stroke-width="1"
+                      fill="none"
+                      stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Grain Texture -->
+        <div class="hero-grain"></div>
+
+        <!-- Main Content -->
         <div class="hero-content">
-            <div class="hero-eyebrow">TechniSoil Dealer Network</div>
+            <!-- Pre-title -->
+            <p class="pre-title" data-translate="hero-pretitle">TechniSoil Dealer Network</p>
+
+            <!-- Main Title -->
             <h1 class="hero-title">
-                <span class="hero-title-line"><span>Earth.</span></span>
-                <span class="hero-title-line"><span class="hero-title-accent">Engineered.</span></span>
+                <span class="title-line"><span>Brand</span></span>
+                <span class="title-line"><span>House</span></span>
             </h1>
-            <p class="hero-tagline">Dealer Resources & Brand Assets</p>
-            <div class="hero-cta-wrap">
-                <a href="#data" class="hero-cta" id="exploreBtn">
-                    Explore Resources
-                    <span class="hero-cta-arrow">→</span>
+
+            <!-- Tagline -->
+            <p class="hero-tagline" data-translate="hero-tagline">
+                Your central hub for brand assets, product videos, and marketing resources. Everything you need to represent TechniSoil's eco-friendly landscape solutions.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta">
+                <a href="#data" class="hero-btn hero-btn-primary" id="exploreBtn">
+                    <span data-translate="hero-cta-explore">Explore Resources</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="videos.html" class="hero-btn hero-btn-secondary">
+                    <span data-translate="hero-cta-videos">Watch Videos</span>
                 </a>
             </div>
         </div>
 
-        <div class="hero-scroll">
-            <span class="hero-scroll-text">Scroll</span>
-            <div class="hero-scroll-line"></div>
+        <!-- Bottom Bar -->
+        <div class="bottom-bar">
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">15+</div>
+                    <div class="hero-stat-label" data-translate="hero-stat-years">Years</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">40+</div>
+                    <div class="hero-stat-label" data-translate="hero-stat-videos">Videos</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">12</div>
+                    <div class="hero-stat-label" data-translate="hero-stat-products">Products</div>
+                </div>
+            </div>
+            <div class="website-url">technisoil.com</div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span class="scroll-text" data-translate="hero-scroll">Scroll</span>
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
