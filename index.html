@@ -399,74 +399,6 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* How It Works */
-        .how-it-works {
-            background: var(--white);
-            padding: 120px 60px;
-        }
-
-        .how-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .how-label {
-            font-size: 0.6875rem;
-            font-weight: 400;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 32px;
-        }
-
-        .how-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            color: var(--navy);
-            margin-bottom: 80px;
-        }
-
-        .how-steps {
-            display: grid;
-            gap: 60px;
-        }
-
-        .how-step {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 40px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid rgba(26, 58, 82, 0.1);
-        }
-
-        .how-step:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .how-step-number {
-            font-size: 4rem;
-            font-weight: 200;
-            line-height: 1;
-            color: var(--sand);
-        }
-
-        .how-step-title {
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            color: var(--navy);
-            margin-bottom: 16px;
-        }
-
-        .how-step-desc {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--slate);
-        }
-
         /* Manifesto - Bold Image Treatment */
         .manifesto {
             position: relative;
@@ -2086,40 +2018,6 @@
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="how-content">
-            <div class="how-label" data-translate="how-label">How It Works</div>
-            <h2 class="how-title" data-translate="how-title">Three Simple Steps</h2>
-
-            <div class="how-steps">
-                <div class="how-step">
-                    <div class="how-step-number">1</div>
-                    <div>
-                        <h3 class="how-step-title" data-translate="how-step-1-title">Request Access</h3>
-                        <p class="how-step-desc" data-translate="how-step-1-desc">Submit a quick form. Our team reviews and approves qualified dealers within 24 hours.</p>
-                    </div>
-                </div>
-
-                <div class="how-step">
-                    <div class="how-step-number">2</div>
-                    <div>
-                        <h3 class="how-step-title" data-translate="how-step-2-title">Access Resources</h3>
-                        <p class="how-step-desc" data-translate="how-step-2-desc">Download marketing assets, social templates, product docs, and sales materials.</p>
-                    </div>
-                </div>
-
-                <div class="how-step">
-                    <div class="how-step-number">3</div>
-                    <div>
-                        <h3 class="how-step-title" data-translate="how-step-3-title">Grow Your Business</h3>
-                        <p class="how-step-desc" data-translate="how-step-3-desc">Deploy professional marketing and watch your TechniSoil sales grow.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Manifesto -->
     <section class="manifesto">
         <div class="manifesto-texture"></div>
@@ -3290,9 +3188,9 @@ Electric #00ff88">Copy Colors</button>
         const exploreBtn = document.getElementById('exploreBtn');
         if (exploreBtn) {
             exploreBtn.addEventListener('click', () => {
-                const howItWorks = document.querySelector('.how-it-works');
-                if (howItWorks) {
-                    howItWorks.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const dataHub = document.querySelector('.data-hub');
+                if (dataHub) {
+                    dataHub.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         }
