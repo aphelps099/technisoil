@@ -258,74 +258,187 @@
         }
 
         /* Resources */
+        /* Brand Resources - Industrial Black/Gold */
         .data-hub {
             padding: 120px 60px;
-            background: var(--white);
+            background: var(--black);
+            position: relative;
+        }
+
+        .data-hub::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
         }
 
         .data-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .data-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .data-header-left {
+            max-width: 600px;
         }
 
         .data-label {
             font-size: 0.6875rem;
-            font-weight: 400;
+            font-weight: 600;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--sand);
-            margin-bottom: 32px;
+            margin-bottom: 16px;
         }
 
         .data-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            line-height: 1.1;
+            font-weight: 700;
+            line-height: 1;
             letter-spacing: -0.02em;
-            color: var(--navy);
-            margin-bottom: 24px;
+            color: var(--white);
+            text-transform: uppercase;
         }
 
         .data-desc {
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            color: var(--slate);
-            max-width: 700px;
-            margin-bottom: 80px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.5);
+            max-width: 400px;
+            text-align: right;
         }
 
         .data-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: rgba(26, 58, 82, 0.1);
+            gap: 2px;
+            background: rgba(201, 168, 106, 0.3);
         }
 
         .data-card {
-            background: var(--white);
+            background: var(--black);
             padding: 48px 40px;
             text-decoration: none;
             color: inherit;
-            display: block;
-            transition: background 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .data-card:hover {
-            background: var(--cream);
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--sand);
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+
+        .data-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .data-card-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .data-card-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sand);
+            line-height: 1;
+            margin-bottom: 24px;
+            transition: color 0.4s ease;
+        }
+
+        .data-card:hover .data-card-number {
+            color: var(--black);
         }
 
         .data-card-title {
-            font-size: 1.25rem;
-            font-weight: 400;
+            font-size: 1.375rem;
+            font-weight: 600;
             letter-spacing: -0.01em;
-            color: var(--navy);
+            color: var(--white);
             margin-bottom: 12px;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .data-card:hover .data-card-title {
+            color: var(--black);
         }
 
         .data-card-desc {
             font-size: 0.9375rem;
             line-height: 1.6;
-            color: var(--slate);
+            color: rgba(255,255,255,0.6);
+            margin-bottom: auto;
+            transition: color 0.4s ease;
+        }
+
+        .data-card:hover .data-card-desc {
+            color: rgba(0,0,0,0.7);
+        }
+
+        .data-card-arrow {
+            font-size: 1.5rem;
+            color: var(--sand);
+            margin-top: 24px;
+            transition: all 0.4s ease;
+            align-self: flex-end;
+        }
+
+        .data-card:hover .data-card-arrow {
+            color: var(--black);
+            transform: translateX(8px);
+        }
+
+        .data-card-featured {
+            grid-column: span 2;
+            grid-row: span 2;
+            padding: 60px;
+        }
+
+        .data-card-featured .data-card-number {
+            font-size: 4rem;
+        }
+
+        .data-card-featured .data-card-title {
+            font-size: 2rem;
+        }
+
+        .data-card-featured .data-card-desc {
+            font-size: 1.0625rem;
+            max-width: 400px;
         }
 
         /* Manifesto - Bold Image Treatment */
@@ -1755,18 +1868,28 @@
                 padding: 100px 60px;
             }
 
+            .data-header {
+                flex-direction: column;
+                gap: 24px;
+                align-items: flex-start;
+            }
+
+            .data-desc {
+                text-align: left;
+            }
+
             .data-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .data-card-featured {
-                grid-column: 1;
+                grid-column: 1 / -1;
                 grid-row: auto;
             }
 
             .data-card {
                 padding: 40px;
+                min-height: 240px;
             }
 
             .mission {
@@ -1916,18 +2039,30 @@
 
             .data-grid {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto;
-                gap: 1px;
+                gap: 2px;
             }
 
             .data-card {
                 padding: 40px 32px;
+                min-height: 200px;
             }
 
             .data-card-featured {
                 grid-column: 1;
                 grid-row: auto;
                 padding: 40px 32px;
+            }
+
+            .data-card-number {
+                font-size: 2rem;
+            }
+
+            .data-card-featured .data-card-number {
+                font-size: 2.5rem;
+            }
+
+            .data-card-featured .data-card-title {
+                font-size: 1.5rem;
             }
 
             .team-grid {
@@ -1995,49 +2130,85 @@
     <!-- Resources -->
     <section class="data-hub" id="data">
         <div class="data-content">
-            <div class="data-label">Brand Resources</div>
-            <h2 class="data-title">Everything You Need</h2>
-            <p class="data-desc">Professional marketing assets designed to help you sell more TechniSoil. From social templates to product docs.</p>
+            <div class="data-header">
+                <div class="data-header-left">
+                    <div class="data-label">Brand Resources</div>
+                    <h2 class="data-title">Everything<br>You Need</h2>
+                </div>
+                <p class="data-desc">Professional marketing assets designed to help you sell more TechniSoil.</p>
+            </div>
 
             <div class="data-grid">
-                <a href="social-templates.html" class="data-card">
-                    <h3 class="data-card-title">Social Media Templates</h3>
-                    <p class="data-card-desc">Ready-to-post content for Instagram, Facebook, and LinkedIn.</p>
+                <a href="social-templates.html" class="data-card data-card-featured">
+                    <div class="data-card-inner">
+                        <div class="data-card-number">01</div>
+                        <h3 class="data-card-title">Social Media Templates</h3>
+                        <p class="data-card-desc">Ready-to-post content for Instagram, Facebook, and LinkedIn. Professionally designed to drive engagement.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </a>
 
                 <div class="data-card" data-modal="email">
-                    <h3 class="data-card-title">Email Campaigns</h3>
-                    <p class="data-card-desc">Pre-written sales emails and product introductions.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">02</div>
+                        <h3 class="data-card-title">Email Campaigns</h3>
+                        <p class="data-card-desc">Pre-written sales emails and product introductions.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </div>
 
                 <div class="data-card" data-modal="brand">
-                    <h3 class="data-card-title">Brand Assets</h3>
-                    <p class="data-card-desc">Logos, colors, and typography guidelines.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">03</div>
+                        <h3 class="data-card-title">Brand Assets</h3>
+                        <p class="data-card-desc">Logos, colors, and typography guidelines.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </div>
 
                 <div class="data-card" data-modal="docs">
-                    <h3 class="data-card-title">Product Documentation</h3>
-                    <p class="data-card-desc">Technical specs, SDS, and installation guides.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">04</div>
+                        <h3 class="data-card-title">Product Docs</h3>
+                        <p class="data-card-desc">Technical specs, SDS, and installation guides.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </div>
 
                 <div class="data-card" data-modal="gallery">
-                    <h3 class="data-card-title">Image Library</h3>
-                    <p class="data-card-desc">High-res product photos and lifestyle shots.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">05</div>
+                        <h3 class="data-card-title">Image Library</h3>
+                        <p class="data-card-desc">High-res product photos and lifestyle shots.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </div>
 
                 <div class="data-card" data-modal="video">
-                    <h3 class="data-card-title">Video Content</h3>
-                    <p class="data-card-desc">Installation tutorials and product demos.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">06</div>
+                        <h3 class="data-card-title">Video Content</h3>
+                        <p class="data-card-desc">Installation tutorials and product demos.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </div>
 
                 <a href="https://technisoil.com/wp-content/uploads/2023/03/2023-Technisoil-Catalog.pdf" target="_blank" class="data-card">
-                    <h3 class="data-card-title">Product Catalog</h3>
-                    <p class="data-card-desc">Complete product catalog with specifications.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">07</div>
+                        <h3 class="data-card-title">Product Catalog</h3>
+                        <p class="data-card-desc">Complete catalog with specifications.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </a>
 
                 <div class="data-card" data-modal="products">
-                    <h3 class="data-card-title">All Products</h3>
-                    <p class="data-card-desc">Browse the complete TechniSoil product lineup.</p>
+                    <div class="data-card-inner">
+                        <div class="data-card-number">08</div>
+                        <h3 class="data-card-title">All Products</h3>
+                        <p class="data-card-desc">Browse the complete TechniSoil lineup.</p>
+                        <div class="data-card-arrow">→</div>
+                    </div>
                 </div>
             </div>
         </div>
