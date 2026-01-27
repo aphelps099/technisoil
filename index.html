@@ -2174,6 +2174,49 @@
             color: var(--teal);
         }
 
+        /* Designer credit */
+        .designer-credit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            font-family: Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--black);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .designer-credit::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--sand);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .designer-credit span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .designer-credit:hover {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 0 0 20px rgba(201, 168, 106, 0.5);
+        }
+
+        .designer-credit:hover::before {
+            transform: scale(1);
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .nav {
@@ -3402,6 +3445,7 @@ Electric #00ff88">Copy Colors</button>
                     <a href="https://technisoil.com/terms" target="_blank">Terms of Use</a>
                     <a href="https://technisoil.com/dealers" target="_blank">Dealer Agreement</a>
                 </div>
+                <a href="https://aaroncphelps.com" target="_blank" class="designer-credit" title="Design by Aaron Phelps"><span>A</span></a>
             </div>
         </div>
     </footer>
@@ -3829,6 +3873,24 @@ Electric #00ff88">Copy Colors</button>
                 }, 3000);
             });
         }
+
+        // Right-click protection
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('This content is protected.\n\nFor inquiries, please contact:\nAaron Phelps\naaron@aaroncphelps.com');
+            return false;
+        });
+
+        // Disable keyboard shortcuts for inspect/view source
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
     </script>
 </body>
 </html>
