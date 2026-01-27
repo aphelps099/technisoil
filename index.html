@@ -251,8 +251,8 @@
             right: 80px;
             top: -50%;
             opacity: 0;
-            animation: stripeSlide 0.8s ease-out 0.3s forwards;
         }
+        .hero.animate .stripe-1 { animation: stripeSlide 0.8s ease-out 0.3s forwards; }
 
         .stripe-2 {
             width: 60px;
@@ -260,8 +260,8 @@
             right: 220px;
             top: -50%;
             opacity: 0;
-            animation: stripeSlide 0.8s ease-out 0.5s forwards;
         }
+        .hero.animate .stripe-2 { animation: stripeSlide 0.8s ease-out 0.5s forwards; }
 
         .stripe-3 {
             width: 8px;
@@ -269,8 +269,8 @@
             right: 300px;
             top: -50%;
             opacity: 0;
-            animation: stripeSlide 0.8s ease-out 0.7s forwards;
         }
+        .hero.animate .stripe-3 { animation: stripeSlide 0.8s ease-out 0.7s forwards; }
 
         .stripe-4 {
             width: 4px;
@@ -279,8 +279,8 @@
             top: -50%;
             background: var(--sand-bright);
             opacity: 0;
-            animation: stripeSlide 0.8s ease-out 0.8s forwards;
         }
+        .hero.animate .stripe-4 { animation: stripeSlide 0.8s ease-out 0.8s forwards; }
 
         @keyframes stripeSlide {
             from {
@@ -316,8 +316,8 @@
             left: 50px;
             bottom: -50%;
             opacity: 0;
-            animation: stripeSlideUp 0.8s ease-out 0.9s forwards;
         }
+        .hero.animate .accent-1 { animation: stripeSlideUp 0.8s ease-out 0.9s forwards; }
 
         .accent-2 {
             width: 6px;
@@ -326,8 +326,8 @@
             bottom: -50%;
             background: var(--teal-light);
             opacity: 0;
-            animation: stripeSlideUp 0.8s ease-out 1s forwards;
         }
+        .hero.animate .accent-2 { animation: stripeSlideUp 0.8s ease-out 1s forwards; }
 
         @keyframes stripeSlideUp {
             from {
@@ -357,12 +357,12 @@
         .swoosh-line {
             stroke-dasharray: 2000;
             stroke-dashoffset: 2000;
-            animation: drawLine 2s ease-out forwards;
         }
 
-        .swoosh-line-1 { animation-delay: 1.2s; }
-        .swoosh-line-2 { animation-delay: 1.4s; }
-        .swoosh-line-3 { animation-delay: 1.6s; }
+        .hero.animate .swoosh-line { animation: drawLine 2s ease-out forwards; }
+        .hero.animate .swoosh-line-1 { animation-delay: 1.2s; }
+        .hero.animate .swoosh-line-2 { animation-delay: 1.4s; }
+        .hero.animate .swoosh-line-3 { animation-delay: 1.6s; }
 
         @keyframes drawLine {
             to {
@@ -399,8 +399,8 @@
             margin-bottom: 1rem;
             opacity: 0;
             transform: translateX(-20px);
-            animation: slideRight 0.6s ease-out 2s forwards;
         }
+        .hero.animate .pre-title { animation: slideRight 0.6s ease-out 2s forwards; }
 
         @keyframes slideRight {
             to {
@@ -432,13 +432,17 @@
         }
 
         .title-line:nth-child(1) span {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
             color: var(--white);
+        }
+        .hero.animate .title-line:nth-child(1) span {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
         }
 
         .title-line:nth-child(2) span {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
             color: var(--sand);
+        }
+        .hero.animate .title-line:nth-child(2) span {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
         }
 
         @keyframes slideUp {
@@ -460,8 +464,8 @@
             margin-bottom: 2.5rem;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.6s ease-out 2.6s forwards;
         }
+        .hero.animate .hero-tagline { animation: fadeUp 0.6s ease-out 2.6s forwards; }
 
         @keyframes fadeUp {
             to {
@@ -477,8 +481,8 @@
             flex-wrap: wrap;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.6s ease-out 2.8s forwards;
         }
+        .hero.animate .hero-cta { animation: fadeUp 0.6s ease-out 2.8s forwards; }
 
         .hero-btn {
             display: inline-flex;
@@ -547,8 +551,8 @@
             display: flex;
             gap: 3rem;
             opacity: 0;
-            animation: fadeUp 0.6s ease-out 3s forwards;
         }
+        .hero.animate .hero-stats { animation: fadeUp 0.6s ease-out 3s forwards; }
 
         .hero-stat {
             text-align: left;
@@ -578,8 +582,8 @@
             color: rgba(255, 255, 255, 0.4);
             letter-spacing: 0.05em;
             opacity: 0;
-            animation: fadeUp 0.6s ease-out 3.2s forwards;
         }
+        .hero.animate .website-url { animation: fadeUp 0.6s ease-out 3.2s forwards; }
 
         /* Scroll Indicator */
         .scroll-indicator {
@@ -593,8 +597,8 @@
             align-items: center;
             gap: 0.5rem;
             opacity: 0;
-            animation: fadeUp 0.6s ease-out 3.4s forwards;
         }
+        .hero.animate .scroll-indicator { animation: fadeUp 0.6s ease-out 3.4s forwards; }
 
         .scroll-text {
             font-size: 0.65rem;
@@ -3997,10 +4001,19 @@ Let's discuss your next project.
             const form = document.getElementById('passwordForm');
             const input = document.getElementById('passwordInput');
             const errorMsg = document.getElementById('passwordError');
+            const hero = document.querySelector('.hero');
+
+            // Function to trigger hero animations
+            function triggerHeroAnimations() {
+                if (hero) {
+                    hero.classList.add('animate');
+                }
+            }
 
             // Check if already authenticated in this session
             if (sessionStorage.getItem(SESSION_KEY) === 'granted') {
                 overlay.classList.add('hidden');
+                triggerHeroAnimations();
                 return;
             }
 
@@ -4021,10 +4034,12 @@ Let's discuss your next project.
                     // Store in session
                     sessionStorage.setItem(SESSION_KEY, 'granted');
 
-                    // Fade out after brief delay
+                    // Fade out after brief delay, then trigger animations
                     setTimeout(function() {
                         overlay.classList.add('hidden');
                         document.body.style.overflow = '';
+                        // Trigger hero animations after overlay fades
+                        triggerHeroAnimations();
                     }, 600);
                 } else {
                     // Error
