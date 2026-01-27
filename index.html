@@ -248,8 +248,8 @@
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 60px;
-            max-width: 580px;
+            padding: 48px;
+            max-width: 520px;
             position: relative;
             z-index: 10;
         }
@@ -261,16 +261,16 @@
             letter-spacing: 0.35em;
             text-transform: uppercase;
             color: rgba(255,255,255,0.55);
-            margin-bottom: 48px;
+            margin-bottom: 24px;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 8vw, 7rem);
+            font-size: clamp(2.5rem, 7vw, 6rem);
             font-weight: 300;
-            line-height: 0.88;
+            line-height: 0.95;
             letter-spacing: -0.02em;
             color: var(--white);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             text-transform: uppercase;
         }
 
@@ -282,20 +282,20 @@
         }
 
         .hero-desc {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 300;
             color: rgba(255,255,255,0.75);
-            max-width: 480px;
-            margin-bottom: 72px;
-            line-height: 1.75;
+            max-width: 420px;
+            margin-bottom: 40px;
+            line-height: 1.6;
             letter-spacing: 0.01em;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
         .hero-stat-num {
@@ -1385,7 +1385,7 @@
 
             .hero-card {
                 max-width: 100%;
-                padding: 48px;
+                padding: 40px;
             }
 
             .data-grid {
@@ -1469,7 +1469,7 @@
             }
 
             .hero-card {
-                padding: 40px 32px;
+                padding: 32px 24px;
             }
 
             .hero-stats {
@@ -1631,24 +1631,24 @@
     <!-- Mission -->
     <section class="mission">
         <div class="mission-text reveal">
-            <div class="mission-label">Our Mission</div>
-            <h2 class="mission-title">GREEN IS MORE THAN A BUZZWORD</h2>
-            <p class="mission-copy">At TechniSoil, green is our guiding principle. Our greatest assets are our people and the environment.</p>
-            <p class="mission-copy">United by a passion for environmental sustainability and innovation, our team is dedicated to advancing industry standards in modern landscape design.</p>
+            <div class="mission-label" data-translate="mission-label">Our Mission</div>
+            <h2 class="mission-title" data-translate="mission-title">GREEN IS MORE THAN A BUZZWORD</h2>
+            <p class="mission-copy" data-translate="mission-copy-1">At TechniSoil, green is our guiding principle. Our greatest assets are our people and the environment.</p>
+            <p class="mission-copy" data-translate="mission-copy-2">United by a passion for environmental sustainability and innovation, our team is dedicated to advancing industry standards in modern landscape design.</p>
         </div>
         <div class="mission-visual reveal">
             <div class="mission-stat-grid">
                 <div class="mission-stat">
                     <div class="mission-stat-num" data-target="2006" data-suffix="">2006</div>
-                    <div class="mission-stat-label">Founded in California</div>
+                    <div class="mission-stat-label" data-translate="mission-stat-label-1">Founded in California</div>
                 </div>
                 <div class="mission-stat">
                     <div class="mission-stat-num" data-target="50" data-suffix="M+">0</div>
-                    <div class="mission-stat-label">Square Feet Stabilized</div>
+                    <div class="mission-stat-label" data-translate="mission-stat-label-2">Square Feet Stabilized</div>
                 </div>
                 <div class="mission-stat">
                     <div class="mission-stat-num" data-target="10" data-suffix="K+">0</div>
-                    <div class="mission-stat-label">Completed Projects</div>
+                    <div class="mission-stat-label" data-translate="mission-stat-label-3">Completed Projects</div>
                 </div>
             </div>
         </div>
@@ -1657,9 +1657,9 @@
     <!-- Team -->
     <section class="team" id="team">
         <div class="team-header reveal">
-            <div class="team-label">Our People</div>
-            <h2 class="team-title">SMALL BUSINESS, BIG IMPACT</h2>
-            <p class="team-desc">A tight-knit team with ambitious goals. We're weekend warriors, but our nine-to-fives are spent supplying the landscaping scene with sustainable, high-impact products.</p>
+            <div class="team-label" data-translate="team-label">Our People</div>
+            <h2 class="team-title" data-translate="team-title">SMALL BUSINESS, BIG IMPACT</h2>
+            <p class="team-desc" data-translate="team-desc">A tight-knit team with ambitious goals. We're weekend warriors, but our nine-to-fives are spent supplying the landscaping scene with sustainable, high-impact products.</p>
         </div>
 
         <div class="team-grid">
@@ -1691,10 +1691,10 @@
     </section>
 
     <!-- Timeline -->
-    <section class="timeline">
+    <section class="timeline" id="timeline">
         <div class="timeline-header reveal">
-            <div class="timeline-label">Company Growth</div>
-            <h2 class="timeline-title">OUR JOURNEY</h2>
+            <div class="timeline-label" data-translate="timeline-label">Company Growth</div>
+            <h2 class="timeline-title" data-translate="timeline-title">OUR JOURNEY</h2>
         </div>
 
         <div class="timeline-scroll">
@@ -2578,16 +2578,21 @@ Electric #00ff88">Copy Colors</button>
 
                 // Mission
                 'mission-label': 'Our Mission',
-                'mission-title': 'ENGINEERED FOR SUSTAINABILITY',
-                'mission-desc': 'Every TechniSoil product is designed to reduce environmental impact while delivering superior performance. We use recycled materials, minimize waste, and create solutions that last decades, not years.',
+                'mission-title': 'GREEN IS MORE THAN A BUZZWORD',
+                'mission-copy-1': 'At TechniSoil, green is our guiding principle. Our greatest assets are our people and the environment.',
+                'mission-copy-2': 'United by a passion for environmental sustainability and innovation, our team is dedicated to advancing industry standards in modern landscape design.',
+                'mission-stat-label-1': 'Founded in California',
+                'mission-stat-label-2': 'Square Feet Stabilized',
+                'mission-stat-label-3': 'Completed Projects',
 
                 // Team
-                'team-label': 'Leadership',
-                'team-title': 'MEET THE TEAM',
+                'team-label': 'Our People',
+                'team-title': 'SMALL BUSINESS, BIG IMPACT',
+                'team-desc': 'A tight-knit team with ambitious goals. We\'re weekend warriors, but our nine-to-fives are spent supplying the landscaping scene with sustainable, high-impact products.',
 
                 // Timeline
-                'timeline-label': 'Our Journey',
-                'timeline-title': 'TWO DECADES OF INNOVATION',
+                'timeline-label': 'Company Growth',
+                'timeline-title': 'OUR JOURNEY',
 
                 // Testimonials
                 'testimonials-label': 'Dealer Success',
@@ -2642,16 +2647,21 @@ Electric #00ff88">Copy Colors</button>
 
                 // Mission
                 'mission-label': 'Nuestra Misión',
-                'mission-title': 'DISEÑADO PARA LA SOSTENIBILIDAD',
-                'mission-desc': 'Cada producto TechniSoil está diseñado para reducir el impacto ambiental mientras ofrece un rendimiento superior. Usamos materiales reciclados, minimizamos el desperdicio y creamos soluciones que duran décadas, no años.',
+                'mission-title': 'VERDE ES MÁS QUE UNA PALABRA DE MODA',
+                'mission-copy-1': 'En TechniSoil, el verde es nuestro principio rector. Nuestros mayores activos son nuestra gente y el medio ambiente.',
+                'mission-copy-2': 'Unidos por una pasión por la sostenibilidad ambiental y la innovación, nuestro equipo se dedica a avanzar en los estándares de la industria en el diseño de paisajes modernos.',
+                'mission-stat-label-1': 'Fundada en California',
+                'mission-stat-label-2': 'Pies Cuadrados Estabilizados',
+                'mission-stat-label-3': 'Proyectos Completados',
 
                 // Team
-                'team-label': 'Liderazgo',
-                'team-title': 'CONOCE AL EQUIPO',
+                'team-label': 'Nuestra Gente',
+                'team-title': 'PEQUEÑA EMPRESA, GRAN IMPACTO',
+                'team-desc': 'Un equipo muy unido con objetivos ambiciosos. Somos guerreros de fin de semana, pero nuestro horario de oficina se dedica a suministrar productos sostenibles de alto impacto a la industria del paisajismo.',
 
                 // Timeline
-                'timeline-label': 'Nuestro Viaje',
-                'timeline-title': 'DOS DÉCADAS DE INNOVACIÓN',
+                'timeline-label': 'Crecimiento de la Empresa',
+                'timeline-title': 'NUESTRO RECORRIDO',
 
                 // Testimonials
                 'testimonials-label': 'Éxito de Distribuidores',
