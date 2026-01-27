@@ -875,30 +875,44 @@
             }
         }
 
-        /* Testimonials - Premium Layout */
+        /* Testimonials - ZAG Asymmetric Layout */
         .testimonials {
-            padding: 160px 80px;
-            background: var(--white);
-            max-width: 1600px;
-            margin: 0 auto;
+            padding: 0;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-inner {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            min-height: 100vh;
+        }
+
+        .testimonials-left {
+            background: var(--navy);
+            padding: 120px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
         }
 
-        .testimonials::before {
+        .testimonials-left::after {
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--sand), transparent);
-            opacity: 0.3;
+            right: -80px;
+            width: 160px;
+            height: 100%;
+            background: var(--navy);
+            clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+            z-index: 1;
         }
 
         .testimonials-header {
-            max-width: 800px;
-            margin-bottom: 100px;
+            position: relative;
+            z-index: 2;
         }
 
         .testimonials-label {
@@ -912,75 +926,121 @@
         }
 
         .testimonials-title {
-            font-size: clamp(3rem, 6vw, 5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 300;
-            line-height: 0.95;
+            line-height: 1;
             letter-spacing: -0.015em;
-        }
-
-        .testimonials-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 80px;
-            align-items: start;
+            color: var(--white);
+            margin-bottom: 48px;
         }
 
         .testimonial-featured {
             position: relative;
+            z-index: 2;
         }
 
         .testimonial-quote-mark {
-            font-size: 8rem;
+            font-size: 10rem;
             line-height: 1;
-            color: var(--sand);
-            opacity: 0.15;
+            color: var(--teal);
+            opacity: 0.2;
             position: absolute;
-            top: -40px;
-            left: -20px;
+            top: -60px;
+            left: -30px;
             font-family: Georgia, serif;
         }
 
+        .testimonial-featured-stars {
+            color: var(--sand);
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            letter-spacing: 4px;
+        }
+
         .testimonial-featured-text {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 300;
-            line-height: 1.5;
-            color: var(--navy);
-            margin-bottom: 48px;
+            line-height: 1.6;
+            color: var(--white);
+            margin-bottom: 40px;
             position: relative;
         }
 
         .testimonial-featured-author {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
+            padding-left: 24px;
+            border-left: 2px solid var(--sand);
         }
 
         .testimonial-featured-name {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 500;
-            color: var(--navy);
+            color: var(--white);
         }
 
         .testimonial-featured-role {
-            font-size: 0.9375rem;
-            color: var(--slate);
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
         }
 
-        .testimonial-featured-stars {
-            color: var(--sand);
-            font-size: 1.5rem;
-            margin-bottom: 32px;
+        .testimonials-right {
+            padding: 80px 80px 80px 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
         }
 
         .testimonials-list {
             display: flex;
             flex-direction: column;
-            gap: 48px;
+            gap: 0;
         }
 
         .testimonial-small {
-            border-top: 1px solid rgba(0,0,0,0.08);
-            padding-top: 32px;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(26, 58, 82, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-small:first-child {
+            padding-top: 0;
+        }
+
+        .testimonial-small:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .testimonial-small:hover {
+            padding-left: 20px;
+        }
+
+        .testimonial-small::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 60%;
+            background: var(--sand);
+            transition: width 0.4s ease;
+        }
+
+        .testimonial-small:hover::before {
+            width: 3px;
+        }
+
+        .testimonial-small-stars {
+            color: var(--sand);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
         }
 
         .testimonial-small-text {
@@ -988,13 +1048,13 @@
             font-weight: 300;
             line-height: 1.7;
             color: var(--navy);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .testimonial-small-author {
             font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--slate);
+            font-weight: 600;
+            color: var(--navy);
             margin-bottom: 4px;
         }
 
@@ -1010,40 +1070,27 @@
             margin-bottom: 16px;
         }
 
-        /* Contact/Support - Premium Split Layout */
+        /* Contact/Support - ZAG Diagonal Layout */
         .support {
-            min-height: 100vh;
-            background: var(--navy);
-            color: var(--white);
-            display: flex;
-            align-items: center;
+            background: var(--white);
+            color: var(--navy);
             position: relative;
-        }
-
-        .support::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 140px;
-            background: linear-gradient(to bottom, var(--cream), var(--navy));
-            pointer-events: none;
+            overflow: hidden;
         }
 
         .support-inner {
-            width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 55% 45%;
             min-height: 100vh;
         }
 
         .support-left {
-            padding: 100px 80px;
+            padding: 120px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-right: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 2;
         }
 
         .support-label {
@@ -1052,45 +1099,66 @@
             font-weight: 500;
             letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: var(--teal);
+            color: var(--sand);
             margin-bottom: 32px;
         }
 
         .support-title {
-            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 300;
-            line-height: 0.92;
+            line-height: 1;
             letter-spacing: -0.02em;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
+            color: var(--navy);
         }
 
         .support-message {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 300;
             line-height: 1.8;
-            color: rgba(255,255,255,0.75);
+            color: var(--slate);
             max-width: 480px;
-        }
-
-        .support-right {
-            padding: 100px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            margin-bottom: 60px;
         }
 
         .support-directory {
             display: grid;
-            gap: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
 
         .support-dept {
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 32px;
+            padding: 32px;
+            background: var(--cream);
+            position: relative;
+            transition: all 0.4s ease;
         }
 
-        .support-dept:last-child {
-            border-bottom: none;
+        .support-dept:nth-child(2) {
+            transform: translateY(40px);
+        }
+
+        .support-dept:nth-child(3) {
+            transform: translateY(80px);
+        }
+
+        .support-dept:hover {
+            background: var(--navy);
+        }
+
+        .support-dept:hover .support-dept-name,
+        .support-dept:hover .support-dept-title,
+        .support-dept:hover .support-dept-desc,
+        .support-dept:hover .support-hours {
+            color: var(--white);
+        }
+
+        .support-dept:hover .support-dept-name {
+            color: var(--sand);
+        }
+
+        .support-dept:hover .support-contact-link {
+            color: var(--sand);
         }
 
         .support-dept-name {
@@ -1098,33 +1166,36 @@
             font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 24px;
+            color: var(--sand);
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
         }
 
         .support-dept-title {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 16px;
-            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--navy);
+            transition: color 0.4s ease;
         }
 
         .support-dept-desc {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             font-weight: 300;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
-            margin-bottom: 24px;
+            color: var(--slate);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
         }
 
         .support-contact-info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .support-contact-link {
-            font-size: 1.125rem;
+            font-size: 0.9375rem;
             font-weight: 400;
             color: var(--teal);
             text-decoration: none;
@@ -1133,39 +1204,114 @@
         }
 
         .support-contact-link:hover {
-            color: var(--white);
             transform: translateX(4px);
         }
 
         .support-hours {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            color: var(--slate);
             margin-top: 12px;
+            transition: color 0.4s ease;
         }
 
-        /* Request Access Form */
+        .support-right {
+            background: var(--forest);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .support-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 200px;
+            height: 100%;
+            background: var(--forest);
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+            z-index: 1;
+        }
+
+        .support-visual {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .support-visual-icon {
+            font-size: 4rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .support-visual-text {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 280px;
+        }
+
+        .support-visual-cta {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 16px 40px;
+            background: var(--white);
+            color: var(--forest);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .support-visual-cta:hover {
+            background: var(--sand);
+            color: var(--white);
+        }
+
+        /* Request Access Form - ZAG Split Layout */
         .request-access {
-            background: linear-gradient(135deg, var(--navy) 0%, #0a1628 100%);
-            padding: 160px 80px;
+            background: var(--navy);
             position: relative;
             overflow: hidden;
         }
 
-        .request-access::before {
+        .request-access-inner {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            min-height: 100vh;
+        }
+
+        .request-access-left {
+            background: linear-gradient(180deg, var(--teal) 0%, var(--forest) 100%);
+            padding: 100px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .request-access-left::after {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: linear-gradient(to bottom, var(--navy), #0a1628);
-            pointer-events: none;
+            right: -60px;
+            width: 120px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--teal) 0%, var(--forest) 100%);
+            clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
+            z-index: 1;
         }
 
-        .request-access-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
+        .request-access-benefits {
+            position: relative;
+            z-index: 2;
         }
 
         .request-access-label {
@@ -1173,34 +1319,88 @@
             font-size: 0.625rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--sand);
+            color: rgba(255,255,255,0.7);
             margin-bottom: 24px;
+        }
+
+        .request-access-headline {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .benefit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+        }
+
+        .benefit-text strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .request-access-right {
+            padding: 80px 100px 80px 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .request-access-content {
+            max-width: 600px;
         }
 
         .request-access-title {
             font-family: 'Zalando Sans Expanded', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 400;
             line-height: 1.1;
             letter-spacing: -0.02em;
             color: var(--white);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         .request-access-desc {
-            font-size: 1.125rem;
+            font-size: 1rem;
             line-height: 1.6;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 40px;
         }
 
         .request-access-form {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 16px;
             margin-bottom: 24px;
         }
 
@@ -1216,7 +1416,7 @@
         .form-select,
         .form-textarea {
             width: 100%;
-            padding: 18px 20px;
+            padding: 16px 18px;
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 0;
@@ -1243,64 +1443,48 @@
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C9A86A' stroke-width='2'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 20px center;
+            background-position: right 18px center;
             cursor: pointer;
         }
 
         .form-textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
         .form-submit-group {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 24px;
+            margin-top: 8px;
         }
 
         .btn-submit {
             font-family: 'Zalando Sans Expanded', sans-serif;
-            padding: 20px 60px;
+            padding: 18px 48px;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.2em;
-            border: 1px solid rgba(201, 168, 106, 0.4);
-            background: rgba(201, 168, 106, 0.1);
-            color: var(--sand);
+            border: none;
+            background: var(--sand);
+            color: var(--navy);
             cursor: pointer;
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .btn-submit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.2), transparent);
-            transition: left 0.6s;
-        }
-
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(201, 168, 106, 0.3);
-            background: rgba(201, 168, 106, 0.15);
-            border-color: rgba(201, 168, 106, 0.6);
-        }
-
-        .btn-submit:hover::before {
-            left: 100%;
+            box-shadow: 0 8px 24px rgba(201, 168, 106, 0.4);
+            background: var(--white);
         }
 
         .form-privacy {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: rgba(255,255,255,0.4);
-            max-width: 500px;
             line-height: 1.5;
+            flex: 1;
         }
 
         .form-privacy a {
@@ -1314,13 +1498,32 @@
             border-color: var(--sand);
         }
 
-        @media (max-width: 768px) {
-            .request-access {
-                padding: 80px 32px;
+        @media (max-width: 1024px) {
+            .request-access-inner {
+                grid-template-columns: 1fr;
             }
 
+            .request-access-left {
+                padding: 60px 40px;
+            }
+
+            .request-access-left::after {
+                display: none;
+            }
+
+            .request-access-right {
+                padding: 60px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .request-access-form {
                 grid-template-columns: 1fr;
+            }
+
+            .form-submit-group {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
 
@@ -1499,10 +1702,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .support-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-main {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1510,28 +1709,52 @@
             .mission-text,
             .team,
             .timeline,
-            .testimonials,
             .modal-content {
                 padding: 80px 40px;
             }
 
+            /* Testimonials ZAG responsive */
+            .testimonials-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-left {
+                padding: 80px 40px;
+            }
+
+            .testimonials-left::after {
+                display: none;
+            }
+
+            .testimonials-right {
+                padding: 60px 40px;
+            }
+
+            /* Support ZAG responsive */
             .support-inner {
                 grid-template-columns: 1fr;
             }
 
-            .support-left,
-            .support-right {
-                padding: 60px 40px;
-            }
-
             .support-left {
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
+                padding: 80px 40px;
             }
 
-            .testimonials-content {
+            .support-directory {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 24px;
+            }
+
+            .support-dept:nth-child(2),
+            .support-dept:nth-child(3) {
+                transform: translateY(0);
+            }
+
+            .support-right {
+                min-height: 300px;
+            }
+
+            .support-right::before {
+                display: none;
             }
 
             .timeline-item {
@@ -2290,42 +2513,46 @@ Electric #00ff88">Copy Colors</button>
 
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
-        <div class="testimonials-header reveal">
-            <div class="testimonials-label" data-translate="testimonials-label">Dealer Success</div>
-            <h2 class="testimonials-title" data-translate="testimonials-title">TRUSTED BY PROFESSIONALS</h2>
-        </div>
+        <div class="testimonials-inner">
+            <div class="testimonials-left">
+                <div class="testimonials-header reveal">
+                    <div class="testimonials-label" data-translate="testimonials-label">Dealer Success</div>
+                    <h2 class="testimonials-title" data-translate="testimonials-title">TRUSTED BY<br>PROFESSIONALS</h2>
+                </div>
 
-        <div class="testimonials-content">
-            <div class="testimonial-featured reveal">
-                <div class="testimonial-quote-mark">"</div>
-                <div class="testimonial-featured-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-featured-text">Within 6 months of using the Brand House, our TechniSoil product sales jumped 43% and we cut marketing prep time from 8 hours per week to under 2. The ROI templates showed our customers a 3-year payback on xeriscaping projects, which closed deals we would have lost.</p>
-                <div class="testimonial-featured-author">
-                    <div class="testimonial-featured-name">Michael Chen, Owner</div>
-                    <div class="testimonial-featured-role">Phoenix Landscape Supply • $2.4M Annual Revenue</div>
+                <div class="testimonial-featured reveal">
+                    <div class="testimonial-quote-mark">"</div>
+                    <div class="testimonial-featured-stars">★★★★★</div>
+                    <p class="testimonial-featured-text">Within 6 months of using the Brand House, our TechniSoil product sales jumped 43% and we cut marketing prep time from 8 hours per week to under 2.</p>
+                    <div class="testimonial-featured-author">
+                        <div class="testimonial-featured-name">Michael Chen, Owner</div>
+                        <div class="testimonial-featured-role">Phoenix Landscape Supply • $2.4M Revenue</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="testimonials-list">
-                <div class="testimonial-small reveal">
-                    <div class="testimonial-small-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-small-text">"We added $180K in TechniSoil revenue in Year 1. The email campaigns convert at 12% — 3x higher than our old generic emails. The before/after image library sealed the deal on our biggest commercial project yet."</p>
-                    <div class="testimonial-small-author">Sarah Martinez, VP Sales</div>
-                    <div class="testimonial-small-location">Desert Vista Hardscapes • Palm Springs, CA</div>
-                </div>
+            <div class="testimonials-right">
+                <div class="testimonials-list">
+                    <div class="testimonial-small reveal">
+                        <div class="testimonial-small-stars">★★★★★</div>
+                        <p class="testimonial-small-text">"We added $180K in TechniSoil revenue in Year 1. The email campaigns convert at 12% — 3x higher than our old generic emails. The before/after image library sealed the deal on our biggest commercial project yet."</p>
+                        <div class="testimonial-small-author">Sarah Martinez, VP Sales</div>
+                        <div class="testimonial-small-location">Desert Vista Hardscapes • Palm Springs, CA</div>
+                    </div>
 
-                <div class="testimonial-small reveal">
-                    <div class="testimonial-small-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-small-text">"Social media engagement up 220%, website traffic up 65%, and most importantly — our avg. TechniSoil deal size increased from $3,200 to $5,800. The premium positioning in these materials educates customers on value, not price."</p>
-                    <div class="testimonial-small-author">James Anderson, Marketing Director</div>
-                    <div class="testimonial-small-location">Rocky Mountain Materials • Denver, CO</div>
-                </div>
+                    <div class="testimonial-small reveal">
+                        <div class="testimonial-small-stars">★★★★★</div>
+                        <p class="testimonial-small-text">"Social media engagement up 220%, website traffic up 65%, and most importantly — our avg. TechniSoil deal size increased from $3,200 to $5,800. Premium positioning educates customers on value."</p>
+                        <div class="testimonial-small-author">James Anderson, Marketing Director</div>
+                        <div class="testimonial-small-location">Rocky Mountain Materials • Denver, CO</div>
+                    </div>
 
-                <div class="testimonial-small reveal">
-                    <div class="testimonial-small-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-small-text">"The technical documentation gave our sales team instant credibility. We went from 'landscape supply dealer' to 'xeriscaping consultants' in customers' eyes. Repeat business up 31%, customer satisfaction scores at all-time high."</p>
-                    <div class="testimonial-small-author">Linda Thompson, General Manager</div>
-                    <div class="testimonial-small-location">Coastal Landscape Solutions • Tampa, FL</div>
+                    <div class="testimonial-small reveal">
+                        <div class="testimonial-small-stars">★★★★★</div>
+                        <p class="testimonial-small-text">"The technical documentation gave our sales team instant credibility. We went from 'landscape supply dealer' to 'xeriscaping consultants' in customers' eyes. Repeat business up 31%."</p>
+                        <div class="testimonial-small-author">Linda Thompson, General Manager</div>
+                        <div class="testimonial-small-location">Coastal Landscape Solutions • Tampa, FL</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2336,43 +2563,47 @@ Electric #00ff88">Copy Colors</button>
         <div class="support-inner">
             <div class="support-left reveal">
                 <div class="support-label" data-translate="support-label">Get Help</div>
-                <h2 class="support-title" data-translate="support-title">WE'RE HERE FOR YOU</h2>
-                <p class="support-message">Whether you need product guidance, technical assistance, or marketing support, our team is ready to help you succeed.</p>
-            </div>
+                <h2 class="support-title" data-translate="support-title">WE'RE HERE<br>FOR YOU</h2>
+                <p class="support-message">Whether you need product guidance, technical assistance, or marketing support — our team is ready to help you succeed.</p>
 
-            <div class="support-right reveal">
                 <div class="support-directory">
                     <div class="support-dept">
-                        <div class="support-dept-name">01 / Sales</div>
+                        <div class="support-dept-name">Sales</div>
                         <h3 class="support-dept-title" data-translate="support-card-1-title">Sales Support</h3>
-                        <p class="support-dept-desc" data-translate="support-card-1-desc">Product selection, pricing, bulk orders, and dealer partnership inquiries.</p>
+                        <p class="support-dept-desc" data-translate="support-card-1-desc">Product selection, pricing, and dealer partnerships.</p>
                         <div class="support-contact-info">
                             <a href="mailto:sales@technisoil.com" class="support-contact-link">sales@technisoil.com</a>
-                            <a href="tel:+18005550123" class="support-contact-link">(800) 555-0123</a>
                         </div>
                         <div class="support-hours" data-translate="support-card-1-hours">Mon-Fri 8AM-6PM PST</div>
                     </div>
 
                     <div class="support-dept">
-                        <div class="support-dept-name">02 / Technical</div>
-                        <h3 class="support-dept-title" data-translate="support-card-2-title">Technical Support</h3>
-                        <p class="support-dept-desc" data-translate="support-card-2-desc">Installation guidance, application questions, troubleshooting, and product specs.</p>
+                        <div class="support-dept-name">Technical</div>
+                        <h3 class="support-dept-title" data-translate="support-card-2-title">Tech Support</h3>
+                        <p class="support-dept-desc" data-translate="support-card-2-desc">Installation guidance and troubleshooting.</p>
                         <div class="support-contact-info">
                             <a href="mailto:support@technisoil.com" class="support-contact-link">support@technisoil.com</a>
-                            <a href="tel:+18005550124" class="support-contact-link">(800) 555-0124</a>
                         </div>
                         <div class="support-hours" data-translate="support-card-2-hours">Mon-Fri 7AM-7PM PST</div>
                     </div>
 
                     <div class="support-dept">
-                        <div class="support-dept-name">03 / Marketing</div>
-                        <h3 class="support-dept-title" data-translate="support-card-3-title">Marketing Help</h3>
-                        <p class="support-dept-desc" data-translate="support-card-3-desc">Brand assets, custom templates, co-op advertising, and marketing strategy.</p>
+                        <div class="support-dept-name">Marketing</div>
+                        <h3 class="support-dept-title" data-translate="support-card-3-title">Marketing</h3>
+                        <p class="support-dept-desc" data-translate="support-card-3-desc">Brand assets and co-op advertising.</p>
                         <div class="support-contact-info">
                             <a href="mailto:marketing@technisoil.com" class="support-contact-link">marketing@technisoil.com</a>
                         </div>
-                        <div class="support-hours" data-translate="support-card-3-hours">Response within 24 hours</div>
+                        <div class="support-hours" data-translate="support-card-3-hours">Response within 24hrs</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="support-right">
+                <div class="support-visual">
+                    <div class="support-visual-icon">🌿</div>
+                    <p class="support-visual-text">Dedicated support for every stage of your journey</p>
+                    <a href="#request-access" class="support-visual-cta">Become a Partner</a>
                 </div>
             </div>
         </div>
@@ -2380,64 +2611,105 @@ Electric #00ff88">Copy Colors</button>
 
     <!-- Request Access -->
     <section class="request-access" id="request-access">
-        <div class="request-access-content">
-            <div class="request-access-label">BECOME A PARTNER</div>
-            <h2 class="request-access-title">REQUEST DEALER ACCESS</h2>
-            <p class="request-access-desc">Join our network of successful dealers and get instant access to professional marketing resources, product documentation, and dedicated support.</p>
+        <div class="request-access-inner">
+            <div class="request-access-left">
+                <div class="request-access-benefits">
+                    <div class="request-access-label">BECOME A PARTNER</div>
+                    <h2 class="request-access-headline">Join 500+ Successful Dealers Nationwide</h2>
 
-            <form class="request-access-form" id="accessForm">
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="First Name *" required name="firstName">
+                    <div class="benefit-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📊</div>
+                            <div class="benefit-text">
+                                <strong>Marketing Resources</strong>
+                                Ready-to-use templates, social content, and email campaigns
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📚</div>
+                            <div class="benefit-text">
+                                <strong>Product Documentation</strong>
+                                Technical specs, SDS sheets, and installation guides
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-text">
+                                <strong>Dedicated Support</strong>
+                                Direct access to sales, technical, and marketing teams
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💰</div>
+                            <div class="benefit-text">
+                                <strong>Dealer Pricing</strong>
+                                Competitive margins and volume discounts
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Last Name *" required name="lastName">
-                </div>
+            <div class="request-access-right">
+                <div class="request-access-content">
+                    <h2 class="request-access-title">Request Access</h2>
+                    <p class="request-access-desc">Complete the form below and our team will contact you within 24 hours.</p>
 
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Business Email *" required name="email">
-                </div>
+                    <form class="request-access-form" id="accessForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="First Name *" required name="firstName">
+                        </div>
 
-                <div class="form-group">
-                    <input type="tel" class="form-input" placeholder="Phone Number *" required name="phone">
-                </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Last Name *" required name="lastName">
+                        </div>
 
-                <div class="form-group full-width">
-                    <input type="text" class="form-input" placeholder="Company Name *" required name="company">
-                </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Business Email *" required name="email">
+                        </div>
 
-                <div class="form-group">
-                    <select class="form-select" required name="businessType">
-                        <option value="">Business Type *</option>
-                        <option value="landscape-supply">Landscape Supply Dealer</option>
-                        <option value="hardscape">Hardscape Contractor</option>
-                        <option value="nursery">Garden Center / Nursery</option>
-                        <option value="distributor">Distributor</option>
-                        <option value="architect">Landscape Architect</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-input" placeholder="Phone *" required name="phone">
+                        </div>
 
-                <div class="form-group">
-                    <select class="form-select" required name="annualRevenue">
-                        <option value="">Estimated Annual Revenue *</option>
-                        <option value="under-500k">Under $500K</option>
-                        <option value="500k-1m">$500K - $1M</option>
-                        <option value="1m-5m">$1M - $5M</option>
-                        <option value="5m-10m">$5M - $10M</option>
-                        <option value="over-10m">Over $10M</option>
-                    </select>
-                </div>
+                        <div class="form-group full-width">
+                            <input type="text" class="form-input" placeholder="Company Name *" required name="company">
+                        </div>
 
-                <div class="form-group full-width">
-                    <textarea class="form-textarea" placeholder="Tell us about your business and how you plan to use TechniSoil products..." name="message"></textarea>
-                </div>
+                        <div class="form-group">
+                            <select class="form-select" required name="businessType">
+                                <option value="">Business Type *</option>
+                                <option value="landscape-supply">Landscape Supply Dealer</option>
+                                <option value="hardscape">Hardscape Contractor</option>
+                                <option value="nursery">Garden Center / Nursery</option>
+                                <option value="distributor">Distributor</option>
+                                <option value="architect">Landscape Architect</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
 
-                <div class="form-submit-group">
-                    <button type="submit" class="btn-submit">SUBMIT REQUEST</button>
-                    <p class="form-privacy">By submitting this form, you agree to our <a href="https://technisoil.com/privacy" target="_blank">Privacy Policy</a> and consent to be contacted by TechniSoil.</p>
+                        <div class="form-group">
+                            <select class="form-select" required name="annualRevenue">
+                                <option value="">Annual Revenue *</option>
+                                <option value="under-500k">Under $500K</option>
+                                <option value="500k-1m">$500K - $1M</option>
+                                <option value="1m-5m">$1M - $5M</option>
+                                <option value="5m-10m">$5M - $10M</option>
+                                <option value="over-10m">Over $10M</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <textarea class="form-textarea" placeholder="Tell us about your business..." name="message"></textarea>
+                        </div>
+
+                        <div class="form-submit-group full-width">
+                            <button type="submit" class="btn-submit">SUBMIT REQUEST</button>
+                            <p class="form-privacy">By submitting, you agree to our <a href="https://technisoil.com/privacy" target="_blank">Privacy Policy</a></p>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 
