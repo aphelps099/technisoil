@@ -493,46 +493,175 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Manifesto - Scroll Reveal */
-        .manifesto {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 80px;
-            background: var(--white);
+        /* How It Works - Architectural 3-Step Grid */
+        .how-it-works {
+            background: var(--navy);
+            padding: 100px 0 0 0;
         }
 
-        .manifesto-content {
-            max-width: 1200px;
+        .how-header {
+            padding: 0 80px 80px 80px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .manifesto-text {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 300;
-            line-height: 1.25;
-            letter-spacing: -0.015em;
-            color: var(--navy);
-            margin-bottom: 60px;
-        }
-
-        .manifesto-text span {
-            display: inline-block;
-            opacity: 0.2;
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .manifesto-text span.active {
-            opacity: 1;
-        }
-
-        .manifesto-label {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: 0.35em;
+        .how-category {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.625rem;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--sand);
+            margin-bottom: 24px;
+        }
+
+        .how-title {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 400;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 32px;
+        }
+
+        .how-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.6);
+            max-width: 700px;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .how-step {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .how-step:last-child {
+            border-right: none;
+        }
+
+        .how-step-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .how-step:hover .how-step-bg {
+            transform: scale(1.05);
+        }
+
+        .how-step-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+
+        .how-step-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            padding: 60px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .how-step-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--sand);
+            margin-bottom: 24px;
+        }
+
+        .how-step-label {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .how-step-desc {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+        }
+
+        .how-step-value {
+            margin-top: auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .how-step-value-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.625rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
+        }
+
+        .how-step-value-stat {
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--sand);
+            line-height: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-step {
+                height: 500px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .how-step:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .how-header {
+                padding: 0 32px 48px 32px;
+            }
+
+            .how-title {
+                font-size: 2.5rem;
+            }
+
+            .how-step {
+                height: 450px;
+            }
+
+            .how-step-content {
+                padding: 40px 32px;
+            }
         }
 
         /* Mission - Split Layout */
@@ -1705,15 +1834,65 @@
         </div>
     </section>
 
-    <!-- Manifesto -->
-    <section class="manifesto">
-        <div class="manifesto-content">
-            <p class="manifesto-text">
-                <span>We</span> <span>believe</span> <span>sustainable</span> <span>design</span> <span>shouldn't</span> <span>compromise</span> <span>beauty.</span>
-                <span>Our</span> <span>products</span> <span>empower</span> <span>professionals</span> <span>and</span> <span>homeowners</span> <span>to</span> <span>create</span>
-                <span>stunning</span> <span>landscapes</span> <span>that</span> <span>work</span> <span>with</span> <span>nature,</span> <span>not</span> <span>against</span> <span>it.</span>
-            </p>
-            <div class="manifesto-label" data-translate="manifesto-label">Technisoil — Founded 2006, California</div>
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-header">
+            <div class="how-category" data-translate="how-category">ONBOARDING | SUPPORT | SUCCESS</div>
+            <h2 class="how-title" data-translate="how-title">HOW IT WORKS</h2>
+            <p class="how-subtitle" data-translate="how-subtitle">Three simple steps to transform your TechniSoil marketing from zero to hero. Get onboarded, access resources, and watch your sales grow.</p>
+        </div>
+
+        <div class="how-grid">
+            <!-- Step 1: Request Access -->
+            <div class="how-step">
+                <div class="how-step-bg" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=800&fit=crop');"></div>
+                <div class="how-step-overlay"></div>
+                <div class="how-step-content">
+                    <div>
+                        <div class="how-step-number">01 / STEP ONE</div>
+                        <h3 class="how-step-label">REQUEST ACCESS</h3>
+                        <p class="how-step-desc">Complete a simple form to request dealer access. Our team reviews and approves qualified partners within 24 hours.</p>
+                    </div>
+                    <div class="how-step-value">
+                        <div class="how-step-value-label">Onboarding Time</div>
+                        <div class="how-step-value-stat">&lt;24 hrs</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Get Resources -->
+            <div class="how-step">
+                <div class="how-step-bg" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop');"></div>
+                <div class="how-step-overlay"></div>
+                <div class="how-step-content">
+                    <div>
+                        <div class="how-step-number">02 / STEP TWO</div>
+                        <h3 class="how-step-label">ACCESS RESOURCES</h3>
+                        <p class="how-step-desc">Unlock 200+ ready-to-use marketing assets, social templates, email campaigns, and product documentation. Everything you need in one place.</p>
+                    </div>
+                    <div class="how-step-value">
+                        <div class="how-step-value-label">Time Saved Per Week</div>
+                        <div class="how-step-value-stat">15 hrs</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Drive Sales -->
+            <div class="how-step">
+                <div class="how-step-bg" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop');"></div>
+                <div class="how-step-overlay"></div>
+                <div class="how-step-content">
+                    <div>
+                        <div class="how-step-number">03 / STEP THREE</div>
+                        <h3 class="how-step-label">GROW REVENUE</h3>
+                        <p class="how-step-desc">Deploy professional marketing that converts. Our dealers report average sales increases of 37% within their first year of partnership.</p>
+                    </div>
+                    <div class="how-step-value">
+                        <div class="how-step-value-label">Avg. Revenue Growth</div>
+                        <div class="how-step-value-stat">+37%</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2634,28 +2813,7 @@ Electric #00ff88">Copy Colors</button>
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // Manifesto Word Reveal
-        const manifestoSpans = document.querySelectorAll('.manifesto-text span');
-
-        const manifestoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    manifestoSpans.forEach((span, index) => {
-                        setTimeout(() => {
-                            span.classList.add('active');
-                        }, index * 80);
-                    });
-                    manifestoObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.5
-        });
-
-        const manifestoSection = document.querySelector('.manifesto');
-        if (manifestoSection) {
-            manifestoObserver.observe(manifestoSection);
-        }
+        // How It Works - No additional JS needed (uses pure CSS hover effects)
 
         // Modal System
         const cards = document.querySelectorAll('[data-modal]');
@@ -2744,9 +2902,10 @@ Electric #00ff88">Copy Colors</button>
                 'hero-btn-1': 'Get Started',
                 'hero-btn-2': 'Our Team',
 
-                // Manifesto
-                'manifesto-text': 'We believe sustainable design shouldn\'t compromise beauty. Our products empower professionals and homeowners to create stunning landscapes that work with nature, not against it.',
-                'manifesto-label': 'Technisoil — Founded 2006, California',
+                // How It Works
+                'how-category': 'ONBOARDING | SUPPORT | SUCCESS',
+                'how-title': 'HOW IT WORKS',
+                'how-subtitle': 'Three simple steps to transform your TechniSoil marketing from zero to hero. Get onboarded, access resources, and watch your sales grow.',
 
                 // Data Hub
                 'data-label': 'Smart Solutions',
@@ -2813,9 +2972,10 @@ Electric #00ff88">Copy Colors</button>
                 'hero-btn-1': 'Comenzar',
                 'hero-btn-2': 'Nuestro Equipo',
 
-                // Manifesto
-                'manifesto-text': 'Creemos que el diseño sostenible no debe comprometer la belleza. Nuestros productos empoderan a profesionales y propietarios para crear paisajes impresionantes que trabajan con la naturaleza, no en su contra.',
-                'manifesto-label': 'Technisoil — Fundada en 2006, California',
+                // How It Works
+                'how-category': 'INCORPORACIÓN | SOPORTE | ÉXITO',
+                'how-title': 'CÓMO FUNCIONA',
+                'how-subtitle': 'Tres pasos simples para transformar tu marketing de TechniSoil de cero a héroe. Regístrate, accede a recursos y observa cómo crecen tus ventas.',
 
                 // Data Hub
                 'data-label': 'Soluciones Inteligentes',
@@ -2909,9 +3069,9 @@ Electric #00ff88">Copy Colors</button>
         const exploreBtn = document.getElementById('exploreBtn');
         if (exploreBtn) {
             exploreBtn.addEventListener('click', () => {
-                const manifesto = document.querySelector('.manifesto');
-                if (manifesto) {
-                    manifesto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const howItWorks = document.querySelector('.how-it-works');
+                if (howItWorks) {
+                    howItWorks.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         }
