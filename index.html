@@ -472,48 +472,6 @@
             text-wrap: balance;
         }
 
-        .manifesto-text .highlight {
-            position: relative;
-            display: inline-block;
-        }
-
-        .manifesto-text .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0.1em;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--sand), var(--turquoise));
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: underlineSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            z-index: -1;
-        }
-
-        .manifesto-text .highlight:nth-child(1)::after {
-            animation-delay: 0.3s;
-        }
-
-        .manifesto-text .highlight:nth-child(2)::after {
-            animation-delay: 0.5s;
-        }
-
-        .manifesto-text .highlight:nth-child(3)::after {
-            animation-delay: 0.7s;
-        }
-
-        @keyframes underlineSlide {
-            to {
-                transform: scaleX(1);
-            }
-        }
-
-        .manifesto-accent {
-            font-style: italic;
-            color: var(--sand);
-        }
-
         .manifesto-footer {
             position: relative;
             z-index: 2;
@@ -586,131 +544,6 @@
             .manifesto-line {
                 width: 60px;
             }
-        }
-
-        /* Mission - Split Layout */
-        .mission {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 80vh;
-            position: relative;
-        }
-
-        .mission::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(201, 168, 106, 0.3), transparent);
-        }
-
-        .mission-text {
-            background: linear-gradient(135deg, var(--sand) 0%, var(--brown) 100%);
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(0,0,0,0.05) 1px, transparent 1px),
-                radial-gradient(circle at 60% 70%, rgba(0,0,0,0.03) 1px, transparent 1px),
-                radial-gradient(circle at 80% 10%, rgba(0,0,0,0.04) 1px, transparent 1px),
-                linear-gradient(135deg, var(--sand) 0%, var(--brown) 100%);
-            background-size: 50px 50px, 80px 80px, 100px 100px, 100% 100%;
-            padding: 100px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .mission-label {
-            font-family: 'Zalando Sans', sans-serif;
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: rgba(0,0,0,0.5);
-            margin-bottom: 40px;
-        }
-
-        .mission-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 300;
-            line-height: 0.92;
-            letter-spacing: -0.015em;
-            margin-bottom: 48px;
-            color: var(--black);
-        }
-
-        .mission-copy {
-            font-size: 1.125rem;
-            font-weight: 300;
-            line-height: 1.8;
-            color: rgba(0,0,0,0.8);
-            margin-bottom: 28px;
-            letter-spacing: 0.01em;
-        }
-
-        .mission-visual {
-            background-image: url('http://technisoil.com/wp-content/uploads/2026/01/large_rocks_wood_accents_and_concre_269dd34e-4d27-4fbb-82c3-320b6161438a.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mission-visual::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--blue);
-            mix-blend-mode: multiply;
-            opacity: 0.85;
-            z-index: 1;
-        }
-
-        .mission-visual::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(74, 144, 164, 0.6) 0%, rgba(26, 58, 82, 0.8) 100%);
-            z-index: 2;
-        }
-
-        .mission-stat-grid {
-            display: grid;
-            gap: 80px;
-            position: relative;
-            z-index: 3;
-        }
-
-        .mission-stat {
-            text-align: left;
-        }
-
-        .mission-stat-num {
-            font-size: 5.5rem;
-            font-weight: 200;
-            color: var(--teal);
-            line-height: 1;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .mission-stat-label {
-            font-size: 1.125rem;
-            color: rgba(255,255,255,0.9);
-            font-weight: 400;
-            letter-spacing: 0.02em;
         }
 
         /* Team - Minimal Cards */
@@ -2024,7 +1857,7 @@
         <div class="manifesto-content">
             <div class="manifesto-quote-mark">"</div>
             <p class="manifesto-text" data-translate="manifesto-text">
-                We believe <span class="highlight">sustainable</span> design shouldn't compromise <span class="highlight">beauty</span>. Our products empower professionals and homeowners to create <span class="highlight">stunning</span> landscapes that work with nature, not against it.
+                We believe sustainable design shouldn't compromise beauty. Our products empower professionals and homeowners to create stunning landscapes that work with nature, not against it.
             </p>
             <div class="manifesto-footer">
                 <div class="manifesto-line"></div>
@@ -2097,32 +1930,6 @@
                 <h3 class="data-card-title">Products</h3>
                 <p class="data-card-desc">Browse our complete lineup of landscape & hardscape solutions.</p>
                 <div class="data-card-meta">View All Products →</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission -->
-    <section class="mission">
-        <div class="mission-text reveal">
-            <div class="mission-label" data-translate="mission-label">Our Mission</div>
-            <h2 class="mission-title" data-translate="mission-title">GREEN IS MORE THAN A BUZZWORD</h2>
-            <p class="mission-copy" data-translate="mission-copy-1">At TechniSoil, green is our guiding principle. Our greatest assets are our people and the environment.</p>
-            <p class="mission-copy" data-translate="mission-copy-2">United by a passion for environmental sustainability and innovation, our team is dedicated to advancing industry standards in modern landscape design.</p>
-        </div>
-        <div class="mission-visual reveal">
-            <div class="mission-stat-grid">
-                <div class="mission-stat">
-                    <div class="mission-stat-num" data-target="2006" data-suffix="">2006</div>
-                    <div class="mission-stat-label" data-translate="mission-stat-label-1">Founded in California</div>
-                </div>
-                <div class="mission-stat">
-                    <div class="mission-stat-num" data-target="50" data-suffix="M+">0</div>
-                    <div class="mission-stat-label" data-translate="mission-stat-label-2">Square Feet Stabilized</div>
-                </div>
-                <div class="mission-stat">
-                    <div class="mission-stat-num" data-target="10" data-suffix="K+">0</div>
-                    <div class="mission-stat-label" data-translate="mission-stat-label-3">Completed Projects</div>
-                </div>
             </div>
         </div>
     </section>
@@ -3026,7 +2833,7 @@ Electric #00ff88">Copy Colors</button>
                 'how-subtitle': 'Three simple steps to transform your TechniSoil marketing from zero to hero. Get onboarded, access resources, and watch your sales grow.',
 
                 // Manifesto
-                'manifesto-text': 'We believe <span class="highlight">sustainable</span> design shouldn\'t compromise <span class="highlight">beauty</span>. Our products empower professionals and homeowners to create <span class="highlight">stunning</span> landscapes that work with nature, not against it.',
+                'manifesto-text': 'We believe sustainable design shouldn\'t compromise beauty. Our products empower professionals and homeowners to create stunning landscapes that work with nature, not against it.',
                 'manifesto-label': 'TECHNISOIL — FOUNDED 2006, CALIFORNIA',
 
                 // Data Hub
@@ -3096,7 +2903,7 @@ Electric #00ff88">Copy Colors</button>
                 'how-subtitle': 'Tres pasos simples para transformar tu marketing de TechniSoil de cero a héroe. Regístrate, accede a recursos y observa cómo crecen tus ventas.',
 
                 // Manifesto
-                'manifesto-text': 'Creemos que el diseño <span class="highlight">sostenible</span> no debe comprometer la <span class="highlight">belleza</span>. Nuestros productos empoderan a profesionales y propietarios para crear paisajes <span class="highlight">impresionantes</span> que trabajan con la naturaleza, no en su contra.',
+                'manifesto-text': 'Creemos que el diseño sostenible no debe comprometer la belleza. Nuestros productos empoderan a profesionales y propietarios para crear paisajes impresionantes que trabajan con la naturaleza, no en su contra.',
                 'manifesto-label': 'TECHNISOIL — FUNDADA EN 2006, CALIFORNIA',
 
                 // Data Hub
