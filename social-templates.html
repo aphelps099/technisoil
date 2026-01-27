@@ -6,39 +6,63 @@
     <title>Social Media Templates | TechniSoil Brand House</title>
     <meta name="description" content="Ready-to-use social media templates for TechniSoil dealers and partners.">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600;700&family=Zalando+Sans+Expanded:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Zalando+Sans:wght@300;400;500;600;700&family=Zalando+Sans+Expanded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --navy: #1a3a52;
-            --slate: #6b7280;
-            --sand: #c9a86a;
-            --brown: #8b6f47;
-            --blue: #4a90a4;
-            --green: #00845f;
-            --white: #ffffff;
-            --black: #000000;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            /* Arizona/Aztec Base Palette */
+            --navy: #1a3a52;
+            --slate: #6b7280;
+            --sand: #c9a86a;
+            --brown: #8b6f47;
+            --terracotta: #c17855;
+
+            /* Rich Plant Green */
+            --forest: #4a6741;
+            --sage: #7a8a6f;
+
+            /* Teal/Turquoise Accents */
+            --teal: #2d7b7e;
+            --turquoise: #5fa5a5;
+
+            /* Sky Blues */
+            --sky: #9fb8c7;
+            --sky-light: #c5d8e3;
+
+            /* Creamy Corn */
+            --cream: #f5ead8;
+            --corn: #f0e5c9;
+
+            /* Base */
+            --white: #ffffff;
+            --black: #0d0d0d;
+            --green: #00845f;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Zalando Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
-            color: var(--black);
+            color: var(--white);
+            background: var(--black);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             font-weight: 300;
         }
 
+        /* Typography System */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Zalando Sans Expanded', sans-serif;
             font-weight: 600;
@@ -52,106 +76,315 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 24px 80px;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
+            padding: 0 60px;
+            background: var(--black);
+        }
+
+        .nav-content {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--gray-200);
+            justify-content: space-between;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-brand {
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: letter-spacing 0.3s ease;
+        }
+
+        .nav-brand:hover {
+            letter-spacing: 0.25em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 14px 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .nav-link:hover {
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .nav-back {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.875rem;
-            color: var(--slate);
+            gap: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .nav-back:hover {
-            color: var(--navy);
+            color: var(--sand);
         }
 
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--navy);
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            transition: transform 0.3s ease;
         }
 
-        /* Header */
-        .header {
-            padding: 160px 80px 80px;
+        .nav-back:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 60px 100px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
             text-align: center;
+        }
+
+        /* Grey Grid Pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        /* Grain texture */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .eyebrow {
-            font-size: 0.875rem;
-            font-weight: 500;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            border: 1px solid var(--sand);
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
             color: var(--sand);
-            margin-bottom: 24px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s ease 0.3s forwards;
         }
 
-        h1 {
-            font-size: clamp(3rem, 6vw, 4rem);
-            font-weight: 400;
-            color: var(--navy);
-            margin-bottom: 24px;
-            line-height: 1.1;
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--sand);
         }
 
-        .subtitle {
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: heroFadeUp 1s ease 0.5s forwards;
+        }
+
+        .hero h1 span {
+            color: var(--sand);
+        }
+
+        .hero p {
             font-size: 1.125rem;
-            font-weight: 300;
-            color: var(--slate);
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
             max-width: 600px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s ease 0.7s forwards;
+        }
+
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Templates Section */
-        .templates {
-            padding: 60px 80px 120px;
-            max-width: 1600px;
+        .templates-section {
+            padding: 80px 60px 140px;
+            background: var(--black);
+            position: relative;
+        }
+
+        .templates-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .templates-content {
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
         }
 
         .template-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
+            gap: 3px;
         }
 
-        .template {
+        .template-card {
+            background: var(--sand);
+            text-decoration: none;
+            color: inherit;
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .template-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .template-card:nth-child(1) { transition-delay: 0s; }
+        .template-card:nth-child(2) { transition-delay: 0.05s; }
+        .template-card:nth-child(3) { transition-delay: 0.1s; }
+        .template-card:nth-child(4) { transition-delay: 0.15s; }
+        .template-card:nth-child(5) { transition-delay: 0.2s; }
+        .template-card:nth-child(6) { transition-delay: 0.25s; }
+
+        .template-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+
+        .template-card:hover::before {
+            transform: scaleY(1);
         }
 
         /* Post Preview */
         .post-preview {
             aspect-ratio: 1;
-            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             position: relative;
-        }
-
-        .post-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            z-index: 1;
         }
 
         /* Post 1: Product Launch */
         .post-1 {
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%);
-            padding: 60px;
+            padding: 48px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -174,49 +407,50 @@
         }
 
         .badge {
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.6875rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--black);
             background: var(--white);
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 10px 18px;
             align-self: flex-start;
         }
 
         .post-title {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             line-height: 1;
             color: var(--white);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .post-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 300;
             color: rgba(255,255,255,0.9);
             margin-bottom: auto;
         }
 
         .post-logo {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--white);
-            margin-top: 40px;
+            margin-top: 32px;
         }
 
         /* Post 2: Before/After */
         .post-2 {
+            width: 100%;
+            height: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             background: var(--black);
         }
 
         .half {
-            padding: 60px 40px;
+            padding: 48px 32px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -233,22 +467,22 @@
         }
 
         .half-label {
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: rgba(255,255,255,0.7);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .half-icon {
-            font-size: 4rem;
-            margin-bottom: 24px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             opacity: 0.4;
         }
 
         .half-text {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--white);
             line-height: 1.3;
@@ -256,77 +490,85 @@
 
         /* Post 3: Quick Tip */
         .post-3 {
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, var(--sand) 0%, var(--brown) 100%);
-            padding: 60px;
+            padding: 48px;
             display: flex;
             flex-direction: column;
         }
 
         .tip-number {
-            font-size: 8rem;
-            font-weight: 700;
+            font-size: 6rem;
+            font-weight: 800;
             line-height: 1;
             color: rgba(0,0,0,0.15);
-            margin-bottom: -20px;
+            margin-bottom: -16px;
         }
 
         .tip-text {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 600;
             line-height: 1.2;
             color: var(--black);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .tip-detail {
-            font-size: 1rem;
-            font-weight: 400;
-            color: rgba(0,0,0,0.7);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(0,0,0,0.6);
             margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         /* Post 4: Testimonial */
         .post-4 {
+            width: 100%;
+            height: 100%;
             background: var(--navy);
-            padding: 60px;
+            padding: 48px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .quote-mark {
-            font-size: 8rem;
+            font-size: 6rem;
             color: var(--green);
             opacity: 0.3;
             line-height: 1;
-            margin-bottom: -40px;
+            margin-bottom: -32px;
         }
 
         .quote-text {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 400;
             font-style: italic;
             line-height: 1.4;
             color: var(--white);
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .stars {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--sand);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .author {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 500;
             color: rgba(255,255,255,0.8);
         }
 
         /* Post 5: Impact Stat */
         .post-5 {
+            width: 100%;
+            height: 100%;
             background: linear-gradient(180deg, var(--green) 0%, var(--navy) 100%);
-            padding: 60px;
+            padding: 48px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -334,34 +576,36 @@
         }
 
         .stat-number {
-            font-size: 7rem;
-            font-weight: 700;
+            font-size: 5rem;
+            font-weight: 800;
             line-height: 1;
             color: var(--white);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .stat-label {
-            font-size: 1.75rem;
-            font-weight: 500;
+            font-size: 1.5rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--white);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .stat-detail {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 300;
             color: rgba(255,255,255,0.85);
         }
 
         /* Post 6: Seasonal CTA */
         .post-6 {
+            width: 100%;
+            height: 100%;
             background-image: url('https://technisoil.com/wp-content/uploads/2023/11/winter-blog.jpg');
             background-size: cover;
             background-position: center;
-            padding: 60px;
+            padding: 48px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -381,282 +625,512 @@
         }
 
         .seasonal-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 16px;
         }
 
         .seasonal-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--white);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             line-height: 1.1;
         }
 
         .seasonal-text {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 400;
             color: rgba(255,255,255,0.9);
         }
 
         /* Template Info */
         .template-info {
+            padding: 32px;
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
 
         .template-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--navy);
+            font-family: 'Zalando Sans Expanded', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--black);
+            transition: color 0.4s ease;
+        }
+
+        .template-card:hover .template-title {
+            color: var(--white);
         }
 
         .caption {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             line-height: 1.7;
-            color: var(--slate);
+            color: rgba(0,0,0,0.7);
             padding: 20px;
-            background: var(--gray-50);
-            border-radius: 8px;
-            border-left: 3px solid var(--sand);
+            background: rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .template-card:hover .caption {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
         }
 
         .copy-btn {
             padding: 14px 28px;
-            background: var(--navy);
+            background: var(--black);
             color: var(--white);
             border: none;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-family: 'Zalando Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s;
             align-self: flex-start;
         }
 
         .copy-btn:hover {
-            background: var(--green);
-            transform: translateY(-2px);
+            background: var(--teal);
+        }
+
+        .template-card:hover .copy-btn {
+            background: var(--sand);
+            color: var(--black);
         }
 
         .copy-btn.copied {
-            background: var(--green);
+            background: var(--green) !important;
+            color: var(--white) !important;
         }
 
-        /* Guidelines */
-        .guidelines {
-            padding: 80px;
-            background: var(--gray-50);
-            margin-top: 60px;
+        .template-card-arrow {
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+            transition: all 0.4s ease;
+            z-index: 1;
         }
 
-        .guidelines-inner {
-            max-width: 1200px;
+        .template-card:hover .template-card-arrow {
+            color: var(--sand);
+            transform: translateX(8px);
+        }
+
+        /* Guidelines Section */
+        .guidelines-section {
+            padding: 100px 60px;
+            background: var(--black);
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .guidelines-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .guidelines-content {
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        .guidelines h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--navy);
-            margin-bottom: 40px;
+        .guidelines-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
         }
 
         .guidelines-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 3px;
+        }
+
+        .guideline {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 48px;
+            transition: all 0.4s ease;
+        }
+
+        .guideline:hover {
+            border-color: var(--teal);
+            background: rgba(255,255,255,0.05);
         }
 
         .guideline h3 {
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             color: var(--sand);
-            margin-bottom: 12px;
+            margin-bottom: 20px;
         }
 
         .guideline p {
-            font-size: 0.9375rem;
+            font-size: 1rem;
             font-weight: 300;
-            color: var(--slate);
+            color: rgba(255,255,255,0.6);
             line-height: 1.7;
         }
 
         /* Footer */
         footer {
-            padding: 60px 80px;
-            text-align: center;
-            border-top: 1px solid var(--gray-200);
-            background: var(--gray-50);
+            background: var(--black);
+            padding: 80px 60px;
+            color: var(--white);
+            font-family: 'Zalando Sans', sans-serif;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        footer p {
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.125rem;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
             font-size: 0.75rem;
-            color: var(--slate);
-            letter-spacing: 0.05em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: var(--teal);
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
             .template-grid {
                 grid-template-columns: 1fr;
             }
+
             .guidelines-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .nav,
-            .header,
-            .templates,
-            .guidelines,
-            footer {
-                padding-left: 32px;
-                padding-right: 32px;
+            .nav {
+                padding: 0 24px;
             }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 24px 80px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .templates-section {
+                padding: 60px 24px 100px;
+            }
+
             .post-2 {
                 grid-template-columns: 1fr;
+            }
+
+            .guidelines-section {
+                padding: 60px 24px;
+            }
+
+            footer {
+                padding: 60px 24px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
-        <a href="index.html" class="nav-back">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Brand House
-        </a>
-        <div class="nav-logo">TECHNISOIL</div>
+        <div class="nav-content">
+            <a href="index.html" class="nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Brand House
+            </a>
+            <a href="index.html" class="nav-brand">TechniSoil</a>
+            <div class="nav-links">
+                <a href="social-templates.html" class="nav-link">Social</a>
+                <a href="videos.html" class="nav-link">Videos</a>
+            </div>
+        </div>
     </nav>
 
-    <header class="header">
-        <div class="eyebrow">Dealer Toolkit</div>
-        <h1>Social Templates</h1>
-        <p class="subtitle">Six professional social media templates ready to use. Copy the caption and recreate the design for your posts.</p>
-    </header>
-
-    <section class="templates">
-        <div class="template-grid">
-            <!-- Template 1: Product Launch -->
-            <div class="template">
-                <div class="post-preview">
-                    <div class="post-1">
-                        <span class="badge">NEW PRODUCT</span>
-                        <div>
-                            <h2 class="post-title">G3 PATHWAY</h2>
-                            <p class="post-subtitle">Natural-looking pathways in one weekend</p>
-                        </div>
-                        <div class="post-logo">TECHNISOIL</div>
-                    </div>
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">Product Launch</h3>
-                    <p class="caption">Introducing G3 Pathway Stabilizer – the DIY solution for beautiful, natural-looking pathways! 🌿 Create professional results in a single weekend. Permeable, eco-friendly, and built to last. #TechniSoil #PathwayStabilizer #DIYLandscape #SustainableDesign</p>
-                    <button class="copy-btn" data-caption="Introducing G3 Pathway Stabilizer – the DIY solution for beautiful, natural-looking pathways! 🌿 Create professional results in a single weekend. Permeable, eco-friendly, and built to last. #TechniSoil #PathwayStabilizer #DIYLandscape #SustainableDesign">Copy Caption</button>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                Social Media Templates
             </div>
+            <h1>Post. Engage. <span>Grow.</span></h1>
+            <p>Six professional social media templates ready to use. Copy the caption and recreate the design for your posts.</p>
+        </div>
+    </section>
 
-            <!-- Template 2: Before & After -->
-            <div class="template">
-                <div class="post-preview">
-                    <div class="post-2">
-                        <div class="half before">
-                            <div class="half-label">Before</div>
-                            <div class="half-icon">❌</div>
-                            <div class="half-text">Loose Gravel<br>Shifting & Dusty</div>
-                        </div>
-                        <div class="half after">
-                            <div class="half-label">After</div>
-                            <div class="half-icon">✓</div>
-                            <div class="half-text">Stabilized<br>Natural Beauty</div>
+    <section class="templates-section">
+        <div class="templates-content">
+            <div class="section-label">Ready-to-Use Templates</div>
+            <div class="template-grid">
+                <!-- Template 1: Product Launch -->
+                <div class="template-card">
+                    <div class="post-preview">
+                        <div class="post-1">
+                            <span class="badge">NEW PRODUCT</span>
+                            <div>
+                                <h2 class="post-title">G3 PATHWAY</h2>
+                                <p class="post-subtitle">Natural-looking pathways in one weekend</p>
+                            </div>
+                            <div class="post-logo">TECHNISOIL</div>
                         </div>
                     </div>
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">Before & After</h3>
-                    <p class="caption">The difference is night and day! 🌟 From loose, unstable gravel to a beautifully stabilized surface that looks natural and lasts for years. See the TechniSoil transformation for yourself. #BeforeAndAfter #Transformation #TechniSoil #LandscapeDesign</p>
-                    <button class="copy-btn" data-caption="The difference is night and day! 🌟 From loose, unstable gravel to a beautifully stabilized surface that looks natural and lasts for years. See the TechniSoil transformation for yourself. #BeforeAndAfter #Transformation #TechniSoil #LandscapeDesign">Copy Caption</button>
-                </div>
-            </div>
-
-            <!-- Template 3: Pro Tip -->
-            <div class="template">
-                <div class="post-preview">
-                    <div class="post-3">
-                        <span class="badge" style="background: var(--white); color: var(--black);">PRO TIP</span>
-                        <div class="tip-number">01</div>
-                        <div class="tip-text">Always wet the surface before application</div>
-                        <div class="tip-detail">TECHNISOIL PRO SERIES</div>
+                    <div class="template-info">
+                        <h3 class="template-title">Product Launch</h3>
+                        <p class="caption">Introducing G3 Pathway Stabilizer – the DIY solution for beautiful, natural-looking pathways! Create professional results in a single weekend. Permeable, eco-friendly, and built to last. #TechniSoil #PathwayStabilizer #DIYLandscape #SustainableDesign</p>
+                        <button class="copy-btn" data-caption="Introducing G3 Pathway Stabilizer – the DIY solution for beautiful, natural-looking pathways! 🌿 Create professional results in a single weekend. Permeable, eco-friendly, and built to last. #TechniSoil #PathwayStabilizer #DIYLandscape #SustainableDesign">Copy Caption</button>
                     </div>
+                    <span class="template-card-arrow">&rarr;</span>
                 </div>
-                <div class="template-info">
-                    <h3 class="template-title">Installation Tip</h3>
-                    <p class="caption">💡 Pro Tip: Always wet the surface before applying TechniSoil products! This ensures optimal bonding and prevents premature drying. Follow us for more expert installation tips. #ProTip #InstallationAdvice #TechniSoil #LandscapingTips</p>
-                    <button class="copy-btn" data-caption="💡 Pro Tip: Always wet the surface before applying TechniSoil products! This ensures optimal bonding and prevents premature drying. Follow us for more expert installation tips. #ProTip #InstallationAdvice #TechniSoil #LandscapingTips">Copy Caption</button>
-                </div>
-            </div>
 
-            <!-- Template 4: Testimonial -->
-            <div class="template">
-                <div class="post-preview">
-                    <div class="post-4">
-                        <div class="quote-mark">"</div>
-                        <p class="quote-text">G3 Pathway completely transformed our backyard. Easy to apply and the results speak for themselves!</p>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="author">— Jennifer M., Phoenix AZ</p>
+                <!-- Template 2: Before & After -->
+                <div class="template-card">
+                    <div class="post-preview">
+                        <div class="post-2">
+                            <div class="half before">
+                                <div class="half-label">Before</div>
+                                <div class="half-icon">✕</div>
+                                <div class="half-text">Loose Gravel<br>Shifting & Dusty</div>
+                            </div>
+                            <div class="half after">
+                                <div class="half-label">After</div>
+                                <div class="half-icon">✓</div>
+                                <div class="half-text">Stabilized<br>Natural Beauty</div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Before & After</h3>
+                        <p class="caption">The difference is night and day! From loose, unstable gravel to a beautifully stabilized surface that looks natural and lasts for years. See the TechniSoil transformation for yourself. #BeforeAndAfter #Transformation #TechniSoil #LandscapeDesign</p>
+                        <button class="copy-btn" data-caption="The difference is night and day! 🌟 From loose, unstable gravel to a beautifully stabilized surface that looks natural and lasts for years. See the TechniSoil transformation for yourself. #BeforeAndAfter #Transformation #TechniSoil #LandscapeDesign">Copy Caption</button>
+                    </div>
+                    <span class="template-card-arrow">&rarr;</span>
                 </div>
-                <div class="template-info">
-                    <h3 class="template-title">Customer Testimonial</h3>
-                    <p class="caption">⭐⭐⭐⭐⭐ Hear from our happy customers! "G3 Pathway completely transformed our backyard. Easy to apply and the results speak for themselves!" - Jennifer M., Phoenix AZ. Ready to transform your landscape? #TechniSoil #CustomerReview #HappyCustomers #PathwayTransformation</p>
-                    <button class="copy-btn" data-caption="⭐⭐⭐⭐⭐ Hear from our happy customers! &quot;G3 Pathway completely transformed our backyard. Easy to apply and the results speak for themselves!&quot; - Jennifer M., Phoenix AZ. Ready to transform your landscape? #TechniSoil #CustomerReview #HappyCustomers #PathwayTransformation">Copy Caption</button>
-                </div>
-            </div>
 
-            <!-- Template 5: Impact Stat -->
-            <div class="template">
-                <div class="post-preview">
-                    <div class="post-5">
-                        <span class="badge" style="background: rgba(255,255,255,0.2); color: var(--white);">IMPACT</span>
-                        <div class="stat-number">50M+</div>
-                        <div class="stat-label">Square Feet Stabilized</div>
-                        <div class="stat-detail">Making landscapes sustainable, one project at a time</div>
+                <!-- Template 3: Pro Tip -->
+                <div class="template-card">
+                    <div class="post-preview">
+                        <div class="post-3">
+                            <span class="badge">PRO TIP</span>
+                            <div class="tip-number">01</div>
+                            <div class="tip-text">Always wet the surface before application</div>
+                            <div class="tip-detail">TECHNISOIL PRO SERIES</div>
+                        </div>
                     </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Installation Tip</h3>
+                        <p class="caption">Pro Tip: Always wet the surface before applying TechniSoil products! This ensures optimal bonding and prevents premature drying. Follow us for more expert installation tips. #ProTip #InstallationAdvice #TechniSoil #LandscapingTips</p>
+                        <button class="copy-btn" data-caption="💡 Pro Tip: Always wet the surface before applying TechniSoil products! This ensures optimal bonding and prevents premature drying. Follow us for more expert installation tips. #ProTip #InstallationAdvice #TechniSoil #LandscapingTips">Copy Caption</button>
+                    </div>
+                    <span class="template-card-arrow">&rarr;</span>
                 </div>
-                <div class="template-info">
-                    <h3 class="template-title">Impact Numbers</h3>
-                    <p class="caption">50 million square feet stabilized and counting! 🌍 Since 2006, TechniSoil has been leading the way in sustainable landscape solutions. Thank you to our amazing dealer network for making this possible! #TechniSoil #Milestone #SustainableLandscaping #GreenSolutions</p>
-                    <button class="copy-btn" data-caption="50 million square feet stabilized and counting! 🌍 Since 2006, TechniSoil has been leading the way in sustainable landscape solutions. Thank you to our amazing dealer network for making this possible! #TechniSoil #Milestone #SustainableLandscaping #GreenSolutions">Copy Caption</button>
-                </div>
-            </div>
 
-            <!-- Template 6: Seasonal -->
-            <div class="template">
-                <div class="post-preview">
-                    <div class="post-6">
-                        <div class="seasonal-icon">🌱</div>
-                        <h2 class="seasonal-title">Spring Ready</h2>
-                        <p class="seasonal-text">Beat the rush - order now!</p>
+                <!-- Template 4: Testimonial -->
+                <div class="template-card">
+                    <div class="post-preview">
+                        <div class="post-4">
+                            <div class="quote-mark">"</div>
+                            <p class="quote-text">G3 Pathway completely transformed our backyard. Easy to apply and the results speak for themselves!</p>
+                            <div class="stars">★★★★★</div>
+                            <p class="author">— Jennifer M., Phoenix AZ</p>
+                        </div>
                     </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Customer Testimonial</h3>
+                        <p class="caption">Hear from our happy customers! "G3 Pathway completely transformed our backyard. Easy to apply and the results speak for themselves!" - Jennifer M., Phoenix AZ. Ready to transform your landscape? #TechniSoil #CustomerReview #HappyCustomers #PathwayTransformation</p>
+                        <button class="copy-btn" data-caption="⭐⭐⭐⭐⭐ Hear from our happy customers! &quot;G3 Pathway completely transformed our backyard. Easy to apply and the results speak for themselves!&quot; - Jennifer M., Phoenix AZ. Ready to transform your landscape? #TechniSoil #CustomerReview #HappyCustomers #PathwayTransformation">Copy Caption</button>
+                    </div>
+                    <span class="template-card-arrow">&rarr;</span>
                 </div>
-                <div class="template-info">
-                    <h3 class="template-title">Seasonal Campaign</h3>
-                    <p class="caption">🌱 Spring is almost here! Get your landscaping projects ready NOW and beat the spring rush. Stock up on TechniSoil products while supplies last. Perfect weather for pathway installations is just around the corner! #SpringLandscaping #TechniSoil #SeasonalPrep #GetReady</p>
-                    <button class="copy-btn" data-caption="🌱 Spring is almost here! Get your landscaping projects ready NOW and beat the spring rush. Stock up on TechniSoil products while supplies last. Perfect weather for pathway installations is just around the corner! #SpringLandscaping #TechniSoil #SeasonalPrep #GetReady">Copy Caption</button>
+
+                <!-- Template 5: Impact Stat -->
+                <div class="template-card">
+                    <div class="post-preview">
+                        <div class="post-5">
+                            <span class="badge" style="background: rgba(255,255,255,0.2); color: var(--white);">IMPACT</span>
+                            <div class="stat-number">50M+</div>
+                            <div class="stat-label">Square Feet Stabilized</div>
+                            <div class="stat-detail">Making landscapes sustainable, one project at a time</div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Impact Numbers</h3>
+                        <p class="caption">50 million square feet stabilized and counting! Since 2006, TechniSoil has been leading the way in sustainable landscape solutions. Thank you to our amazing dealer network for making this possible! #TechniSoil #Milestone #SustainableLandscaping #GreenSolutions</p>
+                        <button class="copy-btn" data-caption="50 million square feet stabilized and counting! 🌍 Since 2006, TechniSoil has been leading the way in sustainable landscape solutions. Thank you to our amazing dealer network for making this possible! #TechniSoil #Milestone #SustainableLandscaping #GreenSolutions">Copy Caption</button>
+                    </div>
+                    <span class="template-card-arrow">&rarr;</span>
+                </div>
+
+                <!-- Template 6: Seasonal -->
+                <div class="template-card">
+                    <div class="post-preview">
+                        <div class="post-6">
+                            <div class="seasonal-icon">🌱</div>
+                            <h2 class="seasonal-title">Spring Ready</h2>
+                            <p class="seasonal-text">Beat the rush - order now!</p>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Seasonal Campaign</h3>
+                        <p class="caption">Spring is almost here! Get your landscaping projects ready NOW and beat the spring rush. Stock up on TechniSoil products while supplies last. Perfect weather for pathway installations is just around the corner! #SpringLandscaping #TechniSoil #SeasonalPrep #GetReady</p>
+                        <button class="copy-btn" data-caption="🌱 Spring is almost here! Get your landscaping projects ready NOW and beat the spring rush. Stock up on TechniSoil products while supplies last. Perfect weather for pathway installations is just around the corner! #SpringLandscaping #TechniSoil #SeasonalPrep #GetReady">Copy Caption</button>
+                    </div>
+                    <span class="template-card-arrow">&rarr;</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="guidelines">
-        <div class="guidelines-inner">
+    <section class="guidelines-section">
+        <div class="guidelines-content">
             <h2>Brand Guidelines</h2>
             <div class="guidelines-grid">
                 <div class="guideline">
@@ -676,13 +1150,62 @@
     </section>
 
     <footer>
-        <p>© 2026 TECHNISOIL GLOBAL INC. — BRAND HOUSE FOR AUTHORIZED DEALERS</p>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">TechniSoil</div>
+                    <p class="footer-tagline">Innovation for Modern Landscapes. Creating sustainable, eco-friendly solutions for hardscape and landscape professionals since 2006.</p>
+                    <p class="footer-tagline">5670 Westside Road, Redding, CA 96001</p>
+                    <div class="footer-social">
+                        <a href="https://www.youtube.com/@TechniSoil" target="_blank" aria-label="YouTube">&#9658;</a>
+                        <a href="https://www.instagram.com/technisoil" target="_blank" aria-label="Instagram">&#9679;</a>
+                        <a href="https://www.facebook.com/TechniSoil" target="_blank" aria-label="Facebook">f</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <div class="footer-links">
+                        <a href="https://technisoil.com/products/g3-pathway">G3 Pathway</a>
+                        <a href="https://technisoil.com/products/ekoflo">EkoFlo</a>
+                        <a href="https://technisoil.com/products/nanopave">NanoPave</a>
+                        <a href="https://technisoil.com/products/trowelpave">TrowelPave</a>
+                        <a href="https://technisoil.com/products/molecule">Molecule</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Brand House</a>
+                        <a href="social-templates.html">Social Templates</a>
+                        <a href="videos.html">Video Library</a>
+                        <a href="https://technisoil.com/support">Support</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="https://technisoil.com/about">About Us</a>
+                        <a href="https://technisoil.com/contact">Contact</a>
+                        <a href="https://technisoil.com/dealers">Find a Dealer</a>
+                        <a href="https://technisoil.com/careers">Careers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 TechniSoil. All rights reserved.</span>
+                <div class="footer-legal">
+                    <a href="https://technisoil.com/privacy">Privacy Policy</a>
+                    <a href="https://technisoil.com/terms">Terms of Use</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
         // Copy caption functionality
         document.querySelectorAll('.copy-btn').forEach(btn => {
-            btn.addEventListener('click', async function() {
+            btn.addEventListener('click', async function(e) {
+                e.stopPropagation();
                 const caption = this.getAttribute('data-caption');
                 try {
                     await navigator.clipboard.writeText(caption);
@@ -697,6 +1220,25 @@
                     alert('Failed to copy. Please try again.');
                 }
             });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all template cards
+        document.querySelectorAll('.template-card').forEach(card => {
+            observer.observe(card);
         });
     </script>
 </body>
