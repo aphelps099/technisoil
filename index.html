@@ -696,31 +696,31 @@
             align-items: center;
             justify-content: center;
             padding: 160px 80px;
-            background: var(--sand);
+            background: #e8e8e8;
             overflow: hidden;
         }
 
-        /* Subtle corner accent */
+        /* Grain texture overlay */
         .manifesto::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Subtle corner accents */
+        .manifesto::after {
             content: '';
             position: absolute;
             top: 60px;
             left: 60px;
             width: 120px;
             height: 120px;
-            border-left: 2px solid rgba(0,0,0,0.1);
-            border-top: 2px solid rgba(0,0,0,0.1);
-        }
-
-        .manifesto::after {
-            content: '';
-            position: absolute;
-            bottom: 60px;
-            right: 60px;
-            width: 120px;
-            height: 120px;
-            border-right: 2px solid rgba(0,0,0,0.1);
-            border-bottom: 2px solid rgba(0,0,0,0.1);
+            border-left: 2px solid rgba(0,0,0,0.08);
+            border-top: 2px solid rgba(0,0,0,0.08);
+            z-index: 1;
         }
 
         .manifesto-content {
@@ -754,7 +754,7 @@
         .manifesto-highlight {
             font-style: normal;
             font-weight: 600;
-            color: var(--forest);
+            color: var(--black);
             position: relative;
             display: inline-block;
             padding-bottom: 4px;
@@ -766,8 +766,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 2px;
-            background: var(--forest);
+            height: 3px;
+            background: var(--sand);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
